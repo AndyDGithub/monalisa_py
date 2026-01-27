@@ -22,8 +22,7 @@
 ARG MATLAB_RELEASE=r2024a
 
 # Specify the list of products to install into MATLAB.
-ARG MATLAB_PRODUCT_LIST="MATLAB Statistics_and_Machine_Learning_Toolbox Curve_Fitting_Toolbox Image_Processing_Toolbox Optimization_Toolbox Signal_Processing_Toolbox"
-
+ARG MATLAB_PRODUCT_LIST="MATLAB Statistics_and_Machine_Learning_Toolbox Curve_Fitting_Toolbox Image_Processing_Toolbox Optimization_Toolbox Signal_Processing_Toolbox Robotics_System_Toolbox"
 
 
 # Specify MATLAB Install Location.
