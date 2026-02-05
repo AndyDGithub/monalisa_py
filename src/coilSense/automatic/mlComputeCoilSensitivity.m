@@ -1,4 +1,4 @@
-function C = mlComputeCoilSensitivity(BCreader, SCreader, CoilSensitivityFrameSize, autoFlag, nIter)
+function [C, mask] = mlComputeCoilSensitivity(BCreader, SCreader, CoilSensitivityFrameSize, autoFlag, nIter)
 % mlComputeCoilSensitivity computes the coil sensitivity map using 
 % prescan acquisitions from body and surface coils.
 % This function assumes that the input rawDataReaders are ready to be used.
@@ -25,6 +25,7 @@ function C = mlComputeCoilSensitivity(BCreader, SCreader, CoilSensitivityFrameSi
 %
 % Returns:
 %   C (array): Estimated coil sensitivity map
+%   mask (array): Binary mask of the extracted ROI
 
 % Set default frame size if not provided
 if nargin < 3 || isempty(CoilSensitivityFrameSize)
@@ -64,5 +65,10 @@ C_array_prime = bmCoilSense_nonCart_primary(y_surface, y_ref, C_ref, Gn, ve, mas
 
 % Step 8: Refine coil sensitivities using iterative optimization
 [C, ~] = bmCoilSense_nonCart_secondary(y_surface, C_array_prime, y_ref, C_ref, Gn, Gu, Gut, ve, nIter, false);
+
+% Optional output handling
+if nargout < 2
+    clear mask
+end
 
 end
