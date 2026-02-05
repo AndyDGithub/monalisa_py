@@ -104,7 +104,9 @@ if isempty(borders)
     borders = cat(2, bordersMin, bordersMax);
 
     % Semiautomatic selection of ROI
-    borders = selectROI(tempRMS, tempMIP, N_u, autoFlag, borders);
+    if ~autoFlag
+        borders = selectROI(tempRMS, tempMIP, N_u, autoFlag, borders);
+    end
 end
 
 if ~autoFlag
