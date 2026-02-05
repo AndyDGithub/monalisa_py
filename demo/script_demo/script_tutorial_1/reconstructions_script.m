@@ -17,7 +17,7 @@
 [baseDir, ~, ~] = fileparts(  matlab.desktop.editor.getActiveFilename  );
 dataDir = fullfile(baseDir, '..','..', 'data_demo','data_8_tutorial_1');   % Data folder
 resultsDir = fullfile(dataDir, 'results');  % Results folderv
-
+srcDir = fullfile(baseDir,'..','..','..','src');
 %% Step 0: If you haven't done it already add src to your MATLAB PATH
 addpath(genpath(srcDir))
 
