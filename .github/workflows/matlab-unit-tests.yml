@@ -4,7 +4,7 @@ on:
   push:
     branches: 
       - 'ci-*'   # note: use quotes for wildcard, this is only for testing ci in a specific branch
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   test:

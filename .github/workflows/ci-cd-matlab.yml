@@ -1,0 +1,78 @@
+name: MATLAB CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  matlab-test-and-report:
+    name: Unit + Integration + E2E + Report
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup MATLAB
+        uses: matlab-actions/setup-matlab@v2
+
+      - name: Prepare diversified external/synthetic data
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath(fullfile(pwd, 'tests', 'ci'));
+            prepare_ci_data(fullfile('temp', 'ci_data'));
+        env:
+          MONALISA_TEST_DATA_URLS: ${{ vars.MONALISA_TEST_DATA_URLS }}
+
+      - name: Run MATLAB test suites and generate reports
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath(fullfile(pwd, 'tests', 'ci'));
+            run_ci_test_suite(fullfile('temp', 'ci_data'), fullfile('temp', 'ci_reports'));
+        env:
+          MONALISA_TEST_DATA_URLS: ${{ vars.MONALISA_TEST_DATA_URLS }}
+
+      - name: Upload MATLAB report artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: matlab-ci-reports
+          path: |
+            temp/ci_reports/matlab_test_summary.md
+            temp/ci_reports/matlab_test_summary.json
+            temp/ci_reports/junit.xml
+          if-no-files-found: error
+
+      - name: Publish summary in GitHub job summary
+        shell: bash
+        run: |
+          cat temp/ci_reports/matlab_test_summary.md >> "$GITHUB_STEP_SUMMARY"
+
+  publish-test-report:
+    name: Publish report to gh-pages (CD)
+    needs: matlab-test-and-report
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download report artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: matlab-ci-reports
+          path: temp/ci_reports
+
+      - name: Publish reports under ci-reports/<sha>
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: temp/ci_reports
+          destination_dir: ci-reports/${{ github.sha }}
+          keep_files: true

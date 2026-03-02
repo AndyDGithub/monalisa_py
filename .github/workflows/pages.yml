@@ -1,3 +1,9 @@
+# During a push on the main branch, the code is tested and the file describing the results of the matlab code is written
+# the tests are performed in docker containers with example data. The results of these tests are then published on the project's github page
+# The workflow is triggered by a push on the main branch. It uses the sphinx-notes/pages action to build the Sphinx documentation from the RST files located in the ./docs/rst directory, installing the dependencies listed in ./docs/requirements.txt. The result of the build is then published on GitHub Pages using the peaceiris/actions-gh-pages action.
+
+
+
 name: Deploy Sphinx documentation to Pages
 
 on:

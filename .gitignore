@@ -54,6 +54,17 @@
 /temp/*.txt
 /temp/*.*
 /temp/*
+/temp/ci_data/
+/temp/ci_reports/
 
 # large data
 *.dat
+
+# test data
+/test_data/
+/test_data/*.dat
+/test_data/*.txt
+
+
+# env file
+.env
