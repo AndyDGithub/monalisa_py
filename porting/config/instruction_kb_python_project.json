@@ -1,0 +1,2501 @@
+{
+  "meta": {
+    "generated_at": "2026-03-30T10:06:29.213132+00:00",
+    "scope": "monalisa_py project calls only",
+    "primitive_vocabulary": [
+      "ASSIGN",
+      "CALL",
+      "INDEX",
+      "SLICE",
+      "RESHAPE",
+      "LOOP_FOR",
+      "LOOP_WHILE",
+      "BRANCH_IF",
+      "BRANCH_ALT",
+      "RETURN",
+      "ARRAY_CREATE",
+      "CONCAT",
+      "REDUCE",
+      "MATRIX_MUL",
+      "ELEMENTWISE_OP"
+    ],
+    "entry_count": 151
+  },
+  "entries": {
+    "a": {
+      "language": "python",
+      "symbol": "a",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "a"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.abs": {
+      "language": "python",
+      "symbol": "np.abs",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "abs"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "np.arccos": {
+      "language": "python",
+      "symbol": "np.arccos",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "acos"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "sys.path.append": {
+      "language": "python",
+      "symbol": "sys.path.append",
+      "library": "sys",
+      "imports": [
+        "import sys"
+      ],
+      "origin_matlab_symbols": [
+        "addpath"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "all": {
+      "language": "python",
+      "symbol": "all",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "all"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "alpha": {
+      "language": "python",
+      "symbol": "alpha",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "alpha"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.angle": {
+      "language": "python",
+      "symbol": "np.angle",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "angle"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "answer": {
+      "language": "python",
+      "symbol": "answer",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "answer"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "args": {
+      "language": "python",
+      "symbol": "args",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "args"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "around": {
+      "language": "python",
+      "symbol": "around",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "around"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "array": {
+      "language": "python",
+      "symbol": "array",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "array"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "assert": {
+      "language": "python",
+      "symbol": "assert",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "assert"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "at": {
+      "language": "python",
+      "symbol": "at",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "at"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "b": {
+      "language": "python",
+      "symbol": "b",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "b"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.c": {
+      "language": "python",
+      "symbol": "np.c",
+      "library": "numpy",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "c"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "c1": {
+      "language": "python",
+      "symbol": "c1",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "c1"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "cell": {
+      "language": "python",
+      "symbol": "cell",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "cell"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "changes": {
+      "language": "python",
+      "symbol": "changes",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "changes"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "class": {
+      "language": "python",
+      "symbol": "class",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "class"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "close": {
+      "language": "python",
+      "symbol": "close",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "close"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "code": {
+      "language": "python",
+      "symbol": "code",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "code"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "color": {
+      "language": "python",
+      "symbol": "color",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "color"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "complex": {
+      "language": "python",
+      "symbol": "complex",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "complex"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.cos": {
+      "language": "python",
+      "symbol": "np.cos",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "cos"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "cp": {
+      "language": "python",
+      "symbol": "cp",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "cp"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "create": {
+      "language": "python",
+      "symbol": "create",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "create"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "created": {
+      "language": "python",
+      "symbol": "created",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "created"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "current": {
+      "language": "python",
+      "symbol": "current",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "current"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "d": {
+      "language": "python",
+      "symbol": "d",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "d"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "data": {
+      "language": "python",
+      "symbol": "data",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "data"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "de": {
+      "language": "python",
+      "symbol": "de",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "de"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "double": {
+      "language": "python",
+      "symbol": "double",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "double"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "e": {
+      "language": "python",
+      "symbol": "e",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "e"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "elements": {
+      "language": "python",
+      "symbol": "elements",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "elements"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "error": {
+      "language": "python",
+      "symbol": "error",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "error"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "eval": {
+      "language": "python",
+      "symbol": "eval",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "eval"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "exist": {
+      "language": "python",
+      "symbol": "exist",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "exist"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.exp": {
+      "language": "python",
+      "symbol": "np.exp",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "exp"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "np.eye": {
+      "language": "python",
+      "symbol": "np.eye",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "eye"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "f": {
+      "language": "python",
+      "symbol": "f",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "f"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "factor": {
+      "language": "python",
+      "symbol": "factor",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "factor"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "false": {
+      "language": "python",
+      "symbol": "false",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "false"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.fft.fft": {
+      "language": "python",
+      "symbol": "np.fft.fft",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "fft"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "file": {
+      "language": "python",
+      "symbol": "file",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "file"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "find": {
+      "language": "python",
+      "symbol": "find",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "find"
+      ],
+      "instruction_primitives": [
+        "BRANCH_IF",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "fix": {
+      "language": "python",
+      "symbol": "fix",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "fix"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "floor": {
+      "language": "python",
+      "symbol": "floor",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "floor"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "form": {
+      "language": "python",
+      "symbol": "form",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "form"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "format": {
+      "language": "python",
+      "symbol": "format",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "format"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "g": {
+      "language": "python",
+      "symbol": "g",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "g"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "get": {
+      "language": "python",
+      "symbol": "get",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "get"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "gu": {
+      "language": "python",
+      "symbol": "gu",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "gu"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "h": {
+      "language": "python",
+      "symbol": "h",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "h"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "hold": {
+      "language": "python",
+      "symbol": "hold",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "hold"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.fft.ifft": {
+      "language": "python",
+      "symbol": "np.fft.ifft",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "ifft"
+      ],
+      "instruction_primitives": [
+        "BRANCH_IF",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "image": {
+      "language": "python",
+      "symbol": "image",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "image"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "images": {
+      "language": "python",
+      "symbol": "images",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "images"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "index": {
+      "language": "python",
+      "symbol": "index",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "index"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.indexing": {
+      "language": "python",
+      "symbol": "np.indexing",
+      "library": "numpy",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "indexing"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "integer": {
+      "language": "python",
+      "symbol": "integer",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "integer"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "interest": {
+      "language": "python",
+      "symbol": "interest",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "interest"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "is": {
+      "language": "python",
+      "symbol": "is",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "is"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "k": {
+      "language": "python",
+      "symbol": "k",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "k"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "kernel": {
+      "language": "python",
+      "symbol": "kernel",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "kernel"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "l": {
+      "language": "python",
+      "symbol": "l",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "l"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "layout": {
+      "language": "python",
+      "symbol": "layout",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "layout"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "len": {
+      "language": "python",
+      "symbol": "len",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "length"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "limits": {
+      "language": "python",
+      "symbol": "limits",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "limits"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "line": {
+      "language": "python",
+      "symbol": "line",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "line"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "lines": {
+      "language": "python",
+      "symbol": "lines",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "lines"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "load": {
+      "language": "python",
+      "symbol": "load",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "load"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.log": {
+      "language": "python",
+      "symbol": "np.log",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "log"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "m": {
+      "language": "python",
+      "symbol": "m",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "m"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "macos": {
+      "language": "python",
+      "symbol": "macos",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "macos"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "mapping": {
+      "language": "python",
+      "symbol": "mapping",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "mapping"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "match": {
+      "language": "python",
+      "symbol": "match",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "match"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "max": {
+      "language": "python",
+      "symbol": "max",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "max"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "REDUCE"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.mean": {
+      "language": "python",
+      "symbol": "np.mean",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "mean"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "REDUCE"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "np.min": {
+      "language": "python",
+      "symbol": "np.min",
+      "library": "numpy",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "min"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "REDUCE"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "mode": {
+      "language": "python",
+      "symbol": "mode",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "mode"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "model": {
+      "language": "python",
+      "symbol": "model",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "model"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "n": {
+      "language": "python",
+      "symbol": "n",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "n"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "needed": {
+      "language": "python",
+      "symbol": "needed",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "needed"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "not": {
+      "language": "python",
+      "symbol": "not",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "not"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "o": {
+      "language": "python",
+      "symbol": "o",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "o"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "obj": {
+      "language": "python",
+      "symbol": "obj",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "obj"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "of": {
+      "language": "python",
+      "symbol": "of",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "of"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.ones": {
+      "language": "python",
+      "symbol": "np.ones",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "ones"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "only": {
+      "language": "python",
+      "symbol": "only",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "only"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "option": {
+      "language": "python",
+      "symbol": "option",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "option"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "others": {
+      "language": "python",
+      "symbol": "others",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "others"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "out": {
+      "language": "python",
+      "symbol": "out",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "out"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "output": {
+      "language": "python",
+      "symbol": "output",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "output"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "p": {
+      "language": "python",
+      "symbol": "p",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "p"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "parameter": {
+      "language": "python",
+      "symbol": "parameter",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "parameter"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "parameters": {
+      "language": "python",
+      "symbol": "parameters",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "parameters"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "parts": {
+      "language": "python",
+      "symbol": "parts",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "parts"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "point": {
+      "language": "python",
+      "symbol": "point",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "point"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "possible": {
+      "language": "python",
+      "symbol": "possible",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "possible"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "q": {
+      "language": "python",
+      "symbol": "q",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "q"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "r": {
+      "language": "python",
+      "symbol": "r",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "r"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.random.rand": {
+      "language": "python",
+      "symbol": "np.random.rand",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "rand"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "reader": {
+      "language": "python",
+      "symbol": "reader",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "reader"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "real": {
+      "language": "python",
+      "symbol": "real",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "real"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "reference": {
+      "language": "python",
+      "symbol": "reference",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "reference"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.reshape": {
+      "language": "python",
+      "symbol": "np.reshape",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "reshape"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "RESHAPE"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "response": {
+      "language": "python",
+      "symbol": "response",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "response"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "returns": {
+      "language": "python",
+      "symbol": "returns",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "returns"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "run": {
+      "language": "python",
+      "symbol": "run",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "run"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "s": {
+      "language": "python",
+      "symbol": "s",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "s"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "s1": {
+      "language": "python",
+      "symbol": "s1",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "s1"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "s2": {
+      "language": "python",
+      "symbol": "s2",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "s2"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "set": {
+      "language": "python",
+      "symbol": "set",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "set"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "sign": {
+      "language": "python",
+      "symbol": "sign",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "sign"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.sin": {
+      "language": "python",
+      "symbol": "np.sin",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "sin"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "single": {
+      "language": "python",
+      "symbol": "single",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "single"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.shape": {
+      "language": "python",
+      "symbol": "np.shape",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "size"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "slice": {
+      "language": "python",
+      "symbol": "slice",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "slice"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "sound": {
+      "language": "python",
+      "symbol": "sound",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "sound"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "space": {
+      "language": "python",
+      "symbol": "space",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "space"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.sqrt": {
+      "language": "python",
+      "symbol": "np.sqrt",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "sqrt"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "ELEMENTWISE_OP"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "square": {
+      "language": "python",
+      "symbol": "square",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "square"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "struct": {
+      "language": "python",
+      "symbol": "struct",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "struct"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "structure": {
+      "language": "python",
+      "symbol": "structure",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "structure"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.sum": {
+      "language": "python",
+      "symbol": "np.sum",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "sum"
+      ],
+      "instruction_primitives": [
+        "CALL",
+        "REDUCE"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    },
+    "system": {
+      "language": "python",
+      "symbol": "system",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "system"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "t": {
+      "language": "python",
+      "symbol": "t",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "t"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "tables": {
+      "language": "python",
+      "symbol": "tables",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "tables"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "text": {
+      "language": "python",
+      "symbol": "text",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "text"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "the": {
+      "language": "python",
+      "symbol": "the",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "the"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "thread": {
+      "language": "python",
+      "symbol": "thread",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "thread"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "title": {
+      "language": "python",
+      "symbol": "title",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "title"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "to": {
+      "language": "python",
+      "symbol": "to",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "to"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "transform": {
+      "language": "python",
+      "symbol": "transform",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "transform"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.true": {
+      "language": "python",
+      "symbol": "np.true",
+      "library": "numpy",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "true"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "types": {
+      "language": "python",
+      "symbol": "types",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "types"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "u": {
+      "language": "python",
+      "symbol": "u",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "u"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "unique": {
+      "language": "python",
+      "symbol": "unique",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "unique"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "updated": {
+      "language": "python",
+      "symbol": "updated",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "updated"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "v": {
+      "language": "python",
+      "symbol": "v",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "v"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "value": {
+      "language": "python",
+      "symbol": "value",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "value"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "values": {
+      "language": "python",
+      "symbol": "values",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "values"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "vertically": {
+      "language": "python",
+      "symbol": "vertically",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "vertically"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "w": {
+      "language": "python",
+      "symbol": "w",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "w"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "warning": {
+      "language": "python",
+      "symbol": "warning",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "warning"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "width": {
+      "language": "python",
+      "symbol": "width",
+      "library": "python-stdlib",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "width"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "x": {
+      "language": "python",
+      "symbol": "x",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "x"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "xml": {
+      "language": "python",
+      "symbol": "xml",
+      "library": "python-stdlib-module",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "xml"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "y": {
+      "language": "python",
+      "symbol": "y",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "y"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "z": {
+      "language": "python",
+      "symbol": "z",
+      "library": "python-docs",
+      "imports": [],
+      "origin_matlab_symbols": [
+        "z"
+      ],
+      "instruction_primitives": [
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": false
+      }
+    },
+    "np.zeros": {
+      "language": "python",
+      "symbol": "np.zeros",
+      "library": "numpy",
+      "imports": [
+        "import numpy as np"
+      ],
+      "origin_matlab_symbols": [
+        "zeros"
+      ],
+      "instruction_primitives": [
+        "ARRAY_CREATE",
+        "CALL"
+      ],
+      "reconstruction_hints": {
+        "vectorization_preferred": true,
+        "requires_import": true
+      }
+    }
+  }
+}

@@ -1,0 +1,1636 @@
+{
+  "bmArray2Cell.m": [],
+  "bmBlockReshape.m": [],
+  "bmCell2Array.m": [],
+  "bmCol.m": [],
+  "bmColReshape.m": [],
+  "bmFirstIndex.m": [],
+  "bmIndex2MultiIndex.m": [],
+  "bmInvPerm.m": [],
+  "bmIsBlockShape.m": [],
+  "bmIsColShape.m": [],
+  "bmIsScalar.m": [],
+  "bmLineReshape.m": [],
+  "bmMax.m": [],
+  "bmMitosis.m": [
+    "bmIndex2MultiIndex.m"
+  ],
+  "bmMultiIndex2Index.m": [],
+  "bmNumOfDim.m": [],
+  "bmOne.m": [],
+  "bmPermuteToCol.m": [
+    "bmVarargin.m"
+  ],
+  "bmPermuteToPoint.m": [],
+  "bmPointReshape.m": [
+    "bmVarargin.m"
+  ],
+  "bmRand.m": [],
+  "bmSingle.m": [],
+  "bmSingle_of_cell.m": [],
+  "bmType.m": [],
+  "bmZero.m": [
+    "bmVarargin.m"
+  ],
+  "bmZeroCleaned.m": [],
+  "detectROI.m": [
+    "bmBlockReshape.m"
+  ],
+  "mlComputeCoilSensitivity.m": [
+    "bmCoilSense_nonCart_data.m",
+    "bmCoilSense_nonCart_mask_automatic.m",
+    "bmCoilSense_nonCart_primary.m",
+    "bmCoilSense_nonCart_ref.m",
+    "bmCoilSense_nonCart_secondary.m",
+    "bmTraj2SparseMat.m"
+  ],
+  "selectROI.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "thresholdRMS_MIP.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmCoilSense_prescan_coilSense.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImLaplaceEquationSolver.m",
+    "bmImPseudoDiffusion_inMask.m",
+    "bmRMS.m",
+    "bmZero.m"
+  ],
+  "bmCoilSense_prescan_mask.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImClose.m",
+    "bmImOpen.m",
+    "bmImShiftList.m",
+    "bmImage.m",
+    "bmMIP.m",
+    "bmRMS.m",
+    "bmVarargin.m"
+  ],
+  "bmCoilSense_pinv.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m"
+  ],
+  "bmCoilSense_nonCart_data.m": [
+    "bmLowRes.m",
+    "bmPermuteToCol.m",
+    "bmPointReshape.m",
+    "bmTraj.m",
+    "bmVolumeElement.m"
+  ],
+  "bmCoilSense_nonCart_dataFromTwix.m": [
+    "bmLowRes.m",
+    "bmMriAcquisitionParam.m",
+    "bmPermuteToCol.m",
+    "bmPointReshape.m",
+    "bmTraj_fullRadial3_phyllotaxis_lineAssym2.m",
+    "bmTwix.m",
+    "bmTwix_data.m",
+    "bmVolumeElement.m"
+  ],
+  "bmCoilSense_nonCart_find_nSmooth_phi.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImPseudoDiffusion_inMask.m",
+    "bmImage.m",
+    "bmNasha.m"
+  ],
+  "bmCoilSense_nonCart_mask.m": [
+    "bmBlockReshape.m",
+    "bmImClose.m",
+    "bmImOpen.m",
+    "bmImShiftList.m",
+    "bmImage.m",
+    "bmMIP.m",
+    "bmNasha.m",
+    "bmRMS.m",
+    "bmVarargin.m"
+  ],
+  "bmCoilSense_nonCart_mask_automatic.m": [
+    "bmBlockReshape.m",
+    "bmImClose.m",
+    "bmImOpen.m",
+    "bmImShiftList.m",
+    "bmImage.m",
+    "bmMIP.m",
+    "bmNasha.m",
+    "bmRMS.m",
+    "bmVarargin.m",
+    "detectROI.m",
+    "selectROI.m",
+    "thresholdRMS_MIP.m"
+  ],
+  "bmCoilSense_nonCart_primary.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmImLaplaceEquationSolver.m",
+    "bmImPseudoDiffusion_inMask.m",
+    "bmNasha.m",
+    "bmY_norm.m"
+  ],
+  "bmCoilSense_nonCart_ref.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImLaplaceEquationSolver.m",
+    "bmImPseudoDiffusion_inMask.m",
+    "bmNasha.m",
+    "bmRMS.m"
+  ],
+  "bmCoilSense_nonCart_secondary.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmImPseudoDiffusion.m",
+    "bmImage.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmNakatsha.m",
+    "bmNasha.m",
+    "bmShanna.m",
+    "bmY_norm.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bcaNeith_coilSensitivitySimulation2.m": [],
+  "bmDispPercent.m": [],
+  "bmGetNat.m": [
+    "bmVarargin.m"
+  ],
+  "bmGetNum.m": [
+    "bmVarargin.m"
+  ],
+  "bmGetString.m": [],
+  "bmYesNo.m": [],
+  "bmDicomInfo.m": [
+    "bmCheckDir.m",
+    "bmNameList.m"
+  ],
+  "bmDicomLoad.m": [],
+  "bmDicomRead.m": [
+    "bmCheckDir.m",
+    "bmNameList.m"
+  ],
+  "bmDicomViewer.m": [
+    "bmDicomLoad.m",
+    "bmImage.m",
+    "bmNameList.m"
+  ],
+  "bmDicomWrite.m": [
+    "bmNumList.m"
+  ],
+  "bmElastix.m": [
+    "bmCheckDir.m",
+    "bmCreateDir.m",
+    "bmDeleteFolder.m"
+  ],
+  "bmTransformix.m": [
+    "bmDeleteFolder.m"
+  ],
+  "bmFieldPlot2.m": [
+    "bmFieldPlot2_image.m",
+    "bmFieldPlot2_noImage.m"
+  ],
+  "bmFieldPlot2_griddPlot.m": [],
+  "bmFieldPlot2_image.m": [],
+  "bmFieldPlot2_noImage.m": [],
+  "bmFieldPlot3.m": [
+    "bmFieldPlot3_image.m",
+    "bmFieldPlot3_noImage.m"
+  ],
+  "bmFieldPlot3_image.m": [],
+  "bmFieldPlot3_noImage.m": [],
+  "bmAffineFit.m": [],
+  "bmAffinePhaseFit.m": [],
+  "bmBiExpFit1.m": [],
+  "bmMonoExpFit.m": [],
+  "bmMonoExpFit1.m": [],
+  "bmConv1.m": [],
+  "bmDFT1.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmDFT1_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmFourierDoor.m": [],
+  "bmIDF1.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmIDF1_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmDFT123.m": [
+    "bmDFT1.m",
+    "bmDFT2.m",
+    "bmDFT3.m"
+  ],
+  "bmDFT123_conjTrans.m": [
+    "bmDFT1_conjTrans.m",
+    "bmDFT2_conjTrans.m",
+    "bmDFT3_conjTrans.m"
+  ],
+  "bmIDF123.m": [
+    "bmIDF1.m",
+    "bmIDF2.m",
+    "bmIDF3.m"
+  ],
+  "bmNakatsha_cartesian.m": [
+    "bmVarargin.m"
+  ],
+  "bmNasha_cartesian.m": [
+    "bmBlockReshape.m",
+    "bmCoilSense_pinv.m",
+    "bmColReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmShanna_cartesian.m": [
+    "bmColReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmMathilda.m": [
+    "bmBlockReshape.m",
+    "bmCoilSense_pinv.m",
+    "bmGridder_n2u.m",
+    "bmGridder_n2u_leight.m",
+    "bmIDF1.m",
+    "bmIDF2.m",
+    "bmIDF3.m",
+    "bmImCrope.m",
+    "bmK.m",
+    "bmPointReshape.m",
+    "bmVarargin.m",
+    "bmVarargin_N_u_dK_u.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmNakatsha.m": [
+    "bmNakatsha_CUFFT_omp.m",
+    "bmNakatsha_FFTW_omp.m",
+    "bmNakatsha_MATLAB.m"
+  ],
+  "bmNakatsha_CUFFT_omp.m": [],
+  "bmNakatsha_FFTW_omp.m": [],
+  "bmNakatsha_MATLAB.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImCrope.m",
+    "bmSparseMat_vec.m"
+  ],
+  "bmNasha.m": [
+    "bmBlockReshape.m",
+    "bmCoilSense_pinv.m",
+    "bmColReshape.m",
+    "bmIDF1.m",
+    "bmIDF2.m",
+    "bmIDF3.m",
+    "bmImCrope.m",
+    "bmK.m",
+    "bmSparseMat_vec.m",
+    "bmVarargin.m"
+  ],
+  "bmNonUniformFourier_pinv_gpuNUFFT.m": [
+    "bmBlockReshape.m",
+    "bmCoilSense_pinv.m",
+    "bmElipsoidMask.m",
+    "bmOverSamplingFactor_for_gpuNUFFT.m",
+    "bmPointReshape.m",
+    "bmSimulateMriData.m",
+    "bmTraj_rescaleToUnitCube.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmShanna.m": [
+    "bmShanna_CUFFT_omp.m",
+    "bmShanna_FFTW_omp.m",
+    "bmShanna_MATLAB.m"
+  ],
+  "bmShanna_CUFFT_omp.m": [],
+  "bmShanna_FFTW_omp.m": [],
+  "bmShanna_MATLAB.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImZeroFill.m",
+    "bmSparseMat_vec.m"
+  ],
+  "bmNakatsha_partialCartesian.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmGut_partialCartesian.m",
+    "bmImCrope.m"
+  ],
+  "bmNasha_partialCartesian.m": [
+    "bmBlockReshape.m",
+    "bmCoilSense_pinv.m",
+    "bmColReshape.m",
+    "bmGut_partialCartesian.m",
+    "bmIDF1.m",
+    "bmIDF2.m",
+    "bmIDF3.m",
+    "bmImCrope.m"
+  ],
+  "bmShanna_partialCartesian.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmGu_partialCartesian.m",
+    "bmImZeroFill.m"
+  ],
+  "bmFourierModulation.m": [
+    "bmColReshape.m",
+    "bmPointReshape.m"
+  ],
+  "bmOverSamplingFactor_for_gpuNUFFT.m": [],
+  "bmFC.m": [
+    "bmColReshape.m"
+  ],
+  "bmFC_conj.m": [
+    "bmColReshape.m"
+  ],
+  "bmK.m": [
+    "bmBlockReshape.m",
+    "bmDFT1.m",
+    "bmDFT2.m",
+    "bmDFT3.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmK_bump.m": [
+    "bmDFT1.m",
+    "bmDFT2.m",
+    "bmDFT3.m"
+  ],
+  "bmK_old.m": [
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmKF.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImCrope.m",
+    "bmK.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmKF_conj.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImCrope.m",
+    "bmK.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmSensa.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmNakatsha.m",
+    "bmShanna.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSleva.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSteva.m": [
+    "bmBackGradient.m",
+    "bmBackGradientT.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmNakatsha.m",
+    "bmProx_oneNorm.m",
+    "bmShanna.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmSensa_partialCartesian.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmFC.m",
+    "bmFC_conj.m",
+    "bmNakatsha_partialCartesian.m",
+    "bmShanna_partialCartesian.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSteva_partialCartesian.m": [
+    "bmBackGradient.m",
+    "bmBackGradientT.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmFC.m",
+    "bmFC_conj.m",
+    "bmNakatsha_partialCartesian.m",
+    "bmProx_oneNorm.m",
+    "bmShanna_partialCartesian.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmSensaMorphosia_chain.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmMax.m",
+    "bmNakatsha.m",
+    "bmShanna.m",
+    "bmSingle_of_cell.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSensitivaDuoMorphosia_chain.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSensitivaMorphosia_chain.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmSensitivaMorphosia_sheet.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmTevaDuoMorphosia_chain.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmProx_oneNorm.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmTevaMorphosia_chain.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmProx_oneNorm.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmTevaMorphosia_chain_all_to_first.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmMax.m",
+    "bmNakatsha.m",
+    "bmProx_oneNorm.m",
+    "bmShanna.m",
+    "bmSingle_of_cell.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmTevaMorphosia_sheet.m": [
+    "bmAxpy.m",
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmInitialWitnessInfo.m",
+    "bmKF.m",
+    "bmKF_conj.m",
+    "bmK_bump.m",
+    "bmMinus.m",
+    "bmMult.m",
+    "bmNakatsha.m",
+    "bmPlus.m",
+    "bmProx_oneNorm.m",
+    "bmShanna.m",
+    "bmSingle.m",
+    "bmSquaredNorm.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bmTevaMorphosia_partialCartesian.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmFC.m",
+    "bmFC_conj.m",
+    "bmImDeform.m",
+    "bmImDeformT.m",
+    "bmMax.m",
+    "bmNakatsha_partialCartesian.m",
+    "bmProx_oneNorm.m",
+    "bmShanna_partialCartesian.m",
+    "bmSingle_of_cell.m",
+    "bmY_ve_reshape.m",
+    "bmZero.m"
+  ],
+  "bcaNeith2.m": [],
+  "bcaNeith_interpolatekSpace2.m": [],
+  "bcaNeith_interpolatorExtraction2.m": [],
+  "bcaNeith_kernelTypeExtraction2.m": [],
+  "bmConv2.m": [],
+  "bmDFT2.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmDFT2_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmFourierDisc.m": [],
+  "bmFourierSquare.m": [],
+  "bmIDF2.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmIDF2_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bcaNeith3.m": [
+    "bcaNeith_interpolatekSpace3.m",
+    "bcaNeith_interpolatorExtraction3.m",
+    "bcaNeith_kernelTypeExtraction3.m"
+  ],
+  "bcaNeith_harmonicField3D.m": [],
+  "bcaNeith_interpolatekSpace3.m": [],
+  "bcaNeith_interpolatorExtraction3.m": [],
+  "bcaNeith_kernelTypeExtraction3.m": [],
+  "bmConv3.m": [],
+  "bmDFT3.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmDFT3_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmFourierCube.m": [],
+  "bmFourierSphere.m": [],
+  "bmIDF3.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmIDF3_conjTrans.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmDFT.m": [],
+  "bmIDF.m": [],
+  "bmBigDoor_function.m": [],
+  "bmBump.m": [],
+  "bmDirichlet_A.m": [
+    "bmDirichletKernel.m"
+  ],
+  "bmDirichlet_S.m": [
+    "bmDirichletKernel.m"
+  ],
+  "bmDirichletKernel.m": [],
+  "bmDoor2Bump.m": [
+    "bmBump.m"
+  ],
+  "bmFourierOfBigDoor_function.m": [
+    "bmSinc.m"
+  ],
+  "bmFourierOfGauss_function.m": [],
+  "bmFourierOfLittleDoor_function.m": [
+    "bmSinc.m"
+  ],
+  "bmGauss.m": [],
+  "bmGauss_function.m": [],
+  "bmKaiser.m": [],
+  "bmLittleDoor_function.m": [],
+  "bmSinc.m": [],
+  "bmVolumeElement1.m": [],
+  "bmConvexFaceArea.m": [],
+  "bmVolumeElement.m": [
+    "bmPointReshape.m",
+    "bmTraj_formatTraj.m",
+    "bmVarargin.m",
+    "bmVolumeElement_cartesian2.m",
+    "bmVolumeElement_cartesian3.m",
+    "bmVolumeElement_center_out_radial3.m",
+    "bmVolumeElement_full_radial3.m",
+    "bmVolumeElement_imDeformField2.m",
+    "bmVolumeElement_imDeformField3.m",
+    "bmVolumeElement_randomPartialCartesian2_x.m",
+    "bmVolumeElement_randomPartialCartesian3_x.m",
+    "bmVolumeElement_voronoi_box2.m",
+    "bmVolumeElement_voronoi_box3.m",
+    "bmVolumeElement_voronoi_center_out_radial2.m",
+    "bmVolumeElement_voronoi_center_out_radial3.m",
+    "bmVolumeElement_voronoi_full_radial2.m",
+    "bmVolumeElement_voronoi_full_radial2_nonUnique.m",
+    "bmVolumeElement_voronoi_full_radial3.m",
+    "bmVolumeElement_voronoi_full_radial3_nonUnique.m"
+  ],
+  "bmVolumeElement_replace_cartesian.m": [],
+  "bmVolumeElement_replace_radial_v1.m": [
+    "bmPointReshape.m"
+  ],
+  "bmVolumeElement_replace_radial_v2.m": [
+    "bmPointReshape.m"
+  ],
+  "bmVolumeElement_replace_radial_v3.m": [
+    "bmPointReshape.m"
+  ],
+  "bmVoronoi.m": [
+    "bmVolumeElement1.m"
+  ],
+  "bmVoronoi_with_test.m": [],
+  "bmNormalVector2.m": [],
+  "bmTwoLinesIntersect.m": [],
+  "bmVolumeElement_cartesian2.m": [
+    "bmPointReshape.m",
+    "bmTraj_squaredNorm.m"
+  ],
+  "bmVolumeElement_imDeformField2.m": [],
+  "bmVolumeElement_randomPartialCartesian2_x.m": [
+    "bmPointReshape.m",
+    "bmVolumeElement1.m"
+  ],
+  "bmVolumeElement_voronoi_box2.m": [
+    "bmPointReshape.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_center_out_radial2.m": [
+    "bmTraj_formatTraj.m",
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_norm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_full_radial2.m": [
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_norm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_full_radial2_nonUnique.m": [
+    "bmCol.m",
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_norm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmHalfPlane3.m": [],
+  "bmLengthParamPath.m": [],
+  "bmNormalVector3.m": [],
+  "bmPlane3.m": [],
+  "bmPsi_theta_phi.m": [
+    "bmTheta_phi.m"
+  ],
+  "bmQuickFitPlane.m": [
+    "bmPointReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmTheta_phi.m": [],
+  "bmVolumeElement_cartesian3.m": [
+    "bmPointReshape.m",
+    "bmTraj_squaredNorm.m"
+  ],
+  "bmVolumeElement_center_out_radial3.m": [
+    "bmTraj_formatTraj.m",
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_squaredNorm.m",
+    "bmVolumeElement1.m"
+  ],
+  "bmVolumeElement_full_radial3.m": [
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_squaredNorm.m",
+    "bmVolumeElement1.m"
+  ],
+  "bmVolumeElement_imDeformField3.m": [],
+  "bmVolumeElement_randomPartialCartesian3_x.m": [
+    "bmPointReshape.m",
+    "bmVolumeElement_voronoi_box2.m"
+  ],
+  "bmVolumeElement_voronoi_box3.m": [
+    "bmPointReshape.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_center_out_radial3.m": [
+    "bmTraj_formatTraj.m",
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_squaredNorm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_full_radial3.m": [
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_squaredNorm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmVolumeElement_voronoi_full_radial3_nonUnique.m": [
+    "bmTraj_lineDirection.m",
+    "bmTraj_lineReshape.m",
+    "bmTraj_squaredNorm.m",
+    "bmVolumeElement1.m",
+    "bmVoronoi.m"
+  ],
+  "bmPointList.m": [],
+  "bmGridder_n2u.m": [
+    "bmPointReshape.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmGridder_n2u_leight.m": [
+    "bmPointReshape.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m"
+  ],
+  "bmGriddingMatrix.m": [],
+  "bmGriddingMatrix_prepare.m": [
+    "bmGriddingMatrix.m",
+    "bmPointReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmGu_partialCartesian.m": [
+    "bmColReshape.m"
+  ],
+  "bmGut_partialCartesian.m": [
+    "bmColReshape.m"
+  ],
+  "bmImDeformField2SparseMat.m": [
+    "bmImDeformField2sparseMat_ind_weight.m",
+    "bmPointReshape.m",
+    "bmSparseMat_completeMatlabSparse.m",
+    "bmSparseMat_matlabSparse2bmSparseMat.m",
+    "bmVarargin.m"
+  ],
+  "bmImDeformField2sparseMat_ind_weight.m": [
+    "bmPointReshape.m",
+    "bmSparseMat_r_nJump2index.m"
+  ],
+  "bmImDeformField_multipleSparseMat.m": [
+    "bmPointReshape.m",
+    "bmSparseMat_completeMatlabSparse.m",
+    "bmSparseMat_matlabSparse2bmMultipleSparseMat.m",
+    "bmVarargin.m"
+  ],
+  "bmTraj2SparseMat.m": [
+    "bmPointReshape.m",
+    "bmSparseMat_completeMatlabSparse.m",
+    "bmSparseMat_matlabSparse2bmSparseMat.m",
+    "bmSparseMat_r_nJump2index.m",
+    "bmVarargin.m",
+    "bmVarargin_kernelType_nWin_kernelParam.m",
+    "bmVarargin_sparseType.m"
+  ],
+  "bmImWavelet1.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImWaveletInv1.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImBumpFiltering.m": [
+    "bmBump.m",
+    "bmImDFT.m",
+    "bmImIDF.m",
+    "bmImReshape.m"
+  ],
+  "bmImClose.m": [
+    "bmImDilate.m",
+    "bmImErode.m"
+  ],
+  "bmImContrastEnhance.m": [
+    "bmImDFT.m",
+    "bmImIDF.m",
+    "bmImReshape.m"
+  ],
+  "bmImConv_byShiftList.m": [
+    "bmVarargin.m"
+  ],
+  "bmImConv_fourier.m": [
+    "bmImDFT.m",
+    "bmImIDF.m"
+  ],
+  "bmImConv_inMask_byShiftList.m": [],
+  "bmImCrope.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmImCrossMean.m": [
+    "bmImReshape.m"
+  ],
+  "bmImCrossMean_omp.m": [
+    "bmImReshape.m"
+  ],
+  "bmImDeform.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmDFT1.m",
+    "bmDFT2.m",
+    "bmDFT3.m",
+    "bmIDF1.m",
+    "bmIDF2.m",
+    "bmIDF3.m",
+    "bmIsBlockShape.m",
+    "bmSparseMat_vec.m"
+  ],
+  "bmImDeformT.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmDFT1_conjTrans.m",
+    "bmDFT2_conjTrans.m",
+    "bmDFT3_conjTrans.m",
+    "bmIDF1_conjTrans.m",
+    "bmIDF2_conjTrans.m",
+    "bmIDF3_conjTrans.m",
+    "bmIsBlockShape.m",
+    "bmSparseMat_vec.m"
+  ],
+  "bmImDFT.m": [
+    "bmDFT.m",
+    "bmImDim.m"
+  ],
+  "bmImDilate.m": [
+    "bmImShiftList_to_structEl.m"
+  ],
+  "bmImErode.m": [
+    "bmImShiftList_to_structEl.m"
+  ],
+  "bmImExtend.m": [
+    "bmImSqueeze.m"
+  ],
+  "bmImGaussFiltering.m": [
+    "bmImDFT.m",
+    "bmImIDF.m",
+    "bmImReshape.m"
+  ],
+  "bmImGradient.m": [
+    "bmImReshape.m"
+  ],
+  "bmImGrid.m": [],
+  "bmImIDF.m": [
+    "bmIDF.m",
+    "bmImDim.m"
+  ],
+  "bmImLaplaceEquationSolver.m": [
+    "bmImLaplaceIterator.m",
+    "bmImLaplacian.m",
+    "bmVarargin.m"
+  ],
+  "bmImLaplaceIterator.m": [
+    "bmImReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImLaplacian.m": [
+    "bmImReshape.m"
+  ],
+  "bmImOpen.m": [
+    "bmImDilate.m",
+    "bmImErode.m"
+  ],
+  "bmImPseudoDiffusion.m": [
+    "bmImReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImPseudoDiffusion_byShiftList.m": [],
+  "bmImPseudoDiffusion_inMask.m": [
+    "bmImReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImPseudoDiffusion_inMask_byShiftList.m": [],
+  "bmImReshape.m": [
+    "bmImDim.m"
+  ],
+  "bmImResize.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmIsBlockShape.m",
+    "bmIsColShape.m",
+    "bmVarargin.m"
+  ],
+  "bmImShiftList.m": [
+    "bmImShiftList_to_image.m",
+    "bmImage.m",
+    "bmVarargin.m"
+  ],
+  "bmImShiftList_to_image.m": [
+    "bmImReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImShiftList_to_structEl.m": [
+    "bmImShiftList_to_image.m"
+  ],
+  "bmImSqueeze.m": [
+    "bmImReshape.m"
+  ],
+  "bmImZeroFill.m": [
+    "bmBlockReshape.m",
+    "bmZero.m"
+  ],
+  "bmStructEl_to_imShiftList.m": [],
+  "bmImDeformField_hardThresholding2.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmImRotate2.m": [
+    "bmElipsoidMask.m",
+    "bmImGrid.m",
+    "bmImReg_getCenterMass_estimate.m",
+    "bmRotation2.m",
+    "bmVarargin.m"
+  ],
+  "bmImShift2.m": [],
+  "bmImWavelet2.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImWaveletInv2.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImDeformField_hardThresholding3.m": [
+    "bmBlockReshape.m"
+  ],
+  "bmImRotate3.m": [
+    "bmElipsoidMask.m",
+    "bmImGrid.m",
+    "bmImReg_getCenterMass_estimate.m",
+    "bmRotation3_inv.m",
+    "bmVarargin.m"
+  ],
+  "bmImWavelet3.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImWaveletInv3.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmImDim.m": [],
+  "bmMIP.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmIsBlockShape.m",
+    "bmIsColShape.m"
+  ],
+  "bmRMS.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmIsBlockShape.m",
+    "bmIsColShape.m"
+  ],
+  "bmImage.m": [
+    "bmCell2Array.m",
+    "bmImage2.m",
+    "bmImage3.m",
+    "bmImage4.m",
+    "bmImage5.m",
+    "bmVarargin.m"
+  ],
+  "bmImage2.m": [
+    "bmCol.m",
+    "bmImageViewerParam.m",
+    "bmRotation2.m",
+    "bmVarargin.m"
+  ],
+  "bmImage3.m": [
+    "bmCol.m",
+    "bmGetNat.m",
+    "bmGetNum.m",
+    "bmImage2.m",
+    "bmImageViewerParam.m",
+    "bmPsi_theta_phi.m",
+    "bmRotation3.m",
+    "bmTheta_phi.m",
+    "bmVarargin.m"
+  ],
+  "bmImage4.m": [
+    "bmCol.m",
+    "bmImage2.m",
+    "bmImageViewerParam.m",
+    "bmPsi_theta_phi.m",
+    "bmRotation3.m",
+    "bmTheta_phi.m",
+    "bmVarargin.m"
+  ],
+  "bmImage5.m": [
+    "bmCol.m",
+    "bmImage2.m",
+    "bmImageViewerParam.m",
+    "bmPsi_theta_phi.m",
+    "bmRotation3.m",
+    "bmTheta_phi.m",
+    "bmVarargin.m"
+  ],
+  "bmImageViewerParam.m": [
+    "bmCol.m",
+    "bmVarargin.m"
+  ],
+  "bmImDeformField_meshDisp2.m": [
+    "bmBlockReshape.m",
+    "bmImReg_deformField_to_positionField.m"
+  ],
+  "bmImDeformFieldInverse_checkerboardDisp2.m": [
+    "bmBlockReshape.m",
+    "bmImReg_deformField_to_positionField.m",
+    "bmImage.m"
+  ],
+  "bmImDeformFieldInverse_gridDisp2.m": [
+    "bmBlockReshape.m",
+    "bmImCrope.m",
+    "bmImExtend.m",
+    "bmImGradient.m",
+    "bmImReg_deformField_to_positionField.m",
+    "bmVarargin.m"
+  ],
+  "bmNanColor.m": [],
+  "bmImReg_affineTransform.m": [],
+  "bmImReg_directTransfrom.m": [],
+  "bmImReg_solidTransform.m": [],
+  "bmImReg_translationTransform.m": [],
+  "bmImDeformFieldChain_imRegDemons23.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmImDeformField_hardThresholding2.m",
+    "bmPermuteToPoint.m",
+    "bmVarargin.m"
+  ],
+  "bmImDeformFieldSheet_imRegDemons23.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmColReshape.m",
+    "bmImDeformField_hardThresholding2.m",
+    "bmPermuteToPoint.m",
+    "bmVarargin.m"
+  ],
+  "bmImReg_deform.m": [
+    "bmBlockReshape.m",
+    "bmImGrid.m",
+    "bmImReg_deformField_to_positionField.m",
+    "bmVarargin.m"
+  ],
+  "bmImReg_deformField_to_positionField.m": [
+    "bmBlockReshape.m",
+    "bmCol.m",
+    "bmImGrid.m",
+    "bmVarargin.m"
+  ],
+  "bmImReg_getCenterMass_estimate.m": [
+    "bmCol.m",
+    "bmElipsoidMask.m",
+    "bmImGrid.m",
+    "bmVarargin.m"
+  ],
+  "bmImReg_getInitialSolidTransform_estimate.m": [
+    "bmCol.m",
+    "bmElipsoidMask.m",
+    "bmImGrid.m",
+    "bmImReg_deform.m",
+    "bmImReg_getCenterMass_estimate.m",
+    "bmImReg_transform_to_deformField.m"
+  ],
+  "bmImReg_getInitialSolidTransform_recursive.m": [
+    "bmElipsoidMask.m",
+    "bmImGrid.m",
+    "bmImReg_deform.m",
+    "bmImReg_getCenterMass_estimate.m",
+    "bmImReg_getInitialSolidTransform_estimate.m",
+    "bmImReg_getInitialTranslationTransform_estimate_2.m",
+    "bmImReg_transform_to_deformField.m"
+  ],
+  "bmImReg_getInitialTranslationTransform_estimate.m": [
+    "bmImGrid.m",
+    "bmImReg_getCenterMass_estimate.m"
+  ],
+  "bmImReg_getInitialTranslationTransform_estimate_2.m": [
+    "bmImGrid.m",
+    "bmImResize.m",
+    "bmIndex2MultiIndex.m"
+  ],
+  "bmImReg_getInitialTranslationTransform_recursive.m": [
+    "bmImGrid.m",
+    "bmImReg_deform.m",
+    "bmImReg_getInitialTranslationTransform_estimate.m",
+    "bmImReg_transform_to_deformField.m"
+  ],
+  "bmImReg_leastSquare_solidTransform_registration.m": [
+    "bmElipsoidMask.m",
+    "bmImGaussFiltering.m",
+    "bmImGradient.m",
+    "bmImGrid.m",
+    "bmImReg_deform.m",
+    "bmImReg_getCenterMass_estimate.m",
+    "bmImReg_solidTransform_distance.m",
+    "bmImReg_transform_to_deformField.m",
+    "bmImage.m",
+    "bmOmega3.m",
+    "bmPsi_theta_phi.m",
+    "bmRotation2.m",
+    "bmRotation3.m"
+  ],
+  "bmImReg_solidTransform_distance.m": [
+    "bmCol.m"
+  ],
+  "bmImReg_transform_to_deformField.m": [
+    "bmColReshape.m",
+    "bmImGrid.m"
+  ],
+  "bmInterp1.m": [],
+  "bmPhaseInterp1.m": [],
+  "bmInterp2.m": [],
+  "bmPhaseInterp2.m": [],
+  "bmInterp3.m": [],
+  "bmPhaseInterp3.m": [],
+  "bmRotation2.m": [],
+  "bmRotation2_inv.m": [],
+  "bmOmega3.m": [
+    "bmRotation3.m"
+  ],
+  "bmRotation3.m": [],
+  "bmRotation3_inv.m": [],
+  "bmProx_oneNorm.m": [],
+  "bmX_norm.m": [
+    "bmVarargin.m"
+  ],
+  "bmX_prod.m": [],
+  "bmY_norm.m": [
+    "bmVarargin.m",
+    "bmY_ve_reshape.m"
+  ],
+  "bmY_prod.m": [
+    "bmY_ve_reshape.m"
+  ],
+  "bmY_ve_reshape.m": [],
+  "bmElipsoidMask.m": [
+    "bmVarargin.m"
+  ],
+  "bm2DimInBorderMask.m": [],
+  "bmDiskMask.m": [],
+  "bmOutBorderMask2.m": [],
+  "bm3DimInBorderMask.m": [],
+  "bmMidPlanMask.m": [],
+  "bmOutBorderMask3.m": [],
+  "bmSmoothMask3.m": [],
+  "bmSphereMask.m": [],
+  "bmBluryMaskExctract.m": [],
+  "bmLineListPlot.m": [],
+  "bmMountainPlot.m": [],
+  "bmPlot.m": [],
+  "bmAxpy.m": [],
+  "bmEuclideProd.m": [
+    "bmCol.m",
+    "bmIsScalar.m"
+  ],
+  "bmMinus.m": [],
+  "bmMult.m": [],
+  "bmNorm.m": [],
+  "bmPlus.m": [],
+  "bmSquaredNorm.m": [
+    "bmEuclideProd.m"
+  ],
+  "bmMex.m": [
+    "bmDirList.m",
+    "bmMex_cell2command.m",
+    "bmMex_extern_dir.m",
+    "bmTextFile2Cell.m"
+  ],
+  "bmMex_cell2command.m": [],
+  "bmMex_extern_dir.m": [
+    "bmMex_extern_dir.m",
+    "bmTextFile2Cell.m"
+  ],
+  "bmMexClean.m": [
+    "bmDeleteFile.m",
+    "bmDirList.m",
+    "bmNameList.m"
+  ],
+  "bmMexTest_omp.m": [],
+  "compile_mex_for_monalisa.m": [
+    "bmDirList.m",
+    "bmMex_cell2command.m",
+    "bmMex_extern_dir.m",
+    "bmTextFile2Cell.m"
+  ],
+  "bmMitosius_clean.m": [
+    "bmCheckFile.m",
+    "bmDeleteFile.m",
+    "bmNameList.m"
+  ],
+  "bmMitosius_create.m": [
+    "bmCol.m",
+    "bmCreateDir.m",
+    "bmIndex2MultiIndex.m"
+  ],
+  "bmMitosius_load.m": [
+    "bmCol.m",
+    "bmIndex2MultiIndex.m"
+  ],
+  "bmMitosius_nCell.m": [],
+  "bmMitosius_save.m": [
+    "bmCol.m",
+    "bmIndex2MultiIndex.m"
+  ],
+  "bmMriPhi_fromSI_collect_signal_list.m": [
+    "bmMriPhi_fromSI_rawPerShotSignal_to_standartSignal.m",
+    "bmMriPhi_fromSI_standartSignal_to_reformatedSignal.m",
+    "bmMriPhi_signal_selection.m"
+  ],
+  "bmMriPhi_fromSI_get_rawPerShotSignal.m": [
+    "bmCol.m"
+  ],
+  "bmMriPhi_fromSI_get_standart_reference_signal.m": [
+    "bmDFT.m",
+    "bmMriPhi_fromSI_get_rawPerShotSignal.m",
+    "bmMriPhi_fromSI_get_standart_reference_signal.m",
+    "bmMriPhi_fromSI_imNav.m",
+    "bmMriPhi_fromSI_plot_signal.m",
+    "bmMriPhi_fromSI_rawPerShotSignal_to_standartSignal.m"
+  ],
+  "bmMriPhi_fromSI_imNav.m": [
+    "bmInterp1.m"
+  ],
+  "bmMriPhi_fromSI_plot_signal.m": [],
+  "bmMriPhi_fromSI_rawPerShotSignal_to_standartSignal.m": [
+    "bmInterp1.m"
+  ],
+  "bmMriPhi_fromSI_rmsSI.m": [],
+  "bmMriPhi_fromSI_standartSignal_to_reformatedSignal.m": [
+    "bmVarargin.m"
+  ],
+  "bmMriPhi_graphical_frequency_selector.m": [
+    "bmDoor2Bump.m",
+    "bmIDF.m"
+  ],
+  "bmMriPhi_magnitude_to_mask.m": [],
+  "bmMriPhi_manually_exclude_signal_of_list.m": [],
+  "bmMriPhi_phase_to_mask.m": [],
+  "bmMriPhi_signal_selection.m": [
+    "bmDFT.m",
+    "bmIDF.m"
+  ],
+  "bmMriPhi_signalList_to_phase.m": [
+    "bmMriPhi_signalList_to_phaseList.m"
+  ],
+  "bmMriPhi_signalList_to_phaseList.m": [],
+  "bmMriAcquisitionParam.m": [],
+  "bmCheckCoilPositions.m": [],
+  "bmLowRes.m": [
+    "bmPointReshape.m"
+  ],
+  "bmLowRes_cartesian.m": [
+    "bmPointReshape.m",
+    "bmTraj_cartesian1_lineAssym2.m",
+    "bmTraj_cartesian2_lineAssym2.m",
+    "bmTraj_cartesian3_lineAssym2.m"
+  ],
+  "bmMergeMriData_partialCartesian3_x.m": [
+    "bmPointReshape.m",
+    "bmTraj_partialCartesian_ind_u.m"
+  ],
+  "bmMriNoiseDecor.m": [
+    "bmBlockReshape.m",
+    "bmColReshape.m",
+    "bmZero.m"
+  ],
+  "bmSimbaCluster_to_lineMask.m": [],
+  "bmSimulateMriData.m": [
+    "bmBlockReshape.m",
+    "bmImZeroFill.m",
+    "bmOne.m",
+    "bmPointReshape.m",
+    "bmZero.m"
+  ],
+  "bmUnionOfMriData_partialCartesian.m": [
+    "bmGut_partialCartesian.m",
+    "bmOne.m",
+    "bmTraj_cartesian1_lineAssym2.m",
+    "bmTraj_cartesian2_lineAssym2.m",
+    "bmTraj_cartesian3_lineAssym2.m",
+    "bmTraj_partialCartesian_ind_u.m",
+    "bmType.m",
+    "bmZero.m"
+  ],
+  "bmBackGradient.m": [
+    "bmBackGradient_n.m",
+    "bmZero.m"
+  ],
+  "bmBackGradient_n.m": [],
+  "bmBackGradient_nT.m": [],
+  "bmBackGradientT.m": [
+    "bmBackGradient_nT.m",
+    "bmZero.m"
+  ],
+  "bmConvergeCondition.m": [
+    "bmVarargin.m"
+  ],
+  "bmInitialWitnessInfo.m": [
+    "bmVarargin.m"
+  ],
+  "bmTSV.m": [
+    "bmBackGradient_n.m",
+    "bmX_norm.m"
+  ],
+  "bmTSV_gradient.m": [
+    "bmBackGradient_n.m",
+    "bmBackGradient_nT.m"
+  ],
+  "bmTV.m": [
+    "bmBackGradient.m"
+  ],
+  "bmTV_gradient.m": [],
+  "bmWitnessInfo.m": [
+    "bmBlockReshape.m",
+    "bmVarargin.m"
+  ],
+  "bmCircular_ind_next.m": [],
+  "bmCircular_ind_prev.m": [],
+  "bmIntegerEquipartition.m": [],
+  "bmRound.m": [],
+  "bmScalarBinning.m": [],
+  "bmLocalPhaseLift3.m": [
+    "bmAffineFit.m"
+  ],
+  "bmPhaseLift1.m": [],
+  "bmGamma_H.m": [],
+  "bmGammaBar_H.m": [],
+  "bmGetGyro.m": [],
+  "bmAffineSolve.m": [],
+  "bmDoubleFA_solve.m": [],
+  "checkMetadataInteractive.m": [],
+  "correctMetadataInteractive.m": [],
+  "createRawDataReader.m": [
+    "mleIsmrmrdReader.m",
+    "mleSiemensReader.m"
+  ],
+  "bmISMRMRD_data.m": [],
+  "dhIsmrmrdReadMetaData.m": [
+    "bmIDF.m",
+    "bmMriAcquisitionParam.m",
+    "checkMetadataInteractive.m"
+  ],
+  "dhIsmrmrdReadRawData.m": [],
+  "ISMRMRD_readParam.m": [
+    "bmIDF.m",
+    "bmMriAcquisitionParam.m"
+  ],
+  "mleIsmrmrdReader.m": [
+    "dhIsmrmrdReadMetaData.m",
+    "dhIsmrmrdReadRawData.m",
+    "mleRawDataReader.m"
+  ],
+  "mleRawDataReader.m": [],
+  "bmSiemensReadRawData.m": [],
+  "dhSiemensReadMetaData.m": [
+    "bmIDF.m",
+    "bmMriAcquisitionParam.m",
+    "checkMetadataInteractive.m",
+    "correctMetadataInteractive.m"
+  ],
+  "mleSiemensReader.m": [
+    "bmSiemensReadRawData.m",
+    "dhSiemensReadMetaData.m",
+    "mleRawDataReader.m"
+  ],
+  "bmArray2Binary.m": [],
+  "bmArray2Binary_cData.m": [
+    "bmArray2Binary.m"
+  ],
+  "bmArray2Binary_sparseMat.m": [
+    "bmArray2Binary.m"
+  ],
+  "bmArray2File.m": [],
+  "bmBinary2Array.m": [],
+  "bmBinary2Array_cData.m": [
+    "bmBinary2Array.m"
+  ],
+  "bmBinary2Array_sparseMat.m": [
+    "bmBinary2Array.m"
+  ],
+  "bmCell2TextFile.m": [],
+  "bmCheckDir.m": [],
+  "bmCheckFile.m": [],
+  "bmCheckPath.m": [],
+  "bmClearDir.m": [],
+  "bmCreateDir.m": [
+    "bmCheckDir.m"
+  ],
+  "bmCsvReshape.m": [],
+  "bmDeleteFile.m": [],
+  "bmDeleteFolder.m": [
+    "bmCheckDir.m"
+  ],
+  "bmDirList.m": [
+    "bmCheckDir.m"
+  ],
+  "bmFile2Array.m": [],
+  "bmFindFileContainingString.m": [
+    "bmCheckFile.m",
+    "bmDirList.m",
+    "bmNameList.m"
+  ],
+  "bmGetDir.m": [],
+  "bmGetFile.m": [],
+  "bmLoad.m": [],
+  "bmNameList.m": [
+    "bmCheckDir.m"
+  ],
+  "bmNumList.m": [],
+  "bmSave.m": [],
+  "bmTextFile2Cell.m": [],
+  "bmUpdateMonalisa.m": [
+    "bmCheckFile.m",
+    "bmDeleteFile.m",
+    "bmDirList.m",
+    "bmNameList.m"
+  ],
+  "bmVarName.m": [],
+  "bmSparseMat.m": [
+    "bmSparseMat_blockPartition.m"
+  ],
+  "bmSparseMat_blockPartition.m": [],
+  "bmSparseMat_bmSparseMat2matlabSparse.m": [
+    "bmSparseMat_r_nJump2index.m"
+  ],
+  "bmSparseMat_cell2line.m": [],
+  "bmSparseMat_completeMatlabSparse.m": [],
+  "bmSparseMat_isequal.m": [],
+  "bmSparseMat_matlabSparse2bmMultipleSparseMat.m": [],
+  "bmSparseMat_matlabSparse2bmSparseMat.m": [],
+  "bmSparseMat_r_nJump2index.m": [],
+  "bmSparseMat_vec.m": [],
+  "bmSparseMat_vec_2.m": [],
+  "bmTimeInSecond.m": [],
+  "bmTraj_cartesian1_lineAssym2.m": [],
+  "bmTraj_exp1_lineAssym2.m": [],
+  "bmTraj_random1_k0.m": [],
+  "bmTraj_random1_non_k0.m": [],
+  "bmTraj_randomPartialCartesian1.m": [],
+  "bmTraj_dK_u.m": [
+    "bmPointReshape.m",
+    "bmTraj_N_u.m",
+    "bmTraj_nLine.m"
+  ],
+  "bmTraj_formatTraj.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_lineDirection.m": [],
+  "bmTraj_lineReshape.m": [
+    "bmTraj_nLine.m"
+  ],
+  "bmTraj_N_u.m": [
+    "bmPointReshape.m",
+    "bmTraj_nLine.m"
+  ],
+  "bmTraj_N_u_dK_u.m": [
+    "bmPointReshape.m",
+    "bmTraj_N_u.m",
+    "bmTraj_dK_u.m"
+  ],
+  "bmTraj_nLine.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_norm.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_partialCartesian_ind_u.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_rescaleToUnitCube.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_resolution.m": [],
+  "bmTraj_squaredNorm.m": [
+    "bmPointReshape.m"
+  ],
+  "bmTraj_cartesian2_lineAssym2.m": [],
+  "bmTraj_fullRadial2_lineAssym2.m": [],
+  "bmTraj_gaussRandom_linePartialCartesian2_x.m": [],
+  "bmTraj_random2_k0.m": [],
+  "bmTraj_random2_non_k0.m": [],
+  "bmTraj_randomPartialCartesian2_x.m": [],
+  "bmLineList.m": [],
+  "bmPhyllotaxisAngle3.m": [],
+  "bmTraj_cartesian3_lineAssym2.m": [],
+  "bmTraj_centerOutRadial3_phyllotaxis.m": [],
+  "bmTraj_fullRadial3_phyllotaxis_lineAssym2.m": [
+    "bmPhyllotaxisAngle3.m"
+  ],
+  "bmTraj_random3_k0.m": [],
+  "bmTraj_random3_non_k0.m": [],
+  "bmTraj_randomPartialCartesian3_x.m": [],
+  "bmTraj_UTE_r.m": [],
+  "mlFlexyphyAngle3.m": [],
+  "mlTraj_fullRadial3_phyllotaxis_random_lineAssym2.m": [
+    "mlFlexyphyAngle3.m"
+  ],
+  "mlTraj_fullRadial3_phyllotaxis_uniform_lineAssym2.m": [
+    "mlUphyAngle3.m"
+  ],
+  "mlUphyAngle3.m": [],
+  "bmTraj.m": [
+    "bmTraj_fullRadial3_phyllotaxis_lineAssym2.m",
+    "mlTrajFromPulseq.m",
+    "mlTraj_fullRadial3_phyllotaxis_uniform_lineAssym2.m"
+  ],
+  "mlTrajFromPulseq.m": [],
+  "bmTwix.m": [],
+  "bmTwix_data.m": [],
+  "bmTwix_getCenterOfLine.m": [],
+  "bmTwix_getFirstProjOfShot.m": [
+    "bmIDF.m"
+  ],
+  "bmTwix_info.m": [
+    "bmIDF.m"
+  ],
+  "bmVarargin.m": [],
+  "bmVarargin_cLineMask.m": [],
+  "bmVarargin_eLineMask.m": [],
+  "bmVarargin_empty.m": [],
+  "bmVarargin_false.m": [],
+  "bmVarargin_kernelType_nWin_kernelParam.m": [
+    "bmVarargin.m"
+  ],
+  "bmVarargin_N_u_dK_u.m": [
+    "bmTraj_N_u_dK_u.m",
+    "bmVarargin.m"
+  ],
+  "bmVarargin_oLineMask.m": [],
+  "bmVarargin_rLineMask.m": [],
+  "bmVarargin_RMS_flag.m": [],
+  "bmVarargin_sparseType.m": [],
+  "bmVarargin_true.m": []
+}

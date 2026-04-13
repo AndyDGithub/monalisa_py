@@ -1,0 +1,112 @@
+{
+  "zeros": {
+    "python": "np.zeros",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "ones": {
+    "python": "np.ones",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "rand": {
+    "python": "np.random.rand",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "size": {
+    "python": "np.shape",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "length": {
+    "python": "len",
+    "library": "python",
+    "imports": [],
+    "source": "MathWorks + Python docs"
+  },
+  "fft": {
+    "python": "np.fft.fft",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "ifft": {
+    "python": "np.fft.ifft",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "imresize": {
+    "python": "skimage.transform.resize",
+    "library": "scikit-image",
+    "imports": [
+      "from skimage.transform import resize"
+    ],
+    "source": "MathWorks + scikit-image docs"
+  },
+  "reshape": {
+    "python": "np.reshape",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "sum": {
+    "python": "np.sum",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "mean": {
+    "python": "np.mean",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "abs": {
+    "python": "np.abs",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "true": {
+    "python": "np.ones",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  },
+  "false": {
+    "python": "np.zeros",
+    "library": "numpy",
+    "imports": [
+      "import numpy as np"
+    ],
+    "source": "MathWorks + NumPy docs"
+  }
+}

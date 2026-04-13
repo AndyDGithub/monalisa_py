@@ -18,23 +18,8 @@ To get started with the MRI reconstruction code, follow these steps:
    cd monalisa
 ```
 
-2. Make sure you have a compiler that is recognized by MATLAB. To check that you can run
+2. Great, installation is done! You are now ready to run the first [tutorial](https://mattechlab.github.io/monalisa/3-1_example1.html)
 
-```sh
-mex -setup C++
-```
-
-Depending on your configuration, you should install a C++ compiler. (If you see a message like "No supported compiler or SDK was found. For options, visit <https://www.mathworks.com/support/compilers>".)
-
-If you have to install a compiler, we recommend:
-
-- g++ for Linux,
-- Xcode Clang++ for macOS,
-- Visual studio c++ or MinGW for windows. Normally, the compiler from Visual studio c++ will work. If it fails, you can also install MinGW alternatively following these [instructions](https://ch.mathworks.com/matlabcentral/fileexchange/52848-matlab-support-for-mingw-w64-c-c-fortran-compiler). After downloading the MinGW, such as `mingw81`, run the command `% configuremingw('\path\to\mingw81')`,then you are ready to compile Monalisa!
-
-3. Compile the cpp code using the [helper compiling function](https://github.com/MattechLab/monalisa/blob/main/src/mex/m/compile_mex_for_monalisa.m) . On macOS you should change the libomp_dirs directory here: <https://github.com/MattechLab/monalisa/blob/eed863def169abb2fc623a512aff6de688ddbcf1/src/mex/m/compile_mex_for_monalisa.m#L62>. If you are using brew for the installations, you can find the libomp_dirs path by running: brew --prefix libomp. (you need libomp as explained [here](https://stackoverflow.com/questions/25990296/how-to-include-omp-h-in-os-x>))
-
-4. Great, installation is done! You are now ready to run the first [tutorial](https://mattechlab.github.io/monalisa/3-1_example1.html)
 
 ## Getting started
 
@@ -53,6 +38,50 @@ This repository is organized into 5 main subfolders, each with a specific purpos
 - **`third_part/`** – Third-party software dependencies (some with local modifications). These are distributed under licenses different from Monalisa’s.
 
 - **`tests/`** – Unit tests and validation scripts to ensure code reliability.
+
+
+## Convert MATLAB code to Python (agentic pipeline)
+
+Use an IDE agent (Claude code, Codex, Cursor, etc):
+1. Prompt to tha agent : 
+```
+"Load porting/prompts/system_ide_agent.md as your system prompt, then run:
+python porting/scripts/build_agent_context.py"
+```
+
+Use the deterministic-first porting framework under `porting/`.
+
+1. Run full workflow on all files:
+```bash
+python porting/scripts/run_agentic_porting_workflow.py `  --roots src,demo,tests,third_part `  --force --overwrite-manual `  --model granite3.2:8b `  --fallback-model gpt-oss:20b `  --auto-pull-model `  --max-iterations 3 `  --max-files-per-iteration 20 `  --stream-repair-logs `  --llm-timeout-seconds 180 `  --dynamic-llm-timeout `  --dynamic-timeout-base-seconds 45 `  --dynamic-timeout-per-line-seconds 3 `  --dynamic-timeout-min-seconds 60 `  --dynamic-timeout-max-seconds 900 `  --enable-matlab-help `  --matlab-help-max-functions 1 `  --matlab-help-timeout-seconds 20
+```
+
+2. Cleanup artifacts when needed:
+```bash
+python porting/scripts/cleanup_pipeline_artifacts.py --clean-cache --prune-stale-tests --remove-empty-dirs --apply
+```
+
+See detailed instructions in `porting/README.md`.
+
+
+## Project logic 
+
+When we pull upstream, we do all the tests we can do, we analize the project structure, we make a function call graph and from the leaves, we extract the core logic of each file and writting it to a .txt file with every information we can put like the argument (global/local), the functions (name, arguments, etc...), import/dependencies, etc... 
+We can the compare the file with the previous one and add/remove/update the necessary part to each code 
+The script will do everything automatically (implement and report what he did for the agent to write more clearly)
+There will be a script for any part of the porting (the goal is to not relly on the agent one day), get_project_structure, extract_core_logic, compare_logic, update_file, etc...
+
+### Porting logic
+- The script that extract the function_call_graph is executed and will output 'function_call_graph.txt' or .json
+- Execute search_new_matlab_files.py to produce a file 'matlab_files.txt' that contains all the matlab files
+- Execute the script that extract the logic of the matlab code and produce 'extracted_logic.json' based on 'matlab_files.txt'
+- The script that compares the logic of the old matlab code and new matlab code is executed and produce 'difference_old_new_logic.json' based on 'matlab_files.txt'
+- The script that compares the logic of the matlab code and the python code is executed and produce difference_matlab_python_logic.json
+- Based on its output, the script that will chose the order of porting will be executed, to port the file/function that have no dependencies to other file/function first. (the goal is to isolated for the tests)
+- We port one file/function from matlab to python
+- We execute the tests (if any) for the function/file -> if it doesn't pass, we reiterate the previous steps with different argument ; if pass, we write docs of what changed and we go to next function/file
+- Same thing for the loss functions (compare to matlab result) if it exceeds a certain threshold
+
 
 
 ## Help us improve

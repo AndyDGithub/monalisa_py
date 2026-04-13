@@ -1,0 +1,13 @@
+{
+  "cases": [
+    {
+      "case_id": "example_case",
+      "matlab_path": "C:/path/to/matlab_output.mat",
+      "python_path": "C:/path/to/python_output.npy",
+      "matlab_var": "matlab_image",
+      "python_var": null,
+      "l2_threshold": 1e-6,
+      "nmse_threshold": 1e-6
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "private_rescale_mag",
+        "args": [
+          "x"
+        ],
+        "returns": [
+          "ret"
+        ]
+      },
+      "new": {
+        "function_name": "bcaNeith_coilSensitivitySimulation2",
+        "args": [
+          "Nx",
+          "Ny",
+          "Ncoils"
+        ],
+        "returns": [
+          "ret"
+        ]
+      }
+    },
+    "logic_hash": {
+      "old": "0fda851af66a58a084b5a916b046aa05ff482777bc9fc3efbaeb455876e28c09",
+      "new": "6cb9d098389274c8d1523972826276e6354648375c4a049d6e2e53c167f703a6"
+    },
+    "source_hash": {
+      "old": "363a908e70e211a02d552b262d3212cd5e92c7304897ac655d86dc1c5071c151",
+      "new": "69d9104c70b1b13e57dbb983aa9304843490dae8d08431aaf1b326f63aa046cb"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith3.py": {
+    "status": "modified",
+    "native_calls": {
+      "added": [
+        "MATLABGrappa",
+        "Path",
+        "ValueError",
+        "all",
+        "any",
+        "asarray",
+        "astype",
+        "bool",
+        "insert",
+        "int",
+        "mod",
+        "pad",
+        "reshape",
+        "resolve",
+        "str"
+      ],
+      "removed": []
+    },
+    "logic_hash": {
+      "old": "560a2bcd7d36ab51c81d8d4f23fba1c426483d852d33ed6ef4fc9e04bb20f527",
+      "new": "2e905ccdedcae51f585e04ab39364d5b1af1a821e7be8894703f6db137c4bda6"
+    },
+    "source_hash": {
+      "old": "6960ac90dbf717f10b85d79cbd542b1774ba97fd0e916fbb8fee45ec2cf25977",
+      "new": "53270e2961e972ab57e845a77c555101140be179179e11b0170e5f43b633eb4a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatekSpace3.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "InterpolatekSpace",
+        "args": [
+          "kspace",
+          "interp_kerns",
+          "kern_types",
+          "kernel"
+        ],
+        "returns": [
+          "ret_1",
+          "ret_2"
+        ]
+      },
+      "new": {
+        "function_name": "_validate_kernel",
+        "args": [
+          "kernel"
+        ],
+        "returns": [
+          "ret_1",
+          "ret_2",
+          "ret_3"
+        ]
+      }
+    },
+    "native_calls": {
+      "added": [
+        "InterpolatekSpace",
+        "ValueError",
+        "_as_4d",
+        "any",
+        "append",
+        "asarray",
+        "astype",
+        "concatenate",
+        "int",
+        "norm",
+        "prod",
+        "range",
+        "where",
+        "zeros_like"
+      ],
+      "removed": [
+        "find",
+        "kernel",
+        "normalize",
+        "ravel",
+        "return",
+        "zeros"
+      ]
+    },
+    "logic_hash": {
+      "old": "b25b99dbc6e59dd927a135fafa961b3b36f1798cd87a888f24aaa54de0e60ca7",
+      "new": "3820ffe14f3e5fc214740bcb8cd8166a832aa9cb53f683b72227dc7b42398f99"
+    },
+    "source_hash": {
+      "old": "293ee4f3f04846cbc37d7aaad4053a4f0f671424fe635efbfa293c2d110ddb0c",
+      "new": "e36dadf2244c27781728ebc19172c023187599c411571f11df6944d5747aa733"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatorExtraction3.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "InterpolatorExtraction",
+        "args": [
+          "calib",
+          "kern_types",
+          "kernel"
+        ],
+        "returns": [
+          "ret"
+        ]
+      },
+      "new": {
+        "function_name": "_validate_kernel",
+        "args": [
+          "kernel"
+        ],
+        "returns": [
+          "ret_1",
+          "ret_2",
+          "ret_3"
+        ]
+      }
+    },
+    "native_calls": {
+      "added": [
+        "InterpolatorExtraction",
+        "ValueError",
+        "_as_4d",
+        "any",
+        "append",
+        "asarray",
+        "column_stack",
+        "concatenate",
+        "int",
+        "pinv",
+        "product",
+        "range",
+        "reshape",
+        "sum",
+        "zeros"
+      ],
+      "removed": [
+        "kernel"
+      ]
+    },
+    "logic_hash": {
+      "old": "dee8b9272f101e772f1bfaa78e45107590a9d7c06cb5d02a02e191fb3e79b2b7",
+      "new": "45df8ee6d0379b0c4850149fdb5eca4964f55af838c9030f03665c330b769d47"
+    },
+    "source_hash": {
+      "old": "7f5c9cbf4f6c800b6870a605503bc4179d2086596750f3dc4537e219e3150025",
+      "new": "ed66be686a5cdefc48be2fdecaef070ebd8bcf4b1b2ef6a3ad8727c600551320"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_kernelTypeExtraction3.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "KernelTypeExtraction",
+        "args": [
+          "kspace",
+          "kernel"
+        ],
+        "returns": [
+          "ret"
+        ]
+      },
+      "new": {
+        "function_name": "_validate_kernel",
+        "args": [
+          "kernel"
+        ],
+        "returns": [
+          "ret_1",
+          "ret_2",
+          "ret_3"
+        ]
+      }
+    },
+    "native_calls": {
+      "added": [
+        "KernelTypeExtraction",
+        "ValueError",
+        "_kspace_mask_view",
+        "any",
+        "append",
+        "asarray",
+        "astype",
+        "column_stack",
+        "dot",
+        "float",
+        "int",
+        "norm",
+        "range",
+        "reshape",
+        "zeros"
+      ],
+      "removed": [
+        "kernel",
+        "normalize",
+        "ravel"
+      ]
+    },
+    "logic_hash": {
+      "old": "6151c5c6fcbbd962c3f63a25d6918f0fccce8cc5ccf1923a02df72230d8d029d",
+      "new": "f398c7383f28c9edd08948f4ffeba23ade15373d5502579b951caccda4b04924"
+    },
+    "source_hash": {
+      "old": "a45c73db5d5458789e0370b4e7882fb91c27027a7c0e3233d960dd4a73b95f41",
+      "new": "f94dcc445beeeadff576f914e8f58f3e904792de2fa3271e4be2346ab9d151b4"
+    }
+  }
+}

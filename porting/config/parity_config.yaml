@@ -1,0 +1,22 @@
+project: monalisa-port
+matlab:
+  enabled: true
+  command: matlab
+  mode: batch
+python:
+  version: "3.11"
+  package_root: porting/python
+parity:
+  default:
+    mode: rtol_atol
+    rtol: 1.0e-6
+    atol: 1.0e-9
+  strict_functions: []
+  complex_support: true
+  report_top_k: 20
+task_selection:
+  strategy: leaf_first
+  allow_scc_bundle: true
+ci:
+  fail_on_parity_mismatch: true
+  fail_on_missing_task_metadata: true

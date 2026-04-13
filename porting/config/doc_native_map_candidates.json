@@ -1,0 +1,9072 @@
+{
+  "a": {
+    "python": "a",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "a1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "a2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "a_map": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "a_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "abs": {
+    "python": "np.abs",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "acos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "acq": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ad": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ad_c": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "addlistener": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "addpath": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "addstyle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "all": {
+    "python": "all",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "alpha": {
+    "python": "alpha",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "anat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "anat_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "angle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "answer": {
+    "python": "answer",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "arcos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_cell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_im_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_var": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arg_z": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "arga": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argarray": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argblurymask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argcenter": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argdata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argedge": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argfile": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argimage": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argimagelist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argimagestable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argin": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argmask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argmask_neg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argmultiind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argpath": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "args": {
+    "python": "args",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "argshiftlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argsparse": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argtraj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argtype": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argvec": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "argx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "around": {
+    "python": "around",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "array": {
+    "python": "array",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "arrow3dim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "assert": {
+    "python": "assert",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/index.html#reference-index",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "astarttable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "at": {
+    "python": "at",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "autoflag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "automatedvalues": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "available_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axes": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axes2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axes2_buttondownfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axes3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axes3_buttondownfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axis": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "axis_3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "azimuthalangle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b": {
+    "python": "b",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "b1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b4": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b_b": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b_g": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b_map": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "b_r": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "backgroundim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bbox": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bcaneith_interpolatekspace": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bcaneith_interpolatorextraction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bcaneith_kerneltypeextraction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bcreader": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "besseli": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "besselj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "beta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_1_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_2_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_3_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_4": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "biexpfit_4_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "blackborder": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "block_length": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "blocks": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bm3dimphyllotaxisangle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmcreatfolder": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmdicomviewer": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmdicomviewer_openingfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmdicomviewer_outputfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgridder_n2u_leight1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgridder_n2u_leight2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgridder_n2u_leight3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgridder_n2u_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g_inv1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g_inv2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_prepare_g_inv3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_secret_length1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_secret_length2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmgriddingmatrix_secret_length3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf1_cufft_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf1_fftw_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf2_cufft_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf2_fftw_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf3_cufft_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmidf3_fftw_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimbumpfiltering1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimcrossmean2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimcrossmean2_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimcrossmean3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimcrossmean3_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimdeformfield_sparsemat_ind_weight": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimgradient2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimgradient3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmiminterp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmiminterp2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver1_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver2_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplaceequationsolver3_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplacian1_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplacian2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmimlaplacian3_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmmriphi_graphical_frequency_selector": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmmriphi_graphical_frequency_selector_openingfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmmriphi_graphical_frequency_selector_outputfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmmultiplesparsemat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha1_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha1_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha2_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha2_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha3_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmnakatsha3_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmndim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmrotation": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna1_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna1_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna2_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna2_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna3_cufft_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmshanna3_fftw_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cc_oblock_2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cc_oblock_2_mex_omp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cc_oblock_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cc_oblock_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cr_nblock_2_mex_omp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cr_nblock_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cr_oblock_2_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_cr_oblock_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_r_njump2index_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rc_oblock_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rc_oblock_mex_omp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rc_oblock_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rr_nblock_mex_omp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rr_nblock_omp_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsparsemat_rr_oblock_mex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsphericalvoronoi_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsphericalvoronoi_1_nonunique": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmsphericalvoronoi_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bmtraj_fullradial3_phyllotaxis_random_lineassym2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "borderextraction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "borders": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bordersmip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bordersrms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bound_a": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bound_b": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "boxes": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "boxpos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bstarttable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bump_ind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bwboundaries": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "bwconncomp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c": {
+    "python": "np.c",
+    "library": "numpy",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "c1": {
+    "python": "c1",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "c2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_abs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_abs_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_body": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_conj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_decor": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_mov": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_phi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_phi_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "c_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ca": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "calib": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cd": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ceil": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cell": {
+    "python": "cell",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "cell2mat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cell_namelist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cellstr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "changed": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "changes": {
+    "python": "changes",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/improve-page-nojs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "changeview": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "channel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "channels": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "check": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "chol": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ci": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "circshift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "class": {
+    "python": "class",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "clim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "close": {
+    "python": "close",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "closefigure": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "co": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "code": {
+    "python": "code",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "coeffs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "coil": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "coils": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "coilsensitivityframesize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "color": {
+    "python": "color",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "colormap": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "colormax": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "column": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "columns": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "complex": {
+    "python": "complex",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "condition": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "confirmcallback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "confirmselection": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "conj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "conjugate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "controls": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "convhulln": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "coordinate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "coordinates": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "copyfile": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cp": {
+    "python": "cp",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "cpp_prepare": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "create": {
+    "python": "create",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/improve-page-nojs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "created": {
+    "python": "created",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "cropped_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cross": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "current": {
+    "python": "current",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "cx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "cz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "d": {
+    "python": "d",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "d1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "d_c": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "d_mid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "d_n": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "d_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "daga_res_next": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dagm_res_next": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "data": {
+    "python": "data",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "data_n": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "data_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "datamip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "datapoints": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "datarms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "de": {
+    "python": "de",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "deapodization": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "deformations": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "delaunayn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "delete": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "delta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "delta_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "deltak": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "detectthreshold_gmm2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "diag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dicominfo": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dicomread": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dicomwrite": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dimension": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dimensionality": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dimensions": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dimsa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dimsb": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dir": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dir_bmtoolbox": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dir_monalisa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "disp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "disp_info": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "display_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "distances": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_n": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_u_curr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dk_u_new": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dlmread": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dlmwrite": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "double": {
+    "python": "double",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "dr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dr_0": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "draggingfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ds": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dv": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dv_dalpha": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dv_dphi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dv_dpsi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dv_dtheta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvec": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvx_dalpha": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvx_dphi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvx_dpsi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvx_dtheta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvy_dalpha": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvy_dphi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvy_dpsi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvy_dtheta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvz_dphi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvz_dpsi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dvz_dtheta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dwt": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dwt2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dwt3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dalpha": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dphi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dpsi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dtheta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dtx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dty": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_deform_dtz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "dx_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "e": {
+    "python": "e",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "e2prime": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "e3prime": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "echos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ee": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "eig": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "elements": {
+    "python": "elements",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "elseif": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "entries": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "eps": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "error": {
+    "python": "error",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "errordlg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "estimate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "estimation": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ev": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "eval": {
+    "python": "eval",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "ex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "exist": {
+    "python": "exist",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/index.html#reference-index",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "exp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ey": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "eye": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ez": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "f": {
+    "python": "f",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "factor": {
+    "python": "factor",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "false": {
+    "python": "false",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "fc": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fclose": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "feof": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fft": {
+    "python": "np.fft.fft",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "fft_lib_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fft_lib_sflag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fftshift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fgetl": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fieldnames": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "figure": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "figure1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "figure1_closerequestfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "figure1_createfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "file": {
+    "python": "file",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "fileparts": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "find": {
+    "python": "find",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "fitgmdist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fix": {
+    "python": "fix",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme_dark.css",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "flagexcludesi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "flagselfnav": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "flagss": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "flip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "flipud": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "floor": {
+    "python": "floor",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "fopen": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "form": {
+    "python": "form",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "format": {
+    "python": "format",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "formatedindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "formatedtraj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "formatedweight": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fov": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fp_curr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fprintf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fread": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "frsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fs_plot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fs_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fullfile": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fwrite": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "fzero": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "g": {
+    "python": "g",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "g_imag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "g_part": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "g_real": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gaussian": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "genpath": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "genvarname": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "get": {
+    "python": "get",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "get_soft_point_from_click": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "getfield": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "given": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gpunufft": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gradx_x_deform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "grady_x_deform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gradz_x_deform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "graythresh": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "grid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gridding": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gu": {
+    "python": "gu",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "gui_mainfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "guidata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gut": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "gy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "h": {
+    "python": "h",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "h5read": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "half_or_full": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "hard_coord": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "harmonicfield3d": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "helbing": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "histcounts": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "histogram": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "hold": {
+    "python": "hold",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "horizontally": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "hy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "idwt": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "idwt2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ifft": {
+    "python": "np.fft.ifft",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "ifft2c_mri": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ifftshift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ifx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "im5d": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "im_main": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "im_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "im_prescan": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "image": {
+    "python": "image",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "images": {
+    "python": "images",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/opensearch.xml",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "imagesc": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imagestable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imbinarize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imcontrast": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imdef": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imdef_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imdef_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imdilate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imdim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imerode": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imgradient": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imnav": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imregdemons": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imshift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imsize_0": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imstart": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "imsupport": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "in_mitosius_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "in_param": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "in_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ind_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ind_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ind_line": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ind_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "index": {
+    "python": "index",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "indexing": {
+    "python": "np.indexing",
+    "library": "numpy",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "inmultiindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "inputdlg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "inputname": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "int32": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "int64": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "integer": {
+    "python": "integer",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "interest": {
+    "python": "interest",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "interfaceoff": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "interfaceon": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "interpn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "interpolated": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "interpolatekspace": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "interpolatorextraction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "intmax": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "inv": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "is": {
+    "python": "is",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "isa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "iscell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ischar": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isempty": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isequal": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isfield": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ishandle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isinf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isjumpleft": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isjumpright": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "iskern": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "islogical": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ismember": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ismrmrd": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ismrmrd_info": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isnan": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isnumeric": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isprop": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isradius_l": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isreal": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isscalar": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "isstring": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "jumps": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "k": {
+    "python": "k",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "k0": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "k_max": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "k_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "k_trj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kern": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kern_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kern_types": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kernel": {
+    "python": "kernel",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "kernelparam": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kernels": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kerneltype": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kerneltypeextraction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kf_conj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kfc": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kfc_conj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kspace": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kspace_interp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kspace_kern_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ky": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "kz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "l": {
+    "python": "l",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "l_block_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "l_ind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "l_inv": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "l_squeeze": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "l_th": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "layout": {
+    "python": "layout",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "legend": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "leidi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "leight_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "length": {
+    "python": "len",
+    "library": "python",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "python"
+      }
+    ]
+  },
+  "libomp_dirs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "limit": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "limits": {
+    "python": "limits",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "line": {
+    "python": "line",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "line_reshape": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "linemask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "lines": {
+    "python": "lines",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "linspace": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "listbox1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "listbox1_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "listbox1_createfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "listeners": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "load": {
+    "python": "load",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "load_nii": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "log": {
+    "python": "log",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "logical": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "lower": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "lsqcurvefit": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "m": {
+    "python": "m",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "m_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "m_neg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "m_val": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "macos": {
+    "python": "macos",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "mainfunction": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "make_nii": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mapping": {
+    "python": "mapping",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "maps": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mapvbvd_jh_for_monalisa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mapvbvd_jh_in_bmtoolbox": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mask_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "masses": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "match": {
+    "python": "match",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/index.html#reference-index",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "matlabgrappa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "matrices": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "matrix": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "max": {
+    "python": "max",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "mean": {
+    "python": "np.mean",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "median": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mesh": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mfilename": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mid_point": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "milani": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "min": {
+    "python": "np.min",
+    "library": "numpy",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "mip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mitosius_namelist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mitosius_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mkdir": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mltraj_fullradial3_phyllotaxis_lineassym2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mmb": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mod": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mode": {
+    "python": "mode",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "model": {
+    "python": "model",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "modulus": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "moment": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "monoexpfit_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "monoexpfit_1_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "monoexpfit_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "monoexpfit_2_start": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "movegui": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "movstd": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mp_curr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mriacquisition_node": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "multiindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "multiplying": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myangle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myangles": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myanglevoronoi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myarea": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myarg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mybump": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mycenter": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mycentermask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myclickcallback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mycolumn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myconvhull": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mycoordinates": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mycross": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mydata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mydeformfieldlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mydiff": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mydir": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mydirection": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myexp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myfilename": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mygridd": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myhist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myim_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myim_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myimage": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myimagelist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myimagestable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myimagetimelist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myind_max": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myindexlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mykernelval": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mykeypressfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mykeyreleasefcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myleftradius": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myleftvolume": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myline": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mylines": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mylist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymasklist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymriacquisition_node": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mymultiind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynewsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynorm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynormal": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynumbers": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynumlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynumofneighb": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mynumofnonzero": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myone": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mypath": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mypatientbirthdate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myperm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mypoint": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myproblemmask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myradius": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrefresh_a": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrefresh_b": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myreplacevolume": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrepvec": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myreshapevec": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrightradius": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrightvolume": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myrow": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myscore": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myshift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myshiftlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysignal": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysort": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysparse": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mystd": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mystring1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mystudydate": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mysum": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytime": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytop": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytraj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytrajdiff": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytriangle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mytwix": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myval": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myval2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myvallist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myvarargin_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myvertices": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myvoronoi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myweight": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "mywindowscrollwheelfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "myzerosize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n": {
+    "python": "n",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "n1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_mip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_rms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_u_curr": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_u_new": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "n_u_os": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nblock": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nch": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ndata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ndgrid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ndims": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "needed": {
+    "python": "needed",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "neigbors": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "neighbors": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "new_grid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "new_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "newsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nexttile": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "niter": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "niter_max_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "njump": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nline": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nnz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "norm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "normalize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "normpdf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "not": {
+    "python": "not",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "nphase": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nseg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nshot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nshot_off": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nshotoff": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nsmooth_phi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nu": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nu_plot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nu_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "num2cell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "num2str": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "numel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "nwin": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "o": {
+    "python": "o",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "obj": {
+    "python": "obj",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "of": {
+    "python": "of",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "one_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ones": {
+    "python": "np.ones",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "only": {
+    "python": "only",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "openmp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "operation": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "optimset": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "option": {
+    "python": "option",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "origin": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "original_p_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "others": {
+    "python": "others",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "out": {
+    "python": "out",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html#notes-on-availability",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "out_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "out_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "out_mitosius_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "out_param": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "outim": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "outind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "outmultiindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "outofline_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "output": {
+    "python": "output",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "outtable_cell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p": {
+    "python": "p",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "p1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p1_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p1_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p2_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p2_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p3_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p3_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p4_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p4_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p_0": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p_interp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "p_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "padarray": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "padsize": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pairs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "parameter": {
+    "python": "parameter",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/index.html#reference-index",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "parameters": {
+    "python": "parameters",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "parsestring": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "parts": {
+    "python": "parts",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "patch": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf1m": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf1r": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf2m": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdf2r": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pdfs": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "permute": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "permute_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "permute_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "phase_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "phi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "phyllotaxis3d_jean_for_monalisa": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pinv": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pixel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "plane": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "plot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "plot3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "plot_ind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "point": {
+    "python": "point",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "point_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "point_reshape": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "points": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "polarangle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pos": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "positive": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "possible": {
+    "python": "possible",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "posx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "posy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "posz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "prctile": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "print_help": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_adapt_delta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_adapt_delta_rho": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_check": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_checkerboard": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_checkerboard_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_checkerboard_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_dafi_regul": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_dagf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_dagf1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_dagf2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_dagm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_f": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_f1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_f2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_find_rotation2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_find_rotation3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_flip_x_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_c_d": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_linesearch": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_negativegradient2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_negativegradient3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_objective": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_param": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_get_transform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_ind_box": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_init_delta_rho": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_init_regul_param": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_init_witnessinfo": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_m": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_mod": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_psi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_replace_larger": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_replace_smaller": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_rescale": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_rescale_mag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_smooth": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_tensorprod": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_theta_psi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_ve_to_hy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_veig2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "private_veig3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "prod": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "projection": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "psi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pulseq": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pulseq_path": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton10": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton10_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton11": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton11_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton12": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton12_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton13": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton13_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton14": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton14_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton15": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton15_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton16": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton16_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton17": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton17_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton18": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton18_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton19": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton19_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton1_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton20": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton20_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton21": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton21_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton22": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton22_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton23": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton23_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton24": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton24_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton25": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton25_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton26": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton26_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton27": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton27_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton28": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton28_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton29": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton29_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton2_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton30": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton30_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton31": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton31_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton32": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton32_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton33": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton33_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton34": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton34_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton35": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton35_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton36": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton36_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton37": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton37_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton3_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton4": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton4_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton5": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton5_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton6": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton6_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton7": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton7_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton8": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton8_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton9": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "pushbutton9_callback": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "q": {
+    "python": "q",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "questdlg": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "quiver": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "quiver3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r": {
+    "python": "r",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "r1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r10": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r11": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r12": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r13": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r14": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r15": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r16": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r4": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r5": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r6": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r7": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r8": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r9": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_ind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_njjump": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_njump": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_njump_32": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_rest": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "r_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "radial": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rand": {
+    "python": "np.random.rand",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "randn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "randperm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "raw_data": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rawdata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reader": {
+    "python": "reader",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "readmetadata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "readouts": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "readrawdata": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "real": {
+    "python": "real",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "reconfov": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reduce_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reference": {
+    "python": "reference",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "refresh": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "refresh_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "refreshimage": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "refreshimages": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "regionprops": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rel_dirlist": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "removestyle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "repmat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "res": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reset_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reset_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "reshape": {
+    "python": "np.reshape",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "resolution_level_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "response": {
+    "python": "response",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "returns": {
+    "python": "returns",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "rho": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rho_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rmdir": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rms_body": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rmssi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rng": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "roipoly": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rotate_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rotate_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rotation": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "round": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "row": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "rows": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "run": {
+    "python": "run",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "s": {
+    "python": "s",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "s1": {
+    "python": "s1",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "s1_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s2": {
+    "python": "s2",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "s3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_bandpass": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_center_mass": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_filtered": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_final": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_in": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_interpolant": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_lowpass": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_m1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_m2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_m3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_mid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_p1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_p2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_p3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "s_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "save": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "save_nii": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "screader": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "segments": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "selfnav_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sensemaps": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sensitivity": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "set": {
+    "python": "set",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/copyright.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "set_inplane_angle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "set_psi_theta_phi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "set_viewplane": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "shotoff": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "shots": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "show_imval_in_title": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "shuffling": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "siemens": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sign": {
+    "python": "sign",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/bugs.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "simbacluster": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sin": {
+    "python": "sin",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "single": {
+    "python": "single",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments_dark.css?v=5349f25f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "singleton": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "size": {
+    "python": "np.shape",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "size_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "slice": {
+    "python": "slice",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "soft_coord": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "soft_point": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "solved": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sort": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sound": {
+    "python": "sound",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "space": {
+    "python": "space",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "sparse": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sparsetype": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sph2cart": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sphere": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sprintf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sqrt": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "square": {
+    "python": "square",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "squarednorm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "squares": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "squeeze": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "startdragfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "stats": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "std": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "stopdragfcn": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "stored": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "str2double": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "str2func": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "str2num": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strcat": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strcmp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strcmpi": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strfind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "strrep": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "struct": {
+    "python": "struct",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "structure": {
+    "python": "structure",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://www.python.org/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/index.html#reference-index",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "sub_mitosius_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "submultiindex": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "subplot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "sum": {
+    "python": "np.sum",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "surface": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "swapping": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "system": {
+    "python": "system",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "sza": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "szb": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "t": {
+    "python": "t",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "t1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "t2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "t_cell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "t_interp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "t_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "tables": {
+    "python": "tables",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_a": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_bound_j": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_c": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_edge": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_im": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_ind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_l": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_mask": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_name": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_name_list": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_r": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_r_njump": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_res": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_s": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_table": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_x": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_y": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temp_z": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "tempmip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "tempnumofind": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "tempnumofind_64": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "temprms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "testargtraj": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "text": {
+    "python": "text",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pygments.css?v=b86133f3",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "textread": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "the": {
+    "python": "the",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "theta": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "thmip": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "thread": {
+    "python": "thread",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "threshold": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "thrms": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "tiledlayout": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "title": {
+    "python": "title",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "to": {
+    "python": "to",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      }
+    ]
+  },
+  "togglecontrast": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "traj_type": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "trajectory": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "transform": {
+    "python": "transform",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "transpose_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "transpose_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "true": {
+    "python": "np.true",
+    "library": "numpy",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/reference/grammar.html",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "types": {
+    "python": "types",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://numpy.org/doc/stable/user/",
+        "library": "numpy"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "u": {
+    "python": "u",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "uibutton": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uicheckbox": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uicontrol": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uidropdown": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uifigure": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uigridlayout": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uilabel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uint16": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uint32": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uiresume": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uistyle": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uitable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "uiwait": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "unchanged": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "undersamp_shape": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "unique": {
+    "python": "unique",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "unsorted": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "update_field": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "update_image": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "update_s1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "updateborder": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "updated": {
+    "python": "updated",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "updatefields": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "updatelisteners": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "updatetable": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v": {
+    "python": "v",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "v_mov_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_mov_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_mov_3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_norm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_ref_1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_ref_2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_ref_3": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "v_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "val_calib": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "valid": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "value": {
+    "python": "value",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html#the-python-standard-library",
+        "library": "python-stdlib"
+      }
+    ]
+  },
+  "values": {
+    "python": "values",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/library/intro.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/py-modindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "varargin": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "varargout": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ve": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ve_gpunufft": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ve_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vecnorm": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vector": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vectors": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vertically": {
+    "python": "vertically",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "vf": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "view": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "voronoin": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vx": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vx_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vy_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "vz_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "w": {
+    "python": "w",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "wanted": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "warning": {
+    "python": "warning",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/pydoctheme.css?v=82640b3f",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "watch": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "weightaccept": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "width": {
+    "python": "width",
+    "library": "python-stdlib",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/_static/classic.css?v=234b1a7c",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "x": {
+    "python": "x",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "x0": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x1_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x2_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_a": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_b": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_body": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_calib": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_ch": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_deform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_plot": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_ref_minus_x_deform": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_shift": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_si": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_surface": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "x_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "xlabel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "xline": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "xml": {
+    "python": "xml",
+    "library": "python-stdlib-module",
+    "confidence": "sphinx-high",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "library": "python-stdlib"
+      },
+      {
+        "url": "https://docs.python.org/3.13/",
+        "library": "python-docs"
+      },
+      {
+        "url": "https://docs.python.org/3/about.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "y": {
+    "python": "y",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "y1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y1_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y2_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_a": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_b": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_cell": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_decor": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_out": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_raw": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_raw_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_ref": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_size": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_temp": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "y_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "yjtraj_fullradial3_phyllotaxis_inversexyz": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "yjtraj_fullradial3_phyllotaxis_swapxy": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "ylabel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "z": {
+    "python": "z",
+    "library": "python-docs",
+    "confidence": "heuristic-medium",
+    "sources": [
+      {
+        "url": "https://docs.python.org/3/genindex.html",
+        "library": "python-docs"
+      }
+    ]
+  },
+  "z1": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "z1_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "z2": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "z2_mean": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "z_u": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "zero_block_flag": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  },
+  "zeros": {
+    "python": "np.zeros",
+    "library": "numpy",
+    "confidence": "seed-high",
+    "sources": [
+      {
+        "url": "seed-rule",
+        "library": "numpy"
+      }
+    ]
+  },
+  "zlabel": {
+    "python": null,
+    "library": null,
+    "confidence": "unknown",
+    "sources": []
+  }
+}

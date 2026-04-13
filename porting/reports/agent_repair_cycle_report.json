@@ -1,0 +1,47 @@
+{
+  "model": "gpt-oss:20b",
+  "max_iterations": 1,
+  "iterations_ran": 1,
+  "finished_reason": "all_tests_passed",
+  "iterations": [
+    {
+      "iteration": 1,
+      "pipeline": {
+        "command": [
+          "C:\\python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\run_porting_pipeline.py",
+          "--skip-tests"
+        ],
+        "returncode": 0,
+        "stdout": "Pipeline report written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\pipeline_run_report.json\n",
+        "stderr": ""
+      },
+      "generate_contract_tests": {
+        "command": [
+          "C:\\python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\generate_contract_tests.py",
+          "--summary-only"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"matlab_files\": 477,\n  \"contract_tests_written\": 477,\n  \"created\": 0,\n  \"updated\": 0,\n  \"skipped_missing_python\": 0\n}\n",
+        "stderr": ""
+      },
+      "pytest": {
+        "command": [
+          "C:\\python313\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\test_a.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\test_bcaNeith2.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\contracts\\test_contract_arrayUtility_bmArray2Cell.py",
+          "-q",
+          "--maxfail=50"
+        ],
+        "returncode": 0,
+        "stdout": ".s.s....                                                                 [100%]\n============================== warnings summary ===============================\n..\\..\\..\\AppData\\Roaming\\Python\\Python313\\site-packages\\_pytest\\cacheprovider.py:475\n  C:\\Users\\andym\\AppData\\Roaming\\Python\\Python313\\site-packages\\_pytest\\cacheprovider.py:475: PytestCacheWarning: could not create cache path C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\.pytest_cache\\v\\cache\\nodeids: [WinError 5] Acc\u00e8s refus\u00e9: 'C:\\\\Users\\\\andym\\\\hesso\\\\PA-Monalisa\\\\monalisa_py\\\\porting\\\\.pytest_cache\\\\v\\\\cache'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n6 passed, 2 skipped, 1 warning in 0.30s\n",
+        "stderr": ""
+      },
+      "pytest_target_count": 3
+    }
+  ]
+}

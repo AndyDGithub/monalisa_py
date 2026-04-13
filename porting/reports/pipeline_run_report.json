@@ -1,0 +1,71 @@
+{
+  "hash_scan": {
+    "matlab_file_count": 477,
+    "added": 0,
+    "changed": 0,
+    "removed": 0
+  },
+  "dependency_graph": {
+    "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\dependency_graph.json",
+    "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\porting_order.json",
+    "layers": 13
+  },
+  "compile": {
+    "matlab_files": 477,
+    "changed_files": 1,
+    "skipped_files": 1,
+    "generated_files": [
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.py",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\test_bcaNeith_coilSensitivitySimulation2.py"
+    ],
+    "changed_sources": [
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.m"
+    ],
+    "failed_files": [],
+    "preserved_manual_files": [],
+    "tests_returncode": null,
+    "tests_stdout": "",
+    "tests_stderr": ""
+  },
+  "extract_logic": {
+    "command": [
+      "C:\\python313\\python.exe",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
+      "--matlab-root",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
+      "--output",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
+      "--include-python"
+    ],
+    "returncode": 0,
+    "stdout": "Extracted logic for 954 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json\n",
+    "stderr": ""
+  },
+  "compare_old_new_logic": {
+    "command": [
+      "C:\\python313\\python.exe",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
+      "--new",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
+      "--old",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic.json",
+      "--output",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\differences_old_new_logic.json"
+    ],
+    "returncode": 0,
+    "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\differences_old_new_logic.json\nChanged files: 5\n",
+    "stderr": ""
+  },
+  "compare_matlab_python": {
+    "command": [
+      "C:\\python313\\python.exe",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
+      "--output",
+      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\logic_differences.json"
+    ],
+    "returncode": 0,
+    "stdout": "Wrote 143 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\logic_differences.json\n",
+    "stderr": ""
+  }
+}

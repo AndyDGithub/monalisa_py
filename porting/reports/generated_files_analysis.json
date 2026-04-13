@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "python_files": 477,
+    "auto_generated_files": 466,
+    "manual_files": 11,
+    "fallback_stub_files": 0,
+    "risky_true_false_calls": 0
+  },
+  "compile_error_top_kinds": {},
+  "fallback_stub_files": [],
+  "risky_true_false_call_sites": []
+}
