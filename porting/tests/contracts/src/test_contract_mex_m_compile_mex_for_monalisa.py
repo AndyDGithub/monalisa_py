@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/mex/m/compile_mex_for_monalisa.py"
-EXPECTED_FUNCTION_NAME = "a"
+EXPECTED_FUNCTION_NAME = "compile_mex_for_monalisa"
 EXPECTED_ARG_COUNT = 0
 
 

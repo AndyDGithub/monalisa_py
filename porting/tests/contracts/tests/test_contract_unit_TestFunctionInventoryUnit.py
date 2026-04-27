@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[4] / "tests/unit/TestFunctionInventoryUnit.py"
-EXPECTED_FUNCTION_NAME = "h"
+EXPECTED_FUNCTION_NAME = "addProjectPath"
 EXPECTED_ARG_COUNT = 1
 
 

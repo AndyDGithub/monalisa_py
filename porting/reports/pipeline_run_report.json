@@ -1,71 +1,398 @@
 {
-  "hash_scan": {
-    "matlab_file_count": 477,
-    "added": 0,
-    "changed": 0,
-    "removed": 0
+  "roots": {
+    "src": {
+      "root": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
+      "hash_scan": {
+        "matlab_file_count": 477,
+        "added": 0,
+        "changed": 0,
+        "removed": 0
+      },
+      "dependency_graph": {
+        "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\dependency_graph.json",
+        "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\porting_order.json",
+        "layers": 14
+      },
+      "compile": {
+        "matlab_files": 477,
+        "changed_files": 0,
+        "skipped_files": 445,
+        "generated_files": [],
+        "changed_sources": [],
+        "failed_files": [],
+        "preserved_manual_files": [
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmArray2Binary.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmCell2TextFile.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dialog\\bmDispPercent.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2_griddPlot.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2_image.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2_noImage.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp3\\bmFieldPlot3_image.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp3\\bmFieldPlot3_noImage.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mathDisp\\bmMountainPlot.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmNanColor.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mathDisp\\bmPlot.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmSave.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\sparseMat\\m\\bmSparseMat_matlabSparse2bmMultipleSparseMat.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmArray2Binary_sparseMat.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmConvergeCondition.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmDeleteFolder.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp3\\bmFieldPlot3.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmInitialWitnessInfo.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_save.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\sparseMat\\m\\bmSparseMat.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmWitnessInfo.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmFindFileContainingString.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformField_meshDisp2.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\bmMexClean.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_clean.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_create.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmUpdateMonalisa.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_find_nSmooth_phi.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformFieldInverse_checkerboardDisp2.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\bmMex.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\compile_mex_for_monalisa.py"
+        ],
+        "skipped_mex_wrapper_files": [],
+        "tests_returncode": null,
+        "tests_stdout": "",
+        "tests_stderr": ""
+      },
+      "extract_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\extracted_logic.json",
+          "--include-python"
+        ],
+        "returncode": 0,
+        "stdout": "Extracted logic for 954 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\extracted_logic.json\n",
+        "stderr": ""
+      },
+      "compare_old_new_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
+          "--new",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\extracted_logic.json",
+          "--old",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic_src.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\differences_old_new_logic.json"
+        ],
+        "returncode": 0,
+        "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\differences_old_new_logic.json\nChanged files: 4\n",
+        "stderr": ""
+      },
+      "compare_matlab_python": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\extracted_logic.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\logic_differences.json"
+        ],
+        "returncode": 0,
+        "stdout": "Wrote 159 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\logic_differences.json\n",
+        "stderr": ""
+      },
+      "generate_contract_tests": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\generate_contract_tests.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
+          "--python-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
+          "--tests-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\contracts\\src",
+          "--report",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\src\\contract_test_generation_report.json",
+          "--summary-only"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"matlab_files\": 477,\n  \"contract_tests_written\": 477,\n  \"created\": 0,\n  \"updated\": 0,\n  \"skipped_missing_python\": 0\n}\n",
+        "stderr": ""
+      }
+    },
+    "demo": {
+      "root": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo",
+      "hash_scan": {
+        "matlab_file_count": 21,
+        "added": 0,
+        "changed": 0,
+        "removed": 0
+      },
+      "dependency_graph": {
+        "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\dependency_graph.json",
+        "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\porting_order.json",
+        "layers": 2
+      },
+      "compile": {
+        "matlab_files": 21,
+        "changed_files": 0,
+        "skipped_files": 19,
+        "generated_files": [],
+        "changed_sources": [],
+        "failed_files": [],
+        "preserved_manual_files": [
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo\\data_demo\\data_8_tutorial_1\\downloadData.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo\\function_demo\\function_tutorial_1\\updatePlot.py"
+        ],
+        "skipped_mex_wrapper_files": [],
+        "tests_returncode": null,
+        "tests_stdout": "",
+        "tests_stderr": ""
+      },
+      "extract_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\extracted_logic.json",
+          "--include-python"
+        ],
+        "returncode": 0,
+        "stdout": "Extracted logic for 42 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\extracted_logic.json\n",
+        "stderr": ""
+      },
+      "compare_old_new_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
+          "--new",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\extracted_logic.json",
+          "--old",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic_demo.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\differences_old_new_logic.json"
+        ],
+        "returncode": 0,
+        "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\differences_old_new_logic.json\nChanged files: 0\n",
+        "stderr": ""
+      },
+      "compare_matlab_python": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\extracted_logic.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\logic_differences.json"
+        ],
+        "returncode": 0,
+        "stdout": "Wrote 8 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\logic_differences.json\n",
+        "stderr": ""
+      },
+      "generate_contract_tests": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\generate_contract_tests.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo",
+          "--python-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\demo",
+          "--tests-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\contracts\\demo",
+          "--report",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\demo\\contract_test_generation_report.json",
+          "--summary-only"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"matlab_files\": 21,\n  \"contract_tests_written\": 21,\n  \"created\": 0,\n  \"updated\": 0,\n  \"skipped_missing_python\": 0\n}\n",
+        "stderr": ""
+      }
+    },
+    "tests": {
+      "root": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests",
+      "hash_scan": {
+        "matlab_file_count": 10,
+        "added": 0,
+        "changed": 0,
+        "removed": 0
+      },
+      "dependency_graph": {
+        "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\dependency_graph.json",
+        "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\porting_order.json",
+        "layers": 2
+      },
+      "compile": {
+        "matlab_files": 10,
+        "changed_files": 0,
+        "skipped_files": 4,
+        "generated_files": [],
+        "changed_sources": [],
+        "failed_files": [],
+        "preserved_manual_files": [
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\prepare_ci_data.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestArrayUtilityUnit.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestFunctionInventoryUnit.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestMathOpUnit.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\integration\\TestMathPipelineIntegration.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\e2e\\TestSyntheticDataE2E.py"
+        ],
+        "skipped_mex_wrapper_files": [],
+        "tests_returncode": null,
+        "tests_stdout": "",
+        "tests_stderr": ""
+      },
+      "extract_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\extracted_logic.json",
+          "--include-python"
+        ],
+        "returncode": 0,
+        "stdout": "Extracted logic for 20 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\extracted_logic.json\n",
+        "stderr": ""
+      },
+      "compare_old_new_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
+          "--new",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\extracted_logic.json",
+          "--old",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic_tests.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\differences_old_new_logic.json"
+        ],
+        "returncode": 0,
+        "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\differences_old_new_logic.json\nChanged files: 0\n",
+        "stderr": ""
+      },
+      "compare_matlab_python": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\extracted_logic.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\logic_differences.json"
+        ],
+        "returncode": 0,
+        "stdout": "Wrote 8 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\logic_differences.json\n",
+        "stderr": ""
+      },
+      "generate_contract_tests": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\generate_contract_tests.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests",
+          "--python-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests",
+          "--tests-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\contracts\\tests",
+          "--report",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\tests\\contract_test_generation_report.json",
+          "--summary-only"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"matlab_files\": 10,\n  \"contract_tests_written\": 10,\n  \"created\": 0,\n  \"updated\": 0,\n  \"skipped_missing_python\": 0\n}\n",
+        "stderr": ""
+      }
+    },
+    "third_part": {
+      "root": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\third_part",
+      "hash_scan": {
+        "matlab_file_count": 9,
+        "added": 0,
+        "changed": 0,
+        "removed": 0
+      },
+      "dependency_graph": {
+        "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\dependency_graph.json",
+        "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\porting_order.json",
+        "layers": 4
+      },
+      "compile": {
+        "matlab_files": 9,
+        "changed_files": 0,
+        "skipped_files": 8,
+        "generated_files": [],
+        "changed_sources": [],
+        "failed_files": [],
+        "preserved_manual_files": [
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\third_part\\twix_for_monalisa\\bmTwix_info.py"
+        ],
+        "skipped_mex_wrapper_files": [],
+        "tests_returncode": null,
+        "tests_stdout": "",
+        "tests_stderr": ""
+      },
+      "extract_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\third_part",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\extracted_logic.json",
+          "--include-python"
+        ],
+        "returncode": 0,
+        "stdout": "Extracted logic for 18 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\extracted_logic.json\n",
+        "stderr": ""
+      },
+      "compare_old_new_logic": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
+          "--new",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\extracted_logic.json",
+          "--old",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic_third_part.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\differences_old_new_logic.json"
+        ],
+        "returncode": 0,
+        "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\differences_old_new_logic.json\nChanged files: 0\n",
+        "stderr": ""
+      },
+      "compare_matlab_python": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\extracted_logic.json",
+          "--output",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\logic_differences.json"
+        ],
+        "returncode": 0,
+        "stdout": "Wrote 5 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\logic_differences.json\n",
+        "stderr": ""
+      },
+      "generate_contract_tests": {
+        "command": [
+          "C:\\Python313\\python.exe",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\generate_contract_tests.py",
+          "--matlab-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\third_part",
+          "--python-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\third_part",
+          "--tests-root",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\contracts\\third_part",
+          "--report",
+          "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\roots\\third_part\\contract_test_generation_report.json",
+          "--summary-only"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"matlab_files\": 9,\n  \"contract_tests_written\": 9,\n  \"created\": 0,\n  \"updated\": 0,\n  \"skipped_missing_python\": 0\n}\n",
+        "stderr": ""
+      }
+    }
   },
-  "dependency_graph": {
-    "graph_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\dependency_graph.json",
-    "porting_order_path": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\porting_order.json",
-    "layers": 13
-  },
-  "compile": {
-    "matlab_files": 477,
-    "changed_files": 1,
-    "skipped_files": 1,
-    "generated_files": [
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.py",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\test_bcaNeith_coilSensitivitySimulation2.py"
-    ],
-    "changed_sources": [
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.m"
-    ],
-    "failed_files": [],
-    "preserved_manual_files": [],
-    "tests_returncode": null,
-    "tests_stdout": "",
-    "tests_stderr": ""
-  },
-  "extract_logic": {
-    "command": [
-      "C:\\python313\\python.exe",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\extract_logic.py",
-      "--matlab-root",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src",
-      "--output",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
-      "--include-python"
-    ],
-    "returncode": 0,
-    "stdout": "Extracted logic for 954 files into C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json\n",
-    "stderr": ""
-  },
-  "compare_old_new_logic": {
-    "command": [
-      "C:\\python313\\python.exe",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_old_new_logic.py",
-      "--new",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
-      "--old",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\state\\previous_extracted_logic.json",
-      "--output",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\differences_old_new_logic.json"
-    ],
-    "returncode": 0,
-    "stdout": "Differences written to: C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\differences_old_new_logic.json\nChanged files: 5\n",
-    "stderr": ""
-  },
-  "compare_matlab_python": {
-    "command": [
-      "C:\\python313\\python.exe",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\scripts\\compare_matlab_python_logic.py",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\extracted_logic.json",
-      "--output",
-      "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\logic_differences.json"
-    ],
-    "returncode": 0,
-    "stdout": "Wrote 143 logic mismatches to C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\reports\\logic_differences.json\n",
-    "stderr": ""
+  "summary": {
+    "roots_processed": 4,
+    "total_matlab_files": 517,
+    "total_changed_files": 0
   }
 }

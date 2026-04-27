@@ -26,51 +26,6 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\selectROI.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "selectROI",
-      "python": "s"
-    },
-    "args": {
-      "matlab": [
-        "dataRMS",
-        "dataMIP",
-        "N_u",
-        "varargin"
-      ],
-      "python": [
-        "src",
-        "cbxR",
-        "cbxM",
-        "listeners"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\thresholdRMS_MIP.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "thresholdRMS_MIP",
-      "python": "t"
-    },
-    "args": {
-      "matlab": [
-        "colorMax",
-        "dataRMS",
-        "dataMIP",
-        "N_u",
-        "autoFlag"
-      ],
-      "python": []
-    },
-    "returns": {
-      "matlab": [
-        "thRMS",
-        "thMIP"
-      ],
-      "python": []
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\from_prescan\\bmCoilSense_prescan_coilSense.m": {
     "status": "logic_mismatch",
     "dependencies": {
@@ -94,8 +49,14 @@
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
+        "bmlowres",
+        "bmmriacquisitionparam",
+        "bmpermutetocol",
         "bmpointreshape",
-        "bmtraj_fullradial3_phyllotaxis_lineassym2"
+        "bmtraj_fullradial3_phyllotaxis_lineassym2",
+        "bmtwix",
+        "bmtwix_data",
+        "bmvolumeelement"
       ]
     }
   },
@@ -172,420 +133,12 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dicom\\bmDicomViewer.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmDicomViewer",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "varargin"
-      ],
-      "python": [
-        "unused",
-        "unused_2",
-        "handles"
-      ]
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\elastix\\bmElastix.m": {
     "status": "logic_mismatch",
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
         "bmcheckdir"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2_image.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "e",
-      "python": "h"
-    },
-    "args": {
-      "matlab": [
-        "arg_x",
-        "arg_y",
-        "arg_vx",
-        "arg_vy",
-        "autoScaleFlag",
-        "myNorm_max",
-        "argImage"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp2\\bmFieldPlot2_noImage.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "e",
-      "python": "h"
-    },
-    "args": {
-      "matlab": [
-        "arg_x",
-        "arg_y",
-        "arg_vx",
-        "arg_vy",
-        "argSize",
-        "autoScaleFlag",
-        "myNorm_max"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp3\\bmFieldPlot3_image.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "e",
-      "python": "h"
-    },
-    "args": {
-      "matlab": [
-        "arg_x",
-        "arg_y",
-        "arg_z",
-        "arg_vx",
-        "arg_vy",
-        "arg_vz",
-        "autoScaleFlag",
-        "myNorm_max",
-        "argImagesTable"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fieldDisp3\\bmFieldPlot3_noImage.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "e",
-      "python": "h"
-    },
-    "args": {
-      "matlab": [
-        "arg_x",
-        "arg_y",
-        "arg_z",
-        "arg_vx",
-        "arg_vy",
-        "arg_vz",
-        "argSize",
-        "autoScaleFlag",
-        "myNorm_max"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier1\\bmConv1.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmConv1",
-      "python": "private_mod"
-    },
-    "args": {
-      "matlab": [
-        "f",
-        "h",
-        "dx"
-      ],
-      "python": [
-        "n",
-        "N"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmNakatsha_cartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNakatsha_cartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "N_u",
-        "dK_u",
-        "varargin"
-      ],
-      "python": [
-        "y",
-        "N_u"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmNasha_cartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNasha_cartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "N_u",
-        "dK_u",
-        "varargin"
-      ],
-      "python": [
-        "y",
-        "N_u"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmShanna_cartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmShanna_cartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "x",
-        "N_u",
-        "dK_u",
-        "varargin"
-      ],
-      "python": [
-        "x",
-        "N_u"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNakatsha_CUFFT_omp.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNakatsha_CUFFT_omp",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "G",
-        "KFC_conj"
-      ],
-      "python": [
-        "y",
-        "G",
-        "KFC_conj",
-        "N_u",
-        "nCh",
-        "nPt"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNakatsha_FFTW_omp.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNakatsha_FFTW_omp",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "G",
-        "KFC_conj"
-      ],
-      "python": [
-        "y",
-        "G",
-        "KFC_conj",
-        "N_u",
-        "nCh",
-        "nPt"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNakatsha_MATLAB.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNakatsha_MATLAB",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "G",
-        "KFC_conj",
-        "C_flag",
-        "n_u"
-      ],
-      "python": [
-        "y",
-        "G",
-        "KFC_conj",
-        "N_u",
-        "n_u",
-        "nCh",
-        "nPt",
-        "C_flag"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNasha.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNasha",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "G",
-        "n_u",
-        "varargin"
-      ],
-      "python": [
-        "y",
-        "G",
-        "K",
-        "C",
-        "N_u",
-        "n_u",
-        "nCh",
-        "nPt"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmShanna_CUFFT_omp.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmShanna_CUFFT_omp",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "x",
-        "G",
-        "KFC"
-      ],
-      "python": [
-        "x",
-        "G",
-        "KFC",
-        "N_u",
-        "nCh"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmShanna_FFTW_omp.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmShanna_FFTW_omp",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "x",
-        "G",
-        "KFC"
-      ],
-      "python": [
-        "x",
-        "G",
-        "KFC",
-        "N_u",
-        "nCh"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmShanna_MATLAB.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmShanna_MATLAB",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "x",
-        "G",
-        "KFC",
-        "n_u"
-      ],
-      "python": [
-        "x",
-        "G",
-        "KFC",
-        "N_u",
-        "n_u",
-        "nCh"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmNakatsha_partialCartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNakatsha_partialCartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "ind_u",
-        "FC_conj",
-        "N_u",
-        "n_u",
-        "dK_u"
-      ],
-      "python": [
-        "y",
-        "FC_conj",
-        "N_u",
-        "n_u",
-        "nPt",
-        "nCh",
-        "C_flag"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmNasha_partialCartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmNasha_partialCartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "y",
-        "ind_u",
-        "C",
-        "N_u",
-        "n_u",
-        "dK_u"
-      ],
-      "python": [
-        "y",
-        "C",
-        "N_u",
-        "unused",
-        "nPt",
-        "nCh"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmShanna_partialCartesian.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmShanna_partialCartesian",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "x",
-        "ind_u",
-        "FC",
-        "N_u",
-        "n_u",
-        "dK_u"
-      ],
-      "python": [
-        "x",
-        "FC",
-        "N_u",
-        "n_u",
-        "nCh",
-        "C_flag"
       ]
     }
   },
@@ -609,29 +162,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSensa.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "argName",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -641,22 +171,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSleva.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -667,31 +181,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSteva.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "argName",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "delta",
-        "rho",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -701,29 +190,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\partialCartesian\\bmSensa_partialCartesian.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "argName",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -733,31 +199,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\partialCartesian\\bmSteva_partialCartesian.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "argName",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "delta",
-        "rho",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -767,29 +208,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensaMorphosia_chain.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "argName",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -800,28 +218,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaDuoMorphosia_chain.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF2"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z",
-        "Tu2t",
-        "HX",
-        "HZ2",
-        "frSize",
-        "nFr",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -832,28 +228,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaMorphosia_chain.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z",
-        "Tut",
-        "HX",
-        "HZ",
-        "frSize",
-        "nFr",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -864,29 +238,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaMorphosia_sheet.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF2"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z2",
-        "Tu2t",
-        "HX",
-        "HZ2",
-        "frSize",
-        "nFr_1",
-        "nFr_2",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -897,28 +248,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaDuoMorphosia_chain.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF2"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z",
-        "Tu2t",
-        "HX",
-        "HZ2",
-        "frSize",
-        "nFr",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -929,28 +258,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_chain.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z",
-        "Tut",
-        "HX",
-        "HZ",
-        "frSize",
-        "nFr",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -961,31 +268,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_chain_all_to_first.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "o"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "witnessInfo",
-        "arg_name",
-        "frSize",
-        "N_u",
-        "dK_u",
-        "delta",
-        "rho",
-        "nIter",
-        "nCGD",
-        "ve_max"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -996,29 +278,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_sheet.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_dagF2"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "z2",
-        "Tu2t",
-        "HX",
-        "HZ2",
-        "frSize",
-        "nFr_1",
-        "nFr_2",
-        "K_bump"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1029,169 +288,11 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\partialCartesian\\bmTevaMorphosia_partialCartesian.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_adapt_delta_rho"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "R",
-        "TV",
-        "delta_factor",
-        "rho_factor"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret_1",
-        "ret_2"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
         "bmcol",
         "bmnakatsha_partialcartesian"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bmConv2.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmConv2",
-      "python": "private_mod"
-    },
-    "args": {
-      "matlab": [
-        "f",
-        "h",
-        "dx",
-        "dy"
-      ],
-      "python": [
-        "n",
-        "N"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith3.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "MATLABGrappa",
-      "python": "isKern"
-    },
-    "args": {
-      "matlab": [
-        "kspace",
-        "calib",
-        "kern"
-      ],
-      "python": [
-        "kern"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatekSpace3.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "InterpolatekSpace",
-      "python": "_validate_kernel"
-    },
-    "args": {
-      "matlab": [
-        "kspace",
-        "interp_kerns",
-        "kern_types",
-        "kernel"
-      ],
-      "python": [
-        "kernel"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "res",
-        "kspace_interp"
-      ],
-      "python": [
-        "ret_1",
-        "ret_2",
-        "ret_3"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatorExtraction3.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "InterpolatorExtraction",
-      "python": "_validate_kernel"
-    },
-    "args": {
-      "matlab": [
-        "calib",
-        "kern_types",
-        "kernel"
-      ],
-      "python": [
-        "kernel"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "interp_kerns"
-      ],
-      "python": [
-        "ret_1",
-        "ret_2",
-        "ret_3"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_kernelTypeExtraction3.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "KernelTypeExtraction",
-      "python": "_validate_kernel"
-    },
-    "args": {
-      "matlab": [
-        "kspace",
-        "kernel"
-      ],
-      "python": [
-        "kernel"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "kern_types"
-      ],
-      "python": [
-        "ret_1",
-        "ret_2",
-        "ret_3"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bmConv3.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmConv3",
-      "python": "private_mod"
-    },
-    "args": {
-      "matlab": [
-        "f",
-        "h",
-        "dx",
-        "dy",
-        "dz"
-      ],
-      "python": [
-        "n",
-        "N"
       ]
     }
   },
@@ -1266,32 +367,6 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmPsi_theta_phi.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmPsi_theta_phi",
-      "python": "private_psi"
-    },
-    "args": {
-      "matlab": [
-        "R"
-      ],
-      "python": [
-        "n",
-        "cos_theta"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "psi",
-        "theta",
-        "phi"
-      ],
-      "python": [
-        "ret"
-      ]
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_center_out_radial3.m": {
     "status": "logic_mismatch",
     "dependencies": {
@@ -1303,20 +378,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_center_out_radial3.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmVolumeElement_voronoi_center_out_radial3",
-      "python": "bmSphericalVoronoi_2"
-    },
-    "args": {
-      "matlab": [
-        "t"
-      ],
-      "python": [
-        "s1",
-        "s2",
-        "s3"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1327,20 +388,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_full_radial3.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmVolumeElement_voronoi_full_radial3",
-      "python": "bmSphericalVoronoi_2"
-    },
-    "args": {
-      "matlab": [
-        "t"
-      ],
-      "python": [
-        "s1",
-        "s2",
-        "s3"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1350,37 +397,10 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_full_radial3_nonUnique.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmVolumeElement_voronoi_full_radial3_nonUnique",
-      "python": "bmSphericalVoronoi_2"
-    },
-    "args": {
-      "matlab": [
-        "t"
-      ],
-      "python": [
-        "s1",
-        "s2",
-        "s3"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
         "bmtraj_squarednorm"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geomN\\bmPointList.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmTraj",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "obj"
       ]
     }
   },
@@ -1536,36 +556,8 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage2.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImage2",
-      "python": "e"
-    },
-    "args": {
-      "matlab": [
-        "argImagesTable",
-        "varargin"
-      ],
-      "python": []
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage3.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImage3",
-      "python": "private_ind_box"
-    },
-    "args": {
-      "matlab": [
-        "argImagesTable",
-        "varargin"
-      ],
-      "python": [
-        "arg_ind",
-        "arg_max"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1576,20 +568,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage4.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImage4",
-      "python": "private_ind_box"
-    },
-    "args": {
-      "matlab": [
-        "argImagesTable",
-        "varargin"
-      ],
-      "python": [
-        "arg_ind",
-        "unused"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1599,20 +577,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage5.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImage5",
-      "python": "private_ind_box"
-    },
-    "args": {
-      "matlab": [
-        "argImagesTable",
-        "varargin"
-      ],
-      "python": [
-        "arg_ind",
-        "unused"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1620,107 +584,8 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformFieldInverse_checkerboardDisp2.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "p2",
-      "python": "private_checkerboard"
-    },
-    "args": {
-      "matlab": [
-        "v",
-        "n_u",
-        "cell_width"
-      ],
-      "python": [
-        "n_u",
-        "cell_width"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformFieldInverse_gridDisp2.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "p2",
-      "python": "private_checkerboard_y"
-    },
-    "args": {
-      "matlab": [
-        "v",
-        "n_u",
-        "cell_width",
-        "varargin"
-      ],
-      "python": [
-        "n_u",
-        "cell_width"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImDeformFieldChain_imRegDemons23.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_rescale"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "arg_im",
-        "arg_val"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret_1",
-        "ret_2",
-        "ret_3"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImDeformFieldSheet_imRegDemons23.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_rescale"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "arg_im",
-        "arg_val"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret_1",
-        "ret_2",
-        "ret_3"
-      ]
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_deformField_to_positionField.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImReg_deformField_to_positionField",
-      "python": "private_replace_larger"
-    },
-    "args": {
-      "matlab": [
-        "v",
-        "n_u",
-        "X",
-        "Y",
-        "Z",
-        "varargin"
-      ],
-      "python": [
-        "p",
-        "c"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1730,72 +595,10 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getCenterMass_estimate.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImReg_getCenterMass_estimate",
-      "python": "private_get_c_d"
-    },
-    "args": {
-      "matlab": [
-        "argIm",
-        "X",
-        "Y",
-        "Z",
-        "varargin"
-      ],
-      "python": [
-        "argIm",
-        "m",
-        "X",
-        "Y",
-        "Z",
-        "R2",
-        "imDim"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "c"
-      ],
-      "python": [
-        "ret_1",
-        "ret_2"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
         "bmcol"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialSolidTransform_estimate.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmImReg_getInitialSolidTransform_estimate",
-      "python": "private_find_rotation3"
-    },
-    "args": {
-      "matlab": [
-        "imRef",
-        "imMov",
-        "X",
-        "Y",
-        "Z"
-      ],
-      "python": [
-        "v_ref_1",
-        "v_ref_2",
-        "v_ref_3",
-        "v_mov_1",
-        "v_mov_2",
-        "v_mov_3",
-        "imRef",
-        "imMov",
-        "unused",
-        "c_mov",
-        "X",
-        "Y",
-        "Z"
       ]
     }
   },
@@ -1806,66 +609,6 @@
       "missing_in_python": [
         "bmimgrid"
       ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_leastSquare_solidTransform_registration.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "private_get_objective"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "x_ref",
-        "x",
-        "T",
-        "X",
-        "Y",
-        "Z"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mask2\\bm2DimInBorderMask.m": {
-    "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "G"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mask2\\bmOutBorderMask2.m": {
-    "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "G"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mask3\\bm3DimInBorderMask.m": {
-    "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "G"
-      ],
-      "python": []
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mask3\\bmOutBorderMask3.m": {
-    "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "G"
-      ],
-      "python": []
     }
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mathOp\\bmEuclideProd.m": {
@@ -1898,11 +641,17 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\compile_mex_for_monalisa.m": {
     "status": "logic_mismatch",
+    "function_name": {
+      "matlab": "a",
+      "python": "compile_mex_for_monalisa"
+    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
+        "bmdirlist",
         "bmmex_cell2command",
-        "bmmex_extern_dir"
+        "bmmex_extern_dir",
+        "bmtextfile2cell"
       ]
     }
   },
@@ -1937,16 +686,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_fromSI_get_standart_reference_signal.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "get_soft_point_from_click"
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -1977,20 +716,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_graphical_frequency_selector.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmMriPhi_graphical_frequency_selector",
-      "python": "k"
-    },
-    "args": {
-      "matlab": [
-        "varargin"
-      ],
-      "python": [
-        "hObject",
-        "unused",
-        "handles"
-      ]
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -2004,22 +729,6 @@
       "added_in_python": [],
       "missing_in_python": [
         "bmidf"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\class\\bmMriAcquisitionParam.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmMriAcquisitionParam",
-      "python": "e"
-    },
-    "args": {
-      "matlab": [
-        "arg_name"
-      ],
-      "python": [
-        "obj",
-        "reconDir"
       ]
     }
   },
@@ -2050,25 +759,6 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmConvergeCondition.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "t"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "obj"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmInitialWitnessInfo.m": {
     "status": "logic_mismatch",
     "dependencies": {
@@ -2078,87 +768,20 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmWitnessInfo.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "unknown_function",
-      "python": "h"
-    },
-    "args": {
-      "matlab": [],
-      "python": [
-        "obj",
-        "curr_ind",
-        "x",
-        "n_u",
-        "loop_or_final",
-        "varargin"
-      ]
-    },
-    "returns": {
-      "matlab": [],
-      "python": [
-        "ret"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\checkMetadataInteractive.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "checkMetadataInteractive",
-      "python": "n"
-    },
-    "args": {
-      "matlab": [
-        "mySI",
-        "s_mean",
-        "s_center_mass",
-        "myMriAcquisition_node",
-        "reconFoV"
-      ],
-      "python": [
-        "fig",
-        "uit",
-        "params"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "myMriAcquisition_node",
-        "reconFoV"
-      ],
-      "python": [
-        "ret"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\correctMetadataInteractive.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "correctMetadataInteractive",
-      "python": "e"
-    },
-    "args": {
-      "matlab": [
-        "myMriAcquisition_node",
-        "reconFoV"
-      ],
-      "python": [
-        "fig"
-      ]
-    },
-    "returns": {
-      "matlab": [
-        "myMriAcquisition_node",
-        "reconFoV"
-      ],
-      "python": [
-        "ret"
-      ]
-    }
-  },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\dhIsmrmrdReadMetaData.m": {
     "status": "logic_mismatch",
+    "args": {
+      "matlab": [
+        "obj"
+      ],
+      "python": []
+    },
+    "returns": {
+      "matlab": [
+        "varargout"
+      ],
+      "python": []
+    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -2166,66 +789,40 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\mleIsmrmrdReader.m": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\ISMRMRD_readParam.m": {
     "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "mleIsmrmrdReader",
-      "python": "readRawData"
-    },
     "args": {
       "matlab": [
-        "filepath",
+        "argFile",
         "autoFlag"
       ],
-      "python": [
-        "obj",
-        "flagSS",
-        "flagExcludeSI"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\mleRawDataReader.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "mleRawDataReader",
-      "python": "readRawData"
+      "python": []
     },
-    "args": {
+    "returns": {
       "matlab": [
-        "filepath",
-        "autoFlag"
+        "varargout"
       ],
-      "python": [
-        "obj",
-        "flagSS",
-        "flagNoSI"
-      ]
+      "python": []
     }
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\siemens\\dhSiemensReadMetaData.m": {
     "status": "logic_mismatch",
+    "args": {
+      "matlab": [
+        "obj"
+      ],
+      "python": []
+    },
+    "returns": {
+      "matlab": [
+        "varargout"
+      ],
+      "python": []
+    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
         "checkmetadatainteractive"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\siemens\\mleSiemensReader.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "mleSiemensReader",
-      "python": "readRawData"
-    },
-    "args": {
-      "matlab": [
-        "filepath",
-        "autoFlag"
-      ],
-      "python": [
-        "obj",
-        "flagSS",
-        "flagExcludeSI"
       ]
     }
   },
@@ -2249,12 +846,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmDirList.m": {
     "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "out"
-      ],
-      "python": []
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -2273,12 +864,6 @@
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\readWrite\\bmNameList.m": {
     "status": "logic_mismatch",
-    "returns": {
-      "matlab": [
-        "out"
-      ],
-      "python": []
-    },
     "dependencies": {
       "added_in_python": [],
       "missing_in_python": [
@@ -2293,13 +878,6 @@
       "missing_in_python": [
         "bmcheckfile"
       ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\sparseMat\\m\\bmSparseMat.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "e",
-      "python": "k"
     }
   },
   "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\sparseMat\\m\\bmSparseMat_isequal.m": {
@@ -2329,55 +907,13 @@
       ]
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin.m": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin_sparseType.m": {
     "status": "logic_mismatch",
-    "args": {
+    "returns": {
       "matlab": [
-        "varargin"
+        "out"
       ],
-      "python": [
-        "varargin",
-        "n_out"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin_empty.m": {
-    "status": "logic_mismatch",
-    "args": {
-      "matlab": [],
-      "python": [
-        "n_out"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin_false.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmVarargin_false",
-      "python": "_is_empty"
-    },
-    "args": {
-      "matlab": [
-        "varargin"
-      ],
-      "python": [
-        "value"
-      ]
-    }
-  },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin_true.m": {
-    "status": "logic_mismatch",
-    "function_name": {
-      "matlab": "bmVarargin_true",
-      "python": "_is_empty"
-    },
-    "args": {
-      "matlab": [
-        "varargin"
-      ],
-      "python": [
-        "value"
-      ]
+      "python": []
     }
   }
 }

@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/readWrite/bmUpdateMonalisa.py"
-EXPECTED_FUNCTION_NAME = "a"
+EXPECTED_FUNCTION_NAME = "bmUpdateMonalisa"
 EXPECTED_ARG_COUNT = 2
 
 

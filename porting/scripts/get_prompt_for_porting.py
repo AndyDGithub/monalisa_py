@@ -90,6 +90,7 @@ def main() -> int:
         "parity_snapshot_summary": compact_context_json.get("parity_snapshot_summary", {}),
         "top_blockers": compact_context_json.get("top_blockers", [])[:15],
     }
+    translation_examples_text = str(compact_context_json.get("translation_examples_text", "") or "").strip()
 
     task_block = "\n".join(
         [
@@ -99,9 +100,12 @@ def main() -> int:
             "Primary command:",
             (
                 "python porting/scripts/run_agentic_porting_workflow.py "
-                f"--roots {args.roots} --model qwen2.5‑7b‑coder --max-iterations 2 --max-files-per-iteration 5"
+                f"--roots {args.roots} --model gpt-oss:20b --max-cycles 12 "
+                "--enable-strict-prefilter"
             ),
-            "If deterministic-only mode is requested, add: --disable-llm --skip-tests",
+            "If deterministic-only mode is requested, use: --engine legacy --disable-llm --skip-tests",
+            "If you need manual intervention on first failed apply=False, add: --pause-on-applied-false",
+            "To resume safely after pause, use: --engine legacy --resume-from-report <report.json> --skip-pipeline",
             "Return concise execution summary and next command.",
         ]
     )
@@ -110,6 +114,11 @@ def main() -> int:
         part
         for part in [
             system_prompt,
+            (
+                "Reference MATLAB->Python examples:\n" + translation_examples_text
+                if translation_examples_text
+                else ""
+            ),
             "Compact context (text):\n" + compact_context_text if compact_context_text else "",
             "Compact context (JSON):\n" + json.dumps(context_summary, indent=2),
             task_block,
@@ -125,3 +134,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

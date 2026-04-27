@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/readWrite/bmArray2Binary.py"
-EXPECTED_FUNCTION_NAME = "y"
+EXPECTED_FUNCTION_NAME = "bmArray2Binary"
 EXPECTED_ARG_COUNT = 4
 
 

@@ -26,10 +26,10 @@ logger.addHandler(handler)
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 try:
-    from monalisa_py.porting.scripts.get_function_call_graph import get_global_function_call_graph
-    from monalisa_py.porting.scripts.porting_compiler import compile_project
-    from monalisa_py.porting.scripts.search_matlab import build_hash_manifest, diff_manifests, search_matlab_files
-    from monalisa_py.porting.scripts.select_file_order import compute_porting_order
+    from porting.scripts.get_function_call_graph import get_global_function_call_graph
+    from porting.scripts.porting_compiler import compile_project
+    from porting.scripts.search_matlab import build_hash_manifest, diff_manifests, search_matlab_files
+    from porting.scripts.select_file_order import compute_porting_order
 except ImportError:
     from get_function_call_graph import get_global_function_call_graph
     from porting_compiler import compile_project

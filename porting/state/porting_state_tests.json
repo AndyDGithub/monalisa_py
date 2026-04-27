@@ -1,0 +1,268 @@
+{
+  "files": {
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\TestExample.m": {
+      "source_hash": "63482ca7256bbb916fe4c25ad10227b25167ab4b0ccb00f850f61dedf25a179d",
+      "logic_hash": "6558e6777c3587c6b5c1c430eff15a8168c65133b3bdbe95a182b68c044045c1",
+      "dependencies": [],
+      "native_calls": [],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\TestExample.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_testStupidExample.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\prepare_ci_data.m": {
+      "source_hash": "29e88483a9dbd28a3474c537af7a950e08d314f834bed1809b2f51fff8ebbe43",
+      "logic_hash": "d2e323eac7966a1dfe218ffb9e3ef2e44e4b8346489e5b369928d8bafe271931",
+      "dependencies": [],
+      "native_calls": [
+        "cases",
+        "char",
+        "exist",
+        "fprintf",
+        "fullfile",
+        "getenv",
+        "isempty",
+        "mkdir",
+        "mod",
+        "numel",
+        "rand",
+        "randi",
+        "randn",
+        "reshape",
+        "rng",
+        "save",
+        "size",
+        "split",
+        "sprintf",
+        "string",
+        "strlength",
+        "strtrim",
+        "struct",
+        "urls",
+        "warning",
+        "websave"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\prepare_ci_data.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_a.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\setup_test_path.m": {
+      "source_hash": "723a9951301cb05aca88a399cc129a84059a2b40bdfe930646d275dd558d8b72",
+      "logic_hash": "7bc4c04140c5b27b741ad9ad87a34d8af8c427df7e6a069c89e405e95f25f24d",
+      "dependencies": [],
+      "native_calls": [
+        "addpath",
+        "fileparts",
+        "fullfile",
+        "genpath",
+        "mfilename",
+        "setenv"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\setup_test_path.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_setup_test_path.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestArrayUtilityUnit.m": {
+      "source_hash": "4f3ff6558f15858f6fe59139f4f18f196381c70bc1000326c8ca8d482eed1d14",
+      "logic_hash": "7246601cb6e70ac27b571e6f27ad636805575119f6c62f25ddc98acc8f102e19",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "bmBlockReshape",
+        "bmCol",
+        "bmIsScalar",
+        "bmPointReshape",
+        "exist",
+        "f",
+        "fileparts",
+        "fullfile",
+        "max",
+        "mfilename",
+        "ones",
+        "rand",
+        "randn",
+        "reshape",
+        "size",
+        "timeit"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestArrayUtilityUnit.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_h.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestFunctionInventoryUnit.m": {
+      "source_hash": "1c3d1d8092e2ce4cd66f749a2e8057ac6cd33ccccdcd489b481e4ff9bfea99c0",
+      "logic_hash": "22494f0d1901d2f9cb545219939465be26efc29eab021e89899b22afd7e3d9a0",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "dir",
+        "exist",
+        "fileparts",
+        "files",
+        "fullfile",
+        "getenv",
+        "isempty",
+        "mfilename",
+        "missing",
+        "numel",
+        "sprintf",
+        "string",
+        "strings",
+        "strjoin"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestFunctionInventoryUnit.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_h.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestMathOpUnit.m": {
+      "source_hash": "e45aed67c451fd9641b109251011d207c2be9840f2dc0a8c21b0f75c396cf08a",
+      "logic_hash": "71ee53381372b99b0391ca654fe99c89bf6d6f4ed97610af45d7fc8061654a3a",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "bmEuclideProd",
+        "bmMinus",
+        "bmMult",
+        "bmPlus",
+        "bmSquaredNorm",
+        "exist",
+        "f",
+        "fileparts",
+        "fullfile",
+        "max",
+        "mfilename",
+        "ones",
+        "rand",
+        "randn",
+        "real",
+        "timeit",
+        "x",
+        "zeros"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\unit\\TestMathOpUnit.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_h.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\integration\\TestMathPipelineIntegration.m": {
+      "source_hash": "beff2ff40e9cbbb6874b72a382caaaadb5c0e921c8b6aff2e65ed67318bf2751",
+      "logic_hash": "5142ecd8a6f3a27a6987ea654cc8e93c0fb628ddcce7069297ae30ae481a8b94",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "bmEuclideProd",
+        "bmMinus",
+        "bmMult",
+        "bmPlus",
+        "bmPointReshape",
+        "exist",
+        "fileparts",
+        "fullfile",
+        "getenv",
+        "isempty",
+        "load",
+        "mfilename",
+        "real",
+        "sprintf",
+        "x"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\integration\\TestMathPipelineIntegration.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_h.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\e2e\\TestSyntheticDataE2E.m": {
+      "source_hash": "1cda49225f5ae68864d6d780fc2ec36fa0301df693f87aa31c75be09186a391b",
+      "logic_hash": "0d9acc1f30760b55995919a0e3d9ec7d0d8e6e53cd4833d4c079459333e12d93",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "all",
+        "bmMult",
+        "bmPointReshape",
+        "bmSquaredNorm",
+        "cases",
+        "conj",
+        "exist",
+        "fileparts",
+        "fullfile",
+        "getenv",
+        "isempty",
+        "isfinite",
+        "load",
+        "metrics",
+        "mfilename",
+        "numel",
+        "sprintf",
+        "std",
+        "zeros"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\e2e\\TestSyntheticDataE2E.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_h.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\run_all_tests.m": {
+      "source_hash": "b12ded630892b8cd15d023ccf7b424100e756b4825591dafe938ef92370513b7",
+      "logic_hash": "44407c58773641f0e1c2174b8a7e52b8f57d7a489339527d3945e5a372100357",
+      "dependencies": [
+        "prepare_ci_data.m",
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "addpath",
+        "any",
+        "disp",
+        "error",
+        "fileparts",
+        "fullfile",
+        "mfilename",
+        "table"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\run_all_tests.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_run_all_tests.py",
+      "compile_error": null
+    },
+    "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\run_ci_test_suite.m": {
+      "source_hash": "499adeae4e2aaf93b9186fd517994c8b1b4bf9ccd5e6cb34fabceef154b2463c",
+      "logic_hash": "d104725781d0297ea305c1e646a2b05c8f3fd067394bdc7968e92a5f1e1d580f",
+      "dependencies": [
+        "setup_test_path.m"
+      ],
+      "native_calls": [
+        "Duration",
+        "Generated",
+        "any",
+        "assertNoFailures",
+        "buildMarkdownReport",
+        "char",
+        "datetime",
+        "disp",
+        "error",
+        "exist",
+        "fclose",
+        "fopen",
+        "fullfile",
+        "fwrite",
+        "isempty",
+        "jsonencode",
+        "max",
+        "mkdir",
+        "numel",
+        "setenv",
+        "sprintf",
+        "sum",
+        "summarizeResults"
+      ],
+      "target_python": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\tests\\ci\\run_ci_test_suite.py",
+      "generated_test": "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\porting\\tests\\generated\\tests\\test_run_ci_test_suite.py",
+      "compile_error": null
+    }
+  }
+}

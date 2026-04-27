@@ -213,6 +213,36 @@ def _choose_unique_module_for_name(
     return modules[0]
 
 
+def _load_defined_symbols_from_module(py_file: Path) -> set[str]:
+    if not py_file.exists():
+        return set()
+    tree = _parse_tree(py_file)
+    if tree is None:
+        return set()
+    return _top_level_symbols(tree)
+
+
+def _load_external_symbol_maps(repo_root: Path) -> dict[str, set[str]]:
+    out: dict[str, set[str]] = {}
+    matlab_native_path = repo_root / "third_part" / "matlab_compat" / "matlab_native.py"
+    runtime_metadata_path = repo_root / "third_part" / "matlab_compat" / "matlab_runtime_metadata.py"
+    utils_path = repo_root / "porting" / "lib" / "utils.py"
+
+    matlab_native_symbols = _load_defined_symbols_from_module(matlab_native_path)
+    if matlab_native_symbols:
+        out["third_part.matlab_compat.matlab_native"] = matlab_native_symbols
+
+    runtime_metadata_symbols = _load_defined_symbols_from_module(runtime_metadata_path)
+    if runtime_metadata_symbols:
+        out["third_part.matlab_compat.matlab_runtime_metadata"] = runtime_metadata_symbols
+
+    utils_symbols = _load_defined_symbols_from_module(utils_path)
+    if utils_symbols:
+        out["porting.lib.utils"] = utils_symbols
+
+    return out
+
+
 def _rewrite_bare_project_imports(
     *,
     text: str,
@@ -342,6 +372,7 @@ def _plan_imports_for_file(
     py_file: Path,
     symbol_index: dict[str, list[Path]],
     stem_index: dict[str, list[Path]],
+    external_symbol_maps: dict[str, set[str]],
 ) -> dict[str, list[str]]:
     tree = _parse_tree(py_file)
     if tree is None:
@@ -372,6 +403,10 @@ def _plan_imports_for_file(
             stem_index=stem_index,
         )
         if not module:
+            providers = [mod for mod, symbols in external_symbol_maps.items() if name in symbols]
+            if len(providers) == 1:
+                module = providers[0]
+        if not module:
             continue
         by_module[module].append(name)
 
@@ -399,6 +434,7 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
         for symbol in _top_level_symbols(tree):
             symbol_index[symbol].append(py_file)
     stem_index = _symbol_stem_index(py_files)
+    external_symbol_maps = _load_external_symbol_maps(repo_root)
 
     # First pass: rewrite invalid imports with python-keyword segments (e.g. ".class.").
     for py_file in py_files:
@@ -444,6 +480,7 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
             py_file=py_file,
             symbol_index=symbol_index,
             stem_index=stem_index,
+            external_symbol_maps=external_symbol_maps,
         )
         if not plan:
             continue

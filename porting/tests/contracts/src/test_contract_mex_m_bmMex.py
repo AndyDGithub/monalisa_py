@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/mex/m/bmMex.py"
-EXPECTED_FUNCTION_NAME = "x"
+EXPECTED_FUNCTION_NAME = "bmMex"
 EXPECTED_ARG_COUNT = 2
 
 

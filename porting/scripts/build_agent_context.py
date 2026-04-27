@@ -18,6 +18,15 @@ def _load_json(path: Path) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+def _read_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    try:
+        return path.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return ""
+
+
 def _pick_top_blockers(report: dict[str, Any], limit: int) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
 
@@ -82,6 +91,9 @@ def _render_prompt(context: dict[str, Any]) -> str:
         lines.append("Top blockers:")
         for b in blockers:
             lines.append(f"- {json.dumps(b, ensure_ascii=True)}")
+    examples_text = str(context.get("translation_examples_text", "") or "").strip()
+    if examples_text:
+        lines.append("Reference MATLAB->Python examples available in context.")
     return "\n".join(lines)
 
 
@@ -104,6 +116,17 @@ def main() -> int:
         help="Parity snapshot report filename (inside reports dir).",
     )
     parser.add_argument("--max-blockers", type=int, default=20, help="Maximum blockers in compact context.")
+    parser.add_argument(
+        "--examples-prompt",
+        default="../prompts/matlab_to_python_examples.md",
+        help="Markdown file with curated MATLAB->Python examples.",
+    )
+    parser.add_argument(
+        "--examples-max-chars",
+        type=int,
+        default=12000,
+        help="Maximum number of example characters to store in compact context.",
+    )
     parser.add_argument("--output", default="../state/agent_context_compact.json", help="Compact JSON output path.")
     parser.add_argument(
         "--prompt-output",
@@ -117,6 +140,9 @@ def main() -> int:
     pipeline_report = _load_json(reports_dir / args.pipeline_report)
     analysis_report = _load_json(reports_dir / args.analysis_report)
     parity_snapshot_report = _load_json(reports_dir / args.parity_snapshot_report)
+    examples_text = _read_text((base / args.examples_prompt).resolve()).strip()
+    if args.examples_max_chars > 0 and len(examples_text) > args.examples_max_chars:
+        examples_text = examples_text[: args.examples_max_chars]
 
     roots_report = pipeline_report.get("roots", {})
     roots = sorted(roots_report.keys()) if isinstance(roots_report, dict) else []
@@ -131,6 +157,7 @@ def main() -> int:
         "total_changed_files": total_changed_files,
         "matlab_todo_markers": matlab_todo_markers,
         "parity_snapshot_summary": parity_summary,
+        "translation_examples_text": examples_text,
         "top_blockers": _pick_top_blockers(
             {
                 "roots": roots_report,

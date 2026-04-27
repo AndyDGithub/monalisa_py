@@ -5,6 +5,8 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/mathOp/bmNorm.py"
 EXPECTED_FUNCTION_NAME = "bmNorm"
 EXPECTED_ARG_COUNT = 2

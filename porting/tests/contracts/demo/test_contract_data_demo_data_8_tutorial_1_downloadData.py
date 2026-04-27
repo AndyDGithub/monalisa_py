@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[4] / "demo/data_demo/data_8_tutorial_1/downloadData.py"
-EXPECTED_FUNCTION_NAME = "a"
+EXPECTED_FUNCTION_NAME = "downloadData"
 EXPECTED_ARG_COUNT = 0
 
 

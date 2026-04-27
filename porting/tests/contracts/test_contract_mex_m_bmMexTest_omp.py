@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[3] / "src/mex/m/bmMexTest_omp.py"
-EXPECTED_FUNCTION_NAME = "p"
+EXPECTED_FUNCTION_NAME = "bmMexTest_omp"
 EXPECTED_ARG_COUNT = 0
 
 

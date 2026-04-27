@@ -68,3 +68,31 @@
 
 # env file
 .env
+
+
+# pytest cache
+.pytest_cache/
+pytest-cache-files-*/
+
+__pycache__/
+
+# ── Porting pipeline generated outputs ────────────────────────────────────────
+
+# Auto-transpiled Python tests (regenerated every pipeline run)
+porting/tests/generated/
+
+# Pipeline analysis reports
+porting/reports/
+
+# Machine-generated per-run state (context, prompts, logic extractions)
+# Keep: porting_state*.json, matlab_hashes.json (track porting progress)
+porting/state/agent_context_compact.json
+porting/state/agent_context_compact.prompt.txt
+porting/state/porting_agent_prompt.txt
+porting/state/previous_extracted_logic*.json
+
+# Pipeline script outputs (call graphs, ordering)
+/script_outputs/
+
+# Pipeline logs
+/porting/logs/

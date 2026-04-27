@@ -1,0 +1,3 @@
+def bmMonoExpFit(argImagesTable, argX, varargin):
+    ...
+    return (b_map, a_map, varargout)

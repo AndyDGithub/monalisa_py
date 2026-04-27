@@ -259,3 +259,172 @@ def repo_root_from_script(script_file: str, levels_up: int = 2) -> Path:
         REPO_ROOT = repo_root_from_script(__file__)
     """
     return Path(script_file).resolve().parents[levels_up - 1]
+
+
+def delete_path(path: Path) -> None:
+    """Delete a file or directory at *path*, ignoring any errors."""
+    try:
+        if path.is_dir():
+            for child in path.iterdir():
+                delete_path(child)
+            path.rmdir()
+        elif path.is_file():
+            path.unlink()
+    except OSError:
+        pass
+
+
+# ══════════════════════════
+# MATLAB-compatible helpers
+# ══════════════════════════
+
+import numpy as np
+
+
+def ndims(x: Any) -> int:
+    """
+    Équivalent de ndims MATLAB.
+    """
+    if isinstance(x, np.ndarray):
+        return x.ndim
+
+    # Pour listes imbriquées, on force conversion numpy
+    try:
+        return np.asarray(x).ndim
+    except Exception:
+        return 0
+
+
+def strcmp(a: Any, b: Any) -> bool:
+    """
+    Équivalent simple de strcmp MATLAB.
+    """
+    return str(a) == str(b)
+
+
+def islogical(x: Any) -> bool:
+    """
+    Équivalent de islogical MATLAB.
+    """
+    return isinstance(x, (bool, np.bool_))
+
+
+def matlab_class(x: Any) -> str:
+    """
+    Approximation de class(x) MATLAB.
+    Ici on ne gère que ce qui est utile pour ce port.
+    """
+    if isinstance(x, np.ndarray):
+        if x.dtype == np.float32:
+            return "single"
+        if x.dtype == np.float64:
+            return "double"
+        if x.dtype == np.complex64:
+            return "single"
+        if x.dtype == np.complex128:
+            return "double"
+    return type(x).__name__
+
+
+def int32(x: Any) -> np.int32:
+    return np.int32(x)
+
+
+def real(x: np.ndarray) -> np.ndarray:
+    return np.real(x)
+
+
+def imag(x: np.ndarray) -> np.ndarray:
+    return np.imag(x)
+
+
+
+import tkinter as tk
+from tkinter import messagebox
+
+# def errordlg(message: str) -> None:
+#     root = tk.Tk()
+#     root.withdraw()
+#     messagebox.showerror("Error", message)
+#     root.destroy()
+
+# def warndlg(message: str) -> None:
+#     root = tk.Tk()
+#     root.withdraw()
+#     messagebox.showwarning("Warning", message)
+#     root.destroy()
+
+# def questdlg(message: str) -> bool:
+#     root = tk.Tk()
+#     root.withdraw()
+#     result = messagebox.askyesno("Question", message)
+#     root.destroy()
+#     return result
+
+def errordlg(message: str) -> None:
+    """
+    Placeholder for MATLAB's errordlg function.
+    In a real port, this could be implemented to show a GUI dialog or log an error.
+    For now, it simply prints the message to stderr.
+    """
+    print(f"ERROR: {message}", file=sys.stderr)
+
+def warndlg(message: str) -> None:
+    """
+    Placeholder for MATLAB's warndlg function.
+    In a real port, this could be implemented to show a GUI dialog or log a warning.
+    For now, it simply prints the message to stderr.
+    """
+    print(f"WARNING: {message}", file=sys.stderr)
+
+def questdlg(message: str) -> bool:
+    """
+    Placeholder for MATLAB's questdlg function.
+    In a real port, this could be implemented to show a GUI dialog or prompt the user.
+    For now, it simply prompts in the console and returns True for 'yes' and False for 'no'.
+    """
+    response = input(f"{message} (y/n): ").strip().lower()
+    return response == 'y'
+
+
+def inputname(
+    position: int,
+    *args: Any,
+    explicit_name: str | None = None,
+    fallback_name: str = "",
+    frame_depth: int = 2,
+) -> str:
+    """Best-effort MATLAB `inputname` compatibility wrapper."""
+    from third_part.matlab_compat.matlab_runtime_metadata import resolve_inputname
+
+    return resolve_inputname(
+        position,
+        args=args or None,
+        explicit_name=explicit_name,
+        fallback_name=fallback_name,
+        frame_depth=frame_depth + 1,
+    )
+
+
+def assignin(
+    scope: str,
+    name: str,
+    value: Any,
+    runtime_metadata: Any | None = None,
+) -> Any:
+    """Best-effort MATLAB `assignin` compatibility wrapper."""
+    from third_part.matlab_compat.matlab_runtime_metadata import assignin_runtime
+
+    return assignin_runtime(scope, name, value, metadata=runtime_metadata)
+
+
+def evalin(
+    scope: str,
+    expression: str,
+    runtime_metadata: Any | None = None,
+    default: Any = None,
+) -> Any:
+    """Best-effort MATLAB `evalin` compatibility wrapper."""
+    from third_part.matlab_compat.matlab_runtime_metadata import evalin_runtime
+
+    return evalin_runtime(scope, expression, metadata=runtime_metadata, default=default)

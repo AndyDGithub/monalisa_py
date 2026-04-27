@@ -12,6 +12,7 @@ from pathlib import Path
 COMPILE_ERROR_RE = re.compile(r"SyntaxError:\s*([^|]+)")
 TRUE_FALSE_CALL_RE = re.compile(r"\b(?:True|False)\s*\(")
 TODO_MARKER_RE = re.compile(r"#\s*TODO\(matlab-(?:line|control)\):")
+MEX_WRAPPER_STUB_RE = re.compile(r"Skipped MATLAB MEX wrapper|MATLAB MEX wrapper skipped during porting")
 
 
 def analyze_roots(src_roots: list[Path]) -> dict:
@@ -27,6 +28,7 @@ def analyze_roots(src_roots: list[Path]) -> dict:
     manual_files: list[str] = []
     risky_true_false_calls: list[str] = []
     matlab_todo_marker_sites: list[str] = []
+    mex_wrapper_stub_files: list[str] = []
     compile_error_kinds: Counter = Counter()
 
     for path in files:
@@ -52,6 +54,8 @@ def analyze_roots(src_roots: list[Path]) -> dict:
             match = COMPILE_ERROR_RE.search(text)
             kind = match.group(1).strip() if match else "unknown_syntax_error"
             compile_error_kinds[kind] += 1
+        if MEX_WRAPPER_STUB_RE.search(text):
+            mex_wrapper_stub_files.append(rel)
 
         for line in text.splitlines():
             if line.lstrip().startswith("#"):
@@ -69,11 +73,13 @@ def analyze_roots(src_roots: list[Path]) -> dict:
             "fallback_stub_files": len(fallback_files),
             "risky_true_false_calls": len(risky_true_false_calls),
             "matlab_todo_markers": len(matlab_todo_marker_sites),
+            "mex_wrapper_stub_files": len(mex_wrapper_stub_files),
         },
         "compile_error_top_kinds": dict(compile_error_kinds.most_common(15)),
         "fallback_stub_files": fallback_files,
         "risky_true_false_call_sites": risky_true_false_calls,
         "matlab_todo_marker_sites": matlab_todo_marker_sites,
+        "mex_wrapper_stub_files": mex_wrapper_stub_files,
     }
 
 
@@ -100,6 +106,7 @@ def main() -> int:
     print(f"Fallback stubs: {summary['fallback_stub_files']}")
     print(f"Risky True/False calls: {summary['risky_true_false_calls']}")
     print(f"MATLAB TODO markers: {summary['matlab_todo_markers']}")
+    print(f"MEX wrapper stubs: {summary['mex_wrapper_stub_files']}")
     print(f"Report: {out}")
     return 0
 

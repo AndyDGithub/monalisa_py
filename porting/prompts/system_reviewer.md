@@ -14,6 +14,7 @@ Checklist:
 3. Complex number handling parity.
 4. Error/NaN/Inf behavior parity.
 5. Adequate parity + unit coverage.
+6. Comments parity
 
 Decision:
 - `approve` only if all blockers resolved.

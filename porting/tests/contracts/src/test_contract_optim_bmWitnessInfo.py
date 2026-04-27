@@ -5,9 +5,11 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/optim/bmWitnessInfo.py"
-EXPECTED_FUNCTION_NAME = "unknown_function"
-EXPECTED_ARG_COUNT = 0
+EXPECTED_FUNCTION_NAME = "bmWitnessInfo"
+EXPECTED_ARG_COUNT = 1
 
 
 def _load_module():

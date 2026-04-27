@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[4] / "tests/TestExample.py"
-EXPECTED_FUNCTION_NAME = "e"
+EXPECTED_FUNCTION_NAME = "testStupidExample"
 EXPECTED_ARG_COUNT = 1
 
 

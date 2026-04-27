@@ -29,6 +29,10 @@ MATLAB_DECL_RE = re.compile(
     r"(?:\((?P<args>[^)]*)\))?\s*$"
 )
 MATLAB_CALL_RE = re.compile(r"(?<!\.)\b([A-Za-z]\w*)\s*\(")
+MEX_WRAPPER_LINE_RE = re.compile(
+    r"^(?:\[[^\]]+\]\s*=|[A-Za-z]\w+\s*=)?\s*(?P<native>[A-Za-z]\w*_mex)\s*(?:\((?P<args>.*)\))?\s*;?$",
+    re.IGNORECASE,
+)
 
 MATLAB_KEYWORDS = {
     "if",
@@ -195,22 +199,36 @@ def detect_block_type(line: str) -> str:
 
 
 def parse_decl(line: str) -> tuple[str, list[str], list[str]]:
-    match = MATLAB_DECL_RE.match(line.strip())
-    if not match:
+    text = line.strip()
+    if not text.lower().startswith("function"):
         return "unknown_function", [], []
 
-    name = match.group("name")
-    args_raw = (match.group("args") or "").strip()
-    args = [x.strip() for x in args_raw.split(",") if x.strip()]
+    body = text[len("function") :].strip()
+    if not body:
+        return "unknown_function", [], []
+
+    # Remove trailing MATLAB comments on declaration line.
+    if "%" in body:
+        body = body.split("%", 1)[0].strip()
 
     outs: list[str] = []
-    outs_multi = (match.group("outs_multi") or "").strip()
-    out_single = (match.group("out_single") or "").strip()
-    if outs_multi:
-        outs = [x.strip() for x in outs_multi.split(",") if x.strip()]
-    elif out_single:
-        outs = [out_single]
+    if "=" in body:
+        left, right = body.split("=", 1)
+        left = left.strip()
+        body = right.strip()
+        if left.startswith("[") and left.endswith("]"):
+            outs = [x.strip() for x in left[1:-1].split(",") if x.strip()]
+        elif left:
+            outs = [left]
 
+    # Parse function name and optional argument list.
+    name_match = re.match(r"^([A-Za-z]\w*)\s*(?:\((?P<args>[^)]*)\))?$", body)
+    if not name_match:
+        return "unknown_function", [], outs
+
+    name = name_match.group(1)
+    args_raw = (name_match.group("args") or "").strip()
+    args = [x.strip() for x in args_raw.split(",") if x.strip()]
     return name, args, outs
 
 
@@ -552,6 +570,70 @@ def _render_special_bcaNeith_harmonicField3D(parsed: ParsedMatlab) -> str:
     return "\n".join(lines)
 
 
+def _is_under_mex_folder(path: str) -> bool:
+    return any(part.lower() == "mex" for part in Path(path).parts)
+
+
+def _detect_trivial_mex_wrapper(parsed: ParsedMatlab) -> dict[str, str] | None:
+    """Detect wrappers that only call one native *_mex entrypoint."""
+    if not _is_under_mex_folder(parsed.path):
+        return None
+
+    if any(block.block_type in {"if", "for", "while", "branch"} for block in parsed.blocks):
+        return None
+
+    executable = [
+        block.text.strip()
+        for block in parsed.blocks
+        if block.block_type not in {"blank", "comment", "function_decl", "end"} and block.text.strip()
+    ]
+    if len(executable) != 1:
+        return None
+
+    line = executable[0]
+    match = MEX_WRAPPER_LINE_RE.match(line)
+    if not match:
+        return None
+
+    native_fn = str(match.group("native") or "").strip()
+    if not native_fn:
+        return None
+    return {"native_function": native_fn, "original_line": line}
+
+
+def _render_mex_wrapper_stub(parsed: ParsedMatlab, wrapper: dict[str, str]) -> str:
+    safe_function_name = sanitize_identifier(parsed.function_name, prefix="func")
+    safe_args = sanitize_arg_list(parsed.args)
+    args_src = ", ".join(safe_args)
+    native_fn = wrapper.get("native_function", "")
+    original_line = wrapper.get("original_line", "")
+
+    lines: list[str] = ['"""Auto-generated from MATLAB source. Review manually before production use."""', ""]
+
+    function_decl_indices = [i for i, b in enumerate(parsed.blocks) if b.block_type == "function_decl"]
+    if function_decl_indices:
+        preamble_comments = [
+            b.text[1:].strip()
+            for b in parsed.blocks[: function_decl_indices[0]]
+            if b.block_type == "comment" and b.text.startswith("%")
+        ]
+        if preamble_comments:
+            for comment in preamble_comments:
+                lines.append(f"# {comment}")
+            lines.append("")
+
+    lines.append(f"def {safe_function_name}({args_src}):")
+    lines.append('    """Skipped MATLAB MEX wrapper."""')
+    if original_line:
+        lines.append(f"    # MATLAB wrapper line: {original_line}")
+    lines.append("    raise NotImplementedError(")
+    lines.append('        "MATLAB MEX wrapper skipped during porting. "')
+    lines.append(f'        "Underlying native function \'{native_fn}\' has no Python equivalent yet."')
+    lines.append("    )")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def render_python_file(
     parsed: ParsedMatlab,
     native_map: dict[str, dict[str, Any]],
@@ -562,6 +644,9 @@ def render_python_file(
         return _render_special_bcaNeith3(parsed, dependency_imports)
     if module_stem == "bcaNeith_harmonicField3D":
         return _render_special_bcaNeith_harmonicField3D(parsed)
+    mex_wrapper = _detect_trivial_mex_wrapper(parsed)
+    if mex_wrapper:
+        return _render_mex_wrapper_stub(parsed, mex_wrapper)
 
     imports: set[str] = set()
     for call in parsed.native_calls:
@@ -798,6 +883,7 @@ def compile_project(
     skipped: list[str] = []
     failed: list[dict[str, str]] = []
     preserved_manual: list[str] = []
+    skipped_mex_wrappers: list[str] = []
 
     for src_str in ordered_sources:
         src = Path(src_str)
@@ -837,6 +923,7 @@ def compile_project(
 
         changed.append(str(src))
         dependency_imports = build_dependency_import_lines(parsed, src, matlab_root)
+        mex_wrapper = _detect_trivial_mex_wrapper(parsed)
 
         compile_error: str | None = None
         for _ in range(max(1, retries)):
@@ -877,6 +964,8 @@ def compile_project(
                 )
                 py_compile.compile(str(target), doraise=True)
         generated.append(str(target))
+        if mex_wrapper:
+            skipped_mex_wrappers.append(str(target))
 
         test_file = expected_test
         test_file.parent.mkdir(parents=True, exist_ok=True)
@@ -893,6 +982,9 @@ def compile_project(
             "target_python": str(target),
             "generated_test": str(test_file),
             "compile_error": compile_error,
+            "porting_status": "skipped_mex_wrapper" if mex_wrapper else "generated",
+            "native_backend_required": bool(mex_wrapper),
+            "native_function": (mex_wrapper or {}).get("native_function", ""),
         }
 
         if max_files is not None and len(changed) >= max_files:
@@ -944,6 +1036,7 @@ def compile_project(
         "changed_sources": changed,
         "failed_files": failed,
         "preserved_manual_files": preserved_manual,
+        "skipped_mex_wrapper_files": skipped_mex_wrappers,
         "tests_returncode": test_returncode,
         "tests_stdout": test_stdout,
         "tests_stderr": test_stderr,

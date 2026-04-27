@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/readWrite/bmClearDir.py"
-EXPECTED_FUNCTION_NAME = "r"
+EXPECTED_FUNCTION_NAME = "bmClearDir"
 EXPECTED_ARG_COUNT = 1
 
 

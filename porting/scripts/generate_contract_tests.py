@@ -11,12 +11,33 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent.parent.resolve()
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 try:
     from monalisa_py.porting.scripts.porting_compiler import discover_matlab_files, parse_matlab_file
 except ImportError:
     from porting_compiler import discover_matlab_files, parse_matlab_file
+
+try:
+    from monalisa_py.porting.lib.matlab_source_quality import matlab_quality_for_python_file
+except ImportError:
+    try:
+        from porting.lib.matlab_source_quality import matlab_quality_for_python_file
+    except ImportError:
+        def matlab_quality_for_python_file(python_file: Path, repo_root: Path) -> dict:
+            return {
+                "matlab_file_found": python_file.with_suffix(".m").exists(),
+                "invalid_source": False,
+                "undefined_identifiers": [],
+                "unreferenced_in_call_graph": None,
+                "special_case_invalid_unreferenced": False,
+            }
 
 
 TEST_TEMPLATE = '''"""Auto-generated structural contract test (MATLAB -> Python)."""
@@ -24,6 +45,8 @@ TEST_TEMPLATE = '''"""Auto-generated structural contract test (MATLAB -> Python)
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 import inspect
+{skip_import}
+{skip_block}
 
 
 TARGET_FILE = Path(__file__).resolve().parents[{target_parent_index}] / "{target_rel}"
@@ -96,6 +119,7 @@ def generate_contract_tests(
     created = 0
     updated = 0
     skipped_missing_python: list[str] = []
+    skipped_invalid_unreferenced: list[str] = []
     generated_files: list[str] = []
 
     tests_root.mkdir(parents=True, exist_ok=True)
@@ -111,6 +135,20 @@ def generate_contract_tests(
         parsed = parse_matlab_file(mf, local_names)
         function_name = parsed.function_name or py_file.stem
         expected_arg_count = len(parsed.args)
+        source_quality = matlab_quality_for_python_file(py_file, repo_root)
+        special_case_invalid_unreferenced = bool(source_quality.get("special_case_invalid_unreferenced", False))
+        skip_import = ""
+        skip_block = ""
+        if special_case_invalid_unreferenced:
+            undefined_names = ", ".join(source_quality.get("undefined_identifiers", [])[:8])
+            reason = (
+                "MATLAB source appears invalid and unreferenced in call graph; "
+                f"undefined identifiers: {undefined_names or 'n/a'}"
+            )
+            reason_escaped = reason.replace('"', '\\"')
+            skip_import = "import pytest"
+            skip_block = f'pytestmark = pytest.mark.skip(reason="{reason_escaped}")'
+            skipped_invalid_unreferenced.append(str(rel_m).replace("\\", "/"))
 
         test_name = _test_filename_for(rel_m)
         test_path = tests_root / test_name
@@ -121,6 +159,8 @@ def generate_contract_tests(
             function_name=function_name,
             expected_arg_count=expected_arg_count,
             target_parent_index=target_parent_index,
+            skip_import=skip_import,
+            skip_block=skip_block,
         )
         old = test_path.read_text(encoding="utf-8") if test_path.exists() else None
         if old is None:
@@ -138,6 +178,7 @@ def generate_contract_tests(
         "created": created,
         "updated": updated,
         "skipped_missing_python": skipped_missing_python,
+        "skipped_invalid_unreferenced": skipped_invalid_unreferenced,
         "generated_files": generated_files,
     }
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -176,6 +217,7 @@ def main() -> int:
             "created": report["created"],
             "updated": report["updated"],
             "skipped_missing_python": len(report["skipped_missing_python"]),
+            "skipped_invalid_unreferenced": len(report.get("skipped_invalid_unreferenced", [])),
         }
         print(json.dumps(compact, indent=2))
     else:

@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/mitosius/bmMitosius_clean.py"
-EXPECTED_FUNCTION_NAME = "n"
+EXPECTED_FUNCTION_NAME = "bmMitosius_clean"
 EXPECTED_ARG_COUNT = 2
 
 

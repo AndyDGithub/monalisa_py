@@ -1,0 +1,16 @@
+id: TASK-0001
+status: todo
+source_matlab: monalisa/src/arrayUtility/example.m
+target_python: porting/python/monalisa_py/example.py
+owner: porter
+dependencies: []
+parity:
+  mode: rtol_atol
+  rtol: 1.0e-6
+  atol: 1.0e-9
+fixtures:
+  - name: basic
+    seed: 123
+notes: |
+  - Describe edge cases.
+  - Describe MATLAB-specific semantics.

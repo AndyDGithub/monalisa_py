@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[4] / "tests/ci/run_ci_test_suite.py"
-EXPECTED_FUNCTION_NAME = "e"
+EXPECTED_FUNCTION_NAME = "run_ci_test_suite"
 EXPECTED_ARG_COUNT = 2
 
 

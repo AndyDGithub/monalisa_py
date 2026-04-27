@@ -101,7 +101,21 @@ python porting/scripts/run_agentic_porting_workflow.py \
     --model granite3.2:8b --fallback-model gpt-oss:20b \
     --max-iterations 3 --max-files-per-iteration 20 \
     --stream-repair-logs --enable-matlab-help \
+    --enable-strict-prefilter \
     --dynamic-llm-timeout
+
+# 3b. Pause on first failed patch (for IDE manual takeover)
+python porting/scripts/run_agentic_porting_workflow.py \
+    --roots src,demo,tests,third_part \
+    --model granite3.2:8b --fallback-model gpt-oss:20b \
+    --max-iterations 3 --max-files-per-iteration 20 \
+    --stream-repair-logs --enable-matlab-help \
+    --enable-strict-prefilter --pause-on-applied-false
+
+# 3c. Resume a paused repair cycle without re-running regeneration
+python porting/scripts/run_agentic_repair_cycle.py --engine legacy \
+    --resume-from-report porting/reports/agent_repair_cycle_report.json \
+    --skip-pipeline --stream-subprocess-logs
 
 # 4. Fix imports
 python porting/scripts/auto_fix_missing_imports.py \

@@ -353,3 +353,19 @@ porting/
 ├── docs/AGENT_TOOLING_MAP.md          ← script-to-purpose reference
 └── docs/TODO_TRANSLATION_EXAMPLES.md  ← how to translate specific MATLAB calls
 ```
+
+## LangGraph v2 migration note
+
+Default orchestration entrypoints now route to LangGraph v2:
+
+```bash
+python porting/scripts/run_agentic_porting_workflow.py --roots src,demo,tests,third_part
+python porting/scripts/run_agentic_repair_cycle.py --current-file src/fourier3/bcaNeith3.py
+```
+
+To force the old procedural behavior:
+
+```bash
+python porting/scripts/run_agentic_porting_workflow.py --engine legacy --roots src,demo,tests,third_part
+python porting/scripts/run_agentic_repair_cycle.py --engine legacy --target-file src/fourier3/bcaNeith3.py
+```

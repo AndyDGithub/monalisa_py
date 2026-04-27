@@ -1,244 +1,2323 @@
 {
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\simu\\bcaNeith_coilSensitivitySimulation2.py": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\arrayUtility\\bmPermuteToCol.py": {
     "status": "modified",
-    "signature": {
-      "old": {
-        "function_name": "private_rescale_mag",
-        "args": [
-          "x"
-        ],
-        "returns": [
-          "ret"
-        ]
-      },
-      "new": {
-        "function_name": "bcaNeith_coilSensitivitySimulation2",
-        "args": [
-          "Nx",
-          "Ny",
-          "Ncoils"
-        ],
-        "returns": [
-          "ret"
-        ]
-      }
-    },
     "logic_hash": {
-      "old": "0fda851af66a58a084b5a916b046aa05ff482777bc9fc3efbaeb455876e28c09",
-      "new": "6cb9d098389274c8d1523972826276e6354648375c4a049d6e2e53c167f703a6"
+      "old": "29b0fc22d49c9b3ffc93c6074a8b02933642c6cd5d3f9685c36f7a8738800f1e",
+      "new": "f60803a3b07c2a7c67761313077eb49f9cd40310c2b813da414b6711367ea20f"
     },
     "source_hash": {
-      "old": "363a908e70e211a02d552b262d3212cd5e92c7304897ac655d86dc1c5071c151",
-      "new": "69d9104c70b1b13e57dbb983aa9304843490dae8d08431aaf1b326f63aa046cb"
+      "old": "4ce20f7789f81300c6d98d1ac9d28745a4d8ca3f3ac2269b9b845db24dae493c",
+      "new": "45552059758e7d61eb5d7d5885d58d41c7d534e9a89a302a46785158959097e1"
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith3.py": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\arrayUtility\\bmPointReshape.py": {
     "status": "modified",
-    "native_calls": {
-      "added": [
-        "MATLABGrappa",
-        "Path",
-        "ValueError",
-        "all",
-        "any",
-        "asarray",
-        "astype",
-        "bool",
-        "insert",
-        "int",
-        "mod",
-        "pad",
-        "reshape",
-        "resolve",
-        "str"
-      ],
-      "removed": []
-    },
     "logic_hash": {
-      "old": "560a2bcd7d36ab51c81d8d4f23fba1c426483d852d33ed6ef4fc9e04bb20f527",
-      "new": "2e905ccdedcae51f585e04ab39364d5b1af1a821e7be8894703f6db137c4bda6"
+      "old": "d99f75d939ee3a031f7f7d3cc7f07f1c6ef6366a9158b62fbec5548438433738",
+      "new": "98df3c4c6533bf140af62aa0672e80f0ab4f398266c91da2db95cc55ef5c68c0"
     },
     "source_hash": {
-      "old": "6960ac90dbf717f10b85d79cbd542b1774ba97fd0e916fbb8fee45ec2cf25977",
-      "new": "53270e2961e972ab57e845a77c555101140be179179e11b0170e5f43b633eb4a"
+      "old": "44e5b52377c00b858579d6bf2106618fc6d1e74ae6da198862c370f29ddb0919",
+      "new": "c13818e8ae79221439b53fbef4e6e3d17d24df5d9e2d17530c71628188869570"
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatekSpace3.py": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\arrayUtility\\bmZero.py": {
     "status": "modified",
-    "signature": {
-      "old": {
-        "function_name": "InterpolatekSpace",
-        "args": [
-          "kspace",
-          "interp_kerns",
-          "kern_types",
-          "kernel"
-        ],
-        "returns": [
-          "ret_1",
-          "ret_2"
-        ]
-      },
-      "new": {
-        "function_name": "_validate_kernel",
-        "args": [
-          "kernel"
-        ],
-        "returns": [
-          "ret_1",
-          "ret_2",
-          "ret_3"
-        ]
-      }
+    "logic_hash": {
+      "old": "42dacb5ade2ab02c6201877350f4321fd4a57fab939b26defd6c474e2bbaf8a0",
+      "new": "861501c259d2fdb5c0b574ada24d708a9f815e55a82c98745cc09ac580f97f49"
+    },
+    "source_hash": {
+      "old": "49f9b53c0a8c4f4e9f67f80672679bd1326c14505bf51825c5eea983c5734f4c",
+      "new": "368634a01a9b48b561c3092bd404a0e7a9ace7ac52f186f1dc452ee6b422aa3e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\detectROI.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "68875cb0168d3c6854cc00ab601ad8bbdd1ae20bad47df48774ee10edf170806",
+      "new": "a1b3aa967fb788346f992bddc0bd3403a487c9bf14f39f21364a11238a928e29"
+    },
+    "source_hash": {
+      "old": "ac14a74c94fc59d55f20a1a7da8e60e758f33eea9195b0a2f663648f09564af8",
+      "new": "a9a847a6b91bc7fa63db38e3a1f00ca10e815ccdcacc472c26fcb1b647e27596"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\mlComputeCoilSensitivity.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "501f9fa253d6c5e85c97529ca829d9130c3f020e79f410be1b2f1dffde89a0e6",
+      "new": "41eec5dae44e95839019c08c1c55601f7cdd39ed4187b8bfbc6e9421e4ebadeb"
+    },
+    "source_hash": {
+      "old": "c60d6fef2a34b271dde044af6d67df58332442196d7ac27d2c664a9b8a5faf03",
+      "new": "ed774b9a85519c0d34990c8de4820d1313ac76cf287ac6d6b26343c9750ee041"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\selectROI.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9ea7ae202cf0c9d2e16cb791fee31860bb4509f1de3259a2cc3539744b6296cd",
+      "new": "a3230248fc2b88e1199d5ba6c72e9220f1ec0241cffaca512d343df3c653de6b"
+    },
+    "source_hash": {
+      "old": "0f6848e70585419b42ad134bab35fefaf2b446197b494bdf56901ded8f805300",
+      "new": "1c8b871b42f20a13cc32fc05b84d18be64cd4199bbb8076c47623828262625f7"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\automatic\\thresholdRMS_MIP.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4c37f489303cf7501c732fc93874e2563ecbf679ad3a5b82f13129c08b32f679",
+      "new": "f89ddea92c20684bd216dd424bbba0b4d0d7e742127bb534d5fb10a9be5c5b40"
+    },
+    "source_hash": {
+      "old": "8dfcf9947b9ae4b5763f3c9ac185e5b700603a9ac48f44aa725990daa3262ce1",
+      "new": "0ef747e2fab75f9a8c9ac8910f8ae84a42b0bbd17a2dc5ce1ceb149623ea3c9d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\from_prescan\\bmCoilSense_prescan_coilSense.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5668d5ce1e127b2ab5e7e072f4cd40ddb9f3c137bc60c8e918dbab29d6edb47d",
+      "new": "31b98ff382597a398de5fc0433aceb486ffb6235f21fb0ffc06a7c5a46bf80d0"
+    },
+    "source_hash": {
+      "old": "6b2355a8dff531061335aee11b16e13ea71e448388547b40e0ad64ad6468afd3",
+      "new": "0f204bba88fd3ce20d7b10d7663ee71ac99b79de3f7a49955d89eab6a5ed3ca0"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\from_prescan\\bmCoilSense_prescan_mask.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3b230566f52e4c9789e283dda604a8f15e1ab64e8c48e61b625dc4a0c2a94766",
+      "new": "c087f947684d8d2b48dfff15026c933c07173929e897370e7bc66c2e528ce580"
+    },
+    "source_hash": {
+      "old": "c8c1e72eb2836a12f8600e84fafdc38315a3a0acc3cc2be4aaa8ca9c2fbf79e7",
+      "new": "07804ccffc5d270d1fbc533a04c0d86dc6a3b6e25a6eb9b96e1ff37d6d4cdf0d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\map\\bmCoilSense_pinv.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "0e15bd3a2beb4b4a8633b5b0ad0fa1d3e8434501a4ad3c090f084e3f87da634b",
+      "new": "d23c3ae9a62daba3ae17460c10487294dc7f013aa91753465a0b84e8c3087c86"
+    },
+    "source_hash": {
+      "old": "a4b036e44751172b249e2095fe0087afc84c7c11d97f2df4e1b515d697757327",
+      "new": "541bfa638fe5b2d64a7b2d1ab50c433e19564c33ad549e82b194607749647370"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_data.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "441a94e9860356ec15eaf4d07cff2678e97283563ae6485457eaa73057863960",
+      "new": "c1965f5f80a3758868a42b76a3b8f39c49972dbc1fdffa16e67dcf047bff73bb"
+    },
+    "source_hash": {
+      "old": "0e984380dd9ae6c8483e0dc94d707b838bac95a259d2bbe8264a2ad009763d8b",
+      "new": "7b8a353bc744a7ce2a81829c28f0a6783b4a8dc3b434de56b53c2222da983600"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_dataFromTwix.py": {
+    "status": "modified",
+    "dependencies": {
+      "added": [],
+      "removed": [
+        "bmLowRes.py",
+        "bmMriAcquisitionParam.py",
+        "bmPermuteToCol.py",
+        "bmTwix.py",
+        "bmTwix_data.py",
+        "bmVolumeElement.py"
+      ]
     },
     "native_calls": {
       "added": [
-        "InterpolatekSpace",
-        "ValueError",
-        "_as_4d",
-        "any",
-        "append",
-        "asarray",
-        "astype",
-        "concatenate",
-        "int",
-        "norm",
-        "prod",
-        "range",
-        "where",
-        "zeros_like"
+        "view"
       ],
       "removed": [
-        "find",
-        "kernel",
-        "normalize",
-        "ravel",
-        "return",
-        "zeros"
+        "ones",
+        "shape"
       ]
     },
     "logic_hash": {
-      "old": "b25b99dbc6e59dd927a135fafa961b3b36f1798cd87a888f24aaa54de0e60ca7",
-      "new": "3820ffe14f3e5fc214740bcb8cd8166a832aa9cb53f683b72227dc7b42398f99"
+      "old": "d0aba8374bb678b13f0f39ec2369e7e5d244a6c633febe3c76124edc897f5482",
+      "new": "720512025c4f98549fb2ef710b9852698f3e9be75c133d5e5493fa457d46de72"
     },
     "source_hash": {
-      "old": "293ee4f3f04846cbc37d7aaad4053a4f0f671424fe635efbfa293c2d110ddb0c",
-      "new": "e36dadf2244c27781728ebc19172c023187599c411571f11df6944d5747aa733"
+      "old": "dbb75f7f5a616ea9327a72b24c42801f7a28f4a3f89784df4fb0ec22a89dcdef",
+      "new": "4942b34c3d448a7fe2e609da39217e5f64feadc6f456c51a3b1af509fc2e148e"
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_interpolatorExtraction3.py": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_find_nSmooth_phi.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "48e9f769c2b91a39f06bbc0fc5dc8e8b7de896d45821bb5c1113dde3ca692fa7",
+      "new": "7dcfc71a88ca9a998bf76b5e70444c77c7921050471426308e935b7fab5cd50d"
+    },
+    "source_hash": {
+      "old": "5ad9586be604c1bafa71d670781c2ee24cbf4562c2a9f8a46d55584a98fbccf6",
+      "new": "6915b4d0801c1817c2db976cf355046bf8e252927a33df200e7abdf058d384bc"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_mask.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8fa47c5314a2907d2ff6bfead17996dba310453590b64a0b673cd9c1e8ff5ad3",
+      "new": "592a7fd26e9814c093f7667a4c6c7c4fa7da0b3d6488229c63778b6e1ce91c36"
+    },
+    "source_hash": {
+      "old": "b5a283687c3e33fca5e83fedbe7363d94f99f57b4c54fe73c8c00ab1e353b350",
+      "new": "32c6cea931b3be60e2a58460e9b776d0d416b06763dab630dceb043276c60ed4"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_mask_automatic.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9271e1c1d5499a993a7da06aa2873f2cb29097f31852cc004483db2f1d4a1493",
+      "new": "2bf3a9b5d91fa4cd815143b93d3f49d7d9799f880f86985e8dc0f70156340c7b"
+    },
+    "source_hash": {
+      "old": "721be5e8588271e89c3938d082f1d73bc872996ba42fb0842a84fdebc8d091f0",
+      "new": "c92fb99ff24656d71a7df6887edd0b368c5c41c00b9c5675a98b309a29d3c3ee"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_primary.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5ef13f1613768d417d5f07dcb605308f4fa7c7e13838154db817f9531dfdf2f4",
+      "new": "4f77fee44879f4ef9be2910291166f8731d6222dffd6a62e66c2bc42a84efbe9"
+    },
+    "source_hash": {
+      "old": "8cbd46f79bac48657ed335c905238c1e4850ab1d307b8eb3d0386d328530da17",
+      "new": "599937e8966d3c152402715bf914954b78503782bac8425667a0fd3ee0de5a72"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_ref.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "10ef38cb5957bb9b1494a54df13a99f4e253702a6ac45461612a31552f77a89a",
+      "new": "c4bda6f20c62e960df46e2b6ee7ed02a934fa98e030f4d6ac154c9e1cf1dbe37"
+    },
+    "source_hash": {
+      "old": "0b63802d93f237aee2b46e40063b4ec96c632e367bafdab31aa8f13ec915d414",
+      "new": "430f6354ae3e44ff0279d3ac63703f11a19e080550269aee4d98aeab791f7175"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\coilSense\\nonCart\\bmCoilSense_nonCart_secondary.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "99605d6ab962805f5b0126676322097af795eb0f46974cac715b66016730054f",
+      "new": "928861f52f8c65212cb9bb437edd50a74d2c6dc277515074a2a7ad7e9b43e513"
+    },
+    "source_hash": {
+      "old": "ca6bbbef8b3b98d90cd790d99d74ae7c8657c5fb82eba7618074a9c88ec82e53",
+      "new": "81dc4966355a2b2fb1a2726ab8afb3b277486f78591738a3a2db46340fc387dd"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dialog\\bmGetNat.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1f6083882d3a3033815e645ea8e0b9d05913ddb912b80a62307c3b10822c4158",
+      "new": "e63d73a93ee525aef951d41461e480e55fae25e9b87b8ac9f33e3ad1eafa40e2"
+    },
+    "source_hash": {
+      "old": "d8c58f54687722603ed146934ca92e549d6634d8f7ea66a193e71e69895330b8",
+      "new": "2e38f4047c5471b702fab3903f3a6984057cd674ac1cf0aef09ffd4401374dd9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dialog\\bmGetNum.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bdc38587e551e408c158f2d2818b301dcf92fe45999beef308af0a364888ff38",
+      "new": "646140136f5afdd5e68fb6c0456498a204a1c1c9cd4ff31b55db9caa03d6a8b9"
+    },
+    "source_hash": {
+      "old": "c1afd84dde6ca36d4e1f1c0eafc58f10acae87db35b517b6c36556467f3af100",
+      "new": "fc0c778cfdc8a1c1182bd122ae1f589cc7618e84094b0a57b0503524d65baa62"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dicom\\bmDicomInfo.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "c2416506e5ef6465cce589d97d52d03590dcd6ede68f7e28785a68d42b1d0c23",
+      "new": "c88f1e9da4c4f1de83207a6a67433b444e7eda1f77c81b65cdc0264d7e1d28fc"
+    },
+    "source_hash": {
+      "old": "9b8cc5b7be4217b4a0b9b93d65c03d47c932a1f71cc7cad7c6fa38e6e125adae",
+      "new": "85a27785ae1ee3daa7c983c8d9a8c187099e766c9dfa65a929d3f693fda53bcd"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dicom\\bmDicomRead.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e2358c0b1b54cab47086ac20d6d265a87e8e05719f87e225e28a6879a99de9e6",
+      "new": "e94a870847681c690bab58d61127cd85e3af27ce53e67e38cfbc40c4227b785b"
+    },
+    "source_hash": {
+      "old": "ef3b16f8079abd580b808552204518e77fecd70f64a92eaa396d8b243d80b78a",
+      "new": "05c64bfa11a24d53ca7ed6089ae6f8482ae9d48268f3c4e1358b8b5f27507509"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dicom\\bmDicomViewer.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f108bad955624450b3010cbf578f678f486c85af896a074bd8d7e6ee761b6820",
+      "new": "f3e970e7b272598b023bd0ff7f52ac57a284df1e7fc2005f0896f7781881ef63"
+    },
+    "source_hash": {
+      "old": "0ad05f3e2913f0c7634f0cfbb87420ec4eba1a6020e37e5ebce783afdba7240c",
+      "new": "59c17b5d11acebd8acadf016fdd8a29643dc710d645c18e3bf2be98a2d535ba5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\dicom\\bmDicomWrite.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "2745139be1182adbe6325ddb21164a1d74cc92cb6dc4d982a2a452e8a1ca8563",
+      "new": "a2f470ba471f0a65bde388dbea998721e9c13284d70bb744f15e2c690497a3fd"
+    },
+    "source_hash": {
+      "old": "134ce7cf0c18ce31a365b27b59fd109abcc8cd6eb712f00691aab7b54929d015",
+      "new": "66c51d7b4268f63ff18f8e86b16a0cfe1697e0b1f66f956855209e956db34cc0"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\elastix\\bmElastix.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "de1f84073288fe927a5fe88243beff3b078df6dfc9f84a07c0760293023dc5fd",
+      "new": "32d45c74935d29030485f597b97bcc39ae2d4de19e2fc042ef72c4f9c10fc30b"
+    },
+    "source_hash": {
+      "old": "0902c05097b11f6ab38628d9e535c360dac1333d299696ab1232807ff871883e",
+      "new": "8985aa7d656ec9f8dec2b01b2eac52449ad9f91075c1668957d16433d995de8e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\elastix\\bmTransformix.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ada198b189555769c75c6095453dbc686caab937989f6b666ee741a6188fddc6",
+      "new": "734e26668af173ef97399666bab187254bcdf27430fc1fb3153b235aa77a4ec6"
+    },
+    "source_hash": {
+      "old": "f511bead44f30f15328dd50b5de8a8ab4ea82323e6769742f09a3acbd09cc33e",
+      "new": "d9066d652eed140a188ae5e78b6b7b4879f336d33d47ef36075f816f2a2c9782"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmDFT123.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "57da7a8d3b82c15f5a45dc6e2ce263d07e46acb6fa50c680d538ef47477c34ea",
+      "new": "a7c3b3e3331f7a4fafc906aa04b9f4ae657b9a545c72add03f901bad8cb03258"
+    },
+    "source_hash": {
+      "old": "8bb50455558a8f0d46186319d2702532fc813de3506f1e59bbdeba6a5de76e76",
+      "new": "989d1d55f301d31c239db0d6613a00df8d3fe58678cfd685d63762c1ba9604f5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmDFT123_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "70b0455128e8c6fdbaa809db4f086e7ff424522607f688c155d18c6636a9e618",
+      "new": "674a20d518ce508ab446bdc22cc86463e4b8461901c63abe352d2d04e8420e28"
+    },
+    "source_hash": {
+      "old": "36244f8ee92f093c02b6f6f9902405a13360d6cb4522c356001fd647dfddcc07",
+      "new": "d3c2174d257281a70aaf655c3c5ea4ea8206de152b85df0dbd3a1ac292e51934"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmIDF123.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "603cc89c210e7821c98f7f8aed0f22762f168bdbd747e6f81d71702b6bcf8b5c",
+      "new": "d408670640173e8b4ec341c09427bcca52f40d0875e7a8c43d0745b9d2b8830e"
+    },
+    "source_hash": {
+      "old": "2c2a14a7ddd73bb23a16835c6d1b4aefd9ca26a5e413217bc3f224d581a3fb3d",
+      "new": "8dad0d92c62fc52e980040b6927e13f8f5ccfb7af45c5afb10321298026c43cb"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmNakatsha_cartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "92af90355ef74caedbac493c622a81f863170dd76451b211b1f688bf44466abc",
+      "new": "7bcdcb67ffb71ccf9a9703eb395087250271bf4c38b7dbe04cbb7c83cd00acc7"
+    },
+    "source_hash": {
+      "old": "8a8308d252dfa841c3180116a81087b017296e5aa0e607eeed1b7416d01bd388",
+      "new": "30adcb4367597245463fcfd3f154a7d1ffc78d9562e02e7e2ba67312d3daaed3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmNasha_cartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4187504f16ae2c9c7defbf7d9cfaa0a7911240aaf0ab4abe48fcfd8957d77bd7",
+      "new": "66d8122d066d89dff4b17c9b3530ba7c77c2df97c97ff3761e1e7735073a1d24"
+    },
+    "source_hash": {
+      "old": "a8f50626a4449260d569583f548c6e9727284610756d9d44deff407e1fc254bf",
+      "new": "605f094d160f14abe15be6f30feaec919f0ecef96a021ab40a6e851f944356a1"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\cartesian\\bmShanna_cartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "272e110dae8c7afe48dd8860bcdbc19794885f59c70de1b2653fda319af94757",
+      "new": "4b09943c9bfdeb7543a192e2acdf11dfa67bff53e96d590f208d14d023e13bca"
+    },
+    "source_hash": {
+      "old": "dddffdd4a86506601eb0e258263ca14c0970f9f6452928e77cb0d3c7bc2b66fa",
+      "new": "16c4b21ff4f444fab3f4c2343f131d567942d237f9dfe7744202365540485f08"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmMathilda.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "73a93ac54982aa6ed81894531a73992d66337c16d0202c57e37067dcf27744e7",
+      "new": "03f346916e62e1d473fb1500afe8c3a3b806579cd016c7cb6db75ad44310fac2"
+    },
+    "source_hash": {
+      "old": "e13ffdb8a2dd269e30505a21f9d52ae60f0c211a6a552582a4bfd003a1715a68",
+      "new": "640ff51a776c071d2c7cebc8e268fa0dcb35f84422c4e6f995c3a1ec475a3e01"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNakatsha_MATLAB.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "11713ab4a20dc0bf0c73ac471de51208fa27fa1dfe3bf8093c473b2e97ff0c0e",
+      "new": "2794de5120f044b885d05c2bf92c2a31161722e520cc58f0a8edfe530f38a048"
+    },
+    "source_hash": {
+      "old": "ff83e8926f1c6d7ea48f1fb25eb20b4788bba384006862f03017233a0aba985f",
+      "new": "2f5ce459b8ef18725cca7d0ce629d49e242213c615f45fe0e90e9a18152bc925"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNasha.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f6ac1c264116b2cfff0ed8731857364979954244833857002c995980066c56fa",
+      "new": "4c386e64e09d0f9534a64d6528b149e6b425f7213a1c0e9a9fe204cc129f76d0"
+    },
+    "source_hash": {
+      "old": "093a3458eac302e1292625b1ab9b16f27443f0ef92a42159f02b9ec846dbdae7",
+      "new": "f58b0f2716e50be3a6840f27967855ab13d0c6d8211570b36b542349b4cfd8c8"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmNonUniformFourier_pinv_gpuNUFFT.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "103d39cd6902f4ed16feb92974fd760069709640a9b5832f6f4d1ed891870e95",
+      "new": "393cfeccc2f2726a1c2ac7cc43349aa933852f64fb12f1efc43eff7e6c74eb75"
+    },
+    "source_hash": {
+      "old": "744d3c0a13b8df4bd1926b839749bd8ef5d061f214c6ff7e1f44b7b648e26a02",
+      "new": "bf67f8b8355defa91aecfe15ce705847872b3be465b4f28c2af175e27dda09f1"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\nonCartesian\\bmShanna_MATLAB.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4fa2ab0a31b76a4561822bf537b1a33214e6f0bba5b058a6ae0fcb7db19b7c37",
+      "new": "1bd7e9bfd9b0337a3941ad6bc8fc7a894ddf1e46711b2b277349ff5e6a019118"
+    },
+    "source_hash": {
+      "old": "20ccef74a7d8165776bfd9a348f4014b66eeffa36004fcf9916b9cd9e06d1c19",
+      "new": "f282a10115d35c138e23a9a38f96eae64808fdb2c97913369b09f72749d9fbac"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmNakatsha_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9a46e8641c14d029d28fefe091974029f9c6a780bab928596bd182f2af25b1f6",
+      "new": "159860bba8ffa12e32568c46e599a31d7816ac34e1ba1a456fc7ad8cccac330c"
+    },
+    "source_hash": {
+      "old": "fa2aeaa4b47bf327b80f0bc3fa50ae922ac1b6e11410681a90e68a0bc8dd0758",
+      "new": "69a8c165d6725172d3b53348709ee0ff20cb4aa265d68631e186a44d905b91b3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmNasha_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "24100a72b10949af3c1c3efe636823a4d2d65a98a71b022e1014f56d8478c55b",
+      "new": "0d3ce0c3ccf74d2e2ee7a0476a981a91dc2e99bd901fcb036f2d9208b7c07fec"
+    },
+    "source_hash": {
+      "old": "962aa0103d8b4e95ff63ad8398457bb6798f84bb544935fbb11ced914d6ee1e1",
+      "new": "d9e0cf7d2ba7376133265a1ca8c0eb1b899cf777d24372997e28dffa13b7af48"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\map_function\\partialCartesian\\bmShanna_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f0d227b4c9dc1186a6a2ded89d684ce1d6b3242a04d0e4344ab24d089c9a53a3",
+      "new": "5d027970887cfbdd52a407f2a1e44e8d8d2ee810aa5dfd0ba8b29dbdd26df457"
+    },
+    "source_hash": {
+      "old": "825765074ac3c4db7e8bb71dd8f15ef56507d8835b3cabd18c0cf5df65b70b83",
+      "new": "c74e6261d8034ec94fe43976a8a2f7bd14eea63a2978451b17a838e78828152f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\other_function\\bmFourierModulation.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "209aa94205204e3ad7d8870559f400989cf962471db1a1da3def8d3570ce4df8",
+      "new": "52c95899f69729ecf2e3e2c5ff0d4727d5e9cfbb416217f65477a287503e773b"
+    },
+    "source_hash": {
+      "old": "9b635c33654c450eb1c123f7daa5ca445cc612fa54b585c691328bcb8ff665d4",
+      "new": "52b0f36da82fee26d716cc2d776544f989cdf9903754a7a0ec075e750ad72654"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmFC.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "80206b1f631ff88d57575472c55d59430bce5fab536ff273c47aca56f23d0c05",
+      "new": "d11ef4c0bec16541065172888f12a0516685d756ba1dd00568c7972d1bf468aa"
+    },
+    "source_hash": {
+      "old": "0d85702513240310377be6e48841e7b4a27303993aa65b47d2ed7541fa42b2ad",
+      "new": "2a26fdfbd4a352db50742532bc66030146fec85b362ce1c429b2ff58a75a18d0"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmFC_conj.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "304f7b2712cd809de9a089117c65a8a93d4923368b697f34c3750b20838030dc",
+      "new": "7af9c93e92d887a8cb5b8e29fb2353f865d65e3af8380b3777f15aec0a730d5c"
+    },
+    "source_hash": {
+      "old": "3c2b971d181dbce85859669f493d93be361349e3a81434cb351f323d2893b021",
+      "new": "17a4bd1d238468d72123e948df2f486c479cc84048c7fd6db98b0302b5d5cfd3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmK.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4226713f52cd918288f91b812a25260ab4a2293080076211670b9be1d5b56a73",
+      "new": "65aa3e17581496dea83cc63329cb1429da54f221f50e6590e108a92ccec8c026"
+    },
+    "source_hash": {
+      "old": "3b130f40d952081b8fc20f4af14abb679af19cdc825dcf35dd1959018bbb6c0a",
+      "new": "91bd5527ee79af8faf9fc03fbb180570b967b45d39d5285c64ce3787f4d41020"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmKF.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e9e4bf736915f288794305305452bbacaba4630e26ea4e1c7d7990548321895d",
+      "new": "b260fcba1034b8e60f647daef54f8ac6b18bf11fd5d4d3dd617dd8ac3fcbf996"
+    },
+    "source_hash": {
+      "old": "7f8a056ff1b2c7c52af1156cc555717a46ec247a5eea695356a568ad58d61ab6",
+      "new": "e283fb9cadd14c42cb40829139b567cab82921485266903d93d94df0f233e734"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmKF_conj.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f34d1bf0567c633beca3c26521d57c9f3ca45c481cc7149a57611a61340df00f",
+      "new": "2f9ca8e8ea7a9a967f387c660faeba08c0b63a77bbc37504325f1e849cab8f0b"
+    },
+    "source_hash": {
+      "old": "18a7782bd167aa2eef1f7c7d858410a5cbfee4187275ab278a1122ab0056493f",
+      "new": "a87232bbb3fcaa9707aad4001f748d98595f1fb936c3940b1aa90e476412f785"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmK_bump.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1a6efd7f61962baea7e6dd43b0340ef56af6c857c4f1e1ceb86e25ccfe945641",
+      "new": "1ef0a1a17924fb8eb82f362adeb1c610904c87f94e41af3e6af8792145ccce35"
+    },
+    "source_hash": {
+      "old": "4b1a6052b055b7f2ae46d41e9bb789412ab42ceb0355cb60e66ea63ea0f02fa3",
+      "new": "2216ea2b49e50dabcaffa1ff11dcd83d2d8a804f62dabfd99a4623355c70fdb9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\prep_function\\bmK_old.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "44b28519843d0f0123027cfc5e9667485c532ee50337f7d1d93fc5a8b760e510",
+      "new": "1181831a7728b8f3abde63bf31f863c54ef766d4ccf3ed707f24bc22a3a3738c"
+    },
+    "source_hash": {
+      "old": "105a3ae80eebb9c57a5f330dbb3c3a4c0aac89b926c9f1024fa4a8b7adab77ff",
+      "new": "4187c6437c463a05c0b8def53a88a70863a0ae45278f9934c698cdcef1843eb9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSensa.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3b16f180bace4e90773cc8b6c84c3a44129ab0479b3fab06a8f91e609cdeb943",
+      "new": "941d04d67dc7f874fac6f4a9323dfad79c1fc198e8ae397bf9594af6006af24d"
+    },
+    "source_hash": {
+      "old": "deada719e8b1645c36c3c6ba9e2a1a86365f552fc2a831bad7c557672e944a13",
+      "new": "dcf9702e6632a0298bc6922437ece4e8bbb31cb4cd4b1686f3c55c24671476d4"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSleva.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "17761d8c28db6c192b58c6c43bea2e5d14381d97704ac04ad19760e2ce35d167",
+      "new": "554fc4d03817ec7d40d3fbc9d63e5ce08110d9c985dda96ad7570564846a2cbe"
+    },
+    "source_hash": {
+      "old": "49020b2f5e35d0d47a2cd553257340aaa66d40336d0f5fb6e4922bcb9d73b33e",
+      "new": "75cc0e2debe1954dc8da846bf309a796fd43515ef430aee2581eff2e0b818658"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\nonCartesian\\bmSteva.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "c202ca7e075fc7ddfd1411a0dc95f475aec88ef6c5b547fd5c7a106aa741e5c1",
+      "new": "784e119dbe5dd517917832f438e32ff7f9fa6f8845260a5c58e0210632214197"
+    },
+    "source_hash": {
+      "old": "49736827ff7b6aac0d651f0d1063c82b27bed97c2f09e51619bc1698d619a96a",
+      "new": "f57ba3b67f2b67b781448c6086952aa87ad0762ff2a81de87fde7c12a34b0f2f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\partialCartesian\\bmSensa_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8f09e493a9ae4471b97ec19cd6781f55d06c5587e6bc12223115fae0cd77fbe6",
+      "new": "2fe5c5d72bbd30b54571824fc6606acf1fda0f0c96dc81801ad604e9a32a7d4e"
+    },
+    "source_hash": {
+      "old": "374e64ce3a1cfaf2dbc35cfdd6331868f0e29c3dc9e688daf34edc7315a9a337",
+      "new": "bde0fd1a4c6495bdb158f805487aa37309a7d082c90dd2bc235830a20e52ffb9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim\\partialCartesian\\bmSteva_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b90bfb524b4812bf3c0385f4c97214e15eed7852e904cf6f946093f7a790e00d",
+      "new": "0dbf8b3132fd6c3eba4914c2a363aa42328c069cd584ecd4e0f5f2f42d07d1f4"
+    },
+    "source_hash": {
+      "old": "5478e5d8716bcd9f08dc6b95931f68e7f8d3b8f0ad3221d827983bed871c9506",
+      "new": "232d314a8db0032280efb33aaf6b73102a5e927b3f04add69ebcd1537d6b6126"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensaMorphosia_chain.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4c6c75878ede37f8dba49e17109dde2cb088eb69477ebd07273ce0b6fa2d5267",
+      "new": "e7e10f3a12c2f3348e2fdcc5ba849cb2abfcc52ef20fe0b755094f91ed7f18da"
+    },
+    "source_hash": {
+      "old": "b8d7ae22c15201f9af458f1e23480953b8343b0680e7426367c73b4a9fac72d5",
+      "new": "5f2d36bb6dfd30c7051f73869b3b4ed088cf1ac99a055f6eb56ab0e30d640008"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaDuoMorphosia_chain.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8092d8a343606a17dfc2d6ebec7b1dd6f1b75b04c1acaea3403cd8b9b250fd2d",
+      "new": "d33f44a27f7d682cc2eb5791ac982b86bc9251bb76ff8e81d0a4a56bdfd49035"
+    },
+    "source_hash": {
+      "old": "bb3a553e82515c021be7f5736254051e171440e1c43d030f5ff723bf74d85102",
+      "new": "f35c5e9af9c33d1fdb2ea258aed15773f61eade0c9d0c2be1ddf99ec17e7f272"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaMorphosia_chain.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e471ff02dca7dc8fe8c4820162ef883b936f7cfa30fd7785f77aca960989bf64",
+      "new": "e06dea9e64105889a9a313153a70cc0bafcc7d48b93b4f709a29895fa0b682dd"
+    },
+    "source_hash": {
+      "old": "0edf9bc5e603bbd2d380d079b27e08d825795193105cba4aac40a01b3b659d16",
+      "new": "d68c03ca3be8a592841900de5add60a93ad59ccee573e351fa3a6213e4948cb5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmSensitivaMorphosia_sheet.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "948320de4e69e9b80e9c2c3ca3c17337c4cdf697555903505fafd6161f83ea4f",
+      "new": "a1983eb50fa09f9d90e00baea2e0b88c1382bcb46bee01d27917226678217519"
+    },
+    "source_hash": {
+      "old": "a272053ed7e55ee014daed949e475ad48b4b8b2c72ea9f262cb647ec128b348e",
+      "new": "2acf09f9b1968a60ee2b80623c620bbef18c8d370537f62a31f19c108c6a5864"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaDuoMorphosia_chain.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9472c7885b4ab9e8a2207480cbf3522503d426ca3df3de0a3a64f8df4869a8d0",
+      "new": "e8a3af0d9e6b0dc337b26d8cdcb87fe2eba62cf05f18d8972af3e165826fe63c"
+    },
+    "source_hash": {
+      "old": "1505758b2ba054716d76af1a452bab1e5b92b1777f4ca6ece6e327f49b247187",
+      "new": "c2b3c5b09af8d748439e3b44f865c070db12860febe9a59bb552b37bf80c3d3a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_chain.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a7638abcd4fcfa60d2fe905228f66f944929a6abfd337407bd0a110422af7938",
+      "new": "47edd5cccdc6ab348240911ec023ad3c7d8dd7cf43afbc5dc1ff8f540f15b488"
+    },
+    "source_hash": {
+      "old": "a1c2a5ffa4c48bd8d76796579f923355f09508a219cf7fbac95961848dd7901f",
+      "new": "890ae8427d23b72f9b154654f6a7a6439a4bf09b4fb18a51e44737a23fc98cc5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_chain_all_to_first.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "7389334e1f39f264a7283a84e1236d64665d42b9ce085b5128c6c8f8c64a1714",
+      "new": "b4f0a28118ce450bd476f373a72e766de2e96aba358926f1daa6b8acea55b45e"
+    },
+    "source_hash": {
+      "old": "214fcdcf25e4f0a0ee4a0e6bd1cf76d4005ee8186807b7419124932ba9cb7c81",
+      "new": "b8780e59baaf3d03eba7f704194b14ce0c3d2165f21f5cd6e8eecd7eb9eb211a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\nonCartesian\\bmTevaMorphosia_sheet.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b9e4c9cdc2e233d5d43cfde50dbee2d5976286ee5413c6f89f48399cd67ea0e2",
+      "new": "6c73781c9b5fb866ba90f4dd3cc61070005a58d1b5da8835b60f8300fa3d34fe"
+    },
+    "source_hash": {
+      "old": "8ea7d54186fca1522c38540feb2d6d416e2ff02daf9543ba99a1d8d58b9c27f3",
+      "new": "056b5cc2ac1e7e3ba477aff6616ebc640f58caf7ee39de59a0c79300d69d4e9a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier123\\solver_function\\imDim_morphosia\\partialCartesian\\bmTevaMorphosia_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e25dfbee08a7c36cadedcc68a5fae9a7e64a9120a87cc32d6a7fea54c563d73a",
+      "new": "6b9ef8b0fe77bc0f7bdb61bfd072df33a5f6fd7c8ad77db496da1655a5c560df"
+    },
+    "source_hash": {
+      "old": "99fbc6d3088eefcc614f2045fc53d71a6d1d46ee9814ab54d1322f151c0289ef",
+      "new": "325c3faca21421ca775fcfef7d3c2f430d1a6f6729b0cf46c6c5de1808597297"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier1\\bmDFT1.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e2b4e2b1ee95139f121a3b10f76e17174a7b275e24fa5d8be25743d04e205ea2",
+      "new": "69db73ead1cfa2c84c16b24399788171b35fc2688fe25a8adf8252f2fafd027f"
+    },
+    "source_hash": {
+      "old": "4e83ad1665be33cdce092e165d892352ef03f4b1ad6081bc73b4c83135d872ef",
+      "new": "ab7fa10aaeb9c679667ea194a4c117881f315701739670ec0578bc088e3fbf73"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier1\\bmDFT1_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d2f6e56d8079e1658f49ac9110529988bb7c2a75ab42518ba70ff0b0ecc7eacc",
+      "new": "44dcbf30d795811d2c487294170c74bf86dd2c3b72ac7da200fa032ad2327eb1"
+    },
+    "source_hash": {
+      "old": "d250c89af59b93f7e36fbb4e0acbb3579d0eaa8fba66919052472a658fecaf50",
+      "new": "962e4d872fed886fce953f58e9ca5fab2199b9811c22ace8b428ed7d5250ac4e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier1\\bmIDF1.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "06766d5b80dddb086a1b915c100ef12a032f70f05db208d543f23e29087257c7",
+      "new": "7268a78cb8502ab95a45a98c4505779324b7313126a5394f73d6537d3d1a2988"
+    },
+    "source_hash": {
+      "old": "669f28611a203bab92c9823cf38ed7d77def7ecad241904296237f0a355824cc",
+      "new": "e51c3ca2de91fa39a3498c98e4875a4a6d0070b3ebb96b6a2e1992a3b1a4108d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier1\\bmIDF1_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "118080b0eeef541b81361f50e3742ee56de1714efc70f6dc09848606b2811dda",
+      "new": "137e621f3a50acc04053a2188b59246c31a2fdd10542bd9649a5ab01f20f692c"
+    },
+    "source_hash": {
+      "old": "906078c95767900e430e0d943c0cac767dc06639f4f7e2b6f9f2ad0800897be4",
+      "new": "3935508a8947f6bc4e88e04368ea99aea999c14688eb9ed841775df2d6758d68"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bcaNeith2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6ab82c777daf57fd6fb9b96899cfa27ea8818f2f34223a153877ec4f7d33730b",
+      "new": "03672b7ea056f9707440da3bca9bc6ce4efaadc50ec5951bce9d579ae2153f86"
+    },
+    "source_hash": {
+      "old": "e409b15304e4d69859c467e28c7b1eac6503c02703a050325ce9601c8081f517",
+      "new": "6d32db496a906645eed78b235eb18e78e3ab0ae17281262ba694059dd89b3764"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bmDFT2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b8a880b670c6fb6a0305f778e6800388efa742656832bb44dcfa4ac4c4330d5f",
+      "new": "d5087d4ecdf99fc8c6859e8a6953acd6491e843b02bc98a63675203ea9caebd4"
+    },
+    "source_hash": {
+      "old": "95364e35d244792a0c607648330247dd6f450644a99f4ca38b363ea1093cad46",
+      "new": "d32f386300e0d6be65a9d94615718e1e9444303b7784a652d582fef5ebb91699"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bmDFT2_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "eab888f8e13b98f4662e26bc8e28da4a6115a59253754189be0e2d5d41cebdef",
+      "new": "b14bed1d7e4c513f3dc57b229309a72bd01a4860cbff36eb6164c1eea21628b7"
+    },
+    "source_hash": {
+      "old": "8d0847c3c7d334bdda49d77a07adb9e19d2b671c02514a94a2e5fcdc4e086245",
+      "new": "0db13fd01ae866716a0beadab397e9a7da6c58ba5281b889c510afe0911fa353"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bmIDF2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "42a05c3cc4e5787df268ffb3d99370e0f30c67fd32bb3b202056efc7a1ffede8",
+      "new": "1085d6fe186ba2dda994e271744038d7047019d007541ce652b7139457fdd106"
+    },
+    "source_hash": {
+      "old": "b3aa26a8dc5def0955279861e592c45a5cc080c9fc77413419b1d93935724c4c",
+      "new": "e9c603ad36cfe6deecabb6008bbc88a83fa0e803f33018dfe0da4a126a585138"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier2\\bmIDF2_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d06ca72cceb27ceeb8e29684829be2b6c7537ff16ebd67bb522a5ea2f31cc2c0",
+      "new": "374bc82f08970a62726a180c01f2ac6e94f912c3e24274012cab90c8abf5711f"
+    },
+    "source_hash": {
+      "old": "5af3a0e14d3965109ec60d50bfde8f349fde6a50b962710a43f6e3ba6a08bdfa",
+      "new": "259494f957733a1385b5fae2abbd36858862bbedc6e751199b22b298682aa75b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bmDFT3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "13b31a6e9fba31693b04ff443e462c00fa7390ec237b2cfe4ff5e926c8e95087",
+      "new": "cc07e1df5e6b84f683db8b1f7f656aef60a57da1aa47e311bf1edc38e554067b"
+    },
+    "source_hash": {
+      "old": "7402ba3de1482e92e095da7289331fffe6bd92edc05fdea5834767422138991f",
+      "new": "49256a5093495c7738c06854487f81f098d21811cc2f246b7fea73fe76be83e8"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bmDFT3_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "c0e6a458c1fb141c6284d260a44269732205aef39833fae920b540135d825618",
+      "new": "b6fa655e9fff30fc291306149e34f1940d4b27018ce0413326998e1ad628eb87"
+    },
+    "source_hash": {
+      "old": "10113dd9ba1e15a5f9ae2dff864171c0450e32eba714238786f8d27dbaf2eef8",
+      "new": "d53787f96f498ff18dfb672d19fa70379425f8e58e88252c1878ae18f65770f3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bmIDF3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "dff2def1140a0d84db505f7959ed629fe23a8f8cf9f83be1049b1ed564582a7d",
+      "new": "12f893ece846d27f7b0aa67baad4bdd0006e2dc569377ef3705a16e511681e47"
+    },
+    "source_hash": {
+      "old": "ea72489f6554ab0244b987de57fad4024b167a36c8081131be83d57d90535051",
+      "new": "cbf15a5f9df4ad5f26ed45aaa796faaaed53eb2501c60da4f8e1e2c2b749c05c"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bmIDF3_conjTrans.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1e5cd2bfcd939558de1bb2769caf09d44a4390b9df72c8f321adf8d626f45309",
+      "new": "a996898349b1affe3620f9e6194756ad9ac50df98fafba21b6f5472c0516c4e8"
+    },
+    "source_hash": {
+      "old": "33c289c0f3df2fdacd5b381743cff396dcbc8ef4954512c6c6c4423f32809674",
+      "new": "10cff2122c29c66a6b580bb383cae9ffb8525d2e378d3deefd8b1ad236430b44"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom123\\bmVolumeElement.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ecf2df56d7a1366e519a693c35fc9e21b1382b872388eb174033b692a20c89e7",
+      "new": "798403933a38117db28b36f0c4aff3d0c7125568f7e26a116ebea5d57003bf59"
+    },
+    "source_hash": {
+      "old": "70a5f326546ced2d33e0d497446892ff3ed69e8cc7eb4ec368f5be0926af840d",
+      "new": "e57f844ed29c9f18b1a03ba581038b7f229b8aaa1f1c82bcbedaa77112847ade"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom123\\bmVolumeElement_replace_radial_v1.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "aff2d54bf55f090672db4f760bc3d27b130dedfcf68f8ff709125f847d3157be",
+      "new": "b2ccfbf26e7e377da5b0a363a0c621970d67db0b8a3a3c9471bcf6e9277b149d"
+    },
+    "source_hash": {
+      "old": "f836c11f6b04664264aaf188221c66ea5683e450e6cd8dc8370f438e6e611dc4",
+      "new": "5af8aa7d47c60ee7501fcb8c155f74c047fcce36206ac7635d34f27500d228a7"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom123\\bmVolumeElement_replace_radial_v2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "43dce5709c794d173c79e4c693bf2c427d2d32ecc7197e7a11ceab873e575f8c",
+      "new": "21a88327f3f48253425cc2c3f7cb40fa41598bc5af72264827dff6156912039d"
+    },
+    "source_hash": {
+      "old": "34f6ba842a3f4a53e27c6734bfb491fafc878b3e9d407d753ef88168e0936445",
+      "new": "484902ab6bf557fea626e8792f41fdd05acb419dc084ce52293d58e9ccb53d05"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom123\\bmVolumeElement_replace_radial_v3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "13be94c2b3538d52318100b4a4d332a7a19f52133ae6500b1970cd6cc2b39dec",
+      "new": "77d1b0012c9145e9ab73096bfa0a0954833d3526855878903b46961535449d2d"
+    },
+    "source_hash": {
+      "old": "272d92350b320941c645af6b209c0853a2bb89f34c1631663ca559d3675d6130",
+      "new": "eb681b030215754094a0eb7c0760b5fcdb0cb0abdcf76787d9bd60eb7f05d512"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom123\\bmVoronoi.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b03a58fb7b156ab8f4994a0110e889366dc8f33a339b29a0ba77bf97f74aa4d4",
+      "new": "e2e57762b10cdf7fdf1156436c3f98642efd1d3bfafe5b24dc7764da60f7507e"
+    },
+    "source_hash": {
+      "old": "4c06b25cb8f9b661fdf97cb6376175e713e522a923dcbb7ced99c5351a7c2f50",
+      "new": "23434da5d371e107c5dcc99a5dea27e3c985f9d4e997b47077c75bce2540db1a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_cartesian2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e72409edacdb1febed2514a0f732166b07a242ad8f2bd4596c44c7bc08071045",
+      "new": "5109cbffc5a5d2fd96643cecd881fbe5e00e895349f1530c3e1e2a536568fada"
+    },
+    "source_hash": {
+      "old": "eb9185837181dea074f94fa3e5b2343cd49af5ac5d88f5455a79a7c4140da7ef",
+      "new": "9968b5246d28aa7579fac01d72227b2258defba654c2ad92c663e48a61595d92"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_randomPartialCartesian2_x.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4c573255e2b440f96a4d2d4bcea10f43fee26a85d6336b74937ac935b60ca497",
+      "new": "994bfe7f29d92263019ec280c7a51f91d737e174ccf20f29331249c59bb2e0fa"
+    },
+    "source_hash": {
+      "old": "0210d371aedf72005551ca53d73ae28bfb19183e9047ec5a202c7676bd1ecd09",
+      "new": "70b8e447e51facb50abd1581dfda55b06546015056d98a35bc99a85e9e1d91ce"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_voronoi_box2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "16ee809e59a5554e09104c46e414bfa218d58d785158a3e1181b32bc7ea8babe",
+      "new": "5e7f8a7ebb26e7bafd5c8e1fc8baba118f43e16dd900e659e472a8b2dc0f248e"
+    },
+    "source_hash": {
+      "old": "d18e21da367a5117dd6030da033721b3ac4116c8b4c8add20080688afbd6a985",
+      "new": "b3989bdbc9a1da5551da34ac087fb6d50d36f85c665d0a5c6dd9da015190ed60"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_voronoi_center_out_radial2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "18e9191d09b37a414013de72d118ea47062e5e46b6b4c9a90466032e0fb662b8",
+      "new": "1dbc7f7d4c71d694feca6dc3d7ba1f8b466166e9f8e895ead0befc0616a8b675"
+    },
+    "source_hash": {
+      "old": "49548f70fe98317a9b362652314e9a93930335588ae7c698c2449979175f83d8",
+      "new": "a2130be83814ad81533f7babcd15736a0f6458bfc73a136f4cec7cf0ecc5479b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_voronoi_full_radial2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "c9807b993f87675ff28bbad7170b663fde995b45b736ee51e955fd3204f44ad9",
+      "new": "48abaf0b84ba1175e5acfca9e41ef5e2f054d20ba38cc5418e2d0ea819e1e783"
+    },
+    "source_hash": {
+      "old": "82f5dff85b21c9de733a96d81b61a863c5fa0288ef3f00481432823da450e3e8",
+      "new": "a0de30a12a69ff5e549426c367b22a4d340b76d630062c86b1c81c7cf9671f51"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom2\\bmVolumeElement_voronoi_full_radial2_nonUnique.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3835423c54137abaa1f732aeba90d9039d1136f9c8bc6cc659fdbfb9f34e751d",
+      "new": "7a9a81943825813f41db60753b4895ddc09ee3c8b68a1c16a9982e6e302de4ec"
+    },
+    "source_hash": {
+      "old": "972eba55d92354f2952320a0521a2d87e09ab8aca09f9768db9fd43db10346ad",
+      "new": "fc4ee44f4e2dd8b02e5b7c2b3c5393e07aac0203726b777803358d1da54fe0e3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmQuickFitPlane.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "93838baa20d84dbb465e36523dbfd80952830fede0985e535d0c7ae1fea49c06",
+      "new": "c6a44f0b57635c57ae24f7a32e9f185501b4a7d746707827994e7b88c8ad210d"
+    },
+    "source_hash": {
+      "old": "202b77ddecce8ee8684d92f115785857ac00c5d99c6329144c7f7051c7f43fec",
+      "new": "4e17872b813ea96a76358cbcdf947eb96fd09e260594206d93cb1ae67cd3e6f6"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_cartesian3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6007fe6f49d0d6873f2d5adf50a53b9b0dbd25d5b85c2ffcf82188814178054b",
+      "new": "9644c8d6094cba5abfd4b58d0824ef712fb1eccfcb08cecbc259618d41d8b4fa"
+    },
+    "source_hash": {
+      "old": "b5c133d2f739f181fa9f6e0f7140d2a56a180fb4f23206bbeb1e102c334fd97c",
+      "new": "c287f1b6e8d94dc473adb422086102310a88f3a8315ea0fc67a543ac4afed138"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_center_out_radial3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3ee88a47c1163bf4b46746613bc02717334a4c1bbdf8ca4bfc95e3e113d563ce",
+      "new": "dbc40d793ac9c5d92b703a7ad10dcd9fe5e38f14e9ec6b766125959e4f703421"
+    },
+    "source_hash": {
+      "old": "685932987ab648632bc0b2a899f3c289c79dee986f2edcc562aeb6ed5f6b3b82",
+      "new": "77bdc07177ff09a9e69cf338027ace8a23b63bfa412ece8d777f241c2fafa29f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_full_radial3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "130a8ae44780e226ff50fe69508f93110f8b684b2feb29f38ccbc97e960d8ebc",
+      "new": "6d33688542aaba10442b897013b1508d3efd3eb6416f56f60e227daa7f6383f9"
+    },
+    "source_hash": {
+      "old": "ad7dac2e51b2f73074a84b37104b43de2c368e8540498d5f42e7a6edbde5d40a",
+      "new": "f2346e5dc19c3693e3261319984ef61686b24c0c55ce3af88328274036e2fbaf"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_randomPartialCartesian3_x.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6fcc57921523bb402f22a07a2d319bf63cc7922b4600a3f7b11690d65cb5a8eb",
+      "new": "6dc6506f81dc387fc9313698efe38b88d39be6164d7e9fc0982bf1daa1f1aa21"
+    },
+    "source_hash": {
+      "old": "5f5a0af3658cd4edbd020f8b044a7010b4cf89cadb895bb18d92cc7249ec7ad6",
+      "new": "52260ca322ddeba209da682f5fdc4e70ad1583a01fa7a414637009684af99c25"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_box3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3f062fb0649310a87cd23c3cc5c003d790f9dfaadb961841e3f777ba7e993ae1",
+      "new": "12f1a68aba5bf257fe8fab6cb92893c406981a59174ee32661cd19d644db2b46"
+    },
+    "source_hash": {
+      "old": "f5734227cb0f763c81c0b7c51bf5b81efc66c3dc96c1eddd4c9a579885a89108",
+      "new": "8ad996f00efdf20319184b07ef14c9fbf350c2f41a9bc356f1b9a07acae10dd5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_center_out_radial3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d52e23b11aa407b278294ec1e91bd24b338ee8186bde2079f9db0f43ea763d87",
+      "new": "7bb03a2649bd504ebec04b8af8e9e1e4f0fe3fdb3be3396059c0b7907fe89cab"
+    },
+    "source_hash": {
+      "old": "bfebc03509b191362c5194dd8b1067c872aeed09669ab3158e239ceca2a51efe",
+      "new": "8b0f20c458d70c6bf3dd25e82cd8d1ba76656437808fb4724653cdd326e40329"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_full_radial3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "cc9993ae917268dc5805f2df0b04dd44bf619e4e2b41ecde676ece4072153b37",
+      "new": "ffb0e0d5d710d1aa1826f501171a1bbada0c878bfe61ae917ffd6f60d9492daf"
+    },
+    "source_hash": {
+      "old": "041210aad0b30c3ea1a8ad76d4e333f225e642f5ab96ab0151631910079ab351",
+      "new": "493318b15d8b4ab98700bdcd2d004e8f33d54739035225e312d061f9054f9b68"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\geom3\\bmVolumeElement_voronoi_full_radial3_nonUnique.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d0e0d4fedc398704d63cc3462ae60c32db6a33ea579cfbf2e0bda37a4b2cbd78",
+      "new": "165769b539b5968c68f8c759c6c871e673f52534b72a801edc5fb6ad47c69e94"
+    },
+    "source_hash": {
+      "old": "5ceb1ee221ae0869881e49c0400ff5b91c6c729350d476c1213aee861ccd817c",
+      "new": "fc83240138bb1e2d9616fa1d6125e58d10ac2c52f5b24a9211460fc857498548"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmGridder_n2u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1e04ca14741841436c27d765c209ae093982e98764869874c16e76a032a8906a",
+      "new": "044ac5c79e97bb1d7a20960d36a60f546ee4855f882e7c1c971a09403e07d922"
+    },
+    "source_hash": {
+      "old": "9674803b5c99866d4321bea91a37eb307505f65ae9afa604a2b32cb177ed3d39",
+      "new": "bb8373e8ac845ae2271aef58814040ee8891d3e483b8ffd189dbbbef274d6a2c"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmGridder_n2u_leight.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "60451722de06de66acdae06ada60ce24cb78528f5e69b74a394061b866dfec42",
+      "new": "53c2090400f09bd79ee15bc48f30f6a9a65cdc53bc6f49fb284bc0c654c17235"
+    },
+    "source_hash": {
+      "old": "a1c9df4d5e9bfe5253a39e40a8295c4711a5f58353ff8baaec9298058647d64e",
+      "new": "cf0fcfc1191a10a3ff683994124c275ba9649ba67dd66a72e7bde9b8acffd5ae"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmGriddingMatrix_prepare.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a697437a2c922e23d49ec640a81927fd46a4f3bb71a73c2426dd7a1372adb9e1",
+      "new": "5c6149432f4f95d53fcd4821c50c662501f1bb55f9342a3d31528ddbeef5eee9"
+    },
+    "source_hash": {
+      "old": "6b73429bc85f366854e3713ee8466b15f1377750d30b624d66cf4ab44c0e70b2",
+      "new": "4e7e9b2377a5e2daa8efe5b854be010114aff8235124875968c06be4e968724b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmGu_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "86f09127612e339396106fe770c9f6cfe13f68ad8c1594d73876057b96bcc9fc",
+      "new": "5a9ae1e2f2cc7aa64944335289b192527e30b490b1093c1422b8dc6ef8a3e439"
+    },
+    "source_hash": {
+      "old": "7f4d6cdf203ccef38cabdcaf5743f84c780e30974839aee2df8015cc171c3662",
+      "new": "6683181dbcce648df146b270bb8b247fa3a87b2ce0b100e4b0a26b6508d00296"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmGut_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "63ba1ea8dc7e7e6ea7e59ef31e1debaff729fea7509dd1d4c5ac305e3c935af4",
+      "new": "0a463c84980540cfc39817e42d1080b57208dc3249d929afbd78601fe4519c69"
+    },
+    "source_hash": {
+      "old": "3a9ba9a94742606e33e77442ea7c76e1897b5aab5eabf200c210fd8a88c23f2f",
+      "new": "3aa75ee33ba266626c9ccd212f6370f8df235a6d2bfa6e9a3eca96b3a052209b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmImDeformField2SparseMat.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8a4c64b4916b0c61517d60babff378a81f50f8d0e1d1893672827f670cdbcca5",
+      "new": "51a5c381a92412ed8ec21d01c3bdabf8599423323e60786222c6ac147e683479"
+    },
+    "source_hash": {
+      "old": "37bc5e828db3759f3af76506b162da2767c65d443bf028a1f148009caf9100fc",
+      "new": "a9f49cf3d5471e604bccedae367268a7f1e14f0f5a04835b68a81ca75f8bec29"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmImDeformField2sparseMat_ind_weight.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1ccba493d3e6d7e2d036971f9fc2f5c9aa51fd37b6c285cc40bc3f9ed77dc949",
+      "new": "5fd1da6e53181f70b173890c666e62839660a2bf76ef9052f7f1e05ff9a56b89"
+    },
+    "source_hash": {
+      "old": "db45048f0b6f69e633b9503cb22848259a968335e8edfeef456d26f070d59f8f",
+      "new": "5a688fda595b99282d1ac9be830b919a23e03ada6054f0ee3de477ebaa327c80"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmImDeformField_multipleSparseMat.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "1d8e591be2e4712c9797b4acb4cb462e4b2968aabeca123bfcfa8b2d5560ffb6",
+      "new": "ef97283341c3c4ae602fe8cef827f3bf180709ff35b4104ba34bdf850dea0486"
+    },
+    "source_hash": {
+      "old": "728ecd7551deee1e5ecc7cb602c2b3bce0e7ae45cb16dbf26446162ae1d5216c",
+      "new": "871b923d85843c29732c1e9591b1e8d7c613a7f406c89090952168872cd9cf3b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\gridding123\\m\\bmTraj2SparseMat.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bf881883b904595732b2bca2c2c9e2dfcb1324a02c61fd02fa87a85d069f6ab6",
+      "new": "faff5a9b9a664815c15e819642d5b98d39e39d79e424e64fb81abcdd837a4024"
+    },
+    "source_hash": {
+      "old": "e77e01116f365ec002adf060181280621ac23ba36a409fa7db4799420c425059",
+      "new": "c84ed9aa5619de00f0770382ef35a1858d69452c0cfe6b69277b32b42be572c3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformFieldInverse_checkerboardDisp2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d00bf31e005ec1c8d2fa49e75346cfc86b921a11c91529dcfad996235c632fcb",
+      "new": "cb0cd676561f3e1e863f1e747554f6ed5bbca6efa3bccdd1ae6134ce1a0ab745"
+    },
+    "source_hash": {
+      "old": "0c86436ab18fea2cd52b84e270da8ce1d5c8862fff99094a1346077f1b95c0fd",
+      "new": "b37c3e3234f15f79828211aade5a1c0d0d59ba0fd43842d26442c64f0564d86b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformFieldInverse_gridDisp2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "18c23e15134ebfa5fc17b9c418d4637513b96edb70276fa5cefcf5ea123d605e",
+      "new": "09281826515ec5076200a9c30c10791dea13c8d2c2f3a36dedef41d41afc924d"
+    },
+    "source_hash": {
+      "old": "7815ea1e8125711fe7ba1ae2f86ab4620a0107bc11a69ed5a54bb61b4d19a101",
+      "new": "a3af8dc23209bcc34ef09546efddad3a84e50b204ae28673ff0ebbb071e78227"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImDeformField_meshDisp2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "56f22412e3f92cd93e99d4cb675d8d5d7aa9943519dd5a70bd18c7d86479fd9e",
+      "new": "c53b71c3f3221eca68110399311130fc91b2de57d6d5105c9989b946c0418301"
+    },
+    "source_hash": {
+      "old": "04e08c5cf1897d246e5985a2859ce6643da39601f8abb335d862d382b7a5e398",
+      "new": "28dad30fbe29d6532cf00cc214c8db53b2335c045cb79c7c06fd42066a4e31c3"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "28576754e19f4215de6335b3672f5d19447e1f2d503a903b67e60635f63784c0",
+      "new": "6e5b08dd73bca83f79dab3a40edf41e1d2fb013710a967aada639e7fe8b834be"
+    },
+    "source_hash": {
+      "old": "8c5c681e6bbce7201bf986867584186ee4abbc9fb4d27e58f892301f7398b3ac",
+      "new": "c2720b54210a0b308c3bc7126fe6b9e67b46a28986e1d067db784d35d9797ed0"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "316623cd5e661b3c62c7ba9fffab9ad5e592aae153874eb3cfefef28bdb8f684",
+      "new": "9272e054f55c84582f88403c373e8f6bfe73b4116799011a1131f6dc7e73eb6f"
+    },
+    "source_hash": {
+      "old": "cb4efe454ccf6fe4427b9655dfa5651bbf0c1faaad55f9894f8ee2312c27bd37",
+      "new": "dbf65b0e897dbcd219ebbc1f80f161f274172b0d4d62c18d15b95a3354b27ef7"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "45eac81b8c7bfb343666a89ecd990d742478393e7cddffd42e7ba042af82ca5b",
+      "new": "6381cd712543b14b2e7bcbe13bd8c6c80c8f100a6531d12858a7c482c4f1984c"
+    },
+    "source_hash": {
+      "old": "f6dab4eb7b8e224723cbe50a876b7c447c9af96f78e2acefd204e222b2e65745",
+      "new": "0047107ef65b87520cc3757e6fa61958339599cb7848b1fd0bdda6d3047a3dfd"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage4.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3c125d49e57b5d73e6cb51b278bb254f9161bdaca336e73954eba682df614a9e",
+      "new": "ecce5f1e603fe9213528f9f9ac7cc2fe58bf831352fb38144f6f3ec3568723d2"
+    },
+    "source_hash": {
+      "old": "d9c9504ca772d54681d850a7b85df21f3d2c3c77cd6c3258dd745db57d2de7e9",
+      "new": "85fb2c8134856854fa678be8582aa9f632debe1f28b578c901e2e962fce54b2d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImage5.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "fd124326cf7ad595c4130a8fdcc59eab65a046c50c153b3418cb241f37d63831",
+      "new": "4749f2b306fab287e02540e7b7c386b999c39080708668554f537c370c27cfef"
+    },
+    "source_hash": {
+      "old": "07b20b16d54bf63a494346bfb6c28ef37332602187b276bbc8960266014de975",
+      "new": "b273c81021a19cad6f29177c46e39cbab3d1e83686654be9b6820faef690fc35"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imDisp\\bmImageViewerParam.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "93ae92b57b97832f1dc0697cf4c397f6a2de038659cff584ab743a4ab713613b",
+      "new": "f220a0bd991183f5220b5b1969e3706ea3bc95f96dfcb568048fb78eebf90b92"
+    },
+    "source_hash": {
+      "old": "f93d286ccec7ef633a89e716cef1243f0c67b97b51c562a60c5a55b19adc77e4",
+      "new": "6b455e7c8c5185fc19e69f85f7da029ef263a4671be42919ccdeb476deb6bf33"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImDeformFieldChain_imRegDemons23.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "33cc8a931fa6ae2bb07a4a95ceb70f357cf9ce1e3466081c6e15cce56f328a5f",
+      "new": "ae044971e378bf8c63a0ebb55d1077dc92cd326c1272555431b0efaa27bd0550"
+    },
+    "source_hash": {
+      "old": "842350ab95f7041129696a76597886a8160cb477085e10a668dd815ab6188025",
+      "new": "9a7d71282da68e02cfec97b9ace24e256cb78d77474562dacb1f1b4ec1282d4b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImDeformFieldSheet_imRegDemons23.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f9750b7b3b5ac6b768fd90ee919aef37a6cbdd0bba06db64c92afec67ccb6151",
+      "new": "27ecaa0b03284969fe9831d6b6e44a1fb35ffdc94a4555aca289b8608503a807"
+    },
+    "source_hash": {
+      "old": "54e2e60bb65ea1bfdf15029d9e6f528cd7f1731fa7bb20c9679892bb269f4b1d",
+      "new": "19ac5f3ffe4ee7f3e932218bf179f8c051eb5a13977d49a3d6e60f80a89d0e7e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_deform.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e9e8c0869b5b8ffbe0acb01f63d851a2606f7d5d321e25f3ac6ea42da71025b3",
+      "new": "c58f67a248905e10948bcb1af9bbdb44c15987ffbeac6d73ead5c2c08fb3f999"
+    },
+    "source_hash": {
+      "old": "0198bb9b21bd3023e976bd79e42dbf4a6e3334b7ff75b48e27f8deedd929d9d9",
+      "new": "2e8809579b6d12260343148cfbe4195cf605e722d3761289ecb0bddea5c62c25"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_deformField_to_positionField.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b4537de5a00c71589021b5926f35e7700287e60f4e478969b6a9381a6d3d39ec",
+      "new": "35a33a01543f414f421a1c5365da9c134b2892277e539fbb03a8877e6db0db2e"
+    },
+    "source_hash": {
+      "old": "59a1826a27542ee7204dc3bb04b673e87885d2dd9e869d321c4c62b09aa5d0a6",
+      "new": "e1dce60670d0219efc19e9b216742635e72d6298692979fed693363b0707c9ce"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getCenterMass_estimate.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d2387ba8ff74f872f379c93d560175eb17229c2fb47cf6b802cb45cbb5a5f79e",
+      "new": "2b746aed51b90240c1b478da5c83b016fdbaab7e17d77aa84b187aa50b09129c"
+    },
+    "source_hash": {
+      "old": "7dfe9f39b08c8ce46d45ebb503af0ef863dd05ecb03068bf5b17ee21562fc313",
+      "new": "5d651aee956580d72ff1dc2adc6e8daf7fb06a24d02f01e27628775f5028b42a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialSolidTransform_estimate.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5bc35f2924b85f35368b6c7d03f5d8fec259919fc6e3c234ec8a7ddd5690b1ee",
+      "new": "3d61c709baeb9686c074e9f9983857f2808049db4991e214a00f0a52276bd278"
+    },
+    "source_hash": {
+      "old": "c2e1dfa516209b0279a5ada87de2bd76aa1b35bd807875a7789a3b910753dedc",
+      "new": "7e1f7b7c27fd083c7d60aa662f4d2aa4110f6240e47672dc644cd73066246a9e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialSolidTransform_recursive.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ac4fa648d588cf84a22915e1346c711e748558d13e9636277931f6ce61e53478",
+      "new": "739a4e2cee46dfe734c62c73b77fc8e0cdddec0de96071df9a2be628a5287c46"
+    },
+    "source_hash": {
+      "old": "fffb6be0ff6fed67a1593bc2626488ca7eb3453cd8849a213a791c06a40dd91a",
+      "new": "5892edbf1c791af882a9a369dc88dc8f5375515a1c2f640ac653d9f2e6b0db32"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialTranslationTransform_estimate.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "535e43f06221faef525958e6d7f23adc78778714a30602f951551cb0b87674a4",
+      "new": "289e4dec30873d6d69e01e69773491fe65123bcf6162e625a9598b5a3b6eda40"
+    },
+    "source_hash": {
+      "old": "83a9c734be62d21cde63976bfbc637d8cf013f64ad3689daf4190b67e22ec27f",
+      "new": "f7dc2b99e2745db40194e0c569eb6d1a274a41ddfaddff83f6d392f77c3ae015"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialTranslationTransform_estimate_2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f6c95a0ca99b85a73efdf1e7790f992f8cbeb4cd92921d330124927e98ad58ed",
+      "new": "be3033b82c685358bdf6e4c71c30c56e3fe1e36528008423339e9bb13793ac64"
+    },
+    "source_hash": {
+      "old": "d3b7d4f2a9d58d36b3da8c60f04fa19a72971855221ea431ce086423b7a8fe3f",
+      "new": "ee2f0e4386d6695eeaa646fbeaa6f410885167034f732263d9d711f4b22f4cde"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_getInitialTranslationTransform_recursive.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "095f330c8f38c343bd04f913e26514bedc4dd5c48d3eda565ff25ca348ddf0ab",
+      "new": "791993331011d3e807e7cb94af7b47e3555fb0b73de5e91c7f3e4cdd11431bd3"
+    },
+    "source_hash": {
+      "old": "e15fa3f748d82cfba2876943aaad499e8e12d64a3bc73b0e4f44c3188c33f26f",
+      "new": "10c67d40c1b7219f47d9eacced2d466606a80eeab43e47bf2385487a61aad3cb"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_leastSquare_solidTransform_registration.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8185fb51eec89225e36ad8b3c5af0e51ed32f797cd1ab8b902d9f0a8295ae7ba",
+      "new": "31c03679d9b3411c1711efd6790ac132cc0d7061fb86116426f791943f1f1361"
+    },
+    "source_hash": {
+      "old": "d5b5588f485744dc02a99fa42a47a1f7c968086328a9d2807a3206a343ab1b0d",
+      "new": "be9ea81d42cb5f383c9ae59345212c873bf0cf74501b5408de775065ee3aa263"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_solidTransform_distance.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d45c57274432fd1bb8d055b5073945ed71957ae31ae86f4d0f25d124012de9ea",
+      "new": "42315af4d1ef7c43d6dfb38f8b93fe77a5e151b52cf88ec30f5f904e394139d8"
+    },
+    "source_hash": {
+      "old": "55c8cc56bda09f6117b8375976675f1855f457bbfaacbbcccb4630e952b0abfa",
+      "new": "d30678fd7c6f7eaa4d4e1b41c9db15f8f24e7518cde323dc1e83c6d75f8d33ed"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imReg\\m\\bmImReg_transform_to_deformField.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a1243301eacaca6abcf94d321ca5655e985c757ee23ea0faccac4feddc3d8809",
+      "new": "4b85211d75b63135dd7c8d2a6f363c633c230a03d474833be0e540185eddea98"
+    },
+    "source_hash": {
+      "old": "2d91c5396eae8b3828161ddbb388333b48118f10c87e8115ae14c125657f09c5",
+      "new": "36c1c06e352194359126596adfd9ab41c2d14e216d326dcc6227842aa194b0ac"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImBumpFiltering.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ed7ab6575b69b702c13c31f3dd1e66143131bda553a0c952d84c2352460a8dfe",
+      "new": "a57d1ac2b4efc36f66b834d0ab319770e177858990c855e2e4d371b7f85f3438"
+    },
+    "source_hash": {
+      "old": "434772ea38500d12c9c2f8cd490c9839836615139ebe1cfe2a45c643ab4e14f4",
+      "new": "08905584718cdf3cd01a36ce64b6a107f06e9a53a8a12a876851712a0757ce6f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImConv_byShiftList.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "2becf8c5fd2996c938f190f00a95bf8bdd9efb81f72a56a0bf25c12d3610536d",
+      "new": "25648d81b5f381cc34af579d633f7c7728aa431ca69766bf624af9d3f817edf7"
+    },
+    "source_hash": {
+      "old": "84ec5742a0ade2199916ee9e6f56edf6cca1ec65cb1084103ee3459aee08f71e",
+      "new": "2b1af3da298f83bbb998bb4cb548e6f3c422f4aae18be62860468a6c40697e97"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImCrope.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "4fcf1118c6cedd5be843847a1e7fb94ef4c5fbf6f9e9eefe9d9296913c3116d2",
+      "new": "93315f8bc424fdf4d014870ff304df93d2f842a6b0a3a04945993c02a6c48bcc"
+    },
+    "source_hash": {
+      "old": "1613d82eb028e8811e1c8a917144c9644ebaef8af85c3db0c5517d8ddc61ddc2",
+      "new": "ceb99f7e7fdb9efba7d5dcae63c7124e6a1a826bc5270deb9bda9d11c786dfbd"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImDFT.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "46b5d285e1f114e180b97f2e9dbc42d917966485771d46edf33ad910231c039f",
+      "new": "cf231b177e25508f7cd0532e42c848f9291626c3ff1a5522557a6033cc085371"
+    },
+    "source_hash": {
+      "old": "6cddcd4694c28cca124c47a8261c3b4624fd08d374bccfdebb02a7849ac7aaf6",
+      "new": "e24f6d62c64ad45f4360c17c46024c984b00641ec712c5e7e0712186789aba2b"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImDeform.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "517bef7aabd66606a97b366e5cda426e35cbe0802c6989ab87e9730e1fee464c",
+      "new": "35d9aabeea42346b2c0fdf4c76b2b9343835d29b2114f7052fc7e4e483a12a64"
+    },
+    "source_hash": {
+      "old": "b058bf05370463b34b6774012eb59f2527fc6c0877ef2dcf6cdd2a3ec1702aec",
+      "new": "317d6fb43aa6b24d4063cc19f1c80d01f6eb30485b1fd4cda052b2d0f8b0c8ca"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImDeformT.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "76f6232fcf349ca95ec6be782bf3eb76d79df4a3ccad0b71b99c1ac5729a815e",
+      "new": "1f1b2b3a14ee141ce898392900ab4a5eba7eefded3724a65758da7f933c41d4c"
+    },
+    "source_hash": {
+      "old": "abadc51d60117bb01315881f6490ef77da3116ea52bcc2c8abef83f7cda8f48d",
+      "new": "33e9cc6937386c15c085fe80aba10374c24e6531032d5bc3eaf0a8b334ca20ac"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImIDF.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3ac32c71342b48d12eb6d1dc229c671115b7ef5856063800fd1a1d22731ed416",
+      "new": "97eacb88d06c36752d066151159330e12b00248fafb5c71588650428120bcbba"
+    },
+    "source_hash": {
+      "old": "464121c7ed457fd2ab5f2b9c498ef04dbbd68a8dac84f0d6242e3f5445b18047",
+      "new": "4aae0692c0e67f26bd38b7a9385d6567c73458d0dc0f5ea8fcf3cc1c0d4ad558"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImLaplaceEquationSolver.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a96311d38236af73cfd98d62586b134e111967458e855e8fc9ffd459bddcdde3",
+      "new": "a0a97a8849cb0987157835d975e02ba8b60cd420edd6a2324ba2fe30568f2a7e"
+    },
+    "source_hash": {
+      "old": "cfca9cec8f36f10c99f5ccbb5ed07b113f96a408e387aa0d207583796074b4c3",
+      "new": "b94945a7aae86874988e792a2c7292e99e1bf532589c2bef990ecb3a2383bd1a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImLaplaceIterator.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "135584e8f42c1959b1981501f975e278aff53ddf9f648e6db89dd977b1832296",
+      "new": "508bc47e6f5e75c878adf70cf33961bcc53eb79f168101788b01a03b69a62953"
+    },
+    "source_hash": {
+      "old": "64e3896bd11501d96046950c8e56a9bd10a6e50096e4a3db10682e9de2048590",
+      "new": "6bcb609bbd2785a5c56390ae4f53bc2967a65f585c87ea21b1c869ca97a675db"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImPseudoDiffusion.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b4bcbc0b74568a1cdb29b7e5a1ab847fcb0f4ca46b76b33178f00e5255d052a4",
+      "new": "d8b7d04062216bb488bb1be22a18efa928f9a566651d84720ec9c62f72011a14"
+    },
+    "source_hash": {
+      "old": "1ed9b46642b13b0c4f4f901e1e85d5e24be9123688ca3b5b7e29744e914bb024",
+      "new": "fd380ff5fbede79b2684bbefff292337b46cc0568e9e7c6c30706729f07bb3f5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImPseudoDiffusion_inMask.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6ccaeca47e41ae33209af7f5681c23dd1cf50b5da81326ef5b28960aabe5fa8f",
+      "new": "2fae7eaeca2d6bc628ff590d3a2552c18783aea2fe9fbdc98388af1ac37961ec"
+    },
+    "source_hash": {
+      "old": "037670711f6c6f509b839c3eeee80d49d0a8a1b328779d16e3bdc57960f3acff",
+      "new": "eca8eee79f68a050f3757b1adafaf2f0e51033afacda03446a7d11863e50b447"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImReshape.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3158cc6817a7583d6c63223f9025d91466beff625877709cca54099e9d675a2e",
+      "new": "02deb8ebe02d9ac54ed2544bc6ede706d380f616759fab00e1f4c13ee999a96d"
+    },
+    "source_hash": {
+      "old": "2a1568e8e08e22982526784f5d13da43ccb6cf446f1d0ea5e9dc63dafcd15f81",
+      "new": "868588429666b89fa9b5f70dea3eccf3ce4bf1e615e5696cb108f652414bc35f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImResize.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b984f2e3616496273b6de9d44289315f726cc95bcc21dd330df5df32686f0538",
+      "new": "7e06213589a17d6b05bca8c047c5f85248bf610d0279d6093fbd946e12aa932e"
+    },
+    "source_hash": {
+      "old": "dd0d66241427812279f50bf9eefaa3394961c42e8e5fee1cc5720b9dc47348a8",
+      "new": "165566976774bf271f888a6e36ae573509dd1584b705daf98df472d82bdf6611"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImShiftList.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "86d22f741b256ce26b1c2c02c476a76c8b7096ab01ab7e5c067e460b63c3d061",
+      "new": "8ef3958de2084825f79bc069bcad1f9405b6d9baec89fb530410813810baf88d"
+    },
+    "source_hash": {
+      "old": "19a84704dfa4c976c5b8eb2d3b41ed06a36bc94901627189280b308480076e5a",
+      "new": "a452bc95e26b68a641bfdc6a77fb5655a40044613000ad7ab263e112d0f169ca"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImShiftList_to_image.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5682bf5e3f40944c87a889ba3d1800f5718e19e26ef40710c764164251910387",
+      "new": "2d150b5eddb0901a3bd7014d4dcd22fb969f7ec9153bb2033ae858682d4ebfd2"
+    },
+    "source_hash": {
+      "old": "9f080a926c23f9db88aa6266802edfb8d6db599ed99c09853ff879dc65c30a7a",
+      "new": "ba62d050d7bac42729df915fd6943a6655159ed2070b3d962d5ebf6e29d907f9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image123\\bmImZeroFill.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f250d77b182ee1835af7c5b33fe3081af661e08b2f19f3a448afcfb7687354ef",
+      "new": "793c8a40498c5fde224bfcdf321f54daef9aa9fdcb0f443755c82b72857be836"
+    },
+    "source_hash": {
+      "old": "71485f8d1ad26dc73a4038d55cc90aa7528808f85fa97ca7263bc479098df272",
+      "new": "f3b09ee6513f5b4b37d8ce335a1c0fdead9e5537a829422f378d9c7b77dd48ed"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image1\\m\\bmImWavelet1.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "c879b7cdc0b678eac64171bd40e8664efc9bd41c2942957f3926886ef9fbeff5",
+      "new": "96e13cc7fcef59be18b8e0f009e8e3dc14fb4ec39fcf662453791b7945326328"
+    },
+    "source_hash": {
+      "old": "19dc7db819b89520f7aa14a92d1fd249a70d0f349800320f2b207a89101e1caf",
+      "new": "1650a4d1f435ca5c6e8db769ea33f5fde5c39d1e5b3ac8f138b0df449fddea8c"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image1\\m\\bmImWaveletInv1.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "52e3925b22e6c8d5eefd8da93a9b54ab8ff32cb40d104101769dc8810548eb63",
+      "new": "a1fe1b609292fe3da48a4cc2ae820fdabb30326401f0470c42f94ac6d0f819ad"
+    },
+    "source_hash": {
+      "old": "5fe819a6efe55147effc0b5d544b5c36ef58cfa3d0a711f56fee3a357b9f9bf3",
+      "new": "bf3a453c93e0ff8e660334cb590d93652c98c576eba4d02be76544876e241452"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image2\\m\\bmImDeformField_hardThresholding2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bbfe4ce0f5f1f520bb19c8094f7c3acb955c129e8f5233f5076e6475a993c571",
+      "new": "4d2da770e49cd9dc14871a145bcfa4a6da601bbb234ac7860a2cb13c6eb16a4a"
+    },
+    "source_hash": {
+      "old": "10b54842b071d10fd6b2b0e6163cf2b61e067e89fed26365f6a4908a4cc130f2",
+      "new": "576618257304cb70077a6c8ab11d326fe6921241090eb5736be221dd043d0372"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image2\\m\\bmImRotate2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b77a8331d314733c8d924e362ba64e2ca65937b1bda5c030e93706607045621d",
+      "new": "c72a4cfa8bb84a3337cf6e0bb9537df214d34089a0aa4251272506acb53982a9"
+    },
+    "source_hash": {
+      "old": "c40051e8efc4ff349b1287784c338ce3e87cef9d1cecb5313d2169dde9ee260a",
+      "new": "6e62a8a618bcda703f3e8f91da3db237e74340eada90c1c4b8fccc90762745c6"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image2\\m\\bmImWavelet2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8ec2725fb18459ff6c64dce6b221fcf4085790651865cc1d479a7506852fe24e",
+      "new": "7a2eefa3ebf159b2a7041164721e135436b4daab14b8449738b086035f0a62e6"
+    },
+    "source_hash": {
+      "old": "adb0eac3494dc9116c7822792e8fb3d4d758094c66d1e9821c800bd34d774756",
+      "new": "27b0516e03142d481faf7ad5bd0145c5d1ed92f22d1e6215df0c0bf3ee293eda"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image2\\m\\bmImWaveletInv2.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "600cf6897e063a32743cc65ff2fc9ac951ae297205dc6054228107bcb396d3be",
+      "new": "377fd4779f32905f28509290cdaddf2618ddb1edf7ca7c9754142111a27da571"
+    },
+    "source_hash": {
+      "old": "b60614ef0a7e2102ea853d50186e9a7df1cd0dc62dd3183d5a7ab9f9bfab9e9f",
+      "new": "ba051dc515f8fabe8476f97596da4026fea4ec31d7fc275e20cfead95a10b626"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image3\\m\\bmImDeformField_hardThresholding3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "2093cc8561bd7ade5b0954177a84ccc15388e84308e1a81b4c6194a6389d39c9",
+      "new": "b54dbaaeb68353d36601b70a996729e599efdcd5d3afab43bb618687345e87d3"
+    },
+    "source_hash": {
+      "old": "8eab826f5994e3a420991ceb7b128f2209516a630a266f56b5f8b80f363ff939",
+      "new": "5d2492ed02bcd010802772fbd4f842204f9d2193ca3e7d1b6283ae7facfedd58"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image3\\m\\bmImRotate3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e218f422f0301be7e68a7534f80831e36997355c742b4f09fc94dc175ec8b506",
+      "new": "b46b2e6d23bd5a74d952ce0806929d3216950b32308f7db91fddae896c2d4504"
+    },
+    "source_hash": {
+      "old": "347c6443cef1b38c169bd1309b23abf9f1efc3ca9fbefe87ac108328ce669199",
+      "new": "94331c107b14c6f0f65e45f188486f1916298710accd6701ebb90b84046472f9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image3\\m\\bmImWavelet3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ca5825a9f1c3d58ffbccd496e6fe0b2c76ed7826841e4a3c113c06936e5c35ce",
+      "new": "1bae0753bd962925affd23f536234c0114e1c4dae86cecfd1e5af2d968cfc1c3"
+    },
+    "source_hash": {
+      "old": "365a144a96a27692bdd5695916fa5f79c6e76fc53f9299a2d330fbd6f8dcf111",
+      "new": "093af4371c5259b221ee242ab6543534c518e3fd5ed0de1a7306137eb59731fe"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\image3\\m\\bmImWaveletInv3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6b3396b2389612ea3d21a9a4f8f112fe3b3c5bf992cc4a43d4688c1393ef666b",
+      "new": "d7aef03c844739add485b3a8fc20021b871c77b249f39f723d50d3b5232e10b2"
+    },
+    "source_hash": {
+      "old": "e3cfce33c50b2c043a600860d99afa6f051c8f311835047a434800c54244e0d1",
+      "new": "72cde5426654cfddeb86cd3d2fc04d77a6c152a9554dfd34e64be3ad6e09a19e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imageN\\bmMIP.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b6bd1bfa619ae4eff0c437e284924d7e23b94965d623b385e4ba53eed5797d7e",
+      "new": "6bfe27025ebb5db5e506073066a0a7b90af63523ab10dd100036141105ac1229"
+    },
+    "source_hash": {
+      "old": "ed16556094af0c3be83e6ba0552de2d25faea7adc3652243a0caa5137b8d6592",
+      "new": "0bf76306f1bef119290b92b56fbb166c9b723789f1aa556701e90ec522365f5c"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\imageN\\bmRMS.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "ca2ed71f31d2cfd341429e5dbf0006bb522b4f6311b9a2795b0bac52e545acbe",
+      "new": "20038c851ae7f0a660a84d182ff11489e6004d678e9094bf4beae02ee8251a28"
+    },
+    "source_hash": {
+      "old": "7fa7bf730a9d58d0438f0a87fb88035a0096aee4a9c51c351a7d34c51bd2d8d1",
+      "new": "99757121316c898b2fe5c6d1796d9067aa5eb7e4f935d7d9ca32b52c08e2aca2"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\linSpace\\bmX_norm.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8f05774363f4cf01109f2a32f07efed36c0eda5b803f8e5754709b2b72a0c55b",
+      "new": "36bde6fcdb2f1c9cc5ac941ff4f89cc6304775f6f5b8024dea9da5560e88902f"
+    },
+    "source_hash": {
+      "old": "ba408fe7b8bde86fcb80cabc8bc996d26f8a88028771f760f83d20648bb04925",
+      "new": "ad04e19b26c19c11c730767cd114edc6417ee3d7690ba860e945d41ff04b22a0"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\linSpace\\bmY_norm.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bff7f6bd27d0ab64dfa0826f97a11ef8f5ff7c7f7ecdadde150af62ea0d09993",
+      "new": "d32627b15f427cb275ccce7c23418c8a46460a8083c85961c9fcc5c555a8364c"
+    },
+    "source_hash": {
+      "old": "d905d7f3d16f0ddaab179bd0aa3e05546efbcac49c5d18fb299253270af16d3d",
+      "new": "0c56eb2f1f10436e6bac2668e1ab3ae1c775aed4b9c6ba858ec3d4fcfd4a7e10"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mask123\\bmElipsoidMask.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a894a9fa3da322aed1c5b65ebbe649075c5d7faeadfd3a791fe2ae3ae10b15ae",
+      "new": "4362750c1ff187bf7e69038e5ff380b70e9fbe451645ab36e8b477bd402b6afa"
+    },
+    "source_hash": {
+      "old": "bd0f9c1668b9654ad3b86a5e2753756b67a809951b5f9527561df9891e90fb59",
+      "new": "e25fe34305e22f8c100187edfc2063d314c364779712e3b2d16cc7fbb308207a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mathOp\\bmEuclideProd.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "094c24fcd183df3801342045b27bf4ad0b5083cd44ea04984cb21e07cff10f2c",
+      "new": "5d08344f7aefaa5ce9a43650686eea882e00d7d59345f84245fb7efa22e9067c"
+    },
+    "source_hash": {
+      "old": "0645597735185085cace2a1ed0417ba21e2aae6a390a55973f67deb761788340",
+      "new": "8cf0155e2e53f122f7e32cbfa40d5e325710ac2d09e1dcfe19609994b2462c4e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\bmMex.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "80ee56d8175a28a37817ec5aaf0f8253fa5b51a0c92600d3aca8bb0a2cabaa11",
+      "new": "462668357c01fc687828f6ee093d8af19483c514a18f04a350b08b49b9514698"
+    },
+    "source_hash": {
+      "old": "16f551858c0df24b53d9cb195c1ffc786ff4e94f468078e2d3c9af13d3698efd",
+      "new": "e82d6437a32f1c9ea30468df3ad37eb2dcd8efd41d8a22ebafd768913dad437e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\bmMexClean.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e5ed949f2081b00559e83046dcb93be14e76c02671ac325fe9649a78aac5a139",
+      "new": "a8f60123531a20a43c0e53f58ed041a9d7a8716a85a1c9aa1d168997c29886ed"
+    },
+    "source_hash": {
+      "old": "8b68a62f26be9a69a3e7484d2c74294997e293a11caa77529c29c5ce9844e768",
+      "new": "72fbeb96bc7009d4df57245d5aff7241eacf99ade31f7bb29d010fc9294c64a9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\bmMex_extern_dir.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "12099882af9aa8fe3b55d311a929a933241ed4742a77e1e0db386091f45045a3",
+      "new": "e3be7ade42d9ed5f38976369df5c42e33d0fc3122415bc55ae10d6bf9a8a796c"
+    },
+    "source_hash": {
+      "old": "62749caa1c06c86aa689203ff3bc290866ace499805f18ae378c02b005f08a36",
+      "new": "ec162b53b92f8f46f4c1d0674b8044c63fae39f1d0d3a57ffd704c5821d9161e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mex\\m\\compile_mex_for_monalisa.py": {
     "status": "modified",
     "signature": {
       "old": {
-        "function_name": "InterpolatorExtraction",
+        "function_name": "a",
+        "args": [],
+        "returns": [
+          "ret"
+        ]
+      },
+      "new": {
+        "function_name": "compile_mex_for_monalisa",
+        "args": [],
+        "returns": [
+          "ret"
+        ]
+      }
+    },
+    "dependencies": {
+      "added": [],
+      "removed": [
+        "bmDirList.py",
+        "bmTextFile2Cell.py"
+      ]
+    },
+    "native_calls": {
+      "added": [],
+      "removed": [
+        "addpath",
+        "cat",
+        "cd",
+        "dir",
+        "disp",
+        "error",
+        "eval",
+        "fileparts",
+        "fullfile",
+        "genpath",
+        "libomp_dirs",
+        "mfilename",
+        "strrep"
+      ]
+    },
+    "logic_hash": {
+      "old": "26971a918096bd120f6d5e9e62d475fa790266f8ed22448d9ab74e771a1260f2",
+      "new": "ada800c71df87fdfa6b18f98620c7c53b95d49bb0a6975701991ae026ccbce02"
+    },
+    "source_hash": {
+      "old": "73889e5d8da1d2dd53bbc9dd58f67a45277f0709abac2e938eceb3f1894defcf",
+      "new": "51531eb7d8d42d8c83e8ba41909ca44a745b0c9c602a74b02f7394f2edc0dc41"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_clean.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "173838e0f10d9e5719228fb96154bf9832a64e9306659d78ad52e341f9644e2a",
+      "new": "8039e3e4be4192ae9150e15c6f512ab2f19d38f29a9ba3323c3c9b88398905a9"
+    },
+    "source_hash": {
+      "old": "45f5a05b9d87b58cb09bc12e3eecae1a7d18a8509575a2443984d7e09e396e9e",
+      "new": "c1a8716d2999671dc6ca4161f26b0661c018a97758ddc542946b56ce64ff4399"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_create.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "55e008d32ba5666ba07757cc52dd50ba17333a13bf205b550a215c95d32a65b5",
+      "new": "e063ccc55ad6168b07ebcdaf53980d6b76f5dad370262befcb3a73e83fa688a8"
+    },
+    "source_hash": {
+      "old": "d55a079838d607265d451898ecb9e4db82535129ef03be176f434024851a25aa",
+      "new": "06c0563d48435a3ab2b538306bad66aec01a45847fa226cb36f642bcf6ee2ac7"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_load.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b4ec13f02ead45b8ab9a62c3b7fb140071e4b7140c3dcb8c4b6fe2d919184575",
+      "new": "8ce04daef6f230a24ee804f4f6318a04d9695277a13b376608eb78e10db93c6b"
+    },
+    "source_hash": {
+      "old": "02ddee18b3b4074ca5f73fa3722523f68e190fe14955144695602269ef660ef1",
+      "new": "bc3ddb5c723b68e685dcdf85660388e44eee5d997f3bc4663b5aa91993d57486"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mitosius\\bmMitosius_save.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "38a7641c8ba7aeb731dfd0d0d082b2c588f13ffc4a5ecdd58c0b1891be5616d1",
+      "new": "38b33b31354ca802b1b8abe36e9d728e016f29fc3c5567ffdd7070bb2e7d7757"
+    },
+    "source_hash": {
+      "old": "7c8d16debfc4135bc80d55cdc87a37ae9dcc12d23b2c4c608fde1f256cd46095",
+      "new": "722312f92d8b55b2715df41adaf1e0a34d8761df139ed7de2275082b9685b24f"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_fromSI_get_standart_reference_signal.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "03a0b9be30efc9f45f4694b6ad1032deef9dad721ba19f6e9f9bc2d2c56d21b8",
+      "new": "4713c5de68552e537ef65fa56e4e7c5eb6a97dd6b51787804af030d796bd0559"
+    },
+    "source_hash": {
+      "old": "e79c394679782f2c5eca31b500b55557d45ef671b79e1b48f07cdc75f38e2324",
+      "new": "3cb2c0d95d499eb4eab0bacbd3fcb591acb93bd5777bebe1b832790b83df4bf9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_fromSI_standartSignal_to_reformatedSignal.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "38767ba9e30b8d645e36453bf1ad71ad166ca7872e1b9257f60ec50004d0fe87",
+      "new": "69a5d65df12d4fee7e6536aa9e784a20e39a8a29608f4b80b3d12792573ec59c"
+    },
+    "source_hash": {
+      "old": "b26ca5c502ce0cd79b2cc37802c7e2721254ca50d0a4c8c28aab958233417e9a",
+      "new": "1a58b26973d0a425a90eab8593a627eeedd73c52b458b3699dbc57e984c6b90a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_graphical_frequency_selector.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "65efb80460edcf0be25f4295feeb62c6874ccdb9b8a11a7dfbca6a8d7dec26a6",
+      "new": "5670e4b8072d820dfe51c54bcb4d31e85e64fba475006dccbfedab47168a71cc"
+    },
+    "source_hash": {
+      "old": "bc911c06b1bdbe3c9af53696f46e0a061e9eef4b416861afdd954e93ab32034f",
+      "new": "def522dbd0dfcdc413de58c92aeba68b602d9279fde69c18af6e6774e40d5826"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriPhi\\bmMriPhi_signal_selection.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "68005402fe815258310575b87cb3ac3bc004f1ec61a9c63313f15fba1b02ed38",
+      "new": "bcef8bf52add83074ff6835fe943c95d5d884472fb3ac28a21b9bb0f9ce710b0"
+    },
+    "source_hash": {
+      "old": "449fcfee09a987e28817b9cf18010a5dc361d251625f8ae28fd504810a3ad5fa",
+      "new": "8662d0dc50c9e71464707d97c23c1cecd978210c9eb709caf11b34590889235c"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmLowRes.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6bb8e847c292d2afd73aa158ed250e4f0d3a764993a19ea69bcc72a88c516351",
+      "new": "62e01a63879ec554c54fb45e6cd032400cbe39dab08532a2ea0a5b6ed08717dd"
+    },
+    "source_hash": {
+      "old": "d4dc6bceccc8b52f97ba9ad95c2a1311156876c2e908d45470829f7c7d86202d",
+      "new": "bd2d06ba76b749bcf0048aab201d8e203f030ff50ab20b68a780bff4170ad193"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmLowRes_cartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "98349bff16563b594103abed1a3644e55c7a23de76c3cbe5de2d7db9baaa71d2",
+      "new": "5abe4efc8239068f9e6504c4bc5fe114c0a85f5bb0cc2aa9a322cc8731f69271"
+    },
+    "source_hash": {
+      "old": "4acaee2e6c1fbfe7073b04f82d47dfed994c700d2cbd85834e0314f5e9e0a06e",
+      "new": "3990bb8807f7717dce71fa4f8daa3f809a92b0c4e9d268c4bce40d797115f364"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmMergeMriData_partialCartesian3_x.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "f81cdee3614288a53d0bf7c1f6cb5176cb9b5d0aa3afcdde583da35a54dadfa6",
+      "new": "26c1f40521c5c485178615027aa0dc954ed6a56dd203d4d0c878a7f5a667216d"
+    },
+    "source_hash": {
+      "old": "a3b947ee6b7c72b5e8630d1a5278c908eeffa32e479c9e3f9c9d94d4641bfd8f",
+      "new": "c7599b41664e51c4fa5c91af1efc984eee9a3699a06ed7abd4e808494fed312e"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmMriNoiseDecor.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "a75ae779646db954f018e2ca8c0579e3ad693a568dd186eb5e3e6ab5eb44acfe",
+      "new": "3121ba3d4d1421ae94d76e5e7ef3d467672b1b637e0310ae83a8a6fc678494c1"
+    },
+    "source_hash": {
+      "old": "357b41827f249e14cc64e59bdc59da2e31d5c2495241e962c59b02b16c6022c8",
+      "new": "93739b700af23acc70bf6b6780eb8f31e45abbcf8cb724754809f4574590020a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmSimulateMriData.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d3aa70efe5298bc6f03886b150cc2c9e686b4ea702d0f00a781bea73cf96d196",
+      "new": "4bb8c48e361f995da7afe6112e8d59a5c36a58ca79c1384e5dcbdcbe2d74f410"
+    },
+    "source_hash": {
+      "old": "ae24279b20006e63fbf117bcb9603ee6a4b94d7919cb3a81290d906d0c803786",
+      "new": "ba3568fb4f0d1d9fbeea42f293dc92cfbceb13b3a69d792c31ad69bc3c761b33"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\mriRecon\\function\\bmUnionOfMriData_partialCartesian.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9dfe86bc774cc5565679582c5f238374f231cb7b48904c2c043cc8afc07ebe9a",
+      "new": "a548d963f31da88356aea7e1eac79d29e89c0f35c62cdbaf1f6f3c423937a8e8"
+    },
+    "source_hash": {
+      "old": "a075a43d4e19b5e7d35176e8128044f9842a8f879109ba2b368d0550784612ab",
+      "new": "b939cfa5238bfb977e214a024da5dc6985a3b9b290d71102ba456a01e687ec8d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmBackGradient.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "b1942d75bc5a7a8019f6686d6879079b4f4dee3ddede248c8831cb70a064b865",
+      "new": "a0ea93b623aba8a1361f2e8cecd6ce834d090444be39704af1688d3ec765aa39"
+    },
+    "source_hash": {
+      "old": "a7dbce98150c6b92d9e1d0915876ea8a221d46d88dea8c63280c2ac2780cb6f5",
+      "new": "ecf713ea30142029cae95d949b8ed8f83f9435311b00520bd2aeb53e2b546b66"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmBackGradientT.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "eeab466bb10f35b570c1477460f4b15263f2df3223321160a23b73dc55dac6d4",
+      "new": "b6119ef74997d3924e2e351bb294496b4d96033ef1feecb9910697f9a39061e1"
+    },
+    "source_hash": {
+      "old": "641856b240f60d0e1a68e421b9a62d6b209ad760bbc0ea540e80edc3c2ed7205",
+      "new": "2428a79197a3a52666c758f530c7a462576e5fc9ca3f55e898d45f627b3328d9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmConvergeCondition.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5e01b622be9a13b60f53b1251b7a72a7ceaec8f2a52d411af22e41d1a6b15308",
+      "new": "caa248c57fd6e5f7de298572fd9bd23d81249d981b8a07b10d3f068c646d14f8"
+    },
+    "source_hash": {
+      "old": "a1dfe929db752f64411acb0a448553d883cdbd9bf84fc0f272bd1ed63a348016",
+      "new": "e56c4c16c21667719e6a78fe47eae5de92bcacffa8173f491aff34b10be081d9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmTSV.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "58b5966deb6dbe7121e98b58e5b981ad2067a39f4e44d48260a6783548e1bd1a",
+      "new": "d1a57f42846254e1731e0d0f81ed1f37c17b093bf1fdf27a93cb64fbb065090c"
+    },
+    "source_hash": {
+      "old": "fbe8d6ff87563ed208d9d784d5d030888da5ca44a10bc212c4bc4c5a8cf22794",
+      "new": "2345eeea62c65ea76cbde5198195de711c0abdd534cc7e0d5677cc0207895b8a"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\optim\\bmWitnessInfo.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bad5e3e5a569b86c5870359e7808edc457402633fcef1d741fd46dfeaee9072f",
+      "new": "ec5ffcb5e556881589b45a8fd802e384901be0ef9eb087c937333947db2fc477"
+    },
+    "source_hash": {
+      "old": "fe76f20e962461c4a94cca459f03c4181e23523b359d24670850fe17c1d6be7f",
+      "new": "abeccda779c7bbf78954864d962f23c37323ba434717c57fd7a0ad1c38c4f4e6"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\phaseLift\\bmLocalPhaseLift3.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d615712a688fd96d0c9e926353afebe6cf9967e7f29b63eb3c3d82b83162c8af",
+      "new": "5ce249d16876088e8f471ed7fb6e565de34bf370cb635c7634fbbd67727015f1"
+    },
+    "source_hash": {
+      "old": "5a355f4d611e9b1a64ded1c3ac38f902703e96db40380fafcd698af1377d0f23",
+      "new": "200e9d905a7313ca995fa1f5939427487f19c275d9d95d5ef0217c561ea88121"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\createRawDataReader.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "6cae493c5f5bcdffe575dea1931bbbcf867e6d4f21c52c0c69e76bfae8e1cb5b",
+      "new": "b9af3e2422606cb95313db2cfa63489f6922a91b5ebe51f470c636ae7f8ff4df"
+    },
+    "source_hash": {
+      "old": "da52b2734a796addeaf2d56e4a7f7e5e4f31a0888638c2654cd65bac895a76cd",
+      "new": "3830128a5c94fcb430dbfb8392009e688973f7085442f5d25c56d741d2ae4263"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\ISMRMRD_readParam.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "ISMRMRD_readParam",
         "args": [
-          "calib",
-          "kern_types",
-          "kernel"
+          "argFile",
+          "autoFlag"
         ],
         "returns": [
           "ret"
         ]
       },
       "new": {
-        "function_name": "_validate_kernel",
-        "args": [
-          "kernel"
-        ],
-        "returns": [
-          "ret_1",
-          "ret_2",
-          "ret_3"
-        ]
+        "function_name": "ISMRMRD_readParam",
+        "args": [],
+        "returns": []
       }
     },
-    "native_calls": {
-      "added": [
-        "InterpolatorExtraction",
-        "ValueError",
-        "_as_4d",
-        "any",
-        "append",
-        "asarray",
-        "column_stack",
-        "concatenate",
-        "int",
-        "pinv",
-        "product",
-        "range",
-        "reshape",
-        "sum",
-        "zeros"
-      ],
-      "removed": [
-        "kernel"
-      ]
-    },
     "logic_hash": {
-      "old": "dee8b9272f101e772f1bfaa78e45107590a9d7c06cb5d02a02e191fb3e79b2b7",
-      "new": "45df8ee6d0379b0c4850149fdb5eca4964f55af838c9030f03665c330b769d47"
+      "old": "5c5e7fc9938fc98a18bfae3eb491701acea2f694882f57001964decd498c63ee",
+      "new": "a99f11489fa47ac55bd5f57119e2de5a85defd653f6391cd539933c09c55a98b"
     },
     "source_hash": {
-      "old": "7f5c9cbf4f6c800b6870a605503bc4179d2086596750f3dc4537e219e3150025",
-      "new": "ed66be686a5cdefc48be2fdecaef070ebd8bcf4b1b2ef6a3ad8727c600551320"
+      "old": "677ec9545f75f6ffc1d823dc8462d090fc18d0f5f864719598648b06577fa866",
+      "new": "b8fba8a84b639d2b9d85ea0a6503f3f35917eb72d6ad45399d2e5915e67d0615"
     }
   },
-  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\fourier3\\bcaNeith_kernelTypeExtraction3.py": {
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\dhIsmrmrdReadMetaData.py": {
     "status": "modified",
     "signature": {
       "old": {
-        "function_name": "KernelTypeExtraction",
+        "function_name": "dhIsmrmrdReadMetaData",
         "args": [
-          "kspace",
-          "kernel"
+          "obj"
         ],
         "returns": [
           "ret"
         ]
       },
       "new": {
-        "function_name": "_validate_kernel",
-        "args": [
-          "kernel"
-        ],
-        "returns": [
-          "ret_1",
-          "ret_2",
-          "ret_3"
-        ]
+        "function_name": "dhIsmrmrdReadMetaData",
+        "args": [],
+        "returns": []
       }
     },
-    "native_calls": {
-      "added": [
-        "KernelTypeExtraction",
-        "ValueError",
-        "_kspace_mask_view",
-        "any",
-        "append",
-        "asarray",
-        "astype",
-        "column_stack",
-        "dot",
-        "float",
-        "int",
-        "norm",
-        "range",
-        "reshape",
-        "zeros"
-      ],
-      "removed": [
-        "kernel",
-        "normalize",
-        "ravel"
-      ]
-    },
     "logic_hash": {
-      "old": "6151c5c6fcbbd962c3f63a25d6918f0fccce8cc5ccf1923a02df72230d8d029d",
-      "new": "f398c7383f28c9edd08948f4ffeba23ade15373d5502579b951caccda4b04924"
+      "old": "180950a3369a40e3b773b2deb09d405c06372bf64ecd9bb6bfbf469804f96131",
+      "new": "462e29841f2abac85a02d78e6b47bbc18ab04b5197fcdbe52fe7a2dc30cc7659"
     },
     "source_hash": {
-      "old": "a45c73db5d5458789e0370b4e7882fb91c27027a7c0e3233d960dd4a73b95f41",
-      "new": "f94dcc445beeeadff576f914e8f58f3e904792de2fa3271e4be2346ab9d151b4"
+      "old": "e692dcd9ba6fbc2064e6b7ee6b957148c48a5d06b59f08ee4e8b4774e85b4f47",
+      "new": "68b5fc2459d71d768866889a17e5f729a1a69c6b1665c21c4fa24c22f16bf9d5"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\ismrmrd\\mleIsmrmrdReader.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9788d8a3d2c1f3b482b2e69ab4c525f15f2f95c1f5b7ab262490dd36b6dba149",
+      "new": "da22cebc0709496828ecd7e7669b84f7b837832e0dd109068f58a6beebf512d1"
+    },
+    "source_hash": {
+      "old": "d74ddadb6ae26dde0494837f35dc1b45c34670bde4f23f4039e04a43525e7007",
+      "new": "3af8bd21256edc6a12d2c66115613b4d611333d3fc9452f256ed79e8e2f1d110"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\siemens\\dhSiemensReadMetaData.py": {
+    "status": "modified",
+    "signature": {
+      "old": {
+        "function_name": "dhSiemensReadMetaData",
+        "args": [
+          "obj"
+        ],
+        "returns": [
+          "ret"
+        ]
+      },
+      "new": {
+        "function_name": "dhSiemensReadMetaData",
+        "args": [],
+        "returns": []
+      }
+    },
+    "logic_hash": {
+      "old": "6930b2efc0052ea6e3fb49ed91434d9c41017b396a284fa8b331dc482f6dc385",
+      "new": "bb09ed69d1f79c556c367430fdb68b695d6b88e04becc228df8ba07887896c8a"
+    },
+    "source_hash": {
+      "old": "145399a297a515aff92b1e133fb4551a34309725368a8c0b49c0e8a111b81a8b",
+      "new": "de3d509433cb383bc7e377eda9576915760ce76e9feb55a3df8c6d3cea453b46"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\rawDataReader\\siemens\\mleSiemensReader.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "5c339ffcad33f2aeb5d7944e4795d57c00440b2616b88425c128b60995ab699c",
+      "new": "5e05d87c9a5902895864eacda26682874946bb8ea210e06a9230d3a39319303e"
+    },
+    "source_hash": {
+      "old": "ab0a1834d9c6787e4932ef4aa1df8b19251f97f800a6f09d4912a432b67354e2",
+      "new": "4ce39173f5efe60936f29335ed16ed96237e39c155edfaad1a9cd17b0b2d18e8"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_N_u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "02f7ef6bab1ef450f27ddff4a4088c123727126fb7d1b14c2f282cf27284ca02",
+      "new": "51ea1131df3be0f819f0fe87e4fe93ce0f90a3eb52d38b7f646c0ce17bd8d6da"
+    },
+    "source_hash": {
+      "old": "ba44eb398d488746d4622f69a8dd423b83d3b076db31274fc0a2638b3f4ef6ff",
+      "new": "2cb899a75874d19acc78e705440378eacbf61e97730f5dadb1f222f92a317367"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_N_u_dK_u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8c0dd727d9a9a01ebabaad8203089b39705d536c658bde7090ff05822a5f6841",
+      "new": "d25abfe1bdbad0800947955c2365645bf65debe5f11c779f5c863f13e9b861bb"
+    },
+    "source_hash": {
+      "old": "5112ec376ea23e357bffc450048a271ab970efde755dadc89de75767c79e13c5",
+      "new": "0122c6761211c9cbd7b9ef66b24ea053c4167fe5b3d4b157b62259e5d4ec6efe"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_dK_u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "9ca4b418179388e6ceb447486d32d249be7267d9970eb261f16738f7b4ebba6a",
+      "new": "2ade8d66c8d6ae9a3975629ab962536e6aa7098e6b7f4723543933b5bd0bfa70"
+    },
+    "source_hash": {
+      "old": "3d55ab36820c6d2edc4d6ed2074c63a7354f25299a262dbbf3c7d6ff9a8af9a6",
+      "new": "cbcb5de9b20e00c2db485a0e715b3068ef0e41a7f1e1bf7c62ae5af96d1f4525"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_formatTraj.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e41cc283f9a399fd2fe6c6dd45147ffab9ff2448344aeaa54743e86966303a79",
+      "new": "aa7915c60594739af9b1201f1340fc120ba1c16234c2a928e277f2edb78812c8"
+    },
+    "source_hash": {
+      "old": "885c7a9234805a4dd631f51a479550552146cf9a3c65fcfb44fec5d3d7f24191",
+      "new": "9c5ea790b6b0c50bb01781dc18b74266fff39e6c6db7ec9187561e81cafa97ee"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_nLine.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "d703a281c1382eb29b213c94800daf02376cd9e17666452655b6843b87f7b806",
+      "new": "d40f8996571087cd72f78ac8b48420daf23f4b4092cbbdd9f5d0920fad7c7c5a"
+    },
+    "source_hash": {
+      "old": "62162a8425c59322c9c8ba308060ebbf8ad56d288fa86a4c892f7e2531200bb8",
+      "new": "660c720176fb518b6082678670125e2ffd006ec67ed14d4a3ea56a543ec2e9fe"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_norm.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "8e817f9b3193b803a3df6383fb8d6016de1315502ccf38fadfb01177453ef911",
+      "new": "30340acf3a5603633209172ef296e1f6078c3a4c97f37431833039a962f83bb0"
+    },
+    "source_hash": {
+      "old": "2c987a09ade223df3a5f63e14fdaab8876a13cee1ef8812e645a6ed7cab5f8cd",
+      "new": "68687e41ab85e04771f673ff82c77e30ff2c30d5b6d4ebe1b3d67f43eb51a8b9"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_partialCartesian_ind_u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bc006637906881a16fa0033c82e6387594b9cb5e390d78e98478ebce29f8a2c8",
+      "new": "1ff76ff4c3af7272a8ce1c38cb881579cb4d6efac002ed182e45ec2710066a36"
+    },
+    "source_hash": {
+      "old": "851d02d4478c7811417d532fa6ceac3cc5f82e5f5052f17676052445f2c09372",
+      "new": "247ec53e46becf45bc120a2463bd634cf28f3cfde1265a54d866a0cf290ddb12"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_rescaleToUnitCube.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "0a3a297732e1f84df300e0778bae0f7690661d87e4e7a10f8c0318ea99f3def8",
+      "new": "76c707dd0e58b4fa5ee9a3c4ae42ac2678665561333c5132f639117f41e29a7c"
+    },
+    "source_hash": {
+      "old": "cd96aa2b25fb0e44608c52b7b604cfc9dfa63b98afe5c2a625138871f877ba05",
+      "new": "2d882dbb8cda62c98b46875b279346981896eef4daa595cd884e84c754e7bea8"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\traj123\\bmTraj_squaredNorm.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "e58766101f188d807daca54de99c382038c60931a9c38d0754363b8ab05fb936",
+      "new": "667a3d60fcd63c874bc6ab3fcdce222b07e7de32ec6027a8142e6bc412151446"
+    },
+    "source_hash": {
+      "old": "b30bfe803ae1dcb75a4af16b6aecaf8657d765144220090e076a11005bd2e8b4",
+      "new": "887d72abbc27b563c7d004ca96865bb2544967cc8bf688fa748369bb8e36607d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\trajN\\bmTraj.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "3fd84798915ee7fed20a34576f552062eafbc067b33f7769c88b9a2f02a756ab",
+      "new": "a532bc36c4195d7018174d4089382162f44a663d6d2ef44b0a8c350299bfe3f2"
+    },
+    "source_hash": {
+      "old": "1ee6a8cc4cc676ea5d5f5fe92a61a30b38368058e3f2f6928f2c9142121b8e17",
+      "new": "7babe05652ce2325f1ec8b97bd799cf4b74b2c68bd18af5e1731cafa269be335"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\twix\\bmTwix_getFirstProjOfShot.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "0bf7dcedd2f93b8c1a62e944934f79db6aa3d90492c59a510de07e5cb3a27d52",
+      "new": "5c6fd78aaa45e8c50aeed1cba09edec74a58477fb294aeac3a3bdfc24752fdda"
+    },
+    "source_hash": {
+      "old": "6aeb29596f0a3a8c0cb9e8ae851c7718b7767d0d58a5106d0e85a70e6bb154bf",
+      "new": "27d3d20a55b6820d9e8e7a632b312daac8402fe6275e9c99159812d972af048d"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\twix\\bmTwix_info.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "bd4f459fb91fdb398ed8976cecf5000eb557b0cce1672a75b1ac6c2a5af3aadd",
+      "new": "474a67b489a070c6c814c439ff6c883c160efe5676d4ae5fe0e8812ff6c3b6a7"
+    },
+    "source_hash": {
+      "old": "cfd3f043fb64c504899cdf6d720c9093a06c6d30ed8dc353e3a11f8aa7bd472b",
+      "new": "a47def9d1c95cbdc291686d58047ee68913286e01ab7ff45265961fbaa49ca44"
+    }
+  },
+  "C:\\Users\\andym\\hesso\\PA-Monalisa\\monalisa_py\\src\\varargin\\bmVarargin_N_u_dK_u.py": {
+    "status": "modified",
+    "logic_hash": {
+      "old": "73bf0d9ad63da202c271b3c7945dcb5a79fba7c9a9d7d40740db8f96cea5a931",
+      "new": "c8116a31d9c38d01765634a407ea826f83a6f38197eb3be4a3c37e8b6c73fa90"
+    },
+    "source_hash": {
+      "old": "c97d621eb0a21cff2a6c89a6ae73980bb3d24e8e6deee3d41b9ed1d681ac1453",
+      "new": "70f11a7b1f34882f24d9bdf08824f450759b4d002e14b14d44fdd4e576a1c7ac"
     }
   }
 }

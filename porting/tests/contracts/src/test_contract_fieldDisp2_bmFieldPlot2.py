@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/fieldDisp2/bmFieldPlot2.py"
-EXPECTED_FUNCTION_NAME = "t2"
+EXPECTED_FUNCTION_NAME = "bmFieldPlot2"
 EXPECTED_ARG_COUNT = 8
 
 

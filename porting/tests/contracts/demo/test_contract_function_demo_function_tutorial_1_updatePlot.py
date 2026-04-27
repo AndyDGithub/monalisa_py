@@ -6,7 +6,7 @@ import inspect
 
 
 TARGET_FILE = Path(__file__).resolve().parents[4] / "demo/function_demo/function_tutorial_1/updatePlot.py"
-EXPECTED_FUNCTION_NAME = "t"
+EXPECTED_FUNCTION_NAME = "updatePlot"
 EXPECTED_ARG_COUNT = 4
 
 

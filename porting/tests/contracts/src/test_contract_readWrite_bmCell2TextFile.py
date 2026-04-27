@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/readWrite/bmCell2TextFile.py"
-EXPECTED_FUNCTION_NAME = "e"
+EXPECTED_FUNCTION_NAME = "bmCell2TextFile"
 EXPECTED_ARG_COUNT = 2
 
 

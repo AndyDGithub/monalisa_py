@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/mathDisp/bmMountainPlot.py"
-EXPECTED_FUNCTION_NAME = "t"
+EXPECTED_FUNCTION_NAME = "bmMountainPlot"
 EXPECTED_ARG_COUNT = 2
 
 

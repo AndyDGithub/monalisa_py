@@ -5,8 +5,10 @@ from pathlib import Path
 import inspect
 
 
+
+
 TARGET_FILE = Path(__file__).resolve().parents[4] / "src/imDisp/bmImDeformFieldInverse_checkerboardDisp2.py"
-EXPECTED_FUNCTION_NAME = "p2"
+EXPECTED_FUNCTION_NAME = "bmImDeformFieldInverse_checkerboardDisp2"
 EXPECTED_ARG_COUNT = 3
 
 

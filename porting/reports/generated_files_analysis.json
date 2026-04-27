@@ -1,12 +1,36 @@
 {
   "summary": {
-    "python_files": 477,
-    "auto_generated_files": 466,
-    "manual_files": 11,
+    "python_files": 23,
+    "auto_generated_files": 2,
+    "manual_files": 21,
     "fallback_stub_files": 0,
-    "risky_true_false_calls": 0
+    "risky_true_false_calls": 0,
+    "matlab_todo_markers": 19,
+    "mex_wrapper_stub_files": 0
   },
   "compile_error_top_kinds": {},
   "fallback_stub_files": [],
-  "risky_true_false_call_sites": []
+  "risky_true_false_call_sites": [],
+  "matlab_todo_marker_sites": [
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if nargin < 1 || isempty(dataDir)",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if nargin < 2 || isempty(reportDir)",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if ~exist(reportDir, 'dir')",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): summary.global = summarizeResults(allResults);",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if isempty(results)",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): return;",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): txt = sprintf([ ...",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): '- Total: %d, Passed: %d, Failed: %d, Incomplete: %d, Duration: %.3fs\\n'], ...",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): summary.global.total, summary.global.passed, summary.global.failed, ...",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): summary.global.incomplete, summary.global.durationSeconds, ...",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): 100 * summary.global.passRate, ...",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): summary.e2e.incomplete, summary.e2e.durationSeconds);",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if isempty(results)",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-line): return;",
+    "tests/ci/run_ci_test_suite.py: # TODO(matlab-control): if any([results.Failed]) || any([results.Incomplete])",
+    "tests/unit/TestFunctionInventoryUnit.py: # TODO(matlab-control): for k in range(len(files)):",
+    "tests/unit/TestFunctionInventoryUnit.py: # TODO(matlab-line): fn = os.path.splitext(os.path.basename(files[k]))[0]",
+    "tests/unit/TestFunctionInventoryUnit.py: # TODO(matlab-control): if not os.path.exists(fn):",
+    "tests/unit/TestFunctionInventoryUnit.py: # TODO(matlab-line): missing.append(os.path.join(srcRoot, files[k]))"
+  ],
+  "mex_wrapper_stub_files": []
 }

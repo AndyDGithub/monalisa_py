@@ -250,6 +250,7 @@ def run_agentic_repair_cycle(
         args.append("--no-dynamic-llm-timeout")
     if enable_matlab_help:
         args.append("--enable-matlab-help")
+    args = ["--engine", "legacy", *args]
     return _run_python_script("run_agentic_repair_cycle.py", args)
 
 
@@ -435,6 +436,7 @@ def run_agentic_porting_workflow(
         args.append("--no-dynamic-llm-timeout")
     if disable_llm:
         args.append("--disable-llm")
+    args = ["--engine", "legacy", *args]
     return _run_python_script("run_agentic_porting_workflow.py", args)
 
 
@@ -466,7 +468,7 @@ def _tool_dispatch() -> dict[str, Callable[..., str]]:
 
 
 def run_agent(prompt: str, model: str, max_steps: int) -> dict[str, Any]:
-    llm = ChatOllama(model=model, validate_model_on_init=True, temperature=0).bind_tools(TOOLS)
+    llm = ChatOllama(model=model, validate_model_on_init=True, temperature=0, streaming=True).bind_tools(TOOLS)
     messages: list[Any] = [HumanMessage(content=prompt)]
     dispatch = _tool_dispatch()
 
@@ -533,4 +535,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
