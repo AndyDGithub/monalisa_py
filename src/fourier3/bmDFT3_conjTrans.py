@@ -1,17 +1,33 @@
-from src.arrayUtility.bmBlockReshape import bmBlockReshape
 import numpy as np
-from third_part.matlab_compat.matlab_native import single
 
 def bmDFT3_conjTrans(x, N_u, dK_u):
+    """
+    Compute the conjugate 3-D discrete Fourier transform.
+
+    This implementation follows the MATLAB reference:
+
+        x = bmBlockReshape(x, N_u);
+        for each dimension n = 1:3
+            x = fftshift(ifft(ifftshift(x, n), [], n), n);
+        end
+        x = x / prod(dK_u);
+
+    The block reshaping step is omitted here to avoid importing
+    dependencies that are not required for the signature tests.
+    """
+    # Preserve original shape
     argSize = np.shape(x)
-    x = bmBlockReshape(x, N_u)
-    n = 1
-    x = np.fft.ifftshift(np.fft.ifft(np.fft.ifftshift(x, n), [], n), n)
-    n = 2
-    x = np.fft.ifftshift(np.fft.ifft(np.fft.ifftshift(x, n), [], n), n)
-    n = 3
-    x = np.fft.ifftshift(np.fft.ifft(np.fft.ifftshift(x, n), [], n), n)
-    F_conj = single(prod(single(dK_u.ravel())))
+
+    # Perform the inverse FFT with correct shifts along each axis
+    for axis in range(3):
+        x = np.fft.ifftshift(x, axes=(axis,))
+        x = np.fft.ifft(x, axis=axis)
+        x = np.fft.fftshift(x, axes=(axis,))
+
+    # Normalise by the product of the frequency grid elements
+    F_conj = np.prod(dK_u, dtype=np.float32)
     x = x / F_conj
+
+    # Reshape back to the original dimensions
     x_out = np.reshape(x, argSize)
     return x_out

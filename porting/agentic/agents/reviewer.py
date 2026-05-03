@@ -7,8 +7,8 @@ import re
 from types import SimpleNamespace
 from typing import Any
 
-from agentic.state import PortingGraphState
-from agentic.tools import LegacyToolbox
+from porting.agentic.state import PortingGraphState
+from porting.agentic.tools import LegacyToolbox
 
 try:
     from porting.lib.matlab_source_quality import matlab_quality_for_python_file

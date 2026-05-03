@@ -1,75 +1,48 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
-from src.fourier123.map_function.nonCartesian.bmNakatsha_CUFFT_omp import bmNakatsha_CUFFT_omp
-from src.fourier123.map_function.nonCartesian.bmNakatsha_FFTW_omp import bmNakatsha_FFTW_omp
+from __future__ import annotations
+import numpy as np
 from src.fourier123.map_function.nonCartesian.bmNakatsha_MATLAB import bmNakatsha_MATLAB
 
-from src.sparseMat.m.bmSparseMat_vec import error
 
 def bmNakatsha(y, G, KFC_conj, C_flag, n_u, fft_lib_sFlag):
-    # x = bmNakatsha(y, G, KFC_conj, C_flag, n_u, fft_lib_sFlag)
-    # 
-    # This function copmutes the conjugate transpose of the Fourier transform
-    # and the coil sensitvity of Y -> C*F*(Y) while gridding the points to the
-    # uniform grid. The inverse Fourier transform is calculated using the iFFT
-    # algorithm with different implementations.
-    # 
-    # Authors:
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # 
-    # Contributors:
-    # Dominik Helbing (Documentation & Comments)
-    # MattechLab 2024
-    # 
-    # Parameters:
-    # y (array): The data in the k-space to be gridded and transformed into
-    # the image space.
-    # G (bmSparseMat): The backward gridding sparse matrix which is used for
-    # transposing the conjugate. -> Gut
-    # KFC_conj (array): The kernel matrix used for deapodization multiplied
-    # with the conjugate Fourier factor and the conjugate transpose of the
-    # coil sensitivity. Can be missing the conjugate transpose of C.
-    # C_flag (logical): Indicates if KFC_conj contains the conjugate of C. If
-    # false, the conjugate is not included in KFC_conj. Can only be false if
-    # the MATLAB fft implementation is used.
-    # n_u (list): The size of the image space grid.
-    # fft_lib_sFlag (char): The iFFT algorithm to be used. The options are
-    # 'MATLAB' using the MATLAB intern iFFT algorithm, 'FFTW' using the
-    # fastest Fourier transform in the west software library or 'CUFFT'
-    # using the CUDA fast Fourier transform library.
-    # 
-    # Returns:
-    # x (array): The computed image space data (C*F*y = x). Combined into one
-    # image x if C_flag is true, otherwise x has an image for every coil.
-    # 
-    # Notes:
-    # This comes from F(Cx) = y -> x = F*(C*y). If the coil sensitivity is
-    # not given in KFC_conj, then only y -> F*(y) = x is computed. The data
-    # needs to be multiplied by the volume elements for correct results.
-    # 
-    # Examples:
-    # x = bmNakatsha(ve.*y, Gut, KF_conj, false, N_u, 'MATLAB');
-    # Use G.N_u if n_u is empty
-    # TODO(matlab-control): if isempty(n_u)
-    n_u = G.N_u
-    # Throw error if CUFFT or FFTW are used with C_flag false
-    # TODO(matlab-control): if not(C_flag) & strcmp(fft_lib_sFlag, 'FFTW')
-    error(" ""C_flag"" must be ""True"" for the FFTW version of bmNakatsha. ")
-    # TODO(matlab-control): if not(C_flag) & strcmp(fft_lib_sFlag, 'CUFFT')
-    error(" ""C_flag"" must be ""True"" for the CUFFT version of bmNakatsha. ")
-    # Throw error if CUFFT or FFTW are used with N_u ~= n_u
-    # TODO(matlab-control): if ~isequal(G.N_u, n_u) & strcmp(fft_lib_sFlag, 'CUFFT')
-    error("zero_filling is not implemented for Shanna_CUFFT. ")
-    # TODO(matlab-control): if ~isequal(G.N_u, n_u) & strcmp(fft_lib_sFlag, 'FFTW')
-    error("zero_filling is not implemented for Shanna_FFTW. ")
-    # Call correct function to use required iFFT implementation
-    # TODO(matlab-control): if strcmp(fft_lib_sFlag, 'MATLAB')
-    x = bmNakatsha_MATLAB(y, G, KFC_conj, C_flag, n_u)
-    # TODO(matlab-control): elseif strcmp(fft_lib_sFlag, 'FFTW')
-    x = bmNakatsha_FFTW_omp(y, G, KFC_conj)
-    # TODO(matlab-control): elseif strcmp(fft_lib_sFlag, 'CUFFT')
-    x = bmNakatsha_CUFFT_omp(y, G, KFC_conj)
-    return x
+    """Dispatcher for the adjoint non-Cartesian Fourier transform (C*F*y).
+
+    Authors:
+    Bastien Milani
+    CHUV and UNIL
+    Lausanne - Switzerland
+    May 2023
+
+    Contributors:
+    Dominik Helbing (Documentation & Comments)
+    MattechLab 2024
+
+    Parameters:
+    y (array): The data in k-space to be gridded and transformed into image space.
+    G (bmSparseMat): The backward gridding sparse matrix.
+    KFC_conj (array): Deapodization kernel * conjugate Fourier factor * conjugate coil sensitivity.
+    C_flag (bool): If True, KFC_conj contains the conjugate of C and channels are summed.
+    n_u (list or None): Size of the image space grid (uses G.N_u if None/empty).
+    fft_lib_sFlag (str): FFT implementation: 'MATLAB', 'FFTW', or 'CUFFT'.
+
+    Returns:
+    x (array): Image space data (C*F*y).
+    """
+    if n_u is None or (hasattr(n_u, '__len__') and len(np.atleast_1d(n_u)) == 0):
+        n_u = G.N_u
+
+    if not C_flag and fft_lib_sFlag in ('FFTW', 'CUFFT'):
+        raise ValueError("'C_flag' must be 'true' for the FFTW/CUFFT version of bmNakatsha.")
+
+    n_u_arr = np.asarray(n_u).ravel()
+    G_N_u = np.asarray(G.N_u).ravel()
+    if not np.array_equal(G_N_u, n_u_arr) and fft_lib_sFlag in ('CUFFT', 'FFTW'):
+        raise ValueError('zero_filling is not implemented for Shanna_CUFFT/FFTW.')
+
+    if fft_lib_sFlag == 'MATLAB':
+        return bmNakatsha_MATLAB(y, G, KFC_conj, C_flag, n_u)
+    elif fft_lib_sFlag == 'FFTW':
+        raise NotImplementedError('bmNakatsha_FFTW_omp is not implemented in the Python port.')
+    elif fft_lib_sFlag == 'CUFFT':
+        raise NotImplementedError('bmNakatsha_CUFFT_omp is not implemented in the Python port.')
+    else:
+        raise ValueError(f"Unknown fft_lib_sFlag: {fft_lib_sFlag!r}")

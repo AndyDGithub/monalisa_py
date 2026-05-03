@@ -1,116 +1,111 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
-from src.arrayUtility.bmPointReshape import bmPointReshape
-from src.sparseMat.m.bmSparseMat_r_nJump2index import bmSparseMat_r_nJump2index
-from third_part.matlab_compat.matlab_native import double, repmat
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
-
+from __future__ import annotations
 import numpy as np
+from src.arrayUtility.bmPointReshape import bmPointReshape
 
 def bmImDeformField2sparseMat_ind_weight(v, N_u, Dn, torus_flag):
-    # initial -----------------------------------------------------------------
-    v           = double(bmPointReshape(v))
-    Dn          = double(Dn.ravel().T)
-    N_u         = double(N_u.ravel().T)
-    imDim       = double(np.shape(v, 1))
-    nPt         = double(np.shape(v, 2))
-    # TODO(matlab-control): if nPt ~= prod(N_u(:))
-    # TODO(matlab-line): error([  'In bmImDeformField_Gn_Gu_Gut : the deformation', ...
-    " field must have as many vectors as ",
-    # TODO(matlab-line): 'the number of pixel(voxel) in the image. ']);
-    # END_initial -------------------------------------------------------------
-    # preparing Nu and t and --------------------------------------------------
-    Nx_u = 0
-    Ny_u = 0
-    Nz_u = 0
-    # TODO(matlab-control): if imDim == 1
-    Nx_u = N_u(1, 1)
-    v = np.reshape(v, [1, Nx_u])
-    # TODO(matlab-line): x_u = ndgrid(1:Nx_u);
-    t = x_u.ravel().T + v
-    # TODO(matlab-control): if imDim == 2
-    Nx_u = N_u(1, 1)
-    Ny_u = N_u(1, 2)
-    v = np.reshape(v, [2, Nx_u*Ny_u])
-    # TODO(matlab-line): [x_u, y_u] = ndgrid(1:Nx_u, 1:Ny_u);
-    # TODO(matlab-line): t = cat(1, x_u(:)', y_u(:)') + v;
-    # TODO(matlab-control): if imDim == 3
-    Nx_u = N_u(1, 1)
-    Ny_u = N_u(1, 2)
-    Nz_u = N_u(1, 3)
-    v = np.reshape(v, [3, Nx_u*Ny_u*Nz_u])
-    # TODO(matlab-line): [x_u, y_u, z_u] = ndgrid(1:Nx_u, 1:Ny_u, 1:Nz_u);
-    # TODO(matlab-line): t = cat(1, x_u(:)', y_u(:)', z_u(:)') + v;
-    x_u = 0
-    y_u = 0
-    z_u = 0
-    # END_preparing Nu and t and ----------------------------------------------
-    # deleting trajectory points that are out of the spat ---------------------
-    deleteMask = np.np.zeros((1, nPt), dtype=bool)
-    # TODO(matlab-control): if imDim > 0
-    # TODO(matlab-line): deleteMask = deleteMask | (t(1, :) < 1) | (t(1, :) > Nx_u);
-    # TODO(matlab-control): if imDim > 1
-    # TODO(matlab-line): deleteMask = deleteMask | (t(2, :) < 1) | (t(2, :) > Ny_u);
-    # TODO(matlab-control): if imDim > 2
-    # TODO(matlab-line): deleteMask = deleteMask | (t(3, :) < 1) | (t(3, :) > Nz_u);
-    # END_deleting trajectory points that are out of the spat -----------------
-    # TODO(matlab-control): if imDim == 1
-    # TODO(matlab-line): cx = ndgrid(0:1);
-    c = cx.ravel().T
-    # TODO(matlab-control): elseif imDim == 2
-    # TODO(matlab-line): [cx, cy] = ndgrid(0:1, 0:1);
-    # TODO(matlab-line): c = [cx(:)'; cy(:)'];
-    # TODO(matlab-control): elseif imDim == 3
-    # TODO(matlab-line): [cx, cy, cz] = ndgrid(0:1, 0:1, 0:1);
-    # TODO(matlab-line): c = [cx(:)'; cy(:)'; cz(:)'];
-    c = repmat(c, [1, 1, nPt])
-    nNb = double(np.shape(c, 2))
-    t_floor = floor(t)
+    v   = np.asarray(bmPointReshape(v), dtype=float)
+    Dn  = np.asarray(Dn, dtype=float).ravel() if Dn is not None and len(np.atleast_1d(Dn)) > 0 else None
+    N_u = np.asarray(N_u, dtype=float).ravel()
+
+    imDim = v.shape[0]
+    nPt   = v.shape[1]
+
+    if nPt != int(np.prod(N_u)):
+        raise ValueError('bmImDeformField2sparseMat_ind_weight: deformation field must have as many vectors as pixels/voxels.')
+
+    N_u_int = N_u.astype(int)
+    Nx_u = N_u_int[0] if imDim >= 1 else 0
+    Ny_u = N_u_int[1] if imDim >= 2 else 0
+    Nz_u = N_u_int[2] if imDim >= 3 else 0
+
+    # Build grid + trajectory
+    if imDim == 1:
+        x_u = np.arange(1, Nx_u + 1, dtype=float)
+        t   = x_u.reshape(1, -1) + v
+    elif imDim == 2:
+        x_u, y_u = np.meshgrid(np.arange(1, Nx_u+1), np.arange(1, Ny_u+1), indexing='ij')
+        t = np.vstack([x_u.ravel(), y_u.ravel()]) + v
+    else:  # imDim == 3
+        x_u, y_u, z_u = np.meshgrid(np.arange(1, Nx_u+1), np.arange(1, Ny_u+1), np.arange(1, Nz_u+1), indexing='ij')
+        t = np.vstack([x_u.ravel(), y_u.ravel(), z_u.ravel()]) + v
+
+    deleteMask = np.zeros(nPt, dtype=bool)
+    if imDim >= 1:
+        deleteMask |= (t[0, :] < 1) | (t[0, :] > Nx_u)
+    if imDim >= 2:
+        deleteMask |= (t[1, :] < 1) | (t[1, :] > Ny_u)
+    if imDim >= 3:
+        deleteMask |= (t[2, :] < 1) | (t[2, :] > Nz_u)
+
+    # Neighbor offsets: [0,1] per dim
+    grids = [np.array([0, 1], dtype=float)] * imDim
+    mesh  = np.meshgrid(*grids, indexing='ij')
+    c     = np.vstack([m.ravel() for m in mesh])  # (imDim, nNb)
+    nNb   = c.shape[1]
+
+    # Expand c and t_floor/t_rest over nPt
+    c_exp = c[:, :, np.newaxis]  # (imDim, nNb, 1)
+    t_floor = np.floor(t)        # (imDim, nPt)
     t_rest  = t - t_floor
-    t_floor = np.reshape(t_floor, [imDim, 1, nPt])
-    t_floor =  repmat(t_floor, [1, nNb, 1])
-    t_rest  = np.reshape(t_rest,  [imDim, 1, nPt])
-    t_rest  =  repmat(t_rest,  [1, nNb, 1])
-    d = t_rest - c
-    temp_square = 0
-    # TODO(matlab-control): for i = 1:imDim
-    # TODO(matlab-line): temp_square = temp_square + d(i, :, :).^2;
-    d = sqrt(temp_square)
-    # TODO(matlab-control): if ~isempty(Dn)
-    Dn = np.reshape(Dn, [1, nPt])
-    Dn =  repmat(Dn, [nNb, 1])
-    # TODO(matlab-line): myWeight = exp(-1./(1-d.^2));
-    # TODO(matlab-line): myWeight(isinf(myWeight)) = 0;
-    # TODO(matlab-line): myWeight = myWeight.*double(abs(d) < 1); % bump-function
-    myWeight = np.reshape(myWeight, [nNb, nPt])
-    n = t_floor + c
-    d = 0
-    t_floor = 0
-    t_rest = 0
-    # TODO(matlab-control): if imDim == 1
-    # TODO(matlab-line): n(1, :, :) = mod(n(1, :, :)-1, Nx_u)+1;
-    # TODO(matlab-line): n = 1 + (n(1, :, :) - 1);
-    # TODO(matlab-control): elseif imDim == 2
-    # TODO(matlab-line): n(1, :, :) = mod(n(1, :, :)-1, Nx_u)+1;
-    # TODO(matlab-line): n(2, :, :) = mod(n(2, :, :)-1, Ny_u)+1;
-    # TODO(matlab-line): n = 1 + (n(1, :, :) - 1) + (n(2, :, :) - 1)*Nx_u;
-    # TODO(matlab-control): elseif imDim == 3
-    # TODO(matlab-line): n(1, :, :) = mod(n(1, :, :)-1, Nx_u)+1;
-    # TODO(matlab-line): n(2, :, :) = mod(n(2, :, :)-1, Ny_u)+1;
-    # TODO(matlab-line): n(3, :, :) = mod(n(3, :, :)-1, Nz_u)+1;
-    # TODO(matlab-line): n = 1 + (n(1, :, :) - 1) + (n(2, :, :) - 1)*Nx_u + (n(3, :, :) - 1)*Nx_u*Ny_u;
-    myOne = np.ones(1, nPt)
-    # TODO(matlab-control): if not(torus_flag)
-    # TODO(matlab-line): n(:, :, deleteMask) = [];
-    # TODO(matlab-line): myWeight(:, deleteMask) = [];
-    # TODO(matlab-line): myOne(1, deleteMask) = 0;
-    # TODO(matlab-control): if ~isempty(Dn)
-    # TODO(matlab-line): Dn(:, deleteMask) = [];
-    ind_1 = double(n.ravel())
-    ind_2 = double(bmSparseMat_r_nJump2index(nNb*myOne).T)
-    myWeight = double(myWeight.ravel())
-    Dn = double(Dn.ravel())
-    return (ind_1, ind_2, myWeight, Dn)
+    t_floor_exp = t_floor[:, np.newaxis, :]  # (imDim, 1, nPt)
+    t_rest_exp  = t_rest[:, np.newaxis, :]   # (imDim, 1, nPt)
+
+    d = t_rest_exp - c_exp  # (imDim, nNb, nPt)
+    d_sq = np.sum(d ** 2, axis=0)  # (nNb, nPt)
+    d_norm = np.sqrt(d_sq)
+
+    # Bump function
+    inside = np.abs(d_norm) < 1.0
+    with np.errstate(divide='ignore', invalid='ignore'):
+        bump = np.where(inside, np.exp(-1.0 / np.where(inside, 1.0 - d_norm**2, 1.0)), 0.0)
+    bump[~inside] = 0.0
+    myWeight = bump.reshape(nNb, nPt)  # (nNb, nPt)
+
+    if Dn is not None:
+        Dn_rep = np.tile(Dn.reshape(1, nPt), (nNb, 1))  # (nNb, nPt)
+        myWeight = myWeight * Dn_rep
+    else:
+        Dn_rep = None
+
+    # Compute flat 1-based indices with torus wrap
+    n = (t_floor_exp + c_exp).astype(float)  # (imDim, nNb, nPt)
+    if imDim >= 1:
+        n[0] = np.mod(n[0] - 1, Nx_u) + 1
+    if imDim >= 2:
+        n[1] = np.mod(n[1] - 1, Ny_u) + 1
+    if imDim >= 3:
+        n[2] = np.mod(n[2] - 1, Nz_u) + 1
+
+    if imDim == 1:
+        flat_n = n[0]  # (nNb, nPt)
+    elif imDim == 2:
+        flat_n = 1 + (n[0] - 1) + (n[1] - 1) * Nx_u
+    else:
+        flat_n = 1 + (n[0] - 1) + (n[1] - 1) * Nx_u + (n[2] - 1) * Nx_u * Ny_u
+
+    if not torus_flag:
+        flat_n[:, deleteMask]   = 0
+        myWeight[:, deleteMask] = 0.0
+        if Dn_rep is not None:
+            Dn_rep[:, deleteMask] = 0.0
+
+        keep = ~deleteMask
+        flat_n   = flat_n[:, keep]
+        myWeight = myWeight[:, keep]
+        if Dn_rep is not None:
+            Dn_out = Dn_rep[:, keep].ravel().astype(float)
+        else:
+            Dn_out = np.array([], dtype=float)
+
+        ind_2 = np.repeat(np.where(keep)[0] + 1, nNb).astype(float)  # 1-based
+    else:
+        if Dn_rep is not None:
+            Dn_out = Dn_rep.ravel().astype(float)
+        else:
+            Dn_out = np.array([], dtype=float)
+        ind_2 = np.tile(np.arange(1, nPt + 1), (nNb, 1)).T.ravel().astype(float)
+
+    ind_1        = flat_n.ravel().astype(float)
+    myWeight_out = myWeight.ravel().astype(float)
+
+    return ind_1, ind_2, myWeight_out, Dn_out

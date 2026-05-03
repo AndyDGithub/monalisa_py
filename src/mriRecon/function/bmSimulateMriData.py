@@ -1,5 +1,7 @@
 from src.arrayUtility.bmOne import bmOne
 from src.arrayUtility.bmPointReshape import bmPointReshape
+
+from src.mriRecon.function.bmMriNoiseDecor import bmBlockReshape
 def bmSimulateMriData(h, C, t, N_u, n_u, dK_u):
     if isinstance(h, (list, tuple)):
         y = [bmSimulateMriData(h_i, C, t_i, N_u, n_u, dK_u) for h_i, t_i in zip(h, t)]

@@ -1,4 +1,7 @@
+from src.geom123 import bmTraj
+
 from src.readWrite.bmTextFile2Cell import bmTextFile2Cell
+
 def bmMex_extern_dir(arg_file):
     """
     Mimics the MATLAB function bmMex_extern_dir.
@@ -34,5 +37,3 @@ def bmMex_extern_dir(arg_file):
             fftw_L_dir = val
 
     return cuda_I_dir, cuda_L_dir, fftw_I_dir, fftw_L_dir
-
-# The function name and signature match the MATLAB reference exactly.

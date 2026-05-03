@@ -1,14 +1,16 @@
-from src.arrayUtility.bmZero import bmZero
-import numpy as np
-from src.optim.bmBackGradient_n import bmBackGradient_n
-
+from __future__ import annotations
 
 def bmBackGradient(x, n_u, dX_u):
-    imDim = np.shape(n_u)[1]  # Adjusted to match NumPy shape function
+    """Compute the back gradient of a given input."""
+    from src.arrayUtility.bmZero import bmZero
+    from src.optim.bmBackGradient_n import bmBackGradient_n
+    
+    imDim = len(n_u)
     nPt_u = np.prod(n_u)
-    g = bmZero([nPt_u, imDim], "complex64")
-
-    for n in range(imDim):  # Replaced TODO with a Python loop
-        g[:, n] = bmBackGradient_n(x, n_u, dX_u, n)
-
+    
+    g = bmZero((nPt_u, imDim), dtype='complex_single')
+    
+    for n in range(imDim):
+        g[:, n] = bmBackGradient_n(x, n_u, dX_u, n + 1)
+    
     return g

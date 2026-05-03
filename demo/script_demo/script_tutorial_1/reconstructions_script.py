@@ -89,7 +89,7 @@ def reconstructions_script(data_dir=None, results_dir=None):
     t = bmMitosius_load(seq_binnings_path, 't')
     ve = bmMitosius_load(seq_binnings_path, 've')
 
-    # MATLAB: nFr = size(y, 1)  — y is a cell array, size along dim 1
+    # MATLAB: nFr = size(y, 1)  - y is a cell array, size along dim 1
     # Python: y is a list, so len(y)
     nFr = len(y)
     # Limit to 8 frames to speed things up
@@ -101,7 +101,7 @@ def reconstructions_script(data_dir=None, results_dir=None):
 
     # ------------------------------------------------------------------
     # Iterative SENSE reconstruction: Sensa
-    # bmTraj2SparseMat returns (Gu, Gut) — two outputs, not three
+    # bmTraj2SparseMat returns (Gu, Gut) - two outputs, not three
     # ------------------------------------------------------------------
     Gu, Gut = bmTraj2SparseMat(t, ve, N_u, dK_u)
 

@@ -1,38 +1,6 @@
-"""
-Python implementation of the MATLAB function ``bmFieldPlot2_griddPlot``.
-
-This is a minimal, dependency-free stub that mimics the behaviour of
-the original MATLAB function.  The MATLAB version simply draws a
-scatter plot of two 2-D arrays, swapping the X and Y axes, and does
-not return any value.  The implementation below deliberately does
-not import :mod:`matplotlib` (which is an optional dependency in the
-original MATLAB code) to keep the test environment lightweight.
-
-The function accepts the following parameters:
-
-``argX`` : array_like
-    The first 2-D array; in MATLAB this is the ``x`` input but it is
-    plotted on the Y axis.
-
-``argY`` : array_like
-    The second 2-D array; in MATLAB this is the ``y`` input but it is
-    plotted on the X axis.
-
-``varargin`` : optional positional arguments
-    The first optional argument specifies the marker style (default
-    ``'.'``).  The second optional argument specifies the marker size
-    (default ``20``).  Any further optional arguments are ignored,
-    mirroring the MATLAB implementation.
-
-The function performs no drawing if either ``argX`` or ``argY`` is
-empty or not array-like.  No value is returned - this matches the
-MATLAB function's behaviour.
-"""
-
 from __future__ import annotations
 
 import numpy as np
-
 
 def bmFieldPlot2_griddPlot(argX, argY, *varargin):
     """
@@ -73,14 +41,14 @@ def bmFieldPlot2_griddPlot(argX, argY, *varargin):
     if x.size == 0 or y.size == 0:
         return None
 
-    # Store the plot data internally so that callers can inspect it
-    # if desired (the MATLAB function returns nothing).
-    _plot_data = {
-        "x": x,
-        "y": y,
-        "style": myString,
-        "size": myMarkerSize,
-    }
+    import matplotlib.pyplot as plt
+    fig, ax = plt.subplots()
+    ax.plot(x, y, myString, markersize=myMarkerSize)
+    ax.set_xlabel('Y')
+    ax.set_ylabel('X')
+    ax.invert_xaxis()
+    ax.axis('image')
+    plt.show()
 
     # No plotting is performed; the function exists purely as a
     # placeholder for compatibility with MATLAB scripts.

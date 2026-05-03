@@ -3,7 +3,8 @@ from src.arrayUtility import bmBlockReshape
 
 def bmCircular_ind_next(nRank, ind_curr, index_mode):
     # Convert ind_curr to reduced index
-    ind_curr = ind_curr - 1
+    if index_mode == 'natural':
+        ind_curr = ind_curr - 1
 
     ind_next = np.mod(ind_curr + 1, nRank)
 

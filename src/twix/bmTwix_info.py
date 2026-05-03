@@ -1,233 +1,239 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
+from __future__ import annotations
 
 import numpy as np
+import matplotlib.pyplot as plt
 
+from third_part.twix_for_monalisa.mapVBVD_JH_for_monalisa import mapVBVD_JH_for_monalisa
 from src.fourierN.bmIDF import bmIDF
 
-from third_part.matlab_compat.matlab_native import movstd
 
-from src.rawDataReader.ismrmrd.dhIsmrmrdReadMetaData import find
-from third_part.matlab_compat.matlab_native import figure, imagesc, legend, permute, plot, repmat, xlabel, xline, ylabel
-from third_part.twix_for_monalisa.mapVBVD_JH_for_monalisa import mapVBVD_JH_for_monalisa
+def bmTwix_info(myArg) -> None:
+    """Print information from a Siemens raw-data Twix object and display a
+    magnitude-spectrum figure.
 
-def bmTwix_info(myArg):
-    # bmTwix_info(myArg)
-    # 
-    # Prints information included in the Siemens' raw data
-    # file's Twix object used in the reconstruction process of the image.
-    # 
-    # Authors:
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # 
-    # Parameters:
-    # myArg (struct/char): Either the path to the Siemens' raw data file or
-    # a Twix object
-    # TODO(matlab-control): if isa(myArg, 'char')
-    # Read the twix object if path is given
-    myTwix = mapVBVD_JH_for_monalisa(myArg)
-    # TODO(matlab-control): if iscell(myTwix)
-    myTwix = myTwix[end]
-    # TODO(matlab-control): else
-    myTwix = myArg
-    N       = []
-    nShot   = []
-    nLine   = []
-    nSeg    = []
-    nPar    = []
-    nCh     = []
-    nEcho   = []
-    hdr_Meas_ReadFoV        = []
-    hdr_Meas_FOV            = []
-    hdr_Config_ReadFoV      = []
-    hdr_Config_PhaseFoV     = []
-    hdr_Config_PeFOV        = []
-    hdr_Config_RoFOV        = []
-    hdr_Dicom_dPhaseFOV     = []
-    hdr_Dicom_dReadoutFOV   = []
-    hdr_Protocol_ReadFoV    = []
-    hdr_Protocol_PeFOV      = []
-    hdr_Protocol_PhaseFoV   = []
-    # % header
-    N           = myTwix.image.NCol
-    nShot       = myTwix.image.NSeg
-    nLine       = myTwix.image.NLin
-    nSeg        = nLine/nShot
-    nPar        = myTwix.image.NPar
-    nEcho       = myTwix.image.NEco
-    # TODO(matlab-control): if isfield(myTwix.hdr, 'Meas')
-    # TODO(matlab-control): if isfield(myTwix.hdr.Meas, 'ReadFoV')
-    hdr_Meas_ReadFoV = myTwix.hdr.Meas.ReadFoV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Meas, 'FOV')
-    hdr_Meas_FOV = myTwix.hdr.Meas.FOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr, 'Config')
-    # TODO(matlab-control): if isfield(myTwix.hdr.Config, 'ReadFoV')
-    hdr_Config_ReadFoV      = myTwix.hdr.Config.ReadFoV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Config, 'PhaseFoV')
-    hdr_Config_PhaseFoV     = myTwix.hdr.Config.PhaseFoV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Config, 'PeFOV')
-    hdr_Config_PeFOV        = myTwix.hdr.Config.PeFOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Config, 'RoFOV')
-    hdr_Config_RoFOV        = myTwix.hdr.Config.RoFOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr, 'Dicom')
-    # TODO(matlab-control): if isfield(myTwix.hdr.Dicom, 'dPhaseFOV')
-    hdr_Dicom_dPhaseFOV     = myTwix.hdr.Dicom.dPhaseFOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Dicom, 'dReadoutFOV')
-    hdr_Dicom_dReadoutFOV   = myTwix.hdr.Dicom.dReadoutFOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr, 'Protocol')
-    # TODO(matlab-control): if isfield(myTwix.hdr.Protocol, 'ReadFoV')
-    hdr_Protocol_ReadFoV    = myTwix.hdr.Protocol.ReadFoV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Protocol, 'PeFOV')
-    hdr_Protocol_PeFOV   = myTwix.hdr.Protocol.PeFOV*2
-    # TODO(matlab-control): if isfield(myTwix.hdr.Protocol, 'PhaseFoV')
-    hdr_Protocol_PhaseFoV   = myTwix.hdr.Protocol.PhaseFoV*2
-    # % data
-    # unsorted() returns the unsorted data as an array [N, nCh, nLine]
+    Authors:
+        Bastien Milani
+        CHUV and UNIL
+        Lausanne - Switzerland
+        May 2023
+
+    Parameters
+    ----------
+    myArg : str or twix object
+        Either the path to the Siemens raw data file or a Twix object
+        (as returned by ``mapVBVD_JH_for_monalisa``).
+    """
+    if isinstance(myArg, str):
+        myTwix = mapVBVD_JH_for_monalisa(myArg)
+        if isinstance(myTwix, list):
+            myTwix = myTwix[-1]
+    else:
+        myTwix = myArg
+
+    N = None
+    nShot = None
+    nLine = None
+    nSeg = None
+    nPar = None
+    nCh = None
+    nEcho = None
+
+    hdr_Meas_ReadFoV = None
+    hdr_Meas_FOV = None
+
+    hdr_Config_ReadFoV = None
+    hdr_Config_PhaseFoV = None
+    hdr_Config_PeFOV = None
+    hdr_Config_RoFOV = None
+
+    hdr_Dicom_dPhaseFOV = None
+    hdr_Dicom_dReadoutFOV = None
+
+    hdr_Protocol_ReadFoV = None
+    hdr_Protocol_PeFOV = None
+    hdr_Protocol_PhaseFoV = None
+
+    N = myTwix.image.NCol
+    nShot = myTwix.image.NSeg
+    nLine = myTwix.image.NLin
+    nSeg = nLine // nShot
+    nPar = myTwix.image.NPar
+    nEcho = myTwix.image.NEco
+
+    hdr = myTwix.hdr
+
+    if hasattr(hdr, 'Meas'):
+        meas = hdr.Meas
+        if hasattr(meas, 'ReadFoV'):
+            hdr_Meas_ReadFoV = meas.ReadFoV * 2
+        if hasattr(meas, 'FOV'):
+            hdr_Meas_FOV = meas.FOV * 2
+    elif isinstance(hdr, dict) and 'Meas' in hdr:
+        meas = hdr['Meas']
+        if 'ReadFoV' in meas:
+            hdr_Meas_ReadFoV = meas['ReadFoV'] * 2
+        if 'FOV' in meas:
+            hdr_Meas_FOV = meas['FOV'] * 2
+
+    if hasattr(hdr, 'Config'):
+        cfg = hdr.Config
+        if hasattr(cfg, 'ReadFoV'):
+            hdr_Config_ReadFoV = cfg.ReadFoV * 2
+        if hasattr(cfg, 'PhaseFoV'):
+            hdr_Config_PhaseFoV = cfg.PhaseFoV * 2
+        if hasattr(cfg, 'PeFOV'):
+            hdr_Config_PeFOV = cfg.PeFOV * 2
+        if hasattr(cfg, 'RoFOV'):
+            hdr_Config_RoFOV = cfg.RoFOV * 2
+    elif isinstance(hdr, dict) and 'Config' in hdr:
+        cfg = hdr['Config']
+        if 'ReadFoV' in cfg:
+            hdr_Config_ReadFoV = cfg['ReadFoV'] * 2
+        if 'PhaseFoV' in cfg:
+            hdr_Config_PhaseFoV = cfg['PhaseFoV'] * 2
+        if 'PeFOV' in cfg:
+            hdr_Config_PeFOV = cfg['PeFOV'] * 2
+        if 'RoFOV' in cfg:
+            hdr_Config_RoFOV = cfg['RoFOV'] * 2
+
+    if hasattr(hdr, 'Dicom'):
+        dcm = hdr.Dicom
+        if hasattr(dcm, 'dPhaseFOV'):
+            hdr_Dicom_dPhaseFOV = dcm.dPhaseFOV * 2
+        if hasattr(dcm, 'dReadoutFOV'):
+            hdr_Dicom_dReadoutFOV = dcm.dReadoutFOV * 2
+    elif isinstance(hdr, dict) and 'Dicom' in hdr:
+        dcm = hdr['Dicom']
+        if 'dPhaseFOV' in dcm:
+            hdr_Dicom_dPhaseFOV = dcm['dPhaseFOV'] * 2
+        if 'dReadoutFOV' in dcm:
+            hdr_Dicom_dReadoutFOV = dcm['dReadoutFOV'] * 2
+
+    if hasattr(hdr, 'Protocol'):
+        prot = hdr.Protocol
+        if hasattr(prot, 'ReadFoV'):
+            hdr_Protocol_ReadFoV = prot.ReadFoV * 2
+        if hasattr(prot, 'PeFOV'):
+            hdr_Protocol_PeFOV = prot.PeFOV * 2
+        if hasattr(prot, 'PhaseFoV'):
+            hdr_Protocol_PhaseFoV = prot.PhaseFoV * 2
+    elif isinstance(hdr, dict) and 'Protocol' in hdr:
+        prot = hdr['Protocol']
+        if 'ReadFoV' in prot:
+            hdr_Protocol_ReadFoV = prot['ReadFoV'] * 2
+        if 'PeFOV' in prot:
+            hdr_Protocol_PeFOV = prot['PeFOV'] * 2
+        if 'PhaseFoV' in prot:
+            hdr_Protocol_PhaseFoV = prot['PhaseFoV'] * 2
+
     y_raw = myTwix.image.unsorted()
-    # Change structure to [nCh, N, nLine]
-    y_raw = permute(y_raw, [2, 1, 3])
-    # Get nCh
-    y_raw_size = np.shape(y_raw)
-    y_raw_size = y_raw_size.ravel().T
-    nCh        = y_raw_size(1, 1)
-    # Seperate nLine into nSeg and nShot (nSeg = nLine / nShot)
-    y_raw      = np.reshape(y_raw, [nCh, N, nSeg, nShot])
-    # Reduce the array to a 3D array, only containing the values for the first segment
-    # TODO(matlab-line): mySI = squeeze(y_raw(:, :, 1, :));
-    # Calculate the inverse discret Fourier transform
-    mySI = bmIDF(mySI, 1, [], 2)
-    # Calculate the RMS along the first dimension (Coils)
-    # -> magnitude spectrum of the signal
-    # TODO(matlab-line): mySI = squeeze(  sqrt(sum(abs(mySI).^2, 1))  );
-    # Normalize the magnitude
-    mySI = mySI - min(mySI.ravel())
-    mySI = mySI/max(mySI.ravel())
-    # Create 2D array of size N x nShot with each column being [1; 2; ...; N]
-    mySize_1 = np.shape(mySI, 1)
-    mySize_2 = np.shape(mySI, 2)
-    # TODO(matlab-line): x_SI = 1:mySize_1;
-    x_SI = repmat(x_SI.ravel(), [1, mySize_2])
-    # Calculate the weighted arithmetic mean and the weighted mean (COM)
-    # TODO(matlab-line): s_mean = mean(x_SI.*mySI, 1);
-    # TODO(matlab-line): s_center_mass = sum(x_SI.*mySI, 1)./sum(mySI, 1);
-    # Estimate shotOff (how many shots to be dropped)
-    window_size = 10;  # Define the size of the sliding window
-    threshold = std(s_mean)*0.1;  # 0.01 % Define a threshold for the std to consider steady state
-    # Compute the running standard deviation
-    running_std = movstd(s_mean, window_size)
-    # Find the shot where the standard deviation falls below the threshold
-    shotOff = find(running_std < threshold, 1)
-    # % Display information
-    # Print values
-    fprintf("\\n")
-    # TODO(matlab-control): if isempty(N)
-    fprintf("N     is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("N     = %d \\n", N)
-    # TODO(matlab-control): if isempty(nSeg)
-    fprintf("nSeg  is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nSeg  = %d \\n", nSeg)
-    # TODO(matlab-control): if isempty(nShot)
-    fprintf("nShot is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nShot = %d \\n", nShot)
-    # TODO(matlab-control): if isempty(nLine)
-    fprintf("nLine is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nLine = %d \\n", nLine)
-    # TODO(matlab-control): if isempty(nPar)
-    fprintf("nPar  is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nPar  = %d \\n", nPar)
-    # TODO(matlab-control): if isempty(nCh)
-    fprintf("nCh   is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nCh   = %d \\n", nCh)
-    # TODO(matlab-control): if isempty(nEcho)
-    fprintf("nEcho is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("nEcho = %d \\n", nEcho)
-    fprintf("\\n")
-    # Print FoV (Meas)
-    # TODO(matlab-control): if isempty(hdr_Meas_ReadFoV)
-    fprintf("hdr_Meas_ReadFoV       is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Meas_ReadFoV       = %4.2f \\n", hdr_Meas_ReadFoV)
-    # TODO(matlab-control): if isempty(hdr_Meas_FOV)
-    fprintf("hdr_Meas_FOV           is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Meas_FOV           = %4.2f \\n", hdr_Meas_FOV)
-    fprintf("\\n")
-    # Print FoV (Config)
-    # TODO(matlab-control): if isempty(hdr_Config_ReadFoV)
-    fprintf("hdr_Config_ReadFoV       is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Config_ReadFoV     = %4.2f \\n", hdr_Config_ReadFoV)
-    # TODO(matlab-control): if isempty(hdr_Config_PhaseFoV)
-    fprintf("hdr_Config_PhaseFoV      is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Config_PhaseFoV    = %4.2f \\n", hdr_Config_PhaseFoV)
-    # TODO(matlab-control): if isempty(hdr_Config_PeFOV)
-    fprintf("hdr_Config_PeFOV         is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Config_PeFOV       = %4.2f \\n", hdr_Config_PeFOV)
-    # TODO(matlab-control): if isempty(hdr_Config_RoFOV)
-    fprintf("hdr_Config_RoFOV         is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Config_RoFOV       = %4.2f \\n", hdr_Config_RoFOV)
-    fprintf("\\n")
-    # Print FoV (Dicom)
-    # TODO(matlab-control): if isempty(hdr_Dicom_dPhaseFOV)
-    fprintf("hdr_Dicom_dPhaseFOV      is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Dicom_dPhaseFOV    = %4.2f \\n", hdr_Dicom_dPhaseFOV)
-    # TODO(matlab-control): if isempty(hdr_Dicom_dReadoutFOV)
-    fprintf("hdr_Dicom_dReadoutFOV    is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Dicom_dReadoutFOV  = %4.2f \\n", hdr_Dicom_dReadoutFOV)
-    fprintf("\\n")
-    # Print FoV (Protocol)
-    # TODO(matlab-control): if isempty(hdr_Protocol_ReadFoV)
-    fprintf("hdr_Protocol_ReadFoV   is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Protocol_ReadFoV   = %4.2f \\n", hdr_Protocol_ReadFoV)
-    # TODO(matlab-control): if isempty(hdr_Protocol_PeFOV)
-    fprintf("hdr_Protocol_PeFOV     is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Protocol_PeFOV     = %4.2f \\n", hdr_Protocol_PeFOV)
-    # TODO(matlab-control): if isempty(hdr_Protocol_PhaseFoV)
-    fprintf("hdr_Protocol_PhaseFoV  is empty. \\n")
-    # TODO(matlab-control): else
-    fprintf("hdr_Protocol_PhaseFoV  = %4.2f \\n", hdr_Protocol_PhaseFoV)
-    fprintf("\\n")
-    # Print shotOff value if found
-    # TODO(matlab-control): if ~isempty(shotOff)
-    fprintf("Steady state reached at shot %d\\n", shotOff)
-    # TODO(matlab-control): else
-    fprintf("Steady state not reached within the data range.\\n")
-    fprintf("\\n")
-    # Plotting heatmap of magnitude for the first segment of each shot
-    figure("Name", "TwixInfo Magnitude")
-    imagesc(mySI, [0, 3*np.mean(mySI.ravel())])
-    set(gca,"YDir","normal")
-    colorbar
-    # TODO(matlab-line): colormap gray
-    # Plotting the mean and COM of each shot
-    # TODO(matlab-line): hold on
-    plot(s_center_mass, "g.-")
-    plot(s_mean, "r.-")
-    # Plotting vertical line for shotOff
-    # TODO(matlab-control): if ~isempty(shotOff)
-    xline(shotOff, "c--");  # Add vertical line at steady state index
-    # TODO(matlab-line): text(shotOff+5, floor(N*0.75), sprintf('shot = %i', ...
-    # TODO(matlab-line): shotOff), "HorizontalAlignment", "left", ...
-    # TODO(matlab-line): 'Color', 'black', 'BackgroundColor', 'white', 'Margin', 0.5);
-    # Adding legend, title and labels
-    legend("Center of Mass", "Mean", "Steady State", "Location", "best")
-    xlabel("nShot")
-    ylabel("N","Rotation",0)
-    # TODO(matlab-line): title(sprintf(['Magnitude spectrum for first segment of each shot\n(estimates ' ...
-    # TODO(matlab-line): 'which shots should be excluded)']))
+    y_raw = np.transpose(y_raw, (1, 0, 2))
+    y_raw_shape = np.array(y_raw.shape, dtype=int)
+    nCh = int(y_raw_shape[0])
+    y_raw = y_raw.reshape((nCh, N, nSeg, nShot))
+
+    mySI = np.squeeze(y_raw[:, :, 0, :])
+    mySI = bmIDF(mySI, nDim=1, NZero=0, gridType=None)
+    mySI = np.squeeze(np.sqrt(np.sum(np.abs(mySI) ** 2, axis=0)))
+    mySI = mySI - mySI.min()
+    if mySI.max() > 0:
+        mySI = mySI / mySI.max()
+
+    mySize_1 = mySI.shape[0]
+    mySize_2 = mySI.shape[1]
+    x_SI = np.arange(1, mySize_1 + 1, dtype=float).reshape(-1, 1)
+    x_SI = np.tile(x_SI, (1, mySize_2))
+
+    s_mean = np.mean(x_SI * mySI, axis=0)
+    s_center_mass = np.sum(x_SI * mySI, axis=0) / np.sum(mySI, axis=0)
+
+    window_size = 10
+    threshold = float(np.std(s_mean)) * 0.1
+
+    n = len(s_mean)
+    running_std = np.full(n, np.nan)
+    half = window_size // 2
+    for i in range(n):
+        lo = max(0, i - half)
+        hi = min(n, i + half + 1)
+        running_std[i] = float(np.std(s_mean[lo:hi], ddof=0))
+
+    shotOff_arr = np.where(running_std < threshold)[0]
+    shotOff = int(shotOff_arr[0]) + 1 if len(shotOff_arr) > 0 else None
+
+    def _fmt(val):
+        return f"{val}" if val is not None else "empty"
+
+    print()
+    print(f"N     = {_fmt(N)}")
+    print(f"nSeg  = {_fmt(nSeg)}")
+    print(f"nShot = {_fmt(nShot)}")
+    print(f"nLine = {_fmt(nLine)}")
+    print(f"nPar  = {_fmt(nPar)}")
+    print(f"nCh   = {_fmt(nCh)}")
+    print(f"nEcho = {_fmt(nEcho)}")
+    print()
+
+    def _fov_line(label, val):
+        if val is None:
+            print(f"{label} is empty.")
+        else:
+            print(f"{label} = {val:.2f}")
+
+    _fov_line("hdr_Meas_ReadFoV      ", hdr_Meas_ReadFoV)
+    _fov_line("hdr_Meas_FOV          ", hdr_Meas_FOV)
+    print()
+    _fov_line("hdr_Config_ReadFoV    ", hdr_Config_ReadFoV)
+    _fov_line("hdr_Config_PhaseFoV   ", hdr_Config_PhaseFoV)
+    _fov_line("hdr_Config_PeFOV      ", hdr_Config_PeFOV)
+    _fov_line("hdr_Config_RoFOV      ", hdr_Config_RoFOV)
+    print()
+    _fov_line("hdr_Dicom_dPhaseFOV   ", hdr_Dicom_dPhaseFOV)
+    _fov_line("hdr_Dicom_dReadoutFOV ", hdr_Dicom_dReadoutFOV)
+    print()
+    _fov_line("hdr_Protocol_ReadFoV  ", hdr_Protocol_ReadFoV)
+    _fov_line("hdr_Protocol_PeFOV    ", hdr_Protocol_PeFOV)
+    _fov_line("hdr_Protocol_PhaseFoV ", hdr_Protocol_PhaseFoV)
+    print()
+
+    if shotOff is not None:
+        print(f"Steady state reached at shot {shotOff}")
+    else:
+        print("Steady state not reached within the data range.")
+    print()
+
+    fig, ax = plt.subplots(num="TwixInfo Magnitude")
+    cmax = float(3.0 * np.mean(mySI))
+    im = ax.imshow(
+        mySI,
+        aspect="auto",
+        origin="lower",
+        vmin=0.0,
+        vmax=cmax,
+        cmap="gray",
+    )
+    fig.colorbar(im, ax=ax)
+
+    shots = np.arange(1, mySize_2 + 1)
+    ax.plot(shots - 1, s_center_mass, "g.-", label="Center of Mass")
+    ax.plot(shots - 1, s_mean, "r.-", label="Mean")
+
+    if shotOff is not None:
+        ax.axvline(x=shotOff - 1, color="c", linestyle="--", label="Steady State")
+        ax.text(
+            shotOff - 1 + 5,
+            int(N * 0.75),
+            f"shot = {shotOff}",
+            ha="left",
+            color="black",
+            bbox={"facecolor": "white", "pad": 0.5},
+        )
+
+    ax.legend(loc="best")
+    ax.set_xlabel("nShot")
+    ax.set_ylabel("N", rotation=0)
+    ax.set_title(
+        "Magnitude spectrum for first segment of each shot\n"
+        "(estimates which shots should be excluded)"
+    )
+    plt.show()

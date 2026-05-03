@@ -78,7 +78,7 @@ class TestReconstructionsExecution:
         return mat_vars, stored
 
     # ------------------------------------------------------------------
-    # x0 – gridded regridding (all-lines, frame 0)
+    # x0 - gridded regridding (all-lines, frame 0)
     # ------------------------------------------------------------------
 
     def test_x0_shape(self, script_outputs):
@@ -103,7 +103,7 @@ class TestReconstructionsExecution:
         )
 
     # ------------------------------------------------------------------
-    # x1 – gridded frames (sequential, frame 0)
+    # x1 - gridded frames (sequential, frame 0)
     # ------------------------------------------------------------------
 
     def test_x1_frame0_shape(self, script_outputs):
@@ -113,7 +113,7 @@ class TestReconstructionsExecution:
     def test_x1_fingerprint(self, script_outputs, parity_vars):
         _, x1, _, _ = script_outputs
         _, stored = parity_vars
-        # MATLAB cell array x1 — fingerprint as cell
+        # MATLAB cell array x1 - fingerprint as cell
         x1_arr = np.empty(len(x1), dtype=object)
         for i, xi in enumerate(x1):
             x1_arr[i] = np.asarray(xi, dtype=np.complex64)
@@ -123,7 +123,7 @@ class TestReconstructionsExecution:
         )
 
     # ------------------------------------------------------------------
-    # x_cs – compressed-sensing reconstruction
+    # x_cs - compressed-sensing reconstruction
     # ------------------------------------------------------------------
 
     def test_x_cs_shape(self, script_outputs):

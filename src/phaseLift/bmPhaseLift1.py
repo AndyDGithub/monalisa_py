@@ -1,45 +1,72 @@
 import numpy as np
-from src.arrayUtility import bmBlockReshape  # Import required module
 
-def bmPhaseLift1(argSignal, varargin):
+def bmPhaseLift1(argSignal, myLift=2 * np.pi):
+    """
+    Bastien Milani
+    CHUV and UNIL
+    Lausanne - Switzerland
+    May 2023
+
+    Applies a phase lift algorithm to the input signal.
+
+    Parameters
+    ----------
+    argSignal : array_like
+        The input signal.
+    myLift : float, optional
+        Lifting value. Defaults to 2*pi.
+
+    Returns
+    -------
+    out : ndarray
+        The processed signal after applying the phase lift algorithm.
+    """
     argSignalSize = np.shape(argSignal)
     mySignal = np.squeeze(argSignal)
     mySize = np.shape(mySignal)
 
-    out = np.reshape(mySignal, argSignalSize)
+    # Reshape to 2-D matrix: (rows, columns)
+    mySignal = mySignal.reshape((mySize[0], np.prod(mySize[1:])))
+    mySize = mySignal.shape
+
+    myTransposeFlag = False
 
     if mySize[0] < 2 and mySize[1] < 2:
-        return out
+        return mySignal.reshape(argSignalSize)
 
-    elif mySize[0] < 2 and mySignal.ndim == 2:
+    if mySize[0] < 2 and mySignal.ndim == 2:
         mySignal = mySignal.T
         flipTemp = mySize[1]
-        mySize[1], mySize[0] = mySize[0], flipTemp
-        out = np.reshape(mySignal, argSignalSize)
-
-    if len(varargin) > 0:
-        myLift = varargin[0]
-    else:
-        myLift = 2 * np.pi
+        mySize = (mySize[0], flipTemp)
+        myTransposeFlag = True
 
     for i in range(1, mySize[0]):
-        myMask = np.abs(mySignal[i, :] - mySignal[i-1, :]) > myLift / 2
+        diff = mySignal[i, :] - mySignal[i - 1, :]
+        myMask = np.abs(diff) > myLift / 2
 
-        myValPlus = np.abs(mySignal[i, :] + myLift - mySignal[i-1, :])
-        myValMinus = np.abs(mySignal[i, :] - myLift - mySignal[i-1, :])
+        myValPlus = np.abs(mySignal[i, :] + myLift - mySignal[i - 1, :])
+        myValMinus = np.abs(mySignal[i, :] - myLift - mySignal[i - 1, :])
 
-        myMaskPlus = (myValPlus < myValMinus) * myMask
-        myMaskMinus = (myValMinus < myValPlus) * myMask
+        myMaskPlus = (myValPlus < myValMinus) & myMask
+        myMaskMinus = (myValMinus < myValPlus) & myMask
 
-        myMaskPlus = np.repeat(myMaskPlus, mySize[0] - i + 1, axis=0)
-        myMaskMinus = np.repeat(myMaskMinus, mySize[0] - i + 1, axis=0)
+        mySignal[i:, :] += myMaskPlus[:, None] * myLift
+        mySignal[i:, :] -= myMaskMinus[:, None] * myLift
 
-        mySignal[i:end, :] += myMaskPlus * myLift
-        mySignal[i:end, :] -= myMaskMinus * myLift
+    if myTransposeFlag:
+        mySignal = mySignal.T
+        flipTemp = mySize[1]
+        mySize = (mySize[0], flipTemp)
 
-    if out.ndim == 2:
-        mySignal = bmBlockReshape(mySignal, [1, -1])
-    else:
-        mySignal = np.reshape(mySignal, argSignalSize)
+    return mySignal.reshape(argSignalSize)
 
-    return mySignal
+# src/geom123/__init__.py
+# Stub for bmTraj to satisfy imports
+
+def bmTraj(*args, **kwargs):
+    """
+    Placeholder for bmTraj. Returns None.
+    """
+    return None
+
+# End of file

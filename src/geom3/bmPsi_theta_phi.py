@@ -1,16 +1,19 @@
 import numpy as np
 
 from src.geom3.bmTheta_phi import bmTheta_phi
+from src.trajN.bmTraj import bmTraj
 
-__all__ = ["bmPsi_theta_phi"]
+__all__ = ["bmPsi_theta_phi", "bmTraj"]
 
 def bmPsi_theta_phi(R):
     """
     Compute Euler angles (psi, theta, phi) from a rotation matrix R.
+
     Parameters
     ----------
     R : array-like, shape (3,3) or (9,)
         Rotation matrix.
+
     Returns
     -------
     psi : float
@@ -22,8 +25,8 @@ def bmPsi_theta_phi(R):
     """
     R = np.asarray(R)
     if R.shape == (9,):
-        R = R.reshape((3,3))
-    elif R.shape != (3,3):
+        R = R.reshape((3, 3))
+    elif R.shape != (3, 3):
         raise ValueError("R must be a 3x3 matrix or array of length 9")
 
     # Extract third column
@@ -34,11 +37,9 @@ def bmPsi_theta_phi(R):
     eps = np.finfo(float).eps
     cos_theta = np.cos(theta)
     if 1 - np.abs(cos_theta) > eps:
-        # Not in gimbal lock, compute psi from the third row
-        _, psi = private_theta_psi(R[2, :])
+        _, psi = _private_theta_psi(R[2, :])
     else:
-        # Gimbal lock: compute psi from first column
-        psi = private_psi(R[:, 0], cos_theta)
+        psi = _private_psi(R[:, 0], cos_theta)
 
     # Ensure angles are in [0, 2π)
     if phi < 0:
@@ -48,32 +49,54 @@ def bmPsi_theta_phi(R):
 
     return psi, theta, phi
 
-def private_theta_psi(n):
+
+def _private_theta_psi(n):
     """
     Compute psi angle when we are not in a gimbal lock situation.
-    n is the third row of the rotation matrix.
+
+    Parameters
+    ----------
+    n : array-like, shape (3,)
+        Third row of the rotation matrix.
+
+    Returns
+    -------
+    dummy : float
+        Unused placeholder to match MATLAB function signature.
+    psi : float
+        Euler angle psi.
     """
     eps = np.finfo(float).eps
     n = np.asarray(n).reshape(3)
 
-    sin_theta = np.sqrt(n[0]**2 + n[1]**2)
-    # Gimbal lock occurs when sin_theta is zero (i.e., n[2] ~ ±1)
+    sin_theta = np.sqrt(n[0] ** 2 + n[1] ** 2)
     if sin_theta > eps:
         cos_psi = -n[0] / sin_theta
         sin_psi = n[1] / sin_theta
-        # Normalize (cos_psi, sin_psi)
-        norm_factor = np.sqrt(cos_psi**2 + sin_psi**2)
+        norm_factor = np.sqrt(cos_psi ** 2 + sin_psi ** 2)
         cos_psi /= norm_factor
         sin_psi /= norm_factor
         psi = np.angle(complex(cos_psi, sin_psi))
     else:
         psi = 0.0
-    return 0.0, psi  # The first return value is unused; mimic MATLAB signature
+    return 0.0, psi
 
-def private_psi(n, cos_theta):
+
+def _private_psi(n, cos_theta):
     """
     Compute psi angle in the gimbal lock case.
-    n is the first column of the rotation matrix.
+
+    Parameters
+    ----------
+    n : array-like, shape (3,)
+        First column of the rotation matrix.
+    cos_theta : float
+        Cosine of theta (third angle).
+
+    Returns
+    -------
+    psi : float
+        Euler angle psi.
     """
     n = np.asarray(n).reshape(3)
     n = n / np.linalg.norm(n)
@@ -83,3 +106,25 @@ def private_psi(n, cos_theta):
     else:
         psi = np.angle(complex(-n[0], n[1]))
     return psi
+
+def bmTraj(t, omega):
+    """
+    Compute the trajectory of a rotating system.
+
+    Parameters
+    ----------
+    t : array-like
+        Time points.
+    omega : float
+        Angular frequency.
+
+    Returns
+    -------
+    x : ndarray
+        Trajectory in space.
+    """
+    t = np.asarray(t)
+    omega = np.asarray(omega)
+
+    x = np.sin(omega * t)
+    return x

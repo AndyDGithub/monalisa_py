@@ -1,28 +1,19 @@
 from __future__ import annotations
-from third_part.matlab_compat.matlab_native import isempty
 
+import numpy as np
+from src.varargin.bmVarargin import bmVarargin
+from src.image123.bmBlockReshape import bmBlockReshape
 
 def bmImWaveletInv2(cA, cH, cV, cD, n_u, varargin):
     """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # We use the function 'idwt2' which performs an inverse single-level 2D
-    # discrete wavelet transform.
-    # 
-    # We use the wavelet_type 'sym4' by default.
-    # 
-    # We use periodic image extension.
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: wavelet_type = bmVarargin(varargin);
-    # MATLAB: if isempty(wavelet_type)
-    # MATLAB: wavelet_type = 'sym4'; % magic
-    # MATLAB: end
-    # MATLAB: x = idwt2(cA, cH, cV, cD, wavelet_type, 'mode', 'per');
-    # MATLAB: x = bmBlockReshape(x, n_u);
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    x = None
+    wavelet_type = bmVarargin(varargin)
+    
+    if not wavelet_type:
+        wavelet_type = 'sym4'  # magic
+    
+    import scipy.signal as signal
+    x = signal.idwt2(cA, cH, cV, cD, wavelet=wavelet_type, mode='per')
+    
+    x = bmBlockReshape(x, n_u)
+    
     return x

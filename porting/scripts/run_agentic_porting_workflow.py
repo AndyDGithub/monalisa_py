@@ -21,13 +21,25 @@ def _run(script_name: str, passthrough_args: list[str]) -> int:
     return proc.returncode
 
 
+def _normalize_legacy_flags(args: list[str]) -> list[str]:
+    """Drop legacy no-op flags so old commands keep working."""
+    no_op_flags = {"--force", "--overwrite-manual"}
+    normalized: list[str] = []
+    for token in args:
+        if token in no_op_flags:
+            continue
+        normalized.append(token)
+    return normalized
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--engine", choices=["v2", "legacy"], default="v2")
     known, unknown = parser.parse_known_args()
+    passthrough = _normalize_legacy_flags(unknown)
     if known.engine == "legacy":
-        return _run("run_agentic_porting_workflow_legacy.py", unknown)
-    return _run("run_agentic_porting_workflow_v2.py", unknown)
+        return _run("run_agentic_porting_workflow_legacy.py", passthrough)
+    return _run("run_agentic_porting_workflow_v2.py", passthrough)
 
 
 if __name__ == "__main__":

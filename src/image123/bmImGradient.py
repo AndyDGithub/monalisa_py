@@ -3,6 +3,8 @@ from src.image123.bmImReshape import bmImReshape
 
 from src.sparseMat.m.bmSparseMat_vec import int32
 
+# bmImGradient2_mex is cpp file in this directory : src\image2\mex\bmImGradient2\bmImGradient2_mex.cpp
+
 def bmImGradient(argIm):
     out_x = []
     out_y = []

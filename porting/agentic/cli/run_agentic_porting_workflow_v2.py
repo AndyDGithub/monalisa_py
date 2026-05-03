@@ -7,9 +7,9 @@ import logging
 import sys
 from pathlib import Path
 
-from agentic.config import WorkflowConfig
-from agentic.state import PortingGraphState
-from agentic.workflows.global_graph import build_global_porting_workflow
+from porting.agentic.config import WorkflowConfig
+from porting.agentic.state import PortingGraphState
+from porting.agentic.workflows.global_graph import build_global_porting_workflow
 
 
 def _configure_logging(*, verbose: bool, log_file: str | None) -> None:
@@ -29,14 +29,14 @@ def _configure_logging(*, verbose: bool, log_file: str | None) -> None:
         fh.setLevel(level)
         fh.setFormatter(formatter)
         root.addHandler(fh)
-    logging.getLogger("agentic.cli.v2").info("Logging initialized (level=%s)", logging.getLevelName(level))
+    logging.getLogger("porting.agentic.cli.v2").info("Logging initialized (level=%s)", logging.getLevelName(level))
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run LangGraph global workflow (v2).")
     parser.add_argument("--repo-root", default=".", help="Repository root.")
     parser.add_argument("--roots", default="src,demo,tests,third_part", help="Comma-separated roots.")
-    parser.add_argument("--max-cycles", type=int, default=12, help="Max global cycles.")
+    parser.add_argument("--max-cycles", type=int, default=60, help="Max global cycles.")
     parser.add_argument(
         "--max-iterations",
         type=int,
@@ -56,8 +56,17 @@ def main() -> int:
         default=1,
         help="Max iterations passed to the local repair engine for each selected file.",
     )
-    parser.add_argument("--model", default="gpt-oss:20b", help="Primary LLM model.")
+    parser.add_argument("--model", default="qwen2.5-coder:7b", help="Primary LLM model.")
     parser.add_argument("--fallback-model", default="gpt-oss:20b", help="Fallback LLM model.")
+    parser.add_argument("--ollama-host", default="", help="Optional Ollama host.")
+    parser.add_argument("--ollama-num-parallel", type=int, default=0, help="Optional Ollama parallel requests cap.")
+    parser.add_argument(
+        "--ollama-max-loaded-models",
+        type=int,
+        default=0,
+        help="Optional Ollama max loaded models override.",
+    )
+    parser.add_argument("--ollama-max-queue", type=int, default=0, help="Optional Ollama max queue override.")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logs.")
     parser.add_argument(
         "--log-file",
@@ -189,6 +198,23 @@ def main() -> int:
     )
     parser.add_argument("--llm-timeout-seconds", type=int, default=180, help="LLM timeout in seconds.")
     parser.add_argument(
+        "--max-context-chars",
+        type=int,
+        default=30000,
+        help="Max context chars forwarded to local repair prompt builder.",
+    )
+    parser.add_argument(
+        "--max-context-hard-cap",
+        type=int,
+        default=180000,
+        help="Upper bound for adaptive context expansion on very large files.",
+    )
+    parser.add_argument(
+        "--disable-llm-timeout",
+        action="store_true",
+        help="Disable timeout for each LLM repair invocation.",
+    )
+    parser.add_argument(
         "--dynamic-llm-timeout",
         dest="dynamic_llm_timeout",
         action="store_true",
@@ -291,7 +317,7 @@ def main() -> int:
         sync_env=bool(args.sync_env),
         requirements_output=str(args.requirements_output),
     )
-    logging.getLogger("agentic.cli.v2").info(
+    logging.getLogger("porting.agentic.cli.v2").info(
         "Local repair backend currently uses legacy subprocess engine: run_agentic_repair_cycle_legacy.py"
     )
     app = build_global_porting_workflow(cfg)
@@ -303,12 +329,19 @@ def main() -> int:
         "repair_args": {
             "model": cfg.llm_model,
             "fallback_model": cfg.fallback_model,
+            "ollama_host": str(args.ollama_host or ""),
+            "ollama_num_parallel": max(0, int(args.ollama_num_parallel)),
+            "ollama_max_loaded_models": max(0, int(args.ollama_max_loaded_models)),
+            "ollama_max_queue": max(0, int(args.ollama_max_queue)),
             "auto_pull_model": False,
             "max_iterations": max(1, int(args.repair_iterations_per_file)),
             "max_files_per_iteration": max(1, int(args.max_files_per_iteration)),
             "generated_tests_per_iteration": cfg.generated_tests_per_iteration,
             "contracts_per_iteration": cfg.contracts_per_iteration,
             "llm_timeout_seconds": cfg.llm_timeout_seconds,
+            "max_context_chars": max(4000, int(args.max_context_chars)),
+            "max_context_hard_cap": max(8000, int(args.max_context_hard_cap)),
+            "disable_llm_timeout": bool(args.disable_llm_timeout),
             "dynamic_llm_timeout": cfg.dynamic_llm_timeout,
             "dynamic_timeout_base_seconds": cfg.dynamic_timeout_base_seconds,
             "dynamic_timeout_per_line_seconds": cfg.dynamic_timeout_per_line_seconds,
@@ -336,7 +369,9 @@ def main() -> int:
             "enable_parallel_repair": bool(args.enable_parallel_repair),
             "parallel_repair_max_workers": max(1, int(args.parallel_repair_max_workers)),
             "per_file_pytest_timeout_seconds": max(30, int(args.per_file_pytest_timeout_seconds)),
-            "repair_subprocess_timeout_seconds": max(120, int(args.repair_subprocess_timeout_seconds)),
+            "repair_subprocess_timeout_seconds": (
+                0 if bool(args.disable_llm_timeout) else max(120, int(args.repair_subprocess_timeout_seconds))
+            ),
         },
     }
 

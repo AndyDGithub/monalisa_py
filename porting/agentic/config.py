@@ -12,7 +12,7 @@ class WorkflowConfig:
     max_retries_per_file: int = 3
     generated_tests_per_iteration: int = 120
     contracts_per_iteration: int = 30
-    llm_model: str = "gpt-oss:20b"
+    llm_model: str = "qwen2.5-coder:7b "
     fallback_model: str = "gpt-oss:20b"
     stream_subprocess_logs: bool = True
     enable_matlab_help: bool = True

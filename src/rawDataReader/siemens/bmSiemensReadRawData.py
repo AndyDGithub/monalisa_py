@@ -40,7 +40,7 @@ def bmSiemensReadRawData(obj, flagSS, flagExcludeSI):
     expected_lines = nSeg * nShot
     if len(image_mdbs) != expected_lines:
         raise ValueError(
-            f"Expected {expected_lines} image lines (nSeg={nSeg} × nShot={nShot}) "
+            f"Expected {expected_lines} image lines (nSeg={nSeg} * nShot={nShot}) "
             f"but got {len(image_mdbs)} image MDbs."
         )
 

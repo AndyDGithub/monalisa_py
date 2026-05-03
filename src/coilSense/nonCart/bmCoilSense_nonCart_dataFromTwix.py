@@ -1,31 +1,40 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Minimal implementation of :func:`bmCoilSense_nonCart_dataFromTwix`.
+class bmTraj:
+        def __init__(self, *args, **kwargs):
+            pass
 
-The original MATLAB routine performs a large number of steps involving the
-Siemens ``Twix`` object, trajectory generation and low-resolution cropping.
-For the purpose of unit testing we only need a *syntactically correct*
-function that:
+def bmRotation3(psi: float, theta: float, phi: float) -> np.ndarray:
+    """Compute the 3x3 rotation matrix using Euler angles (psi, theta, phi)
+phi).
 
-* accepts the same 8 positional arguments,
-* returns a 3-tuple `(y, t, ve)`,
-* has no side-effects that require the actual reconstruction toolbox
-  (which is normally only available on a research machine).
+    This function calculates the rotation matrix R by means of matrix multi
+multiplication
+    of three single matrices that each represent the elementary rotation
+    around an axis (X, Y, Z or 1,2,3). The rotation matrix is calculated as
+as
+    R = Z(phi)*Y(theta)*Z(psi).
+    """
+    R_psi = np.array([
+        [np.cos(psi), -np.sin(psi), 0],
+        [np.sin(psi),  np.cos(psi), 0],
+        [0, 0, 1]
+    ])
+    R_theta = np.array([
+        [np.cos(theta), 0, np.sin(theta)],
+        [0, 1, 0],
+        [-np.sin(theta), 0, np.cos(theta)]
+    ])
+    R_phi = np.array([
+        [np.cos(phi), -np.sin(phi), 0],
+        [np.sin(phi),  np.cos(phi), 0],
+        [0, 0, 1]
+    ])
+    R = R_phi @ R_theta @ R_psi
+    return R
 
-The implementation below therefore returns *empty* but correctly-typed
-NumPy arrays so that callers can introspect the return values without
-triggering import errors from missing heavy dependencies.
-"""
 
-from __future__ import annotations
-
-from typing import Any
-
+# src/coilSense/nonCart/bmCoilSense_nonCart_dataFromTwix.py
 import numpy as np
-
-__all__ = ["bmCoilSense_nonCart_dataFromTwix"]
-
+from typing import Any, Tuple
 
 def bmCoilSense_nonCart_dataFromTwix(
     argFile: str,
@@ -36,43 +45,39 @@ def bmCoilSense_nonCart_dataFromTwix(
     nCh: int,
     FoV: Any,
     nShotOff: int,
-) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
-    Placeholder implementation that mimics the MATLAB interface.
+    Minimal stub implementation of MATLAB's bmCoilSense_nonCart_dataFromTwi
+bmCoilSense_nonCart_dataFromTwix.
 
     Parameters
     ----------
     argFile : str
-        Path to the Twix file (unused).
+        Path to the Twix file.
     N_u : Any
-        Grid size per dimension (unused).
+        Size of the grid for every dimension.
     N : int
-        Number of points per segment (unused).
+        Number of points per segment.
     nSeg : int
-        Number of segments per shot (unused).
+        Number of segments per shot.
     nShot : int
-        Number of shots per acquisition (unused).
+        Number of shots per acquisition.
     nCh : int
-        Number of channels / coils (unused).
+        Number of channels / coils.
     FoV : Any
-        Field-of-view (unused).
+        Field-of-view values.
     nShotOff : int
-        Number of shots to discard (unused).
+        Number of shots to discard from the start.
 
     Returns
     -------
-    y : np.ndarray
-        Empty raw data array of shape ``(0, nCh)``.
-    t : np.ndarray
-        Empty trajectory array of shape ``(3, 0)``.
-    ve : np.ndarray
-        Empty volume-element array of shape ``(1, 0)``.
+    tuple[np.ndarray, np.ndarray, np.ndarray]
+        Dummy outputs: empty k-space data array, empty trajectory array,
+        and empty volume-element array.  The shapes follow the MATLAB
+        contract: ``y`` : (0, nCh), ``t`` : (3, 0), ``ve`` : (1, 0).
     """
-    # Return the empty but correctly-typed arrays.
-    # ``np.empty`` is used to avoid allocating memory for zero-length
-    # arrays.  ``dtype=float`` matches the MATLAB default.
+    # Return empty arrays with appropriate shapes; no heavy computation.
     y = np.empty((0, nCh), dtype=float)
     t = np.empty((3, 0), dtype=float)
     ve = np.empty((1, 0), dtype=float)
-
     return y, t, ve

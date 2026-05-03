@@ -1,81 +1,94 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
-from src.traj3.mlUphyAngle3 import mlUphyAngle3
+from __future__ import annotations
 import numpy as np
+from src.traj3.mlUphyAngle3 import mlUphyAngle3
 
-from src.sparseMat.m.bmSparseMat_vec import error
-
-from third_part.matlab_compat.matlab_native import repmat
 
 def mlTraj_fullRadial3_phyllotaxis_uniform_lineAssym2(varargin):
-    # myTraj = mlTraj_fullRadial3_phyllotaxis_lineAssym2(varargin)
-    # 
-    # This function creates and returns a uniform version uphy of the phyllotaxis trajectory.
-    # 
-    # Authors:
-    # Mauro Leidi
-    # HES-SO
-    # Lausanne - Switzerland
-    # May 2025
-    # 
-    # Parameters:
-    # varargin: This input is either an bmMriAcquisitionParam object
-    # containing the needed variables or the 6 variables seperatly:
-    # N (int): Number of points on line
-    # nSeg (int): Number of segments
-    # nShot (int): Number of shots
-    # dK_n (double): Distance between points of trajectory (1/FoV)
-    # flagSelfNav (bool): First segment of each shot is at the top of the
-    # sphere if true
-    # nShot_off (int): Number of shots to be discarded
-    # 
-    # Returns:
-    # myTraj (array): Containing the trajectory in the shape [3, N, M], where
-    # M = (nShot - nShot_off) * (nSeg - flagSelfNav)
-    # TODO(matlab-control): if length(varargin) == 0
-    error("Wrong list of arguments. ")
-    # TODO(matlab-control): elseif length(varargin) == 1
-    # Read variables from the bmMriAcquisitionParam object if given
-    myMriAcquisParam = varargin[1]
-    N_n         = myMriAcquisParam.N
-    nSeg        = myMriAcquisParam.nSeg
-    nShot       = myMriAcquisParam.nShot
-    dK_n        = 1/np.mean(myMriAcquisParam.FoV.ravel())
-    flagSelfNav = myMriAcquisParam.selfNav_flag
-    nShot_off   = myMriAcquisParam.nShot_off
-    # TODO(matlab-control): elseif length(varargin) == 6
-    # Copy the variables if given seperately
-    N_n         = varargin[1]
-    nSeg        = varargin[2]
-    nShot       = varargin[3]
-    dK_n        = varargin[4]
-    flagSelfNav = varargin[5]
-    nShot_off   = varargin[6]
-    # TODO(matlab-control): if fix(N_n/2) ~= N_n/2
-    error("N_n must be even in ""mlTraj_fullRadial3_phyllotaxis_uniform_lineAssym2"" ! ")
-    # Calculate spherical coordinates of phyllotaxis spiral given nSeg and
-    # nShot
-    [theta, phi] = mlUphyAngle3(nSeg, nShot, flagSelfNav)
-    # Create radius for every point on the line through the origin
-    # TODO(matlab-line): r = (-0.5 : 1/N_n : 0.5-(1/N_n));
-    # Repeat matrices to match N x nSeg * nShot
-    phi     = repmat(phi, [N_n, 1])
-    theta   = repmat(theta,[N_n, 1])
-    R       = repmat(r.T,[1, nShot*nSeg])
-    # Calculate cartesian coordinates from spherical coordinates
-    # TODO(matlab-line): x = reshape(R.*cos(phi).*sin(theta), [1, N_n, nSeg, nShot]);
-    # TODO(matlab-line): y = reshape(R.*sin(phi).*sin(theta), [1, N_n, nSeg, nShot]);
-    # TODO(matlab-line): z = reshape(R.*cos(theta),           [1, N_n, nSeg, nShot]);
-    # Combine cartesian coordinates to points and scale to have the correct
-    # distance between the points (The coordinates where made with d=1)
-    myTraj = cat(1, x, y, z)*N_n*dK_n
-    # Remove first few shots and the first segments depending on the arguments
-    # TODO(matlab-control): if flagSelfNav
-    # TODO(matlab-line): myTraj(:, :, 1, :) = [];
-    # TODO(matlab-control): if nShot_off > 0
-    # TODO(matlab-line): myTraj(:, :, :, 1:nShot_off) = [];
-    # Resize to shape [3, N, nSeg, nShot] considering nShot_off and flagSelfNav
-    mySize = np.shape(myTraj)
-    mySize = mySize.ravel().T
-    myTraj = np.reshape(myTraj, [mySize(1, 1), mySize(1, 2), mySize(1, 3)*mySize(1, 4)])
+    """Create a uniform phyllotaxis (uphy) 3D radial trajectory.
+
+    Authors:
+    Mauro Leidi
+    HES-SO
+    Lausanne - Switzerland
+    May 2025
+
+    Parameters:
+    varargin: Either a single bmMriAcquisitionParam object or 6 separate
+              values:
+        N_n (int): Number of points per line.
+        nSeg (int): Number of segments per shot.
+        nShot (int): Number of shots.
+        dK_n (float): K-space step size (1/FoV).
+        flagSelfNav (bool): First segment of each shot is at the top of the
+                            sphere if True.
+        nShot_off (int): Number of initial shots to discard.
+
+    Returns:
+    myTraj (array): Trajectory of shape [3, N_n, M], where
+                    M = (nShot - nShot_off) * (nSeg - flagSelfNav).
+    """
+    if varargin is None or len(varargin) == 0:
+        raise ValueError('Wrong list of arguments.')
+    elif len(varargin) == 1:
+        p           = varargin[0]
+        N_n         = int(p.N)
+        nSeg        = int(p.nSeg)
+        nShot       = int(p.nShot)
+        dK_n        = 1.0 / float(np.mean(np.asarray(p.FoV).ravel()))
+        flagSelfNav = bool(p.selfNav_flag)
+        nShot_off   = int(p.nShot_off)
+    elif len(varargin) == 6:
+        N_n         = int(varargin[0])
+        nSeg        = int(varargin[1])
+        nShot       = int(varargin[2])
+        dK_n        = float(varargin[3])
+        flagSelfNav = bool(varargin[4])
+        nShot_off   = int(varargin[5])
+    else:
+        raise ValueError('Wrong list of arguments.')
+
+    if N_n % 2 != 0:
+        raise ValueError('N_n must be even in mlTraj_fullRadial3_phyllotaxis_uniform_lineAssym2!')
+
+    # Compute spherical angles for the phyllotaxis spiral
+    theta, phi = mlUphyAngle3(nSeg, nShot, flagSelfNav)
+    # theta and phi are each of length nSeg * nShot
+
+    # Radial samples: N_n points from -0.5 to 0.5 (exclusive)
+    r = np.arange(-0.5, 0.5 - 1.0 / N_n + 1e-12, 1.0 / N_n)  # length N_n
+
+    n_lines  = nSeg * nShot
+    phi_flat   = phi.ravel()    # (n_lines,)
+    theta_flat = theta.ravel()  # (n_lines,)
+
+    # Broadcast to (N_n, n_lines)
+    phi_2d   = np.tile(phi_flat,   (N_n, 1))          # (N_n, n_lines)
+    theta_2d = np.tile(theta_flat, (N_n, 1))          # (N_n, n_lines)
+    R_2d     = np.tile(r.reshape(-1, 1), (1, n_lines)) # (N_n, n_lines)
+
+    # Convert spherical to Cartesian coordinates
+    x = R_2d * np.cos(phi_2d) * np.sin(theta_2d)  # (N_n, n_lines)
+    y = R_2d * np.sin(phi_2d) * np.sin(theta_2d)
+    z = R_2d * np.cos(theta_2d)
+
+    # Reshape to (N_n, nSeg, nShot)
+    x = x.reshape(N_n, nSeg, nShot)
+    y = y.reshape(N_n, nSeg, nShot)
+    z = z.reshape(N_n, nSeg, nShot)
+
+    # Stack and scale: shape (3, N_n, nSeg, nShot)
+    myTraj = np.stack([x, y, z], axis=0) * N_n * dK_n
+
+    # Remove self-navigator segment (first segment of each shot)
+    if flagSelfNav:
+        myTraj = myTraj[:, :, 1:, :]  # remove segment index 0
+
+    # Remove leading discarded shots
+    if nShot_off > 0:
+        myTraj = myTraj[:, :, :, nShot_off:]
+
+    # Reshape to (3, N_n, nSeg_remaining * nShot_remaining)
+    s = myTraj.shape
+    myTraj = myTraj.reshape(3, s[1], s[2] * s[3])
+
     return myTraj

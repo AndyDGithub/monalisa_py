@@ -1,49 +1,68 @@
+from __future__ import annotations
 import numpy as np
-from src.geom2 import bmTraj_lineReshape, bmVolumeElement1, bmTraj_lineDirection, bmVoronoi
-from src.traj123.bmTraj_norm import bmTraj_norm
-from src.arrayUtility.bmBlockReshape import bmBlockReshape  # Import bmBlockReshape
+
 
 def bmVolumeElement_voronoi_full_radial2(t):
+    """Compute Voronoi volume elements for a 2D full radial trajectory.
+
+    Parameters:
+    t (array): 2D trajectory of shape (2, N_total) where N_total = N * nLine.
+
+    Returns:
+    v (array): Volume elements of length N_total, one per trajectory point.
+    """
+    from src.geom2.bmTraj_lineReshape import bmTraj_lineReshape
+    from src.geom2.bmVolumeElement1 import bmVolumeElement1
+    from src.geom2.bmTraj_lineDirection import bmTraj_lineDirection
+    from src.geom123.bmVoronoi import bmVoronoi
+    from src.traj123.bmTraj_norm import bmTraj_norm
+
+    t = np.asarray(t)
     if t.shape[0] != 2:
-        raise ValueError("The trajectory must be 2Dim")
-        return None
+        raise ValueError("The trajectory must be 2D")
 
-    t = bmTraj_lineReshape(t)
-    imDim = np.shape(t, 1)
-    N = np.shape(t, 2)
-    nLine = np.shape(t, 3)
-    e = bmTraj_lineDirection(t)
+    # Reshape flat trajectory to (2, N, nLine)
+    t_line = bmTraj_lineReshape(t)  # (2, N, nLine)
+    imDim  = t_line.shape[0]
+    N      = t_line.shape[1]
+    nLine  = t_line.shape[2]
 
-    # Construct dr
+    # Direction unit vectors for each line: shape (2, nLine)
+    e = bmTraj_lineDirection(t_line)
+
+    # Radial volume element: projection of each point onto line direction
     dr = np.zeros((N, nLine))
     for i in range(nLine):
-        dr[:, i] = t[:, :, i].T @ e[:, i]
-    dr = bmVolumeElement1(dr)  # Here, the size(dr) must be [N, nLine]
+        dr[:, i] = t_line[:, :, i].T @ e[:, i]
+    dr = bmVolumeElement1(dr)  # (N, nLine)
 
-    # Construct ds
-    ee = np.concatenate((e, -e), axis=1)
-    myAngle = np.angle(complex(ee[0], ee[1]))
-    myPerm = np.argsort(myAngle)
+    # Angular Voronoi weights using doubled direction set (e and -e)
+    ee = np.concatenate([e, -e], axis=1)           # (2, 2*nLine)
+    myAngle   = np.arctan2(ee[1, :], ee[0, :])     # (2*nLine,)
+    myPerm    = np.argsort(myAngle)
     myInvPerm = np.argsort(myPerm)
 
-    myCutSpace = (np.pi - myAngle[-1, 0]) + (myAngle[0, 0] - (-np.pi))
-    myVoronoi_1 = (myAngle[1, 1] - myAngle[1, 0]) / 2 + myCutSpace / 2
-    myVoronoi_end = (myAngle[-1, -1] - myAngle[-1, -2]) / 2 + myCutSpace / 2
+    myAngle_sorted   = myAngle[myPerm]
+    myAngleVoronoi   = bmVoronoi(myAngle_sorted)   # (2*nLine,) Voronoi widths in sorted order
+    myAngleVoronoi   = myAngleVoronoi[myInvPerm]   # restore original order
+    myAngleVoronoi   = myAngleVoronoi.reshape(2, nLine)  # (2, nLine): original + mirrored
+    ds_angle         = myAngleVoronoi[0, :]        # (nLine,) angular widths for original directions
 
-    myAngleVoronoi = bmVoronoi(myAngle.ravel())
-    myAngleVoronoi = myAngleVoronoi.reshape(-1, nLine)
+    # Angular area element: norm(t) * sin(angular_voronoi_width)
+    norm_t = bmTraj_norm(t_line)  # (N, nLine) or flattened
+    if norm_t.shape != (N, nLine):
+        norm_t = norm_t.reshape(N, nLine)
 
-    myAngleVoronoi[0, 0] = myVoronoi_1
-    myAngleVoronoi[-1, -1] = myVoronoi_end
+    ds = norm_t * np.sin(ds_angle.reshape(1, nLine))  # (N, nLine)
 
-    myAngleVoronoi = myAngleVoronoi[:, myInvPerm]
-    ds = bmTraj_norm(t) * np.sin(myAngleVoronoi).reshape(-1, N)  # This is for 2DimRadial.
+    # Volume element = radial * angular
+    v = dr.ravel() * ds.ravel()
 
-    v = dr.flatten() * ds.flatten()  # TODO: Implement the logic for handling even number of points per line
-
-    # Center volume element
-    dr_0 = np.mean(dr[N // 2, :], axis=1) / 2
-    v0 = np.pi * (dr_0**2) / (2 * nLine)
-    v[N // 2 + 1:N:end] = v0
+    # Correct the center volume element (k=0 region)
+    half  = N // 2
+    dr_0  = float(np.mean(dr[half, :]))
+    v0    = np.pi * (dr_0 ** 2) / (2 * nLine)
+    # Set every half-th point (one per line) to v0
+    v[half::N] = v0
 
     return v

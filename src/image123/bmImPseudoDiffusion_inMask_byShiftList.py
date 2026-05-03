@@ -1,6 +1,8 @@
 import numpy as np
 from src.arrayUtility.bmBlockReshape import bmBlockReshape
 
+from src.image123.bmImConv_inMask_byShiftList import bmNdim
+
 def bmImPseudoDiffusion_inMask_byShiftList(argIm, argShiftList, argMask, varargin):
     nIter = []
     if len(varargin) > 0:

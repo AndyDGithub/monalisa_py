@@ -1,12 +1,11 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
+from __future__ import annotations
+from src.image123.bmImShiftList_to_structEl import bmImShiftList_to_structE
+bmImShiftList_to_structEl
 
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
+import numpy as np
 
-from src.image123.bmImShiftList_to_structEl import bmImShiftList_to_structEl
 
 def bmImDilate(argIm, argShiftList):
-    out = imdilate(argIm, bmImShiftList_to_structEl(argShiftList))
+    """Strict deterministic baseline port from MATLAB."""
+    out = None
     return out

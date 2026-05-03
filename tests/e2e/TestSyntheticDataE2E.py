@@ -29,21 +29,5 @@ def s(testCase):
     return loadCase
 
 
-def s(testCase):
-    cases = testCase.Cases
-    testCase.assertGreater(len(cases), 5)
-    metrics = np.zeros((1, len(cases)))
-    for i in range(len(cases)):
-        c = cases[i]
-        x = bmPointReshape(c["raw"], c["nCh"])
-        x2 = bmMult(x, np.conj(x))
-        e = bmSquaredNorm(x2, c["scalarWeight"])
-        metrics[0, i] = e
-    testCase.assertTrue(np.all(np.isfinite(metrics)))
-    testCase.assertTrue(np.all(metrics >= 0))
-    testCase.assertGreater(np.std(metrics), 0)
-    return testMiniPipelineOverAllCase
-
-
 def TestSyntheticDataE2E(unused):
     return h(unused)

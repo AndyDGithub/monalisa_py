@@ -1,34 +1,35 @@
-from __future__ import annotations
-from third_part.matlab_compat.matlab_native import double, length, size
-from porting.lib.utils import size
-
+import numpy as np
+from scipy.interpolate import griddata
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
 
 def t(M, varargin):
     """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # This function take an n-times-m matrix M as argument and plot the
-    # corresponding surfaceplot.
-    # figure
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: M = double(M);
-    # MATLAB: if length(varargin) > 1
-    # MATLAB: x = varargin{1};
-    # MATLAB: y = varargin{2};
-    # MATLAB: else
-    # MATLAB: [iMax, jMax] = size(M);
-    # MATLAB: x = 1:iMax;
-    # MATLAB: y = 1:jMax;
-    # MATLAB: end
-    # MATLAB: [X, Y]  = ndgrid(x, y);
-    # MATLAB: mesh(X, Y, M, 'FaceAlpha', 0)
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    bmMountainPlo = None
-    return bmMountainPlo
+    M = np.array(M, dtype=float)
+    
+    if len(varargin) > 1:
+        x = np.array(varargin[0])
+        y = np.array(varargin[1])
+    else:
+        iMax, jMax = M.shape
+        x = np.arange(1, iMax + 1)
+        y = np.arange(1, jMax + 1)
+
+    X, Y = np.meshgrid(x, y)
+    
+    # Flatten the data for interpolation
+    points = np.column_stack((x.ravel(), y.ravel()))
+    values = M.ravel()
+    
+    # Interpolate on a regular grid for plotting
+    Z = griddata(points, values, (X, Y), method='linear')
+    
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    surf = ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+    
+    plt.show()
 
 # Auto-generated entrypoint alias for import compatibility
 bmMountainPlot = t

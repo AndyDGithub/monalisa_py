@@ -1,121 +1,175 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
+from __future__ import annotations
 
-from src.arrayUtility.bmCol import bmCol
-from src.varargin.bmVarargin import bmVarargin
-# bmImageViewerParam < handle
-# 
-# This class only has properties and a constructor to fill the
-# properties. This class contains the parameters used to create and
-# manage an interactive figure that visualizes data as an image.
-# 
-# Authors:
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
-# 
-# Contributors:
-# Dominik Helbing (Documentation)
-# MattechLab 2024
-# 
-# Constructor Parameters:
-# argIn: Either an object of this class to create a copy, or an
-# integer from 2 to 5 defining the dimension of the image.
-# varargin{1}: The image data that should be displayed by a figure
-# with these parameters. Required if argIn is only an integer.
-# constructor *****************************************************
+from dataclasses import dataclass, field
+from typing import Optional
 
 import numpy as np
 
-def bmImageViewerParam(argIn, varargin):
-    argIm           = bmVarargin(varargin)
-    obj.imSize      = bmCol(np.shape(argIm)).T
-    # TODO(matlab-control): if isa(argIn, 'bmImageViewerParam')
-    obj.imDim               = argIn.imDim
-    obj.imSize              = argIn.imSize
-    obj.permutation         = argIn.permutation
-    obj.transpose_flag      = argIn.transpose_flag
-    obj.psi                 = argIn.psi
-    obj.theta               = argIn.theta
-    obj.phi                 = argIn.phi
-    obj.point_A             = argIn.point_A
-    obj.point_B             = argIn.point_B
-    obj.point_C             = argIn.point_C
-    obj.rotation            = argIn.rotation
-    obj.reverse_flag        = argIn.reverse_flag
-    obj.mirror_flag         = argIn.mirror_flag
-    obj.numOfImages         = argIn.numOfImages
-    obj.curImNum            = argIn.curImNum
-    obj.colorLimits         = argIn.colorLimits
-    obj.colorLimits_0       = argIn.colorLimits_0
-    obj.numOfImages_4       = argIn.numOfImages_4
-    obj.curImNum_4          = argIn.curImNum_4
-    obj.numOfImages_5       = argIn.numOfImages_5
-    obj.curImNum_5          = argIn.curImNum_5
-    obj.point_list          = argIn.point_list
-    # TODO(matlab-control): else
-    obj.imDim               = np.shape(obj.imSize.ravel(), 1)
-    obj.permutation         = []
-    obj.psi                 = []
-    obj.theta               = []
-    obj.phi                 = []
-    obj.point_A             = []
-    obj.point_B             = []
-    obj.point_C             = []
-    obj.rotation            = []
-    obj.transpose_flag      = False
-    obj.reverse_flag        = False
-    obj.mirror_flag         = False
-    obj.numOfImages         = []
-    obj.curImNum            = []
-    # TODO(matlab-control): if (  min(argIm(:)  ) < max(  argIm(:)  )  )
-    obj.colorLimits = [  min(argIm.ravel()), max(argIm.ravel())  ]
-    # TODO(matlab-control): else
-    obj.colorLimits = [0, 1]
-    obj.colorLimits_0 = obj.colorLimits
-    obj.numOfImages_4       = []
-    obj.curImNum_4          = []
-    obj.numOfImages_5       = []
-    obj.curImNum_5          = []
-    obj.point_list          = []
-    # TODO(matlab-control): if argIn == 2
-    obj.psi                 = 0
-    obj.rotation            = eye(2)
-    # TODO(matlab-control): elseif argIn == 3
-    obj.permutation         = [1, 2, 3]
-    obj.psi                 = 0
-    obj.theta               = 0
-    obj.phi                 = 0
-    obj.rotation            = eye(3)
-    obj.numOfImages         = obj.imSize(1, 3)
-    obj.curImNum            = max(1, fix(  obj.numOfImages/2  ))
-    # TODO(matlab-control): elseif argIn == 4
-    # TODO(matlab-line): obj.imSize              = obj.imSize(1, 1:3);
-    obj.permutation         = [1, 2, 3]
-    obj.psi                 = 0
-    obj.theta               = 0
-    obj.phi                 = 0
-    obj.rotation            = eye(3)
-    obj.numOfImages         = obj.imSize(1, 3)
-    obj.curImNum            = max(1, fix(  obj.numOfImages/2  ))
-    obj.numOfImages_4       = np.shape(argIm, 4)
-    obj.curImNum_4          = 1
-    obj.point_list          = cell(obj.numOfImages_4, 1)
-    # TODO(matlab-control): elseif argIn == 5
-    # TODO(matlab-line): obj.imSize              = obj.imSize(1, 1:3);
-    obj.permutation         = [1, 2, 3]
-    obj.psi                 = 0
-    obj.theta               = 0
-    obj.phi                 = 0
-    obj.rotation            = eye(3)
-    obj.numOfImages         = obj.imSize(1, 3)
-    obj.curImNum            = max(1, fix(  obj.numOfImages/2  ))
-    obj.numOfImages_4       = np.shape(argIm, 4)
-    obj.curImNum_4          = 1
-    obj.numOfImages_5       = np.shape(argIm, 5)
-    obj.curImNum_5          = 1
-    obj.point_list          = cell(obj.numOfImages_4, obj.numOfImages_5)
-    # END_constructor *************************************************
-    end  # END method
-    end  # END class
-    return obj
+
+@dataclass
+class bmImageViewerParam:
+    """Parameters used to create and manage an interactive figure that
+    visualizes data as an image.
+
+    Authors:
+        Bastien Milani
+        CHUV and UNIL
+        Lausanne - Switzerland
+        May 2023
+
+    Contributors:
+        Dominik Helbing (Documentation)
+        MattechLab 2024
+
+    Parameters
+    ----------
+    argIn : bmImageViewerParam or int
+        Either an existing instance to copy, or an integer (2-5) indicating
+        the number of image dimensions.
+    argIm : np.ndarray, optional
+        The image data to be displayed.  Required when ``argIn`` is an int.
+    """
+
+    class_type: str = field(default="bmImageViewerParam", init=False)
+
+    imDim: Optional[int] = None
+    imSize: Optional[np.ndarray] = None
+
+    numOfImages: Optional[int] = None
+    curImNum: Optional[int] = None
+
+    numOfImages_4: Optional[int] = None
+    curImNum_4: Optional[int] = None
+
+    numOfImages_5: Optional[int] = None
+    curImNum_5: Optional[int] = None
+
+    permutation: Optional[list] = None
+
+    transpose_flag: bool = False
+    reverse_flag: bool = False
+    mirror_flag: bool = False
+
+    point_A: Optional[np.ndarray] = None
+    point_B: Optional[np.ndarray] = None
+    point_C: Optional[np.ndarray] = None
+
+    psi: Optional[float] = None
+    theta: Optional[float] = None
+    phi: Optional[float] = None
+
+    rotation: Optional[np.ndarray] = None
+
+    colorLimits: Optional[list] = None
+    colorLimits_0: Optional[list] = None
+
+    point_list: Optional[list] = None
+
+    def __init__(self, argIn, argIm: Optional[np.ndarray] = None) -> None:
+        self.class_type = "bmImageViewerParam"
+
+        if isinstance(argIn, bmImageViewerParam):
+            src = argIn
+            self.imDim = src.imDim
+            self.imSize = src.imSize
+            self.permutation = src.permutation
+            self.transpose_flag = src.transpose_flag
+            self.psi = src.psi
+            self.theta = src.theta
+            self.phi = src.phi
+            self.point_A = src.point_A
+            self.point_B = src.point_B
+            self.point_C = src.point_C
+            self.rotation = src.rotation
+            self.reverse_flag = src.reverse_flag
+            self.mirror_flag = src.mirror_flag
+            self.numOfImages = src.numOfImages
+            self.curImNum = src.curImNum
+            self.colorLimits = src.colorLimits
+            self.colorLimits_0 = src.colorLimits_0
+            self.numOfImages_4 = src.numOfImages_4
+            self.curImNum_4 = src.curImNum_4
+            self.numOfImages_5 = src.numOfImages_5
+            self.curImNum_5 = src.curImNum_5
+            self.point_list = src.point_list
+        else:
+            if argIm is None:
+                raise ValueError("argIm is required when argIn is an integer.")
+            argIm = np.asarray(argIm)
+            self.imSize = np.array(argIm.shape, dtype=int)
+            self.imDim = self.imSize.size
+            self.permutation = None
+            self.psi = None
+            self.theta = None
+            self.phi = None
+            self.point_A = None
+            self.point_B = None
+            self.point_C = None
+            self.rotation = None
+            self.transpose_flag = False
+            self.reverse_flag = False
+            self.mirror_flag = False
+            self.numOfImages = None
+            self.curImNum = None
+            flat = argIm.ravel()
+            mn, mx = float(flat.min()), float(flat.max())
+            if mn < mx:
+                self.colorLimits = [mn, mx]
+            else:
+                self.colorLimits = [0.0, 1.0]
+            self.colorLimits_0 = list(self.colorLimits)
+            self.numOfImages_4 = None
+            self.curImNum_4 = None
+            self.numOfImages_5 = None
+            self.curImNum_5 = None
+            self.point_list = None
+
+            if argIn == 2:
+                self.psi = 0.0
+                self.rotation = np.eye(2)
+
+            elif argIn == 3:
+                self.permutation = [1, 2, 3]
+                self.psi = 0.0
+                self.theta = 0.0
+                self.phi = 0.0
+                self.rotation = np.eye(3)
+                self.numOfImages = int(self.imSize[2])
+                self.curImNum = max(1, int(self.numOfImages // 2))
+
+            elif argIn == 4:
+                self.imSize = self.imSize[:3]
+                self.permutation = [1, 2, 3]
+                self.psi = 0.0
+                self.theta = 0.0
+                self.phi = 0.0
+                self.rotation = np.eye(3)
+                self.numOfImages = int(self.imSize[2])
+                self.curImNum = max(1, int(self.numOfImages // 2))
+                self.numOfImages_4 = int(argIm.shape[3])
+                self.curImNum_4 = 1
+                self.point_list = [[None] for _ in range(self.numOfImages_4)]
+
+            elif argIn == 5:
+                self.imSize = self.imSize[:3]
+                self.permutation = [1, 2, 3]
+                self.psi = 0.0
+                self.theta = 0.0
+                self.phi = 0.0
+                self.rotation = np.eye(3)
+                self.numOfImages = int(self.imSize[2])
+                self.curImNum = max(1, int(self.numOfImages // 2))
+                self.numOfImages_4 = int(argIm.shape[3])
+                self.curImNum_4 = 1
+                self.numOfImages_5 = int(argIm.shape[4])
+                self.curImNum_5 = 1
+                self.point_list = [
+                    [None] * self.numOfImages_5
+                    for _ in range(self.numOfImages_4)
+                ]
+
+            else:
+                raise ValueError(
+                    f"argIn must be a bmImageViewerParam instance or an integer "
+                    f"in {{2, 3, 4, 5}}, got {argIn!r}."
+                )

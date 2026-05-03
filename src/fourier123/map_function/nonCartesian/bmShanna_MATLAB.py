@@ -1,103 +1,77 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
+from __future__ import annotations
 import numpy as np
-
-from src.sparseMat.m.bmSparseMat_vec import error, int32
-
 from src.arrayUtility.bmBlockReshape import bmBlockReshape
 from src.arrayUtility.bmColReshape import bmColReshape
 from src.image123.bmImZeroFill import bmImZeroFill
 from src.sparseMat.m.bmSparseMat_vec import bmSparseMat_vec
-from third_part.matlab_compat.matlab_native import double, repmat
+
 
 def bmShanna_MATLAB(x, G, KFC, n_u):
-    # y = bmShanna_MATLAB(x, G, KFC, n_u)
-    # 
-    # This function copmutes the Fourier transform of CX -> F(CX) while
-    # gridding the points back to the trajectory.
-    # 
-    # Authors:
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # 
-    # Contributors:
-    # Dominik Helbing (Documentation & Comments)
-    # MattechLab 2024
-    # 
-    # Parameters:
-    # x (array): The reconstructed image.
-    # G (bmSparseMat): The forward gridding matrix (grid -> trajectory).
-    # KFC (array): The kernel matrix used for deapodization multiplied with
-    # the fourier factor and the coil sensitivity.
-    # n_u (list): The size of the image space grid.
-    # 
-    # Returns:
-    # y (array): The computed k-space data (FXC = y).
-    # 
-    # Examples:
-    # y = bmShanna_MATLAB(x, Gu, KFC, n_u);
-    # % Initialize arguments
-    # Use G.N_u if n_u is empty
-    # TODO(matlab-control): if isempty(n_u)
-    n_u = G.N_u
-    # Convert variables to the correct format
-    N_u         = double(int32(G.N_u.ravel().T))
-    n_u         = double(int32(n_u.ravel().T))
-    imDim       = np.shape(N_u.ravel(), 1)
-    x_size_2    = np.shape(x, 2)
-    # Get number of channels from input
-    # TODO(matlab-control): if (x_size_2  == 1)
-    nCh = np.shape(KFC, 2)
-    # TODO(matlab-control): else
-    # There is data for each channel
-    nCh = x_size_2
-    # Check format and throw errors if something is found
-    private_check(x, G, KFC, N_u, n_u, nCh)
-    # % Compute F(CX)
-    # Repeat data for each channel if not all channels have data
-    # TODO(matlab-control): if x_size_2 < nCh
-    x = repmat(x, [1, nCh])
-    # Reduce smoothing effect introduced by gridding using a window to grid the
-    # data -> deapodization, multiply with coil sensitivity
-    # TODO(matlab-line): x = x.*KFC;
-    # Eventual zero padding if N_u is bigger than n_u
-    # TODO(matlab-control): if ~isequal(N_u, n_u)
-    x = bmBlockReshape(x, n_u)
-    x = bmImZeroFill(x, N_u, n_u, "complex_single")
-    x = bmColReshape(x, N_u)
-    # Do FFT for every dimension in block format
-    x = bmBlockReshape(x, N_u)
-    # TODO(matlab-control): for n = 1:3
-    # TODO(matlab-control): if imDim > (n-1)
-    x = fftshift(np.fft.fft(ifftshift(x, n), [], n), n)
-    # Return to column format
-    x = bmColReshape(x, N_u)
-    # Do sparse matrix multiplication to map the gridded data (x) back to the
-    # non-uniform trajectory
-    y = bmSparseMat_vec(G, x, "omp", "complex", False)
-    return y
+    """Forward non-Cartesian Fourier transform using MATLAB-style FFT (F(C*x)).
 
-def k(x, G, KFC, N_u, n_u, nCh):
-    # This function checks that all inputs have the correct type, size and
-    # values needed for the computation to work. Throws errors if something
-    # amiss is found.
-    # TODO(matlab-control): if not(isa(x, 'single'))
-    error("The data""x"" must be of class single")
-    # TODO(matlab-control): if not(isa(KFC, 'single'))
-    error("The matrix ""KFC"" must be of class single")
-    # TODO(matlab-control): if not(size(x, 1) == prod(n_u(:)))
-    error("The data matrix ""x"" is not in the correct size")
-    # TODO(matlab-control): if not(isequal(size(KFC), [prod(n_u(:)), nCh] ))
-    error("The matrix ""K"" is probably not in the correct size")
-    # TODO(matlab-control): if sum(mod(N_u(:), 2)) > 0
-    error("N_u must have all components even for the Fourier transform. ")
-    # TODO(matlab-control): if sum(mod(n_u(:), 2)) > 0
-    error("n_u must have all components even for the Fourier transform. ")
-    # TODO(matlab-control): if not(strcmp(G.block_type, 'one_block'))
-    error("The block type of G must be ""one_block"". ")
-    # TODO(matlab-control): if strcmp(class(G), 'bmSparseMat')
-    # TODO(matlab-control): if not(strcmp(G.type, 'cpp_prepared')) && not(strcmp(G.type, 'l_squeezed_cpp_prepared'))
-    error("G is bmSparseMat but is not cpp_prepared. ")
-    return private_chec
+    Authors:
+    Bastien Milani
+    CHUV and UNIL
+    Lausanne - Switzerland
+    May 2023
+
+    Contributors:
+    Dominik Helbing (Documentation & Comments)
+    MattechLab 2024
+
+    Parameters:
+    x (array): Image space data, shape (prod(n_u), 1) or (prod(n_u), nCh).
+    G (bmSparseMat): Forward gridding sparse matrix (grid -> trajectory).
+    KFC (array): Deapodization kernel * Fourier factor * coil sensitivity, shape (prod(n_u), nCh).
+    n_u (list or None): Image space grid size (uses G.N_u if None/empty).
+
+    Returns:
+    y (array): k-space data at non-Cartesian trajectory points, shape (nPt, nCh).
+    """
+    if n_u is None or (hasattr(n_u, '__len__') and len(np.atleast_1d(n_u)) == 0):
+        n_u = G.N_u
+
+    N_u = np.array(np.round(np.asarray(G.N_u).ravel()), dtype=np.int32).astype(float)
+    n_u = np.array(np.round(np.asarray(n_u).ravel()),   dtype=np.int32).astype(float)
+    N_u_int = N_u.astype(int).tolist()
+    n_u_int = n_u.astype(int).tolist()
+
+    imDim = len(N_u_int)
+
+    x_arr = np.asarray(x)
+    x_size_2 = x_arr.shape[1] if x_arr.ndim > 1 else 1
+    KFC_arr = np.asarray(KFC)
+
+    # Determine number of channels
+    if x_size_2 == 1:
+        nCh = KFC_arr.shape[1] if KFC_arr.ndim > 1 else 1
+    else:
+        nCh = x_size_2
+
+    # Replicate single image across all channels if needed
+    if x_size_2 < nCh:
+        x_arr = np.tile(x_arr, (1, nCh))
+
+    # Deapodization + coil sensitivity weighting
+    x_arr = x_arr * KFC_arr  # (prod(n_u), nCh)
+
+    # Zero-pad to oversampled grid if N_u > n_u
+    if not np.array_equal(N_u_int, n_u_int):
+        x_arr = bmBlockReshape(x_arr, n_u_int)
+        x_arr = bmImZeroFill(x_arr, N_u_int, n_u_int, 'complex_single')
+        x_arr = bmColReshape(x_arr, N_u_int)
+
+    # Reshape to block format for FFT (...N_u..., nCh)
+    x_arr = bmBlockReshape(x_arr, N_u_int)
+
+    # Forward FFT per spatial dimension (fftshift(fft(ifftshift(x, n), [], n), n))
+    for dim in range(imDim):
+        x_arr = np.fft.fftshift(np.fft.fft(np.fft.ifftshift(x_arr, axes=dim), axis=dim), axes=dim)
+
+    # Back to column format (prod(N_u), nCh)
+    x_arr = bmColReshape(x_arr, N_u_int)
+
+    # Forward gridding sparse mat multiply (grid -> trajectory)
+    y = bmSparseMat_vec(G, x_arr, 'omp', 'complex', False)
+
+    return y

@@ -1,5 +1,5 @@
 """
-bmTraj2SparseMat — non-Cartesian gridding sparse matrices.
+bmTraj2SparseMat - non-Cartesian gridding sparse matrices.
 
 Port of MATLAB bmTraj2SparseMat.m using scipy.sparse.
 Always computes and returns Gn, Gu, Gut.
@@ -22,8 +22,8 @@ def bmTraj2SparseMat(t, v, N_u, dK_u, *varargin):
 
     Parameters
     ----------
-    t : array (imDim, nPt)   — trajectory in physical k-space units
-    v : array (1, nPt)       — density-compensation / volume elements
+    t : array (imDim, nPt)   - trajectory in physical k-space units
+    v : array (1, nPt)       - density-compensation / volume elements
     N_u : array-like [Nx, Ny, Nz]
     dK_u : array-like [dKx, dKy, dKz]
     varargin : optional
@@ -34,9 +34,9 @@ def bmTraj2SparseMat(t, v, N_u, dK_u, *varargin):
     Returns
     -------
     (Gn, Gu, Gut) : tuple of bmSparseMatScipy
-        Gn  [Nu_tot, nPt]  — normalized inverse gridding (traj → grid)
-        Gu  [nPt, Nu_tot]  — forward gridding (grid → traj)
-        Gut [Nu_tot, nPt]  — transpose of Gu (= Gu.T)
+        Gn  [Nu_tot, nPt]  - normalized inverse gridding (traj → grid)
+        Gu  [nPt, Nu_tot]  - forward gridding (grid → traj)
+        Gut [Nu_tot, nPt]  - transpose of Gu (= Gu.T)
     """
     va = bmVarargin_unpack(list(varargin), 4)
     _sparseType, kernelType, nWin, kernelParam = va

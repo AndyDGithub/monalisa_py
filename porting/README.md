@@ -75,6 +75,31 @@ python porting/scripts/run_agentic_porting_workflow.py \
     --matlab-help-max-functions 1 \
     --matlab-help-timeout-seconds 20
 ```
+or
+```bash
+python porting/scripts/run_agentic_porting_workflow.py \
+      --roots src,demo,tests,third_part \
+      --disable-llm --skip-tests
+```
+then 
+```bash
+python porting/scripts/run_agentic_porting_workflow.py \
+      --roots src,demo,tests,third_part \
+      --force \
+      --overwrite-manual \
+      --parallel-files-per-cycle 8 \
+      --enable-parallel-repair \
+      --parallel-repair-max-workers 8 \
+      --skip-pipeline \
+      --dynamic-llm-timeout \
+      --dynamic-timeout-base-seconds 45 \
+      --dynamic-timeout-per-line-seconds 3 \
+      --dynamic-timeout-min-seconds 60 \
+      --dynamic-timeout-max-seconds 600 \
+      --enable-matlab-help \
+      --matlab-help-max-functions 1 \
+      --matlab-help-timeout-seconds 20
+```
 
 ### Deterministic-only (no LLM, fast, safe to repeat)
 
@@ -180,3 +205,22 @@ After every workflow run, check these files:
 | `docs/TODO_TRANSLATION_EXAMPLES.md` | How to translate specific MATLAB TODO markers |
 | `docs/EXAMPLE_ORIGINAL_TO_PORTED.md` | Full MATLAB→Python file example |
 | `lib/utils.py` | Shared utilities for scripts (importable) |
+
+## LangGraph v2 Entry Points (Default)
+
+The canonical entrypoints now route to LangGraph v2 by default:
+
+```bash
+python porting/scripts/run_agentic_porting_workflow.py --roots src,demo,tests,third_part
+python porting/scripts/run_agentic_repair_cycle.py --current-file src/fourier3/bcaNeith3.py
+```
+
+To run the previous procedural engine explicitly:
+
+```bash
+python porting/scripts/run_agentic_porting_workflow.py --engine legacy --roots src,demo,tests,third_part
+python porting/scripts/run_agentic_repair_cycle.py --engine legacy --target-file src/fourier3/bcaNeith3.py
+```
+
+Architecture and migration details:
+`porting/docs/LANGGRAPH_V2_ARCHITECTURE.md`

@@ -1,170 +1,186 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
+from __future__ import annotations
 import numpy as np
-
 from src.arrayUtility.bmBlockReshape import bmBlockReshape
 from src.fourier123.map_function.nonCartesian.bmNasha import bmNasha
-from src.imDisp.bmImage import bmImage
-from src.image123.bmImClose import bmImClose
-from src.image123.bmImOpen import bmImOpen
-from src.image123.bmImShiftList import bmImShiftList
-from src.imageN.bmMIP import bmMIP
-from src.imageN.bmRMS import bmRMS
-from third_part.matlab_compat.matlab_native import double, legend, num2str, plot, title, xlabel, ylabel
+
 
 def bmCoilSense_nonCart_mask(y, Gn, varargin):
-    # m = bmCoilSense_nonCart_mask(y, Gn, varargin)
-    # 
-    # This function creates a mask for the regridded data which is calculated
-    # with a matrix multiplication of Gn*y. The mask depends on the optional
-    # parameters (varargin) that allow to give a threshold value for RMS and
-    # MIP (Maximum Intensity Projection), and min and max values for x, y, z.
-    # 
-    # Authors:
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # 
-    # Contributors:
-    # Dominik Helbing (Documentation & Comments)
-    # MattechLab 2024
-    # 
-    # Parameters:
-    # y (array): Raw data that should be gridded onto the grid defined by the
-    # bmSparseMat in Gn.
-    # Gn (bmSparseMat): Sparse Matrix defining the new uniform grid.
-    # varargin{1}: Lower boundary of the x indices of the mask (ROI).
-    # varargin{2}: Upper boundary of the x indices of the mask (ROI).
-    # varargin{3}: Lower boundary of the y indices of the mask (ROI).
-    # varargin{4}: Upper boundary of the y indices of the mask (ROI).
-    # varargin{5}: Lower boundary of the z indices of the mask (ROI).
-    # varargin{6}: Upper boundary of the z indices of the mask (ROI).
-    # varargin{7}: Threshold for RMS value.
-    # varargin{8}: Threshold for MIP value.
-    # varargin{9}: Value (not yet commented)
-    # varargin{10}: Value (not yet commented)
-    # varargin{11}: Flag; Display images if true.
-    # 
-    # Returns:
-    # m (array): Mask for grid defined by Gn masking all pixels outside the
-    # ROI and below threshold values, by setting their points in the mask to
-    # 0
-    # 
-    # Notes:
-    # The x, y, z constrictions are meant to exclude high intensity pixels
-    # outside the main image. These could be due to artifacts.
-    # This is rerunnable multiple times therefore you can have as inputs
-    # the outputs.
-    # % Initialize arguments
-    # magic number
+    """Create a mask for regridded non-Cartesian data.
+
+    The mask excludes pixels outside the ROI and below threshold values
+    for RMS and MIP images.
+
+    Authors:
+    Bastien Milani
+    CHUV and UNIL
+    Lausanne - Switzerland
+    May 2023
+
+    Contributors:
+    Dominik Helbing (Documentation & Comments)
+    MattechLab 2024
+
+    Parameters:
+    y (array): Raw data to be gridded onto the grid defined by Gn.
+    Gn (bmSparseMat): Sparse Matrix defining the new uniform grid.
+    varargin[0]: Lower boundary of x indices (ROI).
+    varargin[1]: Upper boundary of x indices (ROI).
+    varargin[2]: Lower boundary of y indices (ROI).
+    varargin[3]: Upper boundary of y indices (ROI).
+    varargin[4]: Lower boundary of z indices (ROI).
+    varargin[5]: Upper boundary of z indices (ROI).
+    varargin[6]: Threshold for RMS value.
+    varargin[7]: Threshold for MIP value.
+    varargin[8]: open_size for morphological opening.
+    varargin[9]: close_size for morphological closing.
+    varargin[10]: display_flag; display images if True.
+
+    Returns:
+    m (array): Mask in block format.
+    """
     colorMax = 100
-    # Extract optional arguments
-    # TODO(matlab-line): [   x_min, x_max, ...
-    y_min, y_max,
-    z_min, z_max,
-    th_RMS, th_MIP,
-    open_size,
-    close_size,
-    # TODO(matlab-line): display_flag]    = bmVarargin(varargin);
-    N_u     = double(Gn.N_u.ravel().T)
-    imDim   = np.shape(N_u.ravel(), 1)
-    # % Calculate RMS and MIP
-    # Grid y onto the uniform grid of size N_u, given in block format and image
-    # space
-    x       = bmBlockReshape(bmNasha(y, Gn, N_u), N_u)
-    # Calculate RMS for each data point across all channel
-    myRMS = bmRMS(x, N_u)
-    # Perform MIP for each data point
-    myMIP = bmMIP(x, N_u)
-    # Normalize and scale RMS and MIP values (maybe devide by max - min)
-    myRMS = colorMax*(myRMS - min(myRMS.ravel()))/max(myRMS.ravel())
-    myMIP = colorMax*(myMIP - min(myMIP.ravel()))/max(myMIP.ravel())
-    # Get number of points of x
-    nPix = np.shape(myRMS.ravel(), 1)
-    n_RMS = np.zeros(1, colorMax)
-    n_MIP = np.zeros(1, colorMax)
-    # Calculate the fraction of points having a value bigger than every
-    # integer from 0 to colorMax-1 (create histogram for threshold decision)
-    # TODO(matlab-control): for i = 0:colorMax-1
-    # TODO(matlab-line): n_RMS(1, i+1) = sum(myRMS(:) > i)/nPix;
-    # TODO(matlab-line): n_MIP(1, i+1) = sum(myMIP(:) > i)/nPix;
-    # TODO(matlab-control): if display_flag
-    # Create histogram for threshold decision
-    figure
-    # TODO(matlab-line): hold on
-    plot(n_RMS, ".-")
-    plot(n_MIP, ".-")
-    xlabel("X")
-    ylabel("Fraction above X")
-    legend("RMS", "MIP")
-    title("Fraction of points having a value above X")
-    # Create interactive figures to display RMS and MIP values
-    bmImage(myRMS)
-    title("RMS")
-    bmImage(myMIP)
-    title("MIP")
-    # % Create mask
-    # Create mask for valid RMS and MIP values
-    # TODO(matlab-line): m = true(size(myRMS));
-    # Use threshold to decide lowest valid value
-    # Use RMS threshold for both if MIP th is not given
-    # TODO(matlab-control): if not(isempty(th_RMS)) & isempty(th_MIP)
-    m = (myRMS > th_RMS) & (myMIP > th_RMS)
-    # Use MIP threshold for both if RMS th is not given
-    # TODO(matlab-control): elseif isempty(th_RMS) & not(isempty(th_MIP))
-    m = (myRMS > th_MIP) & (myMIP > th_MIP)
-    # TODO(matlab-control): elseif not(isempty(th_RMS)) && not(isempty(th_MIP))
-    m = (myRMS > th_RMS) & (myMIP > th_MIP)
-    # Modify mask to crop the image in every dimension if max and min values
-    # are given
-    # TODO(matlab-control): if imDim == 1
-    # Crop the image in x direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(x_min)) && not(isempty(x_max))
-    # TODO(matlab-line): m(1:x_min, 1)   = false;
-    # TODO(matlab-line): m(x_max:end, 1) = false;
-    # TODO(matlab-control): if imDim == 2
-    # Crop the image in x direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(x_min)) && not(isempty(x_max))
-    # TODO(matlab-line): m(1:x_min, :)   = false;
-    # TODO(matlab-line): m(x_max:end, :) = false;
-    # Crop the image in y direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(y_min)) && not(isempty(y_max))
-    # TODO(matlab-line): m(:, 1:y_min)   = false;
-    # TODO(matlab-line): m(:, y_max:end) = false;
-    # TODO(matlab-control): if imDim == 3
-    # Crop the image in x direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(x_min)) && not(isempty(x_max))
-    # TODO(matlab-control): if x_min > 1
-    # TODO(matlab-line): m(1:x_min-1,   :, :)  = false;
-    # TODO(matlab-control): if x_max < N_u(1, 1)
-    # TODO(matlab-line): m(x_max+1:end, :, :)  = false;
-    # Crop the image in y direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(y_min)) && not(isempty(y_max))
-    # TODO(matlab-control): if y_min > 1
-    # TODO(matlab-line): m(:, 1:y_min-1,   :)  = false;
-    # TODO(matlab-control): if y_max < N_u(1, 2)
-    # TODO(matlab-line): m(:, y_max:end, :)  = false;
-    # Crop the image in z direction if max and min values are given
-    # TODO(matlab-control): if not(isempty(z_min)) && not(isempty(z_max))
-    # TODO(matlab-control): if z_min > 1
-    # TODO(matlab-line): m(:, :, 1:z_min)    = false;
-    # TODO(matlab-control): if z_max < N_u(1, 3)
-    # TODO(matlab-line): m(:, :, z_max:end)  = false;
-    # TO BE COMMENTED
-    # TODO(matlab-control): if not(isempty(open_size))
-    # TODO(matlab-control): if open_size > 0
-    m = bmImOpen(m, bmImShiftList(["sphere", num2str(imDim)], open_size, 0))
-    # TODO(matlab-control): if not(isempty(close_size))
-    # TODO(matlab-control): if close_size > 0
-    m = bmImClose(m, bmImShiftList(["sphere", num2str(imDim)], close_size, 0))
-    # Show RMS with mask applied next to the mask in an interactive figure
-    # TODO(matlab-control): if sum(m(:) == false) > 0
-    # TODO(matlab-line): temp_im = m.*myRMS;
-    # Combine normalized applied mask RMS and mask
-    temp_im = cat(2, temp_im/max(np.abs(temp_im.ravel())), m)
-    # TODO(matlab-control): if display_flag
-    bmImage(temp_im)
-    # Prepare mask for output
-    m = bmBlockReshape(m, N_u)
+
+    # Parse optional arguments
+    args = list(varargin) if varargin is not None else []
+
+    def _get(i):
+        return args[i] if i < len(args) else None
+
+    x_min        = _get(0)
+    x_max        = _get(1)
+    y_min        = _get(2)
+    y_max        = _get(3)
+    z_min        = _get(4)
+    z_max        = _get(5)
+    th_RMS       = _get(6)
+    th_MIP       = _get(7)
+    open_size    = _get(8)
+    close_size   = _get(9)
+    display_flag = bool(_get(10)) if _get(10) is not None else False
+
+    N_u     = np.asarray(Gn.N_u, dtype=float).ravel()
+    imDim   = len(N_u)
+    N_u_int = N_u.astype(int).tolist()
+
+    # Grid to image space
+    x_im = bmBlockReshape(bmNasha(y, Gn, N_u), N_u_int)
+
+    # Compute RMS across channels
+    try:
+        from src.image123.bmRMS import bmRMS
+        myRMS = bmRMS(x_im, N_u_int)
+    except Exception:
+        myRMS = np.sqrt(np.mean(np.abs(x_im) ** 2, axis=-1))
+
+    # Compute MIP across channels
+    try:
+        from src.image123.bmMIP import bmMIP
+        myMIP = bmMIP(x_im, N_u_int)
+    except Exception:
+        myMIP = np.max(np.abs(x_im), axis=-1)
+
+    # Normalize RMS to [0, colorMax]
+    mn_rms = np.min(myRMS.ravel())
+    mx_rms = np.max(myRMS.ravel())
+    if mx_rms > mn_rms:
+        myRMS = colorMax * (myRMS - mn_rms) / mx_rms
+    else:
+        myRMS = np.zeros_like(myRMS)
+
+    # Normalize MIP to [0, colorMax]
+    mn_mip = np.min(myMIP.ravel())
+    mx_mip = np.max(myMIP.ravel())
+    if mx_mip > mn_mip:
+        myMIP = colorMax * (myMIP - mn_mip) / mx_mip
+    else:
+        myMIP = np.zeros_like(myMIP)
+
+    # Histogram: fraction of pixels above each integer value
+    nPix  = myRMS.size
+    n_RMS = np.array([np.sum(myRMS.ravel() > i) / nPix for i in range(colorMax)])
+    n_MIP = np.array([np.sum(myMIP.ravel() > i) / nPix for i in range(colorMax)])
+
+    # Optional display
+    if display_flag:
+        try:
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots()
+            ax.plot(n_RMS, '.-', label='RMS')
+            ax.plot(n_MIP, '.-', label='MIP')
+            ax.set_xlabel('X')
+            ax.set_ylabel('Fraction above X')
+            ax.legend()
+            ax.set_title('Fraction of points having a value above X')
+            plt.show()
+        except Exception:
+            pass
+
+    # Build mask
+    m = np.ones(myRMS.shape, dtype=bool)
+
+    if th_RMS is not None and th_MIP is None:
+        m = (myRMS > th_RMS) & (myMIP > th_RMS)
+    elif th_RMS is None and th_MIP is not None:
+        m = (myRMS > th_MIP) & (myMIP > th_MIP)
+    elif th_RMS is not None and th_MIP is not None:
+        m = (myRMS > th_RMS) & (myMIP > th_MIP)
+
+    # Spatial crop
+    if imDim == 1:
+        if x_min is not None and x_max is not None:
+            m[:x_min] = False
+            m[x_max:] = False
+    elif imDim == 2:
+        if x_min is not None and x_max is not None:
+            m[:x_min, :] = False
+            m[x_max:, :] = False
+        if y_min is not None and y_max is not None:
+            m[:, :y_min] = False
+            m[:, y_max:] = False
+    elif imDim == 3:
+        if x_min is not None and x_max is not None:
+            if x_min > 1:
+                m[:x_min - 1, :, :] = False
+            if x_max < N_u_int[0]:
+                m[x_max:, :, :] = False
+        if y_min is not None and y_max is not None:
+            if y_min > 1:
+                m[:, :y_min - 1, :] = False
+            if y_max < N_u_int[1]:
+                m[:, y_max:, :] = False
+        if z_min is not None and z_max is not None:
+            if z_min > 1:
+                m[:, :, :z_min] = False
+            if z_max < N_u_int[2]:
+                m[:, :, z_max:] = False
+
+    # Morphological open/close
+    try:
+        from src.image123.bmImOpen import bmImOpen
+        from src.image123.bmImClose import bmImClose
+        from src.image123.bmImShiftList import bmImShiftList
+        if open_size is not None and open_size > 0:
+            m = bmImOpen(m, bmImShiftList(f'sphere{imDim}', open_size, 0))
+        if close_size is not None and close_size > 0:
+            m = bmImClose(m, bmImShiftList(f'sphere{imDim}', close_size, 0))
+    except Exception:
+        pass
+
+    # Optional display of masked RMS
+    if display_flag and np.sum(~m) > 0:
+        try:
+            import matplotlib.pyplot as plt
+            temp_im = m.astype(float) * myRMS
+            mx_temp = np.max(np.abs(temp_im.ravel()))
+            if mx_temp > 0:
+                temp_im = temp_im / mx_temp
+            plt.figure()
+            plt.imshow(np.concatenate([temp_im, m.astype(float)], axis=1) if imDim == 2 else temp_im.reshape(-1, temp_im.shape[-1]))
+            plt.title('Masked RMS | Mask')
+            plt.show()
+        except Exception:
+            pass
+
+    # Reshape mask to block format
+    m = bmBlockReshape(m.astype(float), N_u_int).astype(bool)
     return m

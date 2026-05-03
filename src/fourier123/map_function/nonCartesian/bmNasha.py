@@ -1,5 +1,5 @@
 """
-bmNasha — non-Cartesian → image-space reconstruction via sparse gridding.
+bmNasha - non-Cartesian → image-space reconstruction via sparse gridding.
 
 Port of MATLAB bmNasha.m. Uses bmSparseMatScipy from bmTraj2SparseMat.
 """

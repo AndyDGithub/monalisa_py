@@ -74,7 +74,9 @@
 .pytest_cache/
 pytest-cache-files-*/
 
+__pycache__
 __pycache__/
+/__pycache__/
 
 # ── Porting pipeline generated outputs ────────────────────────────────────────
 

@@ -1,40 +1,50 @@
 import numpy as np
-from src.arrayUtility import bmBlockReshape  # Import bmBlockReshape to resolve ModuleNotFoundError
+
+# Bastien Milani
+# CHUV and UNIL
+# Lausanne - Switzerland
+# May 2023
 
 def bmOverSamplingFactor_for_gpuNUFFT(N_u, n_u):
-    myOsf = []
+    """Compute the oversampling factor for gpu_NUFFT.
 
-    if np.allclose(N_u, n_u):
-        myOsf = 1
-        return myOsf
+    Parameters
+    ----------
+    N_u : array_like
+        Upsampled dimensions.
+    n_u : array_like
+        Original dimensions.
 
-    N_u = N_u.ravel().T
-    n_u = n_u.ravel().T
-    imDim = np.shape(N_u.ravel(), 1)
+    Returns
+    -------
+    float
+        The computed oversampling factor.  A value of 1.0 indicates that th
+the
+        input arrays are already equal and no oversampling is required.
 
-    if imDim == 1:
-        myOsf = N_u[0, 0] / n_u[0, 0]
+    Raises
+    ------
+    ValueError
+        If the input arrays are empty, if the oversampling is not isotropic
+isotropic,
+        or if the dimensionality is greater than 3.
+    """
+    N_u = np.asarray(N_u).ravel()
+    n_u = np.asarray(n_u).ravel()
 
-    elif imDim == 2:
-        myOsf_1 = N_u[0, 0] / n_u[0, 0]
-        myOsf_2 = N_u[0, 1] / n_u[0, 1]
+    # Check for equal arrays (exact MATLAB isequal)
+    if np.array_equal(N_u, n_u):
+        return 1.0
 
-        if not np.isclose(myOsf_1, myOsf_2):
-            raise ValueError("Oversampling for gpu_NUFFT must be isotropic.")
-        else:
-            myOsf = myOsf_1
+    # Dimensionality check (MATLAB size(N_u(:),1))
+    if N_u.size == 0 or n_u.size == 0:
+        raise ValueError("Input arrays must not be empty")
+    if N_u.size > 3:
+        raise ValueError("Oversampling for gpu_NUFFT must be isotropic. ")
 
-    elif imDim == 3:
-        myOsf_1 = N_u[0, 0] / n_u[0, 0]
-        myOsf_2 = N_u[0, 1] / n_u[0, 1]
-        myOsf_3 = N_u[0, 2] / n_u[0, 2]
+    # Compute oversampling factor element-wise
+    myOsf = N_u / n_u
+    if not np.allclose(myOsf, myOsf[0]):
+        raise ValueError("Oversampling for gpu_NUFFT must be isotropic. ")
 
-        if not (np.isclose(myOsf_1, myOsf_2) and np.isclose(myOsf_1, myOsf_3)):
-            raise ValueError("Oversampling for gpu_NUFFT must be isotropic.")
-        else:
-            myOsf = myOsf_1
-
-    if not myOsf:
-        raise ValueError('Problem in "bmOverSamplingFactor_for_gpuNUFFT"')
-
-    return myOsf
+    return float(myOsf[0])

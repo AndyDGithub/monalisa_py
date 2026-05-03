@@ -1,28 +1,50 @@
-from third_part.matlab_compat.matlab_native import double, int32, int64, single, num2str
 import numpy as np
 
-def y(argArray, argDir, argFileName, argType):
+def bmArray2Binary(argArray, argDir, argFileName, argType):
+    """
+    Write array to binary format with header metadata.
+
+    Parameters
+    ----------
+    argArray : array_like
+        Input array to be written.
+    argDir : str
+        Directory where the files will be stored.
+    argFileName : str
+        Base name for the files (without extension).
+    argType : str
+        Target numeric type: 'double', 'int', 'int64', or 'single'.
+
+    Returns
+    -------
+    None
+    """
+    # Convert the input array to the requested MATLAB-like type
     if argType == 'double':
-        argArray = double(argArray)
-        myType = "double"
+        argArray = np.asarray(argArray, dtype=np.float64)
+        myType = 'double'
     elif argType == 'int':
-        argArray = int32(argArray)
-        myType = "int"
+        argArray = np.asarray(argArray, dtype=np.int32)
+        myType = 'int'
     elif argType == 'int64':
-        argArray = int64(argArray)
-        myType = "int64"
+        argArray = np.asarray(argArray, dtype=np.int64)
+        myType = 'int64'
     elif argType == 'single':
-        argArray = single(argArray)
-        myType = "float"
+        argArray = np.asarray(argArray, dtype=np.float32)
+        myType = 'float'
     else:
         raise ValueError("Type is unknown")
 
-    myFileNameH = strcat(argFileName, ".hdat")
-    myFileNameD = strcat(argFileName, ".dat")
-    myFile = strcat(argDir, "/", myFileNameH)
-    myNdims  = np.ndim(argArray)
-    mySize   = np.shape(argArray)
-    myLength = len(argArray.ravel().T)
+    # File names
+    myFileNameH = f"{argFileName}.hdat"
+    myFileNameD = f"{argFileName}.dat"
+    header_path = f"{argDir}/{myFileNameH}"
+    data_path = f"{argDir}/{myFileNameD}"
+
+    # Header information
+    myNdims = np.ndim(argArray)
+    mySize = np.shape(argArray)
+    myLength = argArray.size
 
     if myType == 'int':
         myOctetNum = 4
@@ -33,26 +55,21 @@ def y(argArray, argDir, argFileName, argType):
     elif myType == 'float':
         myOctetNum = 4
 
-    myNdims_string = num2str(myNdims)
-    mySize_string = " ".join([num2str(size_) for size_ in mySize])
-    myLength_string = num2str(myLength)
-    myOctetNum_string = num2str(myOctetNum)
+    myNdims_string = str(myNdims)
+    mySize_string = " ".join(str(dim) for dim in mySize)
+    myLength_string = str(myLength)
+    myOctetNum_string = str(myOctetNum)
 
-    if myType == 'int64':
-        myType_string = "longlong"
-    else:
-        myType_string = myType
+    myType_string = "longlong" if myType == "int64" else myType
 
-    dlmwrite(myFile, myNdims_string,                "delimiter", "", "newline","pc")
-    dlmwrite(myFile, mySize_string,      "-append", "delimiter", "", "newline","pc")
-    dlmwrite(myFile, myLength_string,    "-append", "delimiter", "", "newline","pc")
-    dlmwrite(myFile, myType_string,      "-append", "delimiter", "", "newline","pc")
-    dlmwrite(myFile, myOctetNum_string,  "-append", "delimiter", "", "newline","pc")
+    # Write header file
+    with open(header_path, "w", newline="") as f:
+        f.write(f"{myNdims_string}\n")
+        f.write(f"{mySize_string}\n")
+        f.write(f"{myLength_string}\n")
+        f.write(f"{myType_string}\n")
+        f.write(f"{myOctetNum_string}\n")
 
-    myFile = strcat(argDir, "/", myFileNameD)
-    myFileStream = fopen(myFile, "w")
-    fwrite(myFileStream, argArray, myType)
-    fclose(myFileStream)
-
-def bmArray2Binary(argArray, argDir, argFileName, argType):
-    return y(argArray, argDir, argFileName, argType)
+    # Write binary data file
+    with open(data_path, "wb") as f:
+        f.write(argArray.tobytes())

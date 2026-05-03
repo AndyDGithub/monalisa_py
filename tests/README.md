@@ -1,78 +1,78 @@
-# 🧪 Unit Tests for This Project
+# Unit Tests
 
-This folder contains all **unit tests** for the project. Unit testing helps us catch bugs early, ensure code behaves as expected, and enables safe, confident refactoring.
+This folder contains all **unit tests** for the Python port of Monalisa, using **pytest**.
 
 ---
 
-## 📌 Good Practices for Writing Tests
+## Good Practices for Writing Tests
 
-- Group tests for the **same function or component** into the **same test file** (class).
+- Group tests for the same function into the same test file.
 - A test file should ideally not exceed **200–300 lines**.
-- **Write meaningful failure messages** (e.g., use `verifyEqual(a, b, "a should match b because...")`).
-- **Comment your tests** to explain **what you're testing and why**.
-- **Use clear naming**: test methods should describe the behavior being verified (e.g., `testHandlesEmptyInput`).
-- **Make light tests**: tests are supposed to be light and fast, really fast.
-- **Before pushing to main new tests**: test your tests on the ci-testing branch.
+- Write meaningful assertion messages.
+- Comment tests to explain **what** is being tested and **why**.
+- Use clear naming: test functions should describe the behavior being verified (e.g., `test_handles_empty_input`).
+- Keep tests **fast**: avoid large data or heavy computation in unit tests.
+- Before pushing new tests to `main`, verify them on the `ci-testing` branch.
 
 ---
 
-## ✍️ How to Write a New Test
+## How to Write a New Test
 
-Create a new file in this folder (e.g., `TestMyFunction.m`) using the following structure:
+Create a new file in this folder (e.g., `test_my_function.py`) using the following structure:
 
-```matlab
-classdef TestMyFunction < matlab.unittest.TestCase
-    % TestMyFunction - Unit tests for the myFunction utility
+```python
+import numpy as np
+import pytest
+from src.my_module.my_function import my_function
 
-    methods (Test)
-        function testBasicCase(testCase)
-            % This test verifies that myFunction behaves correctly on a basic input.
-            input = 3;
-            actual = myFunction(input);
-            expected = 9;
-            testCase.verifyEqual(actual, expected, ...
-                "myFunction(3) should return 9 (3 squared)");
-        end
-    end
-end
+
+def test_basic_case():
+    """my_function(3) should return 9 (3 squared)."""
+    result = my_function(3)
+    assert result == 9, f"Expected 9, got {result}"
 ```
 
-The file name and class name must match exactly (including capitalization).
-Every test method inside the class should be a small, independent test case.
-Use assertions like:
-verifyEqual(a, b)
-verifyTrue(condition)
-verifyError(@() code, 'ErrorID')
-For more, see the MATLAB Unit Test documentation at:
-https://www.mathworks.com/help/matlab/matlab-unit-test-framework.html
+File names must start with `test_` and function names must also start with `test_`.
 
-# ▶️ How to Run the Tests Locally (to test you tests)
+Use pytest assertions:
+```python
+assert a == b
+assert condition
+with pytest.raises(ValueError):
+    code_that_should_raise()
+```
 
-From within this folder, run:
+For more, see the [pytest documentation](https://docs.pytest.org/).
 
-run_all_tests
+---
 
-This will automatically:
+## How to Run the Tests Locally
 
-- Discover all test classes in the folder (and subfolders).
-- Display detailed results including test names, outcomes, and execution time.
+From the `monalisa_py/` directory:
 
-# 📂 Summary
+```bash
+# Run all tests
+python -m pytest tests/ -v --tb=short
 
-run_all_tests.m: Script to run all tests with detailed output.
-TestExample.m: A minimal example test — feel free to copy it as a starting point.
-Your own test files go here (e.g., TestSignalProcessing.m, TestImportData.m, etc.)
-If you're unsure where to start, copy TestExample.m, rename it, and modify it to test your own function.
+# Run a specific test file
+python -m pytest tests/test_my_function.py -v
 
-# Advanced Information / Something went wrong in Deployment?
-When you want to test tests, you should not do it on the main branch. Use the brach named ci-testing made for that. Whenever you push to that brach or to main, test will be run on a cloud server using a GitHub action workflow. You can see the test workflow under .github/workflows/matlab-unit-tests.yml. 
+# Run tests matching a keyword
+python -m pytest tests/ -k "fourier" -v
+```
 
-As you can see in the GitHub actions workflow, we are using actions to run matlab tests:
+---
 
-- name: Run Tests
-    uses: matlab-actions/run-tests@v2 # In theory this triggers all tests in the /tests folder
-    with:
-        source-folder: tests
-        select-by-folder: tests
+## Summary
 
-All the information about this GitHub Action is here https://github.com/marketplace/actions/run-matlab-tests. 
+| File | Purpose |
+|------|---------|
+| `test_*.py` | Your test files go here |
+
+If you are unsure where to start, find an existing `test_*.py` file, copy it, rename it, and modify it to test your own function.
+
+---
+
+## CI / GitHub Actions
+
+When you push to `main` or `ci-testing`, tests are run automatically via GitHub Actions. See `.github/workflows/python-tests.yml`.

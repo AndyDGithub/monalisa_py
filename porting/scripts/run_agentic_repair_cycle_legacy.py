@@ -92,6 +92,7 @@ SUCCESS_EXAMPLES_CACHE: str | None = None
 _TARGET_TEST_INDEX_CACHE: dict[str, Any] = {"signature": None, "index": {}}
 _PER_FILE_PYTEST_CACHE: dict[tuple[Any, ...], tuple[bool, str]] = {}
 _QUICK_QUALITY_CACHE: dict[tuple[str, int, int], list[str]] = {}
+_PROJECT_MODULE_BASENAME_CACHE: dict[str, set[str]] = {}
 
 # Matches ANSI/VT escape sequences (color codes, cursor movement, etc.)
 # that some Ollama models (e.g. granite) embed in their output.
@@ -107,6 +108,25 @@ def _strip_ansi(text: str) -> str:
 
 def _ollama_cli_available() -> bool:
     return shutil.which("ollama") is not None
+
+
+def _build_ollama_env(
+    *,
+    ollama_host: str,
+    ollama_num_parallel: int,
+    ollama_max_loaded_models: int,
+    ollama_max_queue: int,
+) -> dict[str, str]:
+    env = dict(os.environ)
+    if str(ollama_host or "").strip():
+        env["OLLAMA_HOST"] = str(ollama_host).strip()
+    if int(ollama_num_parallel or 0) > 0:
+        env["OLLAMA_NUM_PARALLEL"] = str(int(ollama_num_parallel))
+    if int(ollama_max_loaded_models or 0) > 0:
+        env["OLLAMA_MAX_LOADED_MODELS"] = str(int(ollama_max_loaded_models))
+    if int(ollama_max_queue or 0) > 0:
+        env["OLLAMA_MAX_QUEUE"] = str(int(ollama_max_queue))
+    return env
 
 
 def _file_has_matlab_todo_markers(path: Path) -> bool:
@@ -224,6 +244,127 @@ def _load_success_examples_context(repo_root: Path) -> str:
     return SUCCESS_EXAMPLES_CACHE
 
 
+def _load_file_retry_memory_context(
+    *,
+    repo_root: Path,
+    target_py: Path,
+    runtime_events: list[dict[str, Any]],
+    max_chars: int = 2400,
+) -> str:
+    """Build compact per-file memory (recent runtime attempts + change-log events)."""
+    chunks: list[str] = []
+    if runtime_events:
+        recent_runtime = runtime_events[-6:]
+        lines = ["Runtime attempts in this run (most recent last):"]
+        for item in recent_runtime:
+            reason = str(item.get("reason", "")).strip() or "<unknown>"
+            model = str(item.get("model", "")).strip() or "<unknown>"
+            attempt = item.get("attempt")
+            elapsed = item.get("llm_elapsed_seconds")
+            lines.append(
+                f"- attempt={attempt} model={model} reason={reason} llm_elapsed={elapsed}"
+            )
+        chunks.append("\n".join(lines))
+
+    change_log = repo_root / "porting" / "logs" / "change_log.jsonl"
+    if change_log.exists():
+        try:
+            rows = change_log.read_text(encoding="utf-8", errors="ignore").splitlines()
+        except OSError:
+            rows = []
+        target_str = str(target_py.resolve())
+        target_name = target_py.name
+        matched: list[str] = []
+        for raw in reversed(rows[-4000:]):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                payload = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            file_value = str(payload.get("file", "")).strip()
+            if not file_value:
+                continue
+            if file_value != target_str and Path(file_value).name != target_name:
+                continue
+            event_type = str(payload.get("event", "")).strip() or "event"
+            details = payload.get("details", {}) if isinstance(payload.get("details"), dict) else {}
+            reviewer = str(details.get("reviewer_verdict", "")).strip()
+            why = str(details.get("why", "")).strip()
+            snippet = f"- {event_type}"
+            if reviewer:
+                snippet += f" reviewer={reviewer}"
+            if why:
+                snippet += f" why={why[:220]}"
+            matched.append(snippet)
+            if len(matched) >= 6:
+                break
+        if matched:
+            chunks.append("Recent change-log events for this file:\n" + "\n".join(matched))
+
+    if not chunks:
+        return ""
+    text = "\n\n".join(chunks).strip()
+    if max_chars > 0 and len(text) > max_chars:
+        return text[-max_chars:]
+    return text
+
+
+def _retry_memory_dir(repo_root: Path) -> Path:
+    return repo_root / "porting" / "logs" / "retry_memory"
+
+
+def _retry_memory_file_for_target(repo_root: Path, target_py: Path) -> Path:
+    target_key = str(target_py.resolve()).replace("\\", "/").lower()
+    digest = hashlib.sha1(target_key.encode("utf-8")).hexdigest()[:16]
+    return _retry_memory_dir(repo_root) / f"{target_py.stem}_{digest}.json"
+
+
+def _load_persistent_retry_memory(repo_root: Path, target_py: Path) -> list[dict[str, Any]]:
+    path = _retry_memory_file_for_target(repo_root, target_py)
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return []
+    if not isinstance(payload, dict):
+        return []
+    events = payload.get("events", [])
+    if not isinstance(events, list):
+        return []
+    out: list[dict[str, Any]] = []
+    for item in events:
+        if isinstance(item, dict):
+            out.append(item)
+    return out[-60:]
+
+
+def _save_persistent_retry_memory(
+    repo_root: Path,
+    target_py: Path,
+    events: list[dict[str, Any]],
+) -> None:
+    path = _retry_memory_file_for_target(repo_root, target_py)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "target": str(target_py.resolve()),
+        "updated_at": datetime.now(tz=timezone.utc).isoformat(),
+        "events": events[-60:],
+    }
+    tmp = path.with_suffix(path.suffix + f".tmp.{os.getpid()}")
+    try:
+        tmp.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        os.replace(tmp, path)
+    except OSError:
+        try:
+            if tmp.exists():
+                tmp.unlink()
+        except OSError:
+            pass
+
+
 @dataclass
 class CommandResult:
     command: list[str]
@@ -250,6 +391,7 @@ def _run_command(
     heartbeat_seconds: int,
     stream_output: bool,
     hard_timeout_seconds: int | None = None,
+    env: dict[str, str] | None = None,
 ) -> CommandResult:
     t0 = time.perf_counter()
     logger.info("START %s", step_name)
@@ -259,6 +401,7 @@ def _run_command(
         proc = subprocess.Popen(
             cmd,
             cwd=str(cwd),
+            env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -305,7 +448,7 @@ def _run_command(
             now = time.perf_counter()
             elapsed = now - t0
             if now - last_heartbeat >= max(1, heartbeat_seconds):
-                logger.info("... %s still running (%.1fs)", step_name, elapsed)
+                # logger.info("... %s still running (%.1fs)", step_name, elapsed)
                 last_heartbeat = now
 
             if hard_timeout_seconds and elapsed >= max(1, hard_timeout_seconds):
@@ -328,6 +471,7 @@ def _run_command(
         proc = subprocess.Popen(
             cmd,
             cwd=str(cwd),
+            env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
@@ -340,7 +484,7 @@ def _run_command(
                 break
             except subprocess.TimeoutExpired:
                 elapsed = time.perf_counter() - t0
-                logger.info("... %s still running (%.1fs)", step_name, elapsed)
+                # logger.info("... %s still running (%.1fs)", step_name, elapsed)
                 if hard_timeout_seconds and elapsed >= max(1, hard_timeout_seconds):
                     proc.kill()
                     stdout_text, stderr_text = proc.communicate()
@@ -387,10 +531,11 @@ def _normalize_model_name(model: str) -> str:
     return aliases.get(normalized, normalized)
 
 
-def _list_local_ollama_models(timeout_seconds: int = 10) -> list[str]:
+def _list_local_ollama_models(timeout_seconds: int = 10, *, env: dict[str, str] | None = None) -> list[str]:
     try:
         proc = subprocess.run(
             ["ollama", "list"],
+            env=env,
             capture_output=True,
             text=True,
             check=False,
@@ -422,6 +567,7 @@ def _pull_ollama_model(
     stream_output: bool,
     *,
     hard_timeout_seconds: int = 900,
+    env: dict[str, str] | None = None,
 ) -> bool:
     pull_run = _run_command(
         ["ollama", "pull", model],
@@ -430,6 +576,7 @@ def _pull_ollama_model(
         heartbeat_seconds=heartbeat_seconds,
         stream_output=stream_output,
         hard_timeout_seconds=max(60, int(hard_timeout_seconds)),
+        env=env,
     )
     return pull_run.returncode == 0
 
@@ -443,6 +590,7 @@ def _resolve_model_for_run(
     *,
     ollama_list_timeout_seconds: int = 10,
     ollama_pull_timeout_seconds: int = 900,
+    ollama_env: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     normalized = _normalize_model_name(requested_model)
     fallback_normalized = _normalize_model_name(fallback_model)
@@ -450,7 +598,7 @@ def _resolve_model_for_run(
     pull_timeout = max(60, int(ollama_pull_timeout_seconds))
 
     def _refresh_local_models() -> list[str]:
-        return _list_local_ollama_models(timeout_seconds=list_timeout)
+        return _list_local_ollama_models(timeout_seconds=list_timeout, env=ollama_env)
 
     local_models = _refresh_local_models()
     details: dict[str, Any] = {
@@ -476,6 +624,7 @@ def _resolve_model_for_run(
             heartbeat_seconds,
             stream_subprocess_logs,
             hard_timeout_seconds=pull_timeout,
+            env=ollama_env,
         ):
             details["pulled_models"].append(normalized)
             local_after_pull = _refresh_local_models()
@@ -499,6 +648,7 @@ def _resolve_model_for_run(
             heartbeat_seconds,
             stream_subprocess_logs,
             hard_timeout_seconds=pull_timeout,
+            env=ollama_env,
         ):
             details["pulled_models"].append(fallback_normalized)
             local_after_pull = _refresh_local_models()
@@ -841,6 +991,9 @@ def _effective_llm_timeout_seconds(
     than copying a plain Python line.  Empirically, a 200-line file with 20 TODOs
     ran for ~15 min on gpt-oss:20b; this formula targets that upper end.
     """
+    if fallback_timeout <= 0:
+        # 0 or negative means "no timeout" requested.
+        return 0
     if not dynamic_enabled:
         return max(1, fallback_timeout)
 
@@ -1170,6 +1323,7 @@ def _repair_prompt(
     runtime_semantics_context: str,
     project_imports_context: str = "",
     extra_instruction: str = "",
+    file_retry_memory_context: str = "",
 ) -> str:
     matlab_help_section = f"\nMATLAB help snippets:\n{matlab_help_context}\n" if matlab_help_context else ""
     translation_examples_section = (
@@ -1192,6 +1346,11 @@ def _repair_prompt(
         if extra_instruction
         else ""
     )
+    retry_memory_section = (
+        f"\nPer-file retry memory (what was already tried / failed):\n{file_retry_memory_context}\n"
+        if file_retry_memory_context
+        else ""
+    )
     return f"""You are repairing a MATLAB-to-Python translated scientific function.
 
 Rules:
@@ -1202,7 +1361,7 @@ Rules:
 - Must compile on Python 3.13.
 - Prefer small, safe fixes focused on failing tests/error context.
 - CRITICAL: If a function is listed in "Project functions already ported" below, write an import statement for it — do NOT copy-paste or redefine its body in this file.
-{extra_section}{project_imports_section}{runtime_semantics_section}
+{extra_section}{retry_memory_section}{project_imports_section}{runtime_semantics_section}
 {translation_examples_section}
 Target file:
 {target_py}
@@ -1644,7 +1803,22 @@ _IMPORT_ERROR_RE = re.compile(
 )
 
 
-def _is_cascade_failure(target_py: Path, test_output: str) -> tuple[bool, str]:
+def _project_module_basenames(src_root: Path, repo_root: Path) -> set[str]:
+    key = str(src_root.resolve()).lower()
+    cached = _PROJECT_MODULE_BASENAME_CACHE.get(key)
+    if cached is not None:
+        return cached
+    basenames: set[str] = set()
+    for candidate_root in (src_root, repo_root / "third_part"):
+        if not candidate_root.exists():
+            continue
+        for py_file in candidate_root.rglob("*.py"):
+            basenames.add(py_file.stem.lower())
+    _PROJECT_MODULE_BASENAME_CACHE[key] = basenames
+    return basenames
+
+
+def _is_cascade_failure(target_py: Path, test_output: str, src_root: Path, repo_root: Path) -> tuple[bool, str]:
     """Return (True, broken_name) when test output shows an import error from a dependency.
 
     A *cascade* failure is one where the ImportError refers to a module OTHER than the
@@ -1652,10 +1826,18 @@ def _is_cascade_failure(target_py: Path, test_output: str) -> tuple[bool, str]:
     broken, not because the target's own code is broken.
     """
     target_module = target_py.stem
+    project_modules = _project_module_basenames(src_root, repo_root)
     for m in _IMPORT_ERROR_RE.finditer(test_output):
         broken = m.group(1) or m.group(2) or ""
         broken_base = broken.split(".")[-1]
-        if broken_base and broken_base != target_module:
+        broken_base_l = broken_base.lower()
+        # Cascade only for broken dependencies that are part of this repository.
+        # External libs (e.g. skimage, scipy) should not suppress target repair.
+        if (
+            broken_base_l
+            and broken_base_l != target_module.lower()
+            and broken_base_l in project_modules
+        ):
             return True, broken_base
     return False, ""
 
@@ -1668,11 +1850,15 @@ def _try_repair_file_with_llm(
     repo_root: Path,
     failure_context: str,
     max_context_chars: int,
+    max_context_hard_cap: int,
     llm_timeout_seconds: int,
+    ollama_env: dict[str, str],
+    ollama_host: str,
     enable_matlab_help: bool,
     matlab_help_max_functions: int,
     matlab_help_timeout_seconds: int,
     extra_instruction: str = "",
+    file_retry_memory_context: str = "",
 ) -> dict[str, Any]:
     matlab_peer = _matlab_peer_for_python(target_py, src_root)
     full_matlab_source = ""
@@ -1680,67 +1866,135 @@ def _try_repair_file_with_llm(
         full_matlab_source = matlab_peer.read_text(encoding="ISO-8859-1", errors="ignore")
     python_source = target_py.read_text(encoding="utf-8", errors="ignore")
 
-    # Keep prompt bounded.
-    matlab_source = _truncate_middle(full_matlab_source, max_context_chars)
-    python_source = _truncate_middle(python_source, max_context_chars)
-    if len(failure_context) > max_context_chars:
-        failure_context = failure_context[-max_context_chars:]
+    # Keep prompt bounded, but avoid aggressive truncation for large source files.
+    # We scale context per target so long modules can be seen more fully.
+    largest_source_chars = max(len(full_matlab_source), len(python_source))
+    hard_cap = max(int(max_context_chars), int(max_context_hard_cap or 0))
+    effective_context_chars = max(
+        int(max_context_chars),
+        min(hard_cap, largest_source_chars + 8000),
+    )
+    matlab_source = _truncate_middle(full_matlab_source, effective_context_chars)
+    python_source = _truncate_middle(python_source, effective_context_chars)
+    if len(failure_context) > effective_context_chars:
+        failure_context = failure_context[-effective_context_chars:]
 
     matlab_help_context = _build_matlab_help_context(
         python_source,
         enabled=enable_matlab_help,
         max_functions=matlab_help_max_functions,
         timeout_seconds=matlab_help_timeout_seconds,
-        max_chars=max_context_chars // 2 if max_context_chars > 0 else 2000,
+        max_chars=effective_context_chars // 2 if effective_context_chars > 0 else 2000,
     )
     project_imports_context = _build_project_imports_context(
         target_py,
         repo_root,
         max_items=20,
-        max_chars=max_context_chars // 3 if max_context_chars > 0 else 1500,
+        max_chars=effective_context_chars // 3 if effective_context_chars > 0 else 1500,
     )
     runtime_semantics_context = _matlab_runtime_semantics_context(full_matlab_source)
+    translation_examples_context = _load_translation_examples_context(
+        repo_root,
+        max_chars=effective_context_chars // 2 if effective_context_chars > 0 else 3000,
+    )
     prompt = _repair_prompt(
         target_py=target_py,
         matlab_source=matlab_source,
         python_source=python_source,
         failure_context=failure_context,
         matlab_help_context=matlab_help_context,
-        translation_examples_context=_load_translation_examples_context(
-            repo_root,
-            max_chars=max_context_chars // 2 if max_context_chars > 0 else 3000,
-        ),
+        translation_examples_context=translation_examples_context,
         runtime_semantics_context=runtime_semantics_context,
         project_imports_context=project_imports_context,
         extra_instruction=extra_instruction,
+        file_retry_memory_context=file_retry_memory_context,
+    )
+    prompt_meta = {
+        "target": str(target_py),
+        "effective_context_chars": effective_context_chars,
+        "matlab_source_chars": len(matlab_source),
+        "python_source_chars": len(python_source),
+        "failure_context_chars": len(failure_context),
+        "matlab_help_chars": len(matlab_help_context),
+        "translation_examples_chars": len(translation_examples_context),
+        "runtime_semantics_chars": len(runtime_semantics_context),
+        "project_imports_chars": len(project_imports_context),
+        "extra_instruction_chars": len(extra_instruction),
+        "file_retry_memory_chars": len(file_retry_memory_context),
+        "full_prompt_chars": len(prompt),
+    }
+    logger.info(
+        "LLM input summary target=%s prompt_chars=%s (matlab=%s python=%s failure=%s help=%s examples=%s imports=%s runtime=%s extra=%s memory=%s)",
+        target_py.name,
+        prompt_meta["full_prompt_chars"],
+        prompt_meta["matlab_source_chars"],
+        prompt_meta["python_source_chars"],
+        prompt_meta["failure_context_chars"],
+        prompt_meta["matlab_help_chars"],
+        prompt_meta["translation_examples_chars"],
+        prompt_meta["project_imports_chars"],
+        prompt_meta["runtime_semantics_chars"],
+        prompt_meta["extra_instruction_chars"],
+        prompt_meta["file_retry_memory_chars"],
     )
 
     llm_started = time.perf_counter()
     try:
-        cli = subprocess.run(
+        proc = subprocess.Popen(
             ["ollama", "run", model],
-            input=prompt,
-            capture_output=True,
+            env=ollama_env,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             encoding="utf-8",
             errors="replace",
-            check=False,
-            timeout=max(1, llm_timeout_seconds),
         )
-        if cli.returncode != 0:
+        assert proc.stdin is not None
+        proc.stdin.write(prompt)
+        proc.stdin.close()
+        timeout_s = None if llm_timeout_seconds <= 0 else max(1, llm_timeout_seconds)
+        while True:
+            try:
+                stdout_text, stderr_text = proc.communicate(timeout=20)
+                break
+            except subprocess.TimeoutExpired:
+                elapsed = time.perf_counter() - llm_started
+                logger.info(
+                    "LLM still running target=%s model=%s elapsed=%.1fs timeout=%s",
+                    target_py.name,
+                    model,
+                    elapsed,
+                    "disabled" if timeout_s is None else f"{timeout_s}s",
+                )
+                if timeout_s is not None and elapsed >= timeout_s:
+                    proc.kill()
+                    proc.communicate()
+                    return {
+                        "target": str(target_py),
+                        "applied": False,
+                        "reason": f"llm_timeout: {llm_timeout_seconds}s",
+                        "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+                        "prompt_meta": prompt_meta,
+                    }
+
+        if proc.returncode != 0:
             return {
                 "target": str(target_py),
                 "applied": False,
-                "reason": f"llm_cli_error: rc={cli.returncode}",
+                "reason": f"llm_cli_error: rc={proc.returncode}",
                 "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+                "stderr_tail": str(stderr_text or "")[-1500:],
+                "prompt_meta": prompt_meta,
             }
-        content = _strip_ansi((cli.stdout or "").strip())
+        content = _strip_ansi((stdout_text or "").strip())
     except subprocess.TimeoutExpired:
         return {
             "target": str(target_py),
             "applied": False,
             "reason": f"llm_timeout: {llm_timeout_seconds}s",
             "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+            "prompt_meta": prompt_meta,
         }
     except OSError:
         if ChatOllama is None:
@@ -1749,18 +2003,31 @@ def _try_repair_file_with_llm(
                 "applied": False,
                 "reason": "ollama_cli_unavailable_and_langchain_missing",
                 "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+                "prompt_meta": prompt_meta,
             }
         try:
-            llm = ChatOllama(model=model, validate_model_on_init=True, temperature=0, streaming=True)
+            llm_kwargs: dict[str, Any] = {
+                "model": model,
+                "validate_model_on_init": True,
+                "temperature": 0,
+                "streaming": True,
+            }
+            if str(ollama_host or "").strip():
+                llm_kwargs["base_url"] = str(ollama_host).strip()
+            llm = ChatOllama(**llm_kwargs)
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
                 future = pool.submit(llm.invoke, prompt)
-                result = future.result(timeout=max(1, llm_timeout_seconds))
+                if llm_timeout_seconds <= 0:
+                    result = future.result()
+                else:
+                    result = future.result(timeout=max(1, llm_timeout_seconds))
         except concurrent.futures.TimeoutError:
             return {
                 "target": str(target_py),
                 "applied": False,
                 "reason": f"llm_timeout: {llm_timeout_seconds}s",
                 "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+                "prompt_meta": prompt_meta,
             }
         except Exception as exc:  # noqa: BLE001
             logger.error("LLM Repair Error for %s: %s", target_py, exc)
@@ -1769,6 +2036,7 @@ def _try_repair_file_with_llm(
                 "applied": False,
                 "reason": f"llm_invoke_error: {exc}",
                 "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+                "prompt_meta": prompt_meta,
             }
         content_obj = getattr(result, "content", result)
         if isinstance(content_obj, list):
@@ -1806,6 +2074,7 @@ def _try_repair_file_with_llm(
                 else "empty_model_output"
             ),
             "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+            "prompt_meta": prompt_meta,
         }
 
     if _is_nontrivial_matlab_source(full_matlab_source) and _looks_like_placeholder_output(candidate_code):
@@ -1814,6 +2083,7 @@ def _try_repair_file_with_llm(
             "applied": False,
             "reason": "candidate_rejected_placeholder",
             "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+            "prompt_meta": prompt_meta,
         }
 
     expected_name = target_py.stem
@@ -1827,6 +2097,7 @@ def _try_repair_file_with_llm(
             "applied": False,
             "reason": f"candidate_missing_entrypoint:{expected_name}",
             "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+            "prompt_meta": prompt_meta,
         }
 
     old = target_py.read_text(encoding="utf-8", errors="ignore")
@@ -1836,6 +2107,7 @@ def _try_repair_file_with_llm(
             "applied": False,
             "reason": "no_change",
             "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+            "prompt_meta": prompt_meta,
         }
 
     target_py.write_text(candidate_code + "\n", encoding="utf-8")
@@ -1844,6 +2116,7 @@ def _try_repair_file_with_llm(
         "applied": True,
         "reason": "patched_by_llm",
         "llm_elapsed_seconds": round(time.perf_counter() - llm_started, 2),
+        "prompt_meta": prompt_meta,
     }
 
 
@@ -1858,6 +2131,7 @@ def run_cycle(
     max_files_per_iteration: int,
     repair_all_candidates: bool,
     max_context_chars: int,
+    max_context_hard_cap: int,
     dynamic_llm_timeout: bool,
     dynamic_timeout_base_seconds: int,
     dynamic_timeout_per_line_seconds: int,
@@ -1876,6 +2150,11 @@ def run_cycle(
     heartbeat_seconds: int,
     stream_subprocess_logs: bool,
     llm_timeout_seconds: int,
+    disable_llm_timeout: bool,
+    ollama_host: str,
+    ollama_num_parallel: int,
+    ollama_max_loaded_models: int,
+    ollama_max_queue: int,
     failure_context_max_lines: int,
     per_file_pytest_timeout_seconds: int,
     enable_matlab_help: bool,
@@ -1902,6 +2181,12 @@ def run_cycle(
     else:
         requirements_path = requirements_path.resolve()
     sync_env_state_path = requirements_path.with_suffix(requirements_path.suffix + ".sync_state.json")
+    ollama_env = _build_ollama_env(
+        ollama_host=ollama_host,
+        ollama_num_parallel=ollama_num_parallel,
+        ollama_max_loaded_models=ollama_max_loaded_models,
+        ollama_max_queue=ollama_max_queue,
+    )
     roots_tokens = [token.strip() for token in roots.split(",") if token.strip()]
     analysis_roots_tokens = list(roots_tokens) if roots_tokens else ["src"]
     if "third_part" not in analysis_roots_tokens:
@@ -1915,6 +2200,7 @@ def run_cycle(
 
     iterations: list[dict[str, Any]] = []
     finished_reason = "max_iterations_reached"
+    file_attempt_memory: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
     for iteration in range(1, max_iterations + 1):
         step: dict[str, Any] = {"iteration": iteration}
@@ -2364,9 +2650,10 @@ def run_cycle(
                 "iteration": iteration,
             }
         for target in candidate_targets:
+            timeout_fallback = 0 if disable_llm_timeout else llm_timeout_seconds
             target_timeout = _effective_llm_timeout_seconds(
                 target_py=target,
-                fallback_timeout=llm_timeout_seconds,
+                fallback_timeout=timeout_fallback,
                 dynamic_enabled=dynamic_llm_timeout,
                 base_seconds=dynamic_timeout_base_seconds,
                 per_line_seconds=dynamic_timeout_per_line_seconds,
@@ -2482,7 +2769,7 @@ def run_cycle(
                 )
 
             # --- Cascade-failure detection: broken dep → fix dep first ---
-            cascade, broken_dep = _is_cascade_failure(target, per_file_out)
+            cascade, broken_dep = _is_cascade_failure(target, per_file_out, src_root, repo_root)
             if cascade:
                 _record_repair_result({
                     "target": str(target),
@@ -2526,13 +2813,19 @@ def run_cycle(
                 repo_root=repo_root,
                 failure_context=failure_context,
                 max_context_chars=max_context_chars,
+                max_context_hard_cap=max_context_hard_cap,
                 llm_timeout_seconds=target_timeout,
+                ollama_env=ollama_env,
+                ollama_host=ollama_host,
                 enable_matlab_help=enable_matlab_help,
                 matlab_help_max_functions=matlab_help_max_functions,
                 matlab_help_timeout_seconds=matlab_help_timeout_seconds,
             )
             repair: dict[str, Any] = {}
             applied = False
+            target_key = str(target.resolve())
+            persistent_events = _load_persistent_retry_memory(repo_root, target)
+            attempt_memory_events = list(persistent_events) + list(file_attempt_memory.get(target_key, []))
             base_parts = [
                 _quality_cleanup_instruction(effective_quality_blockers),
                 _retry_feedback_instruction(retry_feedback),
@@ -2541,8 +2834,17 @@ def run_cycle(
             extra_instruction = base_extra_instruction
             
             for attempt in range(1, main_model_retries + 1):
+                file_retry_memory_context = _load_file_retry_memory_context(
+                    repo_root=repo_root,
+                    target_py=target,
+                    runtime_events=attempt_memory_events,
+                    max_chars=max(900, max_context_chars // 2),
+                )
                 repair = _try_repair_file_with_llm(  # type: ignore[arg-type]
-                    model=model, extra_instruction=extra_instruction, **llm_kwargs
+                    model=model,
+                    extra_instruction=extra_instruction,
+                    file_retry_memory_context=file_retry_memory_context,
+                    **llm_kwargs,
                 )
                 reason = str(repair.get("reason", ""))
                 repair["attempt"] = attempt
@@ -2554,12 +2856,21 @@ def run_cycle(
                     "Main model attempt %s/%s for %s: reason=%s",
                     attempt, main_model_retries, target.name, reason,
                 )
+                attempt_memory_events.append(
+                    {
+                        "attempt": attempt,
+                        "model": model,
+                        "reason": reason,
+                        "applied": False,
+                        "llm_elapsed_seconds": repair.get("llm_elapsed_seconds"),
+                    }
+                )
                 # Retrying won't help for timeout/env errors or no_change
                 if (
                     reason.startswith("llm_timeout")
                     or reason.startswith("llm_cli_error")
                     or reason.startswith("ollama_cli_unavailable")
-                    or reason == "no_change"
+                    or (reason == "no_change" and not has_todo_markers)
                 ):
                     break
                 # Escalate the prompt based on what went wrong
@@ -2602,12 +2913,30 @@ def run_cycle(
                 ):
                     logger.info("Retrying target with fallback model: %s", secondary_model)
                     # Pass the last escalated instruction to the fallback model too
+                    file_retry_memory_context = _load_file_retry_memory_context(
+                        repo_root=repo_root,
+                        target_py=target,
+                        runtime_events=attempt_memory_events,
+                        max_chars=max(900, max_context_chars // 2),
+                    )
                     fallback_repair = _try_repair_file_with_llm(  # type: ignore[arg-type]
-                        model=secondary_model, extra_instruction=extra_instruction, **llm_kwargs
+                        model=secondary_model,
+                        extra_instruction=extra_instruction,
+                        file_retry_memory_context=file_retry_memory_context,
+                        **llm_kwargs,
                     )
                     fallback_repair["retry_from_model"] = model
                     fallback_repair["used_model"] = secondary_model
                     repair = fallback_repair
+                    attempt_memory_events.append(
+                        {
+                            "attempt": "fallback",
+                            "model": secondary_model,
+                            "reason": str(fallback_repair.get("reason", "")),
+                            "applied": bool(fallback_repair.get("applied")),
+                            "llm_elapsed_seconds": fallback_repair.get("llm_elapsed_seconds"),
+                        }
+                    )
 
             if effective_quality_blockers:
                 repair["quality_blockers"] = [
@@ -2615,6 +2944,16 @@ def run_cycle(
                     for token in effective_quality_blockers.split(",")
                     if token.strip()
                 ]
+            file_attempt_memory[target_key].append(
+                {
+                    "attempt": repair.get("attempt"),
+                    "model": repair.get("used_model", model),
+                    "reason": repair.get("reason", ""),
+                    "applied": bool(repair.get("applied")),
+                    "llm_elapsed_seconds": repair.get("llm_elapsed_seconds"),
+                }
+            )
+            _save_persistent_retry_memory(repo_root, target, attempt_memory_events)
             _record_repair_result(repair)
             logger.info(
                 "Repair result for %s: applied=%s reason=%s",
@@ -2638,8 +2977,23 @@ def run_cycle(
             break
 
         if not any(r.get("applied") for r in repair_results):
+            unresolved_todo_targets = [
+                str(p) for p in candidate_targets if _file_has_matlab_todo_markers(p)
+            ]
+            step["unresolved_todo_targets"] = unresolved_todo_targets
+            if unresolved_todo_targets and iteration < max_iterations:
+                logger.warning(
+                    "No patch applied this iteration, but TODO markers remain in %s targets; continuing.",
+                    len(unresolved_todo_targets),
+                )
+                iterations.append(step)
+                continue
+            if iteration < max_iterations:
+                logger.warning("No patch applied this iteration; continuing to next iteration.")
+                iterations.append(step)
+                continue
             finished_reason = "no_patch_applied"
-            logger.warning("Stopping: no patch applied.")
+            logger.warning("Stopping: no patch applied at final iteration.")
             iterations.append(step)
             break
 
@@ -2775,6 +3129,11 @@ def run_cycle(
         "max_iterations": max_iterations,
         "repair_all_candidates": repair_all_candidates,
         "dynamic_llm_timeout": dynamic_llm_timeout,
+        "disable_llm_timeout": disable_llm_timeout,
+        "ollama_host": str(ollama_host or ""),
+        "ollama_num_parallel": int(ollama_num_parallel),
+        "ollama_max_loaded_models": int(ollama_max_loaded_models),
+        "ollama_max_queue": int(ollama_max_queue),
         "dynamic_timeout_base_seconds": dynamic_timeout_base_seconds,
         "dynamic_timeout_per_line_seconds": dynamic_timeout_per_line_seconds,
         "dynamic_timeout_min_seconds": dynamic_timeout_min_seconds,
@@ -2814,6 +3173,29 @@ def main() -> int:
         help="Fallback Ollama model if --model is unavailable.",
     )
     parser.add_argument(
+        "--ollama-host",
+        default=os.environ.get("OLLAMA_HOST", ""),
+        help="Optional Ollama host (e.g. http://127.0.0.1:11434).",
+    )
+    parser.add_argument(
+        "--ollama-num-parallel",
+        type=int,
+        default=int(os.environ.get("OLLAMA_NUM_PARALLEL", "0") or 0),
+        help="Override OLLAMA_NUM_PARALLEL for this run (0 keeps current server default).",
+    )
+    parser.add_argument(
+        "--ollama-max-loaded-models",
+        type=int,
+        default=int(os.environ.get("OLLAMA_MAX_LOADED_MODELS", "0") or 0),
+        help="Override OLLAMA_MAX_LOADED_MODELS for this run (0 keeps current server default).",
+    )
+    parser.add_argument(
+        "--ollama-max-queue",
+        type=int,
+        default=int(os.environ.get("OLLAMA_MAX_QUEUE", "0") or 0),
+        help="Override OLLAMA_MAX_QUEUE for this run (0 keeps current server default).",
+    )
+    parser.add_argument(
         "--auto-pull-model",
         dest="auto_pull_model",
         action="store_true",
@@ -2841,8 +3223,14 @@ def main() -> int:
     parser.add_argument(
         "--max-context-chars",
         type=int,
-        default=12000,
+        default=30000,
         help="Max chars for each context section sent to model.",
+    )
+    parser.add_argument(
+        "--max-context-hard-cap",
+        type=int,
+        default=180000,
+        help="Upper bound for adaptive context expansion on very large files.",
     )
     parser.add_argument("--force-pipeline", action="store_true", help="Force file regeneration in each iteration.")
     parser.add_argument("--overwrite-manual", action="store_true", help="Allow pipeline to overwrite manual files.")
@@ -2965,6 +3353,11 @@ def main() -> int:
         type=int,
         default=180,
         help="Hard timeout for each LLM repair invocation.",
+    )
+    parser.add_argument(
+        "--disable-llm-timeout",
+        action="store_true",
+        help="Disable timeout for each LLM repair invocation.",
     )
     parser.add_argument(
         "--dynamic-llm-timeout",
@@ -3109,6 +3502,12 @@ def main() -> int:
         stream_subprocess_logs=args.stream_subprocess_logs,
         ollama_list_timeout_seconds=ollama_list_timeout_seconds,
         ollama_pull_timeout_seconds=ollama_pull_timeout_seconds,
+        ollama_env=_build_ollama_env(
+            ollama_host=args.ollama_host,
+            ollama_num_parallel=args.ollama_num_parallel,
+            ollama_max_loaded_models=args.ollama_max_loaded_models,
+            ollama_max_queue=args.ollama_max_queue,
+        ),
     )
     selected_model = str(model_resolution.get("selected_model", args.model))
     secondary_model = str(model_resolution.get("fallback_model", args.fallback_model))
@@ -3127,6 +3526,8 @@ def main() -> int:
     logger.info("stream_subprocess_logs=%s heartbeat_seconds=%s", args.stream_subprocess_logs, args.heartbeat_seconds)
     logger.info(
         "llm_timeout_seconds=%s dynamic_timeout=%s(base=%s per_line=%s min=%s max=%s) "
+        "disable_llm_timeout=%s "
+        "ollama_host=%s ollama_num_parallel=%s ollama_max_loaded_models=%s ollama_max_queue=%s "
         "failure_context_max_lines=%s per_file_pytest_timeout_seconds=%s "
         "enable_matlab_help=%s matlab_help_max_functions=%s "
         "main_model_retries=%s strict_prefilter=%s pause_on_applied_false=%s skip_pipeline=%s "
@@ -3138,6 +3539,11 @@ def main() -> int:
         args.dynamic_timeout_per_line_seconds,
         args.dynamic_timeout_min_seconds,
         args.dynamic_timeout_max_seconds,
+        args.disable_llm_timeout,
+        args.ollama_host or "<default>",
+        args.ollama_num_parallel,
+        args.ollama_max_loaded_models,
+        args.ollama_max_queue,
         args.failure_context_max_lines,
         args.per_file_pytest_timeout_seconds,
         args.enable_matlab_help,
@@ -3166,6 +3572,7 @@ def main() -> int:
         max_files_per_iteration=args.max_files_per_iteration,
         repair_all_candidates=args.repair_all_candidates,
         max_context_chars=args.max_context_chars,
+        max_context_hard_cap=args.max_context_hard_cap,
         dynamic_llm_timeout=args.dynamic_llm_timeout,
         dynamic_timeout_base_seconds=args.dynamic_timeout_base_seconds,
         dynamic_timeout_per_line_seconds=args.dynamic_timeout_per_line_seconds,
@@ -3184,6 +3591,11 @@ def main() -> int:
         heartbeat_seconds=args.heartbeat_seconds,
         stream_subprocess_logs=args.stream_subprocess_logs,
         llm_timeout_seconds=args.llm_timeout_seconds,
+        disable_llm_timeout=args.disable_llm_timeout,
+        ollama_host=args.ollama_host,
+        ollama_num_parallel=args.ollama_num_parallel,
+        ollama_max_loaded_models=args.ollama_max_loaded_models,
+        ollama_max_queue=args.ollama_max_queue,
         failure_context_max_lines=args.failure_context_max_lines,
         per_file_pytest_timeout_seconds=args.per_file_pytest_timeout_seconds,
         enable_matlab_help=args.enable_matlab_help,

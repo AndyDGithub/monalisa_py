@@ -1,10 +1,10 @@
 import numpy as np
 
-
 def bmPhyllotaxisAngle3(nseg, nshot, flagSelfNav=False):
     """
     Compute spherical coordinates for all points of the phyllotaxis spiral.
-
+spiral.
+    
     Port of MATLAB bmPhyllotaxisAngle3.m.
 
     Parameters
@@ -24,28 +24,40 @@ def bmPhyllotaxisAngle3(nseg, nshot, flagSelfNav=False):
     phi : ndarray, shape (1, nseg*nshot)
         Azimuthal angles.
     """
-    goldNum = (1.0 + np.sqrt(5.0)) / 2.0
-    goldAngle = 2.0 * np.pi - 2.0 * np.pi / goldNum
 
+    # Define golden angle 
+    goldNum     = (1 + np.sqrt(5)) / 2
+    goldAngle   = 2 * np.pi - (2 * np.pi / goldNum)
+
+    # Define total number of points / segments
     nseg_tot = nseg * nshot
-    nseg_pure = nseg_tot - nshot if flagSelfNav else nseg_tot
+    if flagSelfNav:
+        nseg_pure = nseg_tot - nshot
+    else:
+        nseg_pure = nseg_tot
 
-    q = np.pi / (2.0 * np.sqrt(float(nseg_pure)))
+    # Ratio for polar angle theta
+    q = np.pi / (2 * np.sqrt(nseg_pure)) 
 
-    phi = np.zeros((1, nseg_tot), dtype=np.float64)
-    theta = np.zeros((1, nseg_tot), dtype=np.float64)
+    # Set up arrays
+    phi     = np.zeros((1, nseg_tot))
+    theta   = np.zeros((1, nseg_tot))
 
+    # Angle index, differs from myIndex if flagSelfNav = true
     myCounter = 1
 
+    # Calculate spiral
     for i in range(1, nseg + 1):
         for j in range(1, nshot + 1):
-            myIndex = i + (j - 1) * nseg   # 1-based MATLAB index
+            myIndex = (i - 1) * nshot + (j - 1)
+            # Set angles to 0 if flagSelfNav = true (top of sphere)
             if flagSelfNav and (i == 1):
-                phi[0, myIndex - 1] = 0.0
-                theta[0, myIndex - 1] = 0.0
+                phi[myIndex] = 0
+                theta[myIndex] = 0
             else:
-                phi[0, myIndex - 1] = np.mod(myCounter * goldAngle, 2.0 * np.pi)
-                theta[0, myIndex - 1] = q * np.sqrt(float(myCounter))
+                # Calculate angle for each segment
+                phi[myIndex] = np.mod(myCounter * goldAngle, (2 * np.pi))
+                theta[myIndex] = q * np.sqrt(myCounter)
                 myCounter += 1
 
     return theta, phi

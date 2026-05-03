@@ -1,15 +1,16 @@
-from third_part.matlab_compat.matlab_native import num2str
+# Bastien Milani
+# CHUV and UNIL
+# Lausanne - Switzerland
+# May 2023
 
 def bmNumList(argNum):
-    argNum -= 1
-    numOfDigits = len(num2str(argNum))
-    myString1 = num2str(10 ** numOfDigits)
-    myLength1 = len(myString1)
-
-    out = [None] * argNum
-    for i in range(argNum + 1):
-        myString2 = num2str(i)
-        myLength2 = len(myString2)
-        out[i] = myString1[:myLength1 - myLength2] + myString2
-
-    return out
+    """
+    Generate a list of zero-padded string indices from 0 to argNum-1.
+    The padding width matches the number of digits of argNum-1.
+    """
+    n = int(argNum)
+    if n <= 0:
+        raise ValueError("argNum must be a positive integer")
+    max_val = n - 1
+    width = len(str(max_val))
+    return [str(i).zfill(width) for i in range(n)]

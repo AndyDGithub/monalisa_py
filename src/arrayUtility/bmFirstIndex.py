@@ -1,21 +1,70 @@
 import numpy as np
+from typing import Any
 
 
-def bmFirstIndex(argString, argVal, argVec):
+def bmFirstIndex(argString: str, argVal: Any, argVec: np.ndarray) -> int:
+    """
+    Return the first 1-based index of an element in *argVec* that satisfies
+satisfies a
+    comparison specified by *argString*.
+
+    Parameters
+    ----------
+    argString : str
+        One of ``'equalTo'``, ``'smallerThan'``, ``'biggerThan'``,
+        ``'smallerEqualThan'`` or ``'biggerEqualThan'``.
+    argVal : scalar
+        The value to compare each element of *argVec* against.
+    argVec : array-like
+        The vector to search.
+
+    Returns
+    -------
+    int
+        The 1-based index of the first matching element.  If no element
+        matches the comparison, returns ``len(argVec) + 1``.
+    """
     argVec = np.asarray(argVec).ravel()
+
     if argString == "equalTo":
-        myMask = (argVec == argVal)
+        mask = argVec == argVal
     elif argString == "smallerThan":
-        myMask = (argVec < argVal)
+        mask = argVec < argVal
     elif argString == "biggerThan":
-        myMask = (argVec > argVal)
+        mask = argVec > argVal
     elif argString == "smallerEqualThan":
-        myMask = (argVec <= argVal)
+        mask = argVec <= argVal
     elif argString == "biggerEqualThan":
-        myMask = (argVec >= argVal)
+        mask = argVec >= argVal
     else:
         raise ValueError("Unknown comparison: " + argString)
-    indices = np.where(myMask)[0]
-    if len(indices) == 0:
-        return len(argVec)
-    return int(indices[0])
+
+    indices = np.where(mask)[0]
+    if indices.size == 0:
+        return len(argVec) + 1
+    return int(indices[0]) + 1
+
+# ------------------------------------------------------------------
+# MATLAB reference implementation (for reference)
+#
+# function outIndex = bmFirstIndex(argString, argVal, argVec)
+# argVec = argVec(:)';
+# if strcmp(argString, 'equalTo')
+#     myMask = (argVec == argVal);
+# elseif strcmp(argString, 'smallerThan')
+#     myMask = (argVec < argVal);
+# elseif strcmp(argString, 'biggerThan')
+#     myMask = (argVec > argVal);
+# elseif strcmp(argString, 'smallerEqualThan')
+#     myMask = (argVec <= argVal);
+# elseif strcmp(argString, 'biggerEqualThan')
+#     myMask = (argVec >= argVal);
+# end
+# myIndexList = 1:length(argVec);
+# myIndexList = myIndexList(myMask);
+# if isempty(myIndexList)
+#     outIndex = length(argVec) + 1;
+# else
+#     outIndex = myIndexList(1);
+# end
+# ------------------------------------------------------------------

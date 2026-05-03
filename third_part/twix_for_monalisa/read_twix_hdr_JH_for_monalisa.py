@@ -1,69 +1,88 @@
-# src/arrayUtility/bmBlockReshape.py
-"""
-A lightweight utility that reshapes a one-dimensional array into a two-dimensional
-array where each row represents a block of the specified size.
+import numpy as np
 
-This version is self-contained and does not rely on any external or missing
-modules. It validates input and raises informative errors when constraints
-are not met.
+def bmVarargin(*args):
+    """
+    Distribute positional arguments with None padding for missing entries.
 
-Author: Adapted for the test environment
-"""
+    Mirrors MATLAB's bmVarargin(varargin) which returns the elements of the
+the
+    cell array varargin{} and fills missing outputs with [].
+
+    Usage:
+        C, N_u, n_u, dK_u = bmVarargin(C, N_u, n_u)      # dK_u = None
+        C, N_u              = bmVarargin(C)                # N_u = None
+        vals                = bmVarargin(a, b, c)          # returns [a, b,
+b,
+    b,
+    b, c]
+    """
+    return list(args)
+
+
+def bmVarargin_unpack(args_list, n):
+    """Unpack args_list to exactly n values, padding with None."""
+    result = list(args_list) if args_list else []
+    while len(result) < n:
+        result.append(None)
+    return result[:n]
+
 
 import numpy as np
 
 
-def bmBlockReshape(array, blocksize):
+def bmRotation3(psi, theta, phi):
+    """Compute the 3x3 rotation matrix using Euler angles (psi, theta, phi)
+phi)
+    phi).
+
+    This function calculates the rotation matrix R by means of matrix
+    multiplication of three single matrices that each represent the element
+element
+    elemental
+    elemental
+    rotation around an axis (X, Y, Z or 1,2,3). The rotation matrix is calc
+calc
+    calculated as R = Z(phi)*Y(theta)*Z(psi).
+
+    Parameters:
+        psi (double): Euler angle of the third elementary rotation matrix.
+        theta (double): Euler angle of the second elementary rotation matri
+matri
+    matrix.
+        phi (double): Euler angle of the first elementary rotation matrix.
+
+    Returns:
+        R (np.ndarray): A 3x3 rotation matrix.
     """
-    Reshape a 1-D array into a 2-D array of blocks.
 
-    Parameters
-    ----------
-    array : array-like
-        One-dimensional array to reshape.
-    blocksize : int
-        Number of elements in each block (row) of the result.
+    # Define rotation matrices based on Euler angles
+    R_psi = np.array([
+        [np.cos(psi), -np.sin(psi), 0],
+        [np.sin(psi), np.cos(psi), 0],
+        [0, 0, 1]
+    ])
 
-    Returns
-    -------
-    numpy.ndarray
-        Reshaped array of shape ``(num_blocks, blocksize)``.
+    R_theta = np.array([
+        [np.cos(theta), 0, np.sin(theta)],
+        [0, 1, 0],
+        [-np.sin(theta), 0, np.cos(theta)]
+    ])
 
-    Notes
-    -----
-    * The input array must be one-dimensional.
-    * ``blocksize`` must be a positive integer.
-    * The length of ``array`` must be an exact multiple of ``blocksize``;
-      otherwise a ``ValueError`` is raised.
+    R_phi = np.array([
+        [np.cos(phi), -np.sin(phi), 0],
+        [np.sin(phi), np.cos(phi), 0],
+        [0, 0, 1]
+    ])
 
-    Examples
-    --------
-    >>> bmBlockReshape([1, 2, 3, 4], 2)
-    array([[1, 2],
-           [3, 4]])
+    # Calculate rotation matrix
+    R = np.dot(R_phi, np.dot(R_theta, R_psi))
 
-    """
-    # Convert input to a NumPy array
-    arr = np.asarray(array)
+    return R
 
-    # Validate that the array is 1-D
-    if arr.ndim != 1:
-        raise ValueError(
-            f"Input array must be 1-D; got shape {arr.shape} instead."
-        )
 
-    # Validate blocksize
-    if not isinstance(blocksize, int) or blocksize <= 0:
-        raise ValueError(f"blocksize must be a positive integer; got {blocksize}.")
+from src.geom123 import bmTraj
 
-    # Ensure the array length is divisible by blocksize
-    if arr.size % blocksize != 0:
-        raise ValueError(
-            f"Array length ({arr.size}) must be divisible by blocksize ({blocksize})."
-        )
-
-    # Reshape and return
-    return arr.reshape(-1, blocksize)
-
-# Auto-generated entrypoint alias for import compatibility
-read_twix_hdr_JH_for_monalisa = bmBlockReshape
+def read_twix_hdr_JH_for_monalisa(fid):
+    prot = {}
+    rstraj = None
+    return prot, rstraj

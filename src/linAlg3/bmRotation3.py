@@ -1,9 +1,25 @@
 import numpy as np
-from src.arrayUtility import bmBlockReshape
 
 def bmRotation3(psi, theta, phi):
-    """Auto-generated from MATLAB source. Review manually before production use."""
+    """Compute the 3x3 rotation matrix using Euler angles (psi, theta, phi)
+phi).
 
+    This function calculates the rotation matrix R by means of matrix
+    multiplication of three single matrices that each represent the element
+elemental
+    rotation around an axis (X, Y, Z or 1,2,3). The rotation matrix is calc
+calculated as R = Z(phi)*Y(theta)*Z(psi).
+    
+    Parameters:
+        psi (double): Euler angle of the third elementary rotation matrix.
+        theta (double): Euler angle of the second elementary rotation matri
+matrix.
+        phi (double): Euler angle of the first elementary rotation matrix.
+
+    Returns:
+        R (np.ndarray): A 3x3 rotation matrix.
+    """
+    
     # Define rotation matrices based on Euler angles
     R_psi = np.array([
         [np.cos(psi), -np.sin(psi), 0],
@@ -24,6 +40,9 @@ def bmRotation3(psi, theta, phi):
     ])
 
     # Calculate rotation matrix
-    R = R_phi @ R_theta @ R_psi
+    R = np.dot(R_phi, np.dot(R_theta, R_psi))
 
     return R
+
+# Import bmTraj from src.geom123
+from src.geom123 import bmTraj

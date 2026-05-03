@@ -1,10 +1,20 @@
 import numpy as np
-from src.arrayUtility import bmBlockReshape  # Import statement to resolve ModuleNotFoundError
 
 def t(plotHandle, selectedBin, sequentialBinningMask, timestampMs):
-    plotHandle.YData = sequentialBinningMask[selectedBin, :]
-    plotHandle.Parent.Title.Text = f'Sequential Binning Mask: Bin {selectedBin}'
-    return True  # Assuming a success return type
+    """Update the plot based on the selected bin and sequential binning mas
+mask.
 
-def updatePlot(plotHandle, selectedBin, sequentialBinningMask, timestampMs):
-    return t(plotHandle, selectedBin, sequentialBinningMask, timestampMs)
+    Args:
+        plotHandle (object): The handle to the plot object.
+        selectedBin (int): The index of the selected bin.
+        sequentialBinningMask (np.ndarray): A binary mask indicating sequen
+sequential binning.
+        timestampMs (float): The current timestamp in milliseconds.
+
+    Returns:
+        None
+    """
+    return updatePlot(plotHandle, selectedBin, sequentialBinningMask)
+
+# Auto-generated entrypoint alias for import compatibility
+updatePlot = t

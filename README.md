@@ -9,7 +9,26 @@ If you find this useful, **please leave us a star!**
 
 ## Usage and installation
 
-To get started with the MRI reconstruction code, follow these steps:
+### Python (monalisa_py)
+
+Requirements: **Python ≥ 3.11**, numpy ≥ 1.24, scipy ≥ 1.10.
+
+```sh
+git clone https://github.com/MattechLab/monalisa.git
+cd monalisa/monalisa_py
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the test suite to verify the installation
+python -m pytest tests/ -v --tb=short
+```
+
+> **Note:** Some functions (gridding, sparse-matrix MEX operations, GPU NUFFT) require compiled C extensions or external libraries. These raise `NotImplementedError` with build instructions when called. The pure-Python pipeline (FFT-based Fourier transforms, coil sensitivity, trajectory generation, etc.) works without compilation.
+
+### MATLAB (original)
+
+To get started with the MATLAB reconstruction code, follow these steps:
 
 1. Clone the repository
 

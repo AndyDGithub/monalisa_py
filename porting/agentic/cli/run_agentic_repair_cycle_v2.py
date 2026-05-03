@@ -5,10 +5,10 @@ import argparse
 import json
 from pathlib import Path
 
-from agentic.config import WorkflowConfig
-from agentic.state import PortingGraphState
-from agentic.tools import LegacyToolbox
-from agentic.workflows.repair_graph import build_repair_cycle_workflow
+from porting.agentic.config import WorkflowConfig
+from porting.agentic.state import PortingGraphState
+from porting.agentic.tools import LegacyToolbox
+from porting.agentic.workflows.repair_graph import build_repair_cycle_workflow
 
 
 def main() -> int:
@@ -20,9 +20,23 @@ def main() -> int:
     parser.add_argument("--max-retries-per-file", type=int, default=3, help="Max local retries.")
     parser.add_argument("--max-iterations", type=int, default=None, help="Compatibility alias for retries.")
     parser.add_argument("--max-files-per-iteration", type=int, default=1, help="Compatibility arg.")
-    parser.add_argument("--model", default="gpt-oss:20b", help="Primary LLM model.")
+    parser.add_argument("--model", default="qwen2.5-coder:7b", help="Primary LLM model.")
     parser.add_argument("--fallback-model", default="gpt-oss:20b", help="Fallback LLM model.")
+    parser.add_argument("--ollama-host", default="", help="Optional Ollama host.")
+    parser.add_argument("--ollama-num-parallel", type=int, default=0, help="Optional Ollama parallel requests cap.")
+    parser.add_argument(
+        "--ollama-max-loaded-models",
+        type=int,
+        default=0,
+        help="Optional Ollama max loaded models override.",
+    )
+    parser.add_argument("--ollama-max-queue", type=int, default=0, help="Optional Ollama max queue override.")
     parser.add_argument("--disable-llm", action="store_true", help="Compatibility flag.")
+    parser.add_argument(
+        "--disable-llm-timeout",
+        action="store_true",
+        help="Disable timeout for each LLM repair invocation.",
+    )
     parser.add_argument("--skip-tests", action="store_true", help="Compatibility flag.")
     parser.add_argument(
         "--enforce-comment-parity",
@@ -166,11 +180,16 @@ def main() -> int:
         "repair_args": {
             "model": cfg.llm_model,
             "fallback_model": cfg.fallback_model,
+            "ollama_host": str(args.ollama_host or ""),
+            "ollama_num_parallel": max(0, int(args.ollama_num_parallel)),
+            "ollama_max_loaded_models": max(0, int(args.ollama_max_loaded_models)),
+            "ollama_max_queue": max(0, int(args.ollama_max_queue)),
             "max_iterations": max(1, int(args.max_files_per_iteration)),
             "max_files_per_iteration": max(1, int(args.max_files_per_iteration)),
             "generated_tests_per_iteration": cfg.generated_tests_per_iteration,
             "contracts_per_iteration": cfg.contracts_per_iteration,
             "llm_timeout_seconds": cfg.llm_timeout_seconds,
+            "disable_llm_timeout": bool(args.disable_llm_timeout),
             "dynamic_llm_timeout": cfg.dynamic_llm_timeout,
             "enable_matlab_help": cfg.enable_matlab_help,
             "matlab_help_max_functions": cfg.matlab_help_max_functions,
@@ -183,6 +202,7 @@ def main() -> int:
             "skip_pipeline": bool(args.skip_pipeline),
             "sync_env": bool(args.sync_env),
             "requirements_output": str(args.requirements_output),
+            "repair_subprocess_timeout_seconds": (0 if bool(args.disable_llm_timeout) else 1800),
             "enforce_comment_parity": bool(args.enforce_comment_parity),
             "enforce_matlab_todo_gate": bool(args.enforce_matlab_todo_gate),
             "enforce_fallback_stub_gate": bool(args.enforce_fallback_stub_gate),

@@ -27,7 +27,7 @@ def _phyllotaxis_traj(nLines=20, nPt_per_line=16):
 
 class TestBmVolumeElement1:
     def test_output_shape(self):
-        """bmVolumeElement1 returns shape (nPt, nLine) — (20, 1) for 20-point input."""
+        """bmVolumeElement1 returns shape (nPt, nLine) - (20, 1) for 20-point input."""
         # Input (1, 20): shape[0]==1 triggers internal ravel+reshape to (20, 1)
         t1d = np.linspace(-0.4, 0.4, 20)[np.newaxis, :]
         v = bmVolumeElement1(t1d)

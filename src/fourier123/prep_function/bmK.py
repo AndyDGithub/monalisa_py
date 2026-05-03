@@ -16,7 +16,7 @@ def bmK(N_u, dK_u, nCh, kernelType=None, nWin=None, kernelParam=None):
     ----------
     N_u        : array-like, [Nx, Ny, Nz]
     dK_u       : array-like, [dKx, dKy, dKz]
-    nCh        : int  — number of coils/channels
+    nCh        : int  - number of coils/channels
     kernelType : str or None  ('gauss' default)
     nWin       : int or None  (3 default)
     kernelParam: array-like or None  ([0.61, 10] default for gauss)

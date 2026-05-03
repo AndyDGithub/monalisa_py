@@ -1,14 +1,16 @@
+from __future__ import annotations
 import numpy as np
-from src.arrayUtility.bmZero import bmZero
+
 from src.optim.bmBackGradient_nT import bmBackGradient_nT
 
-
-def bmBackGradientT(g: np.ndarray, n_u: np.ndarray, dX_u: float) -> np.ndarray:
-    imDim = np.shape(n_u)[1]
+def bmBackGradientT(g, n_u, dX_u):
+    """Strict deterministic baseline port from MATLAB."""
+    imDim = len(n_u)
     nPt_u = np.prod(n_u)
-    x = bmZero([nPt_u, 1], "complex64")
+
+    x = np.zeros((nPt_u, 1), dtype=np.complex64) 
 
     for n in range(imDim):
-        x = x + bmBackGradient_nT(g[:, n], n_u, dX_u, n)
+        x += bmBackGradient_nT(g[:, n], n_u, dX_u, n+1) 
 
     return x

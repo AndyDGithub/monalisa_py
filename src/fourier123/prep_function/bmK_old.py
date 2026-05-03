@@ -1,83 +1,92 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
-from src.varargin.bmVarargin import bmVarargin
-from src.varargin.bmVarargin_kernelType_nWin_kernelParam import bmVarargin_kernelType_nWin_kernelParam
-from third_part.matlab_compat.matlab_native import double, repmat, single
-
-from src.sparseMat.m.bmSparseMat_vec import error, real
-
-from src.image123.bmImGaussFiltering import normpdf
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
-
+from __future__ import annotations
 import numpy as np
+from src.varargin.bmVarargin_kernelType_nWin_kernelParam import bmVarargin_kernelType_nWin_kernelParam
 
-def bmK_old(N_u, dK_u, nCh, varargin):
-    # argin_initial -----------------------------------------------------------
-    [kernelType, nWin, kernelParam] = bmVarargin(varargin)
-    [kernelType, nWin, kernelParam] = bmVarargin_kernelType_nWin_kernelParam(kernelType, nWin, kernelParam)
-    N_u         = double(single(N_u.ravel().T))
-    dK_u        = double(single(dK_u.ravel().T))
-    nWin        = double(single(nWin.ravel().T))
-    kernelParam = double(single(kernelParam.ravel().T))
-    K           = np.zeros(1, prod(N_u.ravel()), "double")
-    imDim       = double(np.shape(N_u.ravel(), 1))
-    nCh         = double(single(nCh))
-    # TODO(matlab-control): if sum(mod(N_u(:), 2)) > 0
-    error("N_u must have all components even for the Fourier transform. ")
-    # TODO(matlab-line): return;
-    # END_argin_initial -------------------------------------------------------
-    myTrajPoint = (fix(N_u/2) + 1).T
-    # TODO(matlab-line): myWin       = -fix(nWin/2):fix(nWin/2);
-    # TODO(matlab-control): if imDim == 1
-    cx = ndgrid(myWin)
-    c = cx.ravel().T
-    n = c + repmat(myTrajPoint ,[1, np.shape(c, 2)])
-    # TODO(matlab-line): nMask = (n(1, :) < 1) | (n(1, :) > N_u(1, 1));
-    # TODO(matlab-control): elseif imDim == 2
-    [cx, cy] = ndgrid(myWin, myWin)
-    # TODO(matlab-line): c = [cx(:)'; cy(:)'];
-    n = c + repmat(myTrajPoint ,[1, np.shape(c, 2)])
-    # TODO(matlab-line): nMask = (n(1, :) < 1) | (n(2, :) < 1) | (n(1, :) > N_u(1, 1)) | (n(2, :) > N_u(1, 2));
-    # TODO(matlab-control): elseif imDim == 3
-    [cx, cy, cz] = ndgrid(myWin, myWin, myWin)
-    # TODO(matlab-line): c = [cx(:)'; cy(:)'; cz(:)'];
-    n = c + repmat(myTrajPoint ,[1, np.shape(c, 2)])
-    # TODO(matlab-line): nMask = (n(1, :) < 1) | (n(2, :) < 1) | (n(3, :) < 1) | (n(1, :) > N_u(1, 1)) | (n(2, :) > N_u(1, 2)) | (n(3, :) > N_u(1, 3));
-    # TODO(matlab-line): n = n(:, not(nMask));
-    myDiff = repmat(myTrajPoint, [1, np.shape(n, 2)]) - n
-    d = np.zeros(1, np.shape(myDiff, 2))
-    # TODO(matlab-control): for i = 1:imDim
-    # TODO(matlab-line): d = d + myDiff(i, :).^2;
-    d = sqrt(d)
-    # TODO(matlab-control): if strcmp(kernelType, 'gauss')
-    myWeight = normpdf(d.ravel(), 0, kernelParam)
-    # TODO(matlab-control): elseif strcmp(kernelType, 'kaiser')
-    tau     = kernelParam(1)
-    alpha   = kernelParam(2)
-    I0alpha = besseli(0, alpha)
-    # TODO(matlab-line): myWeight = max(1-(d/tau).^2, 0);
-    myWeight = alpha*sqrt(myWeight)
-    myWeight = besseli(0, myWeight)/I0alpha
-    # TODO(matlab-control): if imDim == 1
-    # TODO(matlab-line): myIndexList = 1 + (n(1, :) - 1);
-    # TODO(matlab-control): elseif imDim == 2
-    # TODO(matlab-line): myIndexList = 1 + (n(1, :) - 1) + (n(2, :) - 1)*N_u(1, 1);
-    # TODO(matlab-control): elseif imDim == 3
-    # TODO(matlab-line): myIndexList = 1 + (n(1, :) - 1) + (n(2, :) - 1)*N_u(1, 1) + (n(3, :) - 1)*N_u(1, 1)*N_u(1, 2);
-    # TODO(matlab-line): K(1, myIndexList) = myWeight;
-    K = np.reshape(K, [N_u, 1])
-    # TODO(matlab-control): if imDim > 0
-    K = fftshift(np.fft.ifft(ifftshift(K, 1), [], 1), 1)*N_u(1, 1)*dK_u(1, 1)
-    # TODO(matlab-control): if imDim > 1
-    K = fftshift(np.fft.ifft(ifftshift(K, 2), [], 2), 2)*N_u(1, 2)*dK_u(1, 2)
-    # TODO(matlab-control): if imDim > 2
-    K = fftshift(np.fft.ifft(ifftshift(K, 3), [], 3), 3)*N_u(1, 3)*dK_u(1, 3)
-    K = real(K)
-    K = (K/max(K.ravel()))
-    K = single(1./K)
-    K = repmat(K.ravel(), [1, nCh])
-    K = single(K)
+def bmK_old(N_u, dK_u, nCh, varargin=None):
+    if varargin is None:
+        varargin = ()
+    if isinstance(varargin, (list, tuple)) and len(varargin) >= 3:
+        kernelType, nWin, kernelParam = varargin[0], varargin[1], varargin[2]
+    else:
+        kernelType, nWin, kernelParam = None, None, None
+
+    kernelType, nWin, kernelParam = bmVarargin_kernelType_nWin_kernelParam(kernelType, nWin, kernelParam)
+
+    N_u   = np.float64(np.float32(np.asarray(N_u).ravel()))
+    dK_u  = np.float64(np.float32(np.asarray(dK_u).ravel()))
+    nWin  = float(np.float64(np.float32(nWin)))
+    kernelParam = np.float64(np.float32(np.atleast_1d(kernelParam)))
+    nCh   = float(np.float32(nCh))
+    imDim = len(N_u)
+
+    if np.any(np.mod(N_u, 2) > 0):
+        raise ValueError('N_u must have all components even for the Fourier transform.')
+
+    Nu_tot = int(np.prod(N_u))
+    K = np.zeros(Nu_tot, dtype=np.float64)
+
+    myTrajPoint = (np.fix(N_u / 2) + 1).astype(int)  # 1-based center
+
+    nWin_int = int(np.fix(nWin / 2))
+    myWin = np.arange(-nWin_int, nWin_int + 1)
+
+    if imDim == 1:
+        cx_arr = myWin.reshape(1, -1)
+        c = cx_arr  # (1, nNb)
+    elif imDim == 2:
+        cx, cy = np.meshgrid(myWin, myWin, indexing='ij')
+        c = np.vstack([cx.ravel(), cy.ravel()])
+    else:
+        cx, cy, cz = np.meshgrid(myWin, myWin, myWin, indexing='ij')
+        c = np.vstack([cx.ravel(), cy.ravel(), cz.ravel()])
+
+    n = c + myTrajPoint.reshape(-1, 1)
+
+    # Mask out-of-bound
+    nMask = np.zeros(c.shape[1], dtype=bool)
+    if imDim >= 1:
+        nMask |= (n[0, :] < 1) | (n[0, :] > N_u[0])
+    if imDim >= 2:
+        nMask |= (n[1, :] < 1) | (n[1, :] > N_u[1])
+    if imDim >= 3:
+        nMask |= (n[2, :] < 1) | (n[2, :] > N_u[2])
+
+    n_valid = n[:, ~nMask]
+    myDiff  = myTrajPoint.reshape(-1, 1) - n_valid
+    d = np.sqrt(np.sum(myDiff.astype(float) ** 2, axis=0))
+
+    if kernelType == 'gauss':
+        mySigma  = float(kernelParam.ravel()[0])
+        myWeight = np.exp(-0.5 * (d / mySigma) ** 2) / (mySigma * np.sqrt(2 * np.pi))
+    elif kernelType == 'kaiser':
+        myTau    = float(kernelParam.ravel()[0])
+        myAlpha  = float(kernelParam.ravel()[1])
+        I0alpha  = float(np.i0(myAlpha))
+        w = np.maximum(1.0 - (d / myTau) ** 2, 0.0)
+        myWeight = np.i0(myAlpha * np.sqrt(w)) / I0alpha
+    else:
+        raise ValueError(f'Unknown kernelType: {kernelType}')
+
+    # Compute 0-based linear index into K
+    if imDim == 1:
+        myIndexList = (n_valid[0, :] - 1).astype(int)
+    elif imDim == 2:
+        myIndexList = (n_valid[0, :] - 1 + (n_valid[1, :] - 1) * N_u[0]).astype(int)
+    else:
+        myIndexList = (n_valid[0, :] - 1 + (n_valid[1, :] - 1) * N_u[0] + (n_valid[2, :] - 1) * N_u[0] * N_u[1]).astype(int)
+
+    K[myIndexList] = myWeight
+    K = K.reshape(list(N_u.astype(int)) + [1] if imDim < 3 else N_u.astype(int).tolist())
+
+    # Per-dimension IFFT (MATLAB: fftshift(ifft(ifftshift(...)))*N*dK)
+    for dim in range(imDim):
+        K = np.fft.fftshift(np.fft.ifft(np.fft.ifftshift(K, axes=dim), axis=dim), axes=dim)
+        K = K * N_u[dim] * dK_u[dim]
+
+    K = np.real(K).ravel()
+    max_K = np.max(np.abs(K))
+    if max_K > 0:
+        K = K / max_K
+    K = np.float32(1.0 / np.maximum(K, 1e-10))
+    K = np.tile(K.reshape(-1, 1), (1, int(nCh))).astype(np.float32)
     return K

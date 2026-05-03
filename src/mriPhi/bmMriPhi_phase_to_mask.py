@@ -1,36 +1,62 @@
-from __future__ import annotations
-from third_part.matlab_compat.matlab_native import plot, repmat, size
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 def bmMriPhi_phase_to_mask(phi, nPhase, argPercent):
-    """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: phi = phi(:).';
-    # MATLAB: nPt = size(phi(:), 1);
-    # MATLAB: c = (0:nPhase-1)/nPhase;
-    # MATLAB: w = argPercent*2*pi/nPhase/2;
-    # MATLAB: psi = complex(cos(phi),    sin(phi)   );
-    # MATLAB: c   = complex(cos(c*2*pi), sin(c*2*pi));
-    # MATLAB: c = repmat(c(:), [1, nPt]);
-    # MATLAB: myMask  = false(nPhase, nPt);
-    # MATLAB: for i   = 1:nPhase
-    # MATLAB: myMask(i, :) = abs(angle(psi./c(i, :))) <= w;
-    # MATLAB: end
-    # MATLAB: figure
-    # MATLAB: hold on
-    # MATLAB: t = 1:size(phi, 2);
-    # MATLAB: for i = 1:nPhase
-    # MATLAB: temp_mask   = myMask(i, :);
-    # MATLAB: temp_t      = t(1, temp_mask);
-    # MATLAB: temp_phi    = phi(1, temp_mask);
-    # MATLAB: plot(temp_t, temp_phi, '.');
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    myMask = None
+    """
+    Convert phase data to a mask based on given parameters.
+    
+    Parameters:
+    phi (np.ndarray): 1D array of phase values.
+    nPhase (int): Number of phases.
+    argPercent (float): Percentage of the angular range to consider for eac
+each phase.
+    
+    Returns:
+    myMask (np.ndarray): Boolean 2D mask indicating which points belong to 
+each phase.
+    """
+    # Ensure phi is a column vector
+    phi = phi[:, np.newaxis]
+    
+    # Number of points in phi
+    nPt = phi.shape[0]
+    
+    # Create the phase angles c
+    c = (np.arange(nPhase) / nPhase) * 2 * np.pi
+    
+    # Calculate the angular width for each phase
+    w = argPercent * 2 * np.pi / nPhase / 2
+    
+    # Convert phi and c to complex numbers
+    psi = np.exp(1j * phi)
+    c = np.exp(1j * c[:, None])
+    
+    # Initialize the mask with False values
+    myMask = np.zeros((nPhase, nPt), dtype=bool)
+    
+    # Create a time vector for plotting
+    t = np.arange(1, phi.shape[1] + 1)
+    
+    # Determine which points belong to each phase
+    for i in range(nPhase):
+        temp_mask = np.abs(np.angle(psi / c[i, :])) <= w
+        myMask[i, :] = temp_mask
+        
+        # Plotting the current phase
+        temp_t = t[temp_mask]
+        temp_phi = phi[temp_mask, :]
+        plt.plot(temp_t, temp_phi, '.')
+    
+    # Show the plot
+    plt.title('Phase Mask')
+    plt.xlabel('Time')
+    plt.ylabel('Phase')
+    plt.show()
+    
     return myMask
+
+# Example usage:
+phi = np.random.rand(100) * 2 * np.pi
+nPhase = 5
+argPercent = 0.1
+mask = bmMriPhi_phase_to_mask(phi, nPhase, argPercent)

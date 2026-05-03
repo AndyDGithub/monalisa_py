@@ -1,45 +1,37 @@
 from __future__ import annotations
-from third_part.matlab_compat.matlab_native import length
+import os
 
 
 def bmDirList(argDir, recursive_flag):
     """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # This function return a list of dir (not names), only of directories.
-    # recursive_flag must be true for reccursive.
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: if not(bmCheckDir(argDir, false))
-    # MATLAB: out = [];
-    # MATLAB: return;
-    # MATLAB: end
-    # MATLAB: myList = dir(argDir);
-    # MATLAB: myList = myList(3:end);
-    # MATLAB: N = 0;
-    # MATLAB: for i = 1:length(myList)
-    # MATLAB: temp_dir = [argDir, '/', myList(i).name];
-    # MATLAB: if bmCheckDir(temp_dir, false)
-    # MATLAB: N = N + 1;
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: out = cell(N, 1);
-    # MATLAB: myCount = 0;
-    # MATLAB: for i = 1:length(myList)
-    # MATLAB: temp_dir = [argDir, '/', myList(i).name];
-    # MATLAB: if bmCheckDir(temp_dir, false)
-    # MATLAB: myCount = myCount + 1;
-    # MATLAB: out{myCount} = temp_dir;
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: if recursive_flag
-    # MATLAB: for i = 1:N
-    # MATLAB: out = cat(1, out, bmDirList(out{i}, true));
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    out = None
+    # Check if argDir is a directory
+    if not os.path.isdir(argDir):  
+        return []
+    
+    # List all items in the directory
+    myList = os.listdir(argDir)
+    
+    N = 0
+    for item in myList:
+        temp_dir = os.path.join(argDir, item)
+        
+        # Check if item is a directory
+        if os.path.isdir(temp_dir):
+            N += 1
+    
+    out = [None] * N
+    myCount = 0
+    for item in myList:
+        temp_dir = os.path.join(argDir, item)
+        
+        # If item is a directory, add it to the output list
+        if os.path.isdir(temp_dir):
+            myCount += 1
+            out[myCount - 1] = temp_dir
+    
+    # Recursive search if recursive_flag is True
+    if recursive_flag:
+        for i in range(len(out)):
+            out.extend(bmDirList(out[i], True))
+    
     return out

@@ -1,33 +1,38 @@
-from __future__ import annotations
-from porting.lib.utils import errordlg
+import os
 
+def bmCheckPath(argPath, dlgFlag=1):
+    """
+    Strict deterministic baseline port from MATLAB.
+    
+    Parameters:
+        argPath (str): The path to check.
+        dlgFlag (int, optional): If 1, displays an error dialog if the path
+path
+path
+path is invalid. Defaults to 1.
+        
+    Returns:
+        int: 1 if the path exists and is a directory, 0 otherwise.
+    """
+    
+    # Normalize the path
+    argPath = os.path.normpath(argPath)
+    
+    # Check if the path ends with a directory separator
+    if not argPath.endswith(os.sep):
+        if dlgFlag:
+            print("Error: Path does not exist")
+        return 0
+    
+    # Check if the path exists and is a directory
+    if os.path.exists(argPath) and os.path.isdir(argPath):
+        return 1
+    else:
+        if dlgFlag:
+            print("Error: Path does not exist")
+        return 0
 
-def bmCheckPath(argPath, dlgFlag):
-    """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: if nargin < 2
-    # MATLAB: dlgFlag = 1;
-    # MATLAB: end
-    # MATLAB: out = 1;
-    # MATLAB: if not(argPath(end) == '\')
-    # MATLAB: out = 0;
-    # MATLAB: if dlgFlag
-    # MATLAB: errordlg('Path does not exist');
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: argPath = argPath(1:end-1);
-    # MATLAB: if not(exist(argPath,'dir')==7)
-    # MATLAB: out = 0;
-    # MATLAB: if dlgFlag
-    # MATLAB: errordlg('Path does not exist');
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    out = None
-    return out
+# Example usage:
+path = "C:\\Users\\Username\\Documents"
+result = bmCheckPath(path, dlgFlag=1)
+print(result)  # Output will be 1 or 0 based on the path validity

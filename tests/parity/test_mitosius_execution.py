@@ -109,7 +109,7 @@ class TestTrajectory:
         )
 
     def test_fingerprint_info(self, t_tot):
-        """Report the fingerprint — expected NOT to match due to 1-ULP sin/cos diffs."""
+        """Report the fingerprint - expected NOT to match due to 1-ULP sin/cos diffs."""
         fp = matlab_fingerprint(t_tot, "double", False)
         expected = "43669ad68af48ee1d6130e018ac5b83b82e337f3bd6e85d5e93b5f5e36122652"
         # Exact match is not required (1-ULP sin/cos differences between
@@ -145,7 +145,7 @@ class TestTrajectory:
 
 
 # ---------------------------------------------------------------------------
-# Volume element tests  (slow — require MONALISA_SLOW_TESTS=1)
+# Volume element tests  (slow - require MONALISA_SLOW_TESTS=1)
 # ---------------------------------------------------------------------------
 
 @pytest.mark.skipif(not _SLOW, reason="Set MONALISA_SLOW_TESTS=1 to run slow Voronoi tests")
@@ -196,7 +196,7 @@ class TestVolumeElements:
 
 
 # ---------------------------------------------------------------------------
-# Full Mathilda pipeline — x_tot  (slowest; requires MONALISA_SLOW_TESTS=1)
+# Full Mathilda pipeline - x_tot  (slowest; requires MONALISA_SLOW_TESTS=1)
 # ---------------------------------------------------------------------------
 
 _COIL_SENSE_MAT = _DATA_DIR / "results" / "coil_sensitivity_map.mat"
@@ -264,7 +264,7 @@ class TestXTot:
         )
 
     def test_fingerprint(self, x_tot):
-        """Exact fingerprint match — may xfail due to float32 rounding differences."""
+        """Exact fingerprint match - may xfail due to float32 rounding differences."""
         fp = matlab_fingerprint(np.asarray(x_tot, dtype=np.complex64), "single", True)
         expected = "a62b0d513877f39c0d474f21ef777a21c5f349966ba3a6afe0e1c30150a26c7b"
         if fp != expected:

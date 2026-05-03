@@ -32,9 +32,6 @@ def _build_gn(N_u=None, nLines=10, nPt_per_line=8):
     return Gn, t, v
 
 
-# bmCoilSense_nonCart_mask_automatic has unresolved import issues in the ported file.
-# These tests are skipped until the port is complete.
-@pytest.mark.skip(reason="bmCoilSense_nonCart_mask_automatic port not yet complete")
 class TestBmCoilSenseNonCartMaskAutomatic:
     def test_output_shape(self):
         """Returns a mask with shape (Nu_tot,) or (Nx, Ny, Nz)."""

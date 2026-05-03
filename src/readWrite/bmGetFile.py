@@ -1,35 +1,46 @@
-import tkinter.filedialog as tkfd
 import os
 
 def bmGetFile():
-    failFlag = 0
-    myFileName = 0
-    myPath = 0
+    """
+    MATLAB: function varargout = bmGetFile()
 
-    [myFileName, myPath] = tkfd.askopenfilename()
+    Opens a file selection dialog and returns the selected file information
+information.
+    The MATLAB implementation returns five outputs:
+        1. Full file path
+        2. Directory containing the file
+        3. Path string (same as 1)
+        4. File name
+        5. Directory name
 
-    if isinstance(myFileName, (int, float)):
-        failFlag = 1
-    if isinstance(myPath, (int, float)):
-        failFlag = 1
+    The Python port mirrors this behavior and returns a list of five elemen
+elements.
+    If the dialog is cancelled or the selected path is invalid, all outputs
+outputs are 0.
+    """
+    try:
+        import tkinter.filedialog as tkfd
+    except Exception:
+        # If tkinter is unavailable (e.g., in a headless environment),
+        # fall back to a non-interactive default that signals failure.
+        return [0, 0, 0, 0, 0]
 
-    if failFlag:
-        varargout = [0, 0, 0, 0, 0]
-        return varargout
+    # Open file dialog; returns full path or empty string if cancelled
+    selected_path = tkfd.askopenfilename()
 
-    myDir = os.path.dirname(myPath)
-    myFile = os.path.join(myPath, myFileName)
+    if not selected_path:
+        return [0, 0, 0, 0, 0]
 
-    if not os.path.isdir(myDir):
-        failFlag = 1
-    if not os.path.isfile(myFile):
-        failFlag = 1
+    # Split path into directory and file name
+    myDir = os.path.dirname(selected_path)
+    myFileName = os.path.basename(selected_path)
+    myPath = selected_path
+    myFile = selected_path
 
-    if failFlag:
-        varargout = [0, 0, 0, 0, 0]
-        return varargout
+    # Validate directory and file existence
+    if not os.path.isdir(myDir) or not os.path.isfile(myFile):
+        return [0, 0, 0, 0, 0]
 
     myDirName = os.path.basename(myDir)
 
-    varargout = [myFile, myDir, myPath, myFileName, myDirName]
-    return varargout
+    return [myFile, myDir, myPath, myFileName, myDirName]

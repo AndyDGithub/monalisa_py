@@ -5,11 +5,11 @@ from typing import Any
 
 from langgraph.graph import END, StateGraph
 
-from agentic.agents import CoordinatorAgent, DocumentorAgent, PortingAgent, ReviewerAgent
-from agentic.state import PortingGraphState
-from agentic.tools import LegacyToolbox
+from porting.agentic.agents import CoordinatorAgent, DocumentorAgent, PortingAgent, ReviewerAgent
+from porting.agentic.state import PortingGraphState
+from porting.agentic.tools import LegacyToolbox
 
-LOGGER = logging.getLogger("agentic.repair_graph")
+LOGGER = logging.getLogger("porting.agentic.repair_graph")
 
 
 def build_repair_cycle_workflow(

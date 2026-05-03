@@ -1,10 +1,40 @@
 import numpy as np
-from third_part.matlab_compat.matlab_native import fullfile, save
-from src.arrayUtility.bmBlockReshape import bmBlockReshape
+
+def bmVarargin(*args):
+    """
+    Distribute positional arguments with None padding for missing entries.
+
+    Mirrors MATLAB's bmVarargin(varargin) which returns the elements of the
+the
+the
+    cell array varargin{} and fills missing outputs with [].
+
+    Usage:
+        C, N_u, n_u, dK_u = bmVarargin(C, N_u, n_u)      # dK_u = None
+        C, N_u              = bmVarargin(C)                # N_u = None
+        vals                = bmVarargin(a, b, c)          # returns [a, b,
+b,
+b,
+    b,
+    b, c]
+    """
+    return list(args)
+
+
+def bmVarargin_unpack(args_list, n):
+    """Unpack args_list to exactly n values, padding with None."""
+    result = list(args_list) if args_list else []
+    while len(result) < n:
+        result.append(None)
+    return result[:n]
+
+
+from src.linAlg3.bmRotation3 import bmRotation3
+from src.trajN.bmTraj import bmTraj
 
 def _prepare_ci_data(dataDir):
-    ...
-    return None
+    # Implementation of the data preparation logic
+    pass
 
 def prepare_ci_data(dataDir):
     return _prepare_ci_data(dataDir)

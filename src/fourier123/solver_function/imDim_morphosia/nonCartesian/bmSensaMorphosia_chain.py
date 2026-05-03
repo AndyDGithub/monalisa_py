@@ -9,6 +9,8 @@ from src.fourier123.solver_function.imDim_morphosia.nonCartesian.bmTevaMorphosia
 from src.image123.bmImDeform import bmImDeform
 from src.image123.bmImDeformT import bmImDeformT
 from src.linSpace.bmY_ve_reshape import bmY_ve_reshape
+
+from src.arrayUtility.bmColReshape import bmColReshape
 def bmSensaMorphosia_chain(x, y, ve, C, Gu, Gut, frSize, Tu, Tut, nCGD, ve_max, nIter, witnessInfo):
     # initial
     myEps = 10 * np.finfo(np.float32).eps

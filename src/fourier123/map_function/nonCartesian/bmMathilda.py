@@ -27,18 +27,18 @@ def bmMathilda(y, t, v,
 
     Parameters
     ----------
-    y           : (nCh, nPt) complex  — non-Cartesian raw data
-    t           : (3, nPt)   float    — k-space trajectory
-    v           : (1, nPt)   float    — density-compensation weights
-    C           : array or None       — coil-sensitivity maps
-    N_u         : array-like or None  — Cartesian grid size [Nx, Ny, Nz]
-    n_u         : array-like or None  — output image size (= N_u if None)
-    dK_u        : array-like or None  — Cartesian grid step [dKx, dKy, dKz]
-    kernelType  : str or None         — 'gauss' (default) or 'kaiser'
-    nWin        : int or None         — kernel window width (default 3)
-    kernelParam : array-like or None  — kernel params (default [0.61, 10])
-    fft_lib_flag: str or None         — reserved; only 'MATLAB' supported
-    leight_flag : bool or None        — if False use deprecated gridder (unsupported)
+    y           : (nCh, nPt) complex  - non-Cartesian raw data
+    t           : (3, nPt)   float    - k-space trajectory
+    v           : (1, nPt)   float    - density-compensation weights
+    C           : array or None       - coil-sensitivity maps
+    N_u         : array-like or None  - Cartesian grid size [Nx, Ny, Nz]
+    n_u         : array-like or None  - output image size (= N_u if None)
+    dK_u        : array-like or None  - Cartesian grid step [dKx, dKy, dKz]
+    kernelType  : str or None         - 'gauss' (default) or 'kaiser'
+    nWin        : int or None         - kernel window width (default 3)
+    kernelParam : array-like or None  - kernel params (default [0.61, 10])
+    fft_lib_flag: str or None         - reserved; only 'MATLAB' supported
+    leight_flag : bool or None        - if False use deprecated gridder (unsupported)
 
     Returns
     -------

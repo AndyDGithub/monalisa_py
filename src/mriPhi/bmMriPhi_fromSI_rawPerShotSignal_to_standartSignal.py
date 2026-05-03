@@ -1,40 +1,63 @@
 import numpy as np
-from src.interp1.bmInterp1 import bmInterp1  # Imported function
-from src.arrayUtility.bmBlockReshape import bmBlockReshape  # Added import statement
+from src.interp1.bmInterp1 import bmInterp1
+from src.arrayUtility.bmBlockReshape import bmBlockReshape
+from src.geom123 import bmTraj
 
+def bmMriPhi_fromSI_rawPerShotSignal_to_standartSignal(
+    s: np.ndarray,
+    nSeg: int,
+    _,
+    ind_shot_min: int,
+    ind_shot_max: int,
+) -> np.ndarray:
+    """
+    Convert a raw per-shot MRI signal into a standardized signal format.
 
-def unknown_function():
-    nSeg, _, ind_shot_min, ind_shot_max = map(int, input("nSeg: ~ ind_shot_min: ~ ind_shot_max: ").split())
+    Parameters
+    ----------
+    s : np.ndarray
+        Raw signal array of shape (nSignal, nSI), one point per sampling in
+in interval.
+    nSeg : int
+        Number of segments per interleaved readout.
+    _ : Any
+        Unused placeholder to match MATLAB function signature.
+    ind_shot_min : int
+        Minimum shot index (inclusive, zero-based).
+    ind_shot_max : int
+        Maximum shot index (inclusive, zero-based).
 
-    nSignal = np.shape(s)[1]
-    nLine_to_interp = nSeg * np.shape(s)[2] + 1
-    t_interp = np.arange(nLine_to_interp)
-    t_interpolant = t_interp[0:nSeg:end]
+    Returns
+    -------
+    np.ndarray
+        Standardized signal of shape (nSignal, (nLine_to_interp - 1) * 2).
+    """
+    # Crop the signal to the requested shot range
+    s = s[:, ind_shot_min : ind_shot_max + 1]
 
-    s_out = np.zeros((nSignal, (nLine_to_interp - 1)*2))
+    # Reshape the signal into interleaved segments
+    s = bmBlockReshape(s, nSeg)
+
+    nSignal = s.shape[0]
+    # Append the second-last column to the end (mimics MATLAB s(:, end-1))
+    s_interpolant = np.concatenate((s, s[:, -2:]), axis=1)
+
+    nLine_to_interp = nSeg * s.shape[1] + 1
+    t_interp = np.arange(1, nLine_to_interp + 1)
+    t_interpolant = np.arange(1, nLine_to_interp + 1, nSeg)
+
+    s_out = np.zeros((nSignal, (nLine_to_interp - 1) * 2))
 
     for i in range(nSignal):
-        temp_s = bmInterp1(t_interpolant, s[:, i], t_interp)
-        temp_s = np.concatenate((temp_s, flip(temp_s, axis=1)))
-
-        temp_s -= np.mean(temp_s.ravel())
-        temp_s /= np.std(temp_s.ravel())
-
+        # Interpolate the signal
+        temp_s = bmInterp1(t_interpolant, s_interpolant[i], t_interp)
+        # Remove the last element (MATLAB: temp_s(:, end) = [])
+        temp_s = temp_s[:-1]
+        # Mirror the signal
+        temp_s = np.concatenate((temp_s, np.flip(temp_s)))
+        # Center and normalize
+        temp_s = temp_s - temp_s.mean()
+        temp_s = temp_s / temp_s.std()
         s_out[i, :] = temp_s
 
     return s_out
-
-
-def bmMriPhi_fromSI_rawPerShotSignal_to_standartSignal():
-    global s  # Assuming 's' is defined globally or passed as argument
-
-    nSeg, _, ind_shot_min, ind_shot_max = map(int, [
-        input("nSeg: "),
-        " ",
-        input("ind_shot_min: "),
-        input("ind_shot_max: ")
-    ])
-
-    s = bmBlockReshape(s, nSeg)  # Reshaping the signal as per MRI-Phi format
-
-    return unknown_function()

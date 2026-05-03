@@ -1,50 +1,74 @@
-from __future__ import annotations
-from third_part.matlab_compat.matlab_native import double, size
-
+import numpy as np
 
 def bmTraj_random3_non_k0(nPt, N_u, dK_u):
-    """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: myEps = 100*eps; % -------------------------------------------------------- magic_number
-    # MATLAB: N_u     = double(N_u(:)');
-    # MATLAB: dK_u    = double(dK_u(:)');
-    # MATLAB: lx = (N_u(1, 1)-1)*dK_u(1, 1);
-    # MATLAB: ly = (N_u(1, 2)-1)*dK_u(1, 2);
-    # MATLAB: lz = (N_u(1, 3)-1)*dK_u(1, 3);
-    # MATLAB: sx = N_u(1, 1)/2*dK_u(1, 1);
-    # MATLAB: sy = N_u(1, 2)/2*dK_u(1, 2);
-    # MATLAB: sz = N_u(1, 3)/2*dK_u(1, 3);
-    # MATLAB: x = (rand(1, nPt)*lx) - sx;
-    # MATLAB: y = (rand(1, nPt)*ly) - sy;
-    # MATLAB: z = (rand(1, nPt)*lz) - sz;
-    # MATLAB: t = cat(1, x(:)', y(:)', z(:)');
-    # MATLAB: n = sqrt( t(1, :).^2 + t(2, :).^2 + t(3, :).^2 );
-    # MATLAB: m = (n < myEps);
-    # MATLAB: t(:, m(:)') = [];
-    # MATLAB: nPt_miss = nPt - size(t, 2);
-    # MATLAB: for i = 1:nPt_miss
-    # MATLAB: x = rand*lx - sx;
-    # MATLAB: y = rand*ly - sy;
-    # MATLAB: z = rand*lz - sz;
-    # MATLAB: n = sqrt(x^2 + y^2 + z^2);
-    # MATLAB: while (n < myEps)
-    # MATLAB: x = rand*lx - sx;
-    # MATLAB: y = rand*ly - sy;
-    # MATLAB: z = rand*lz - sz;
-    # MATLAB: n = sqrt(x^2 + y^2 + z^2);
-    # MATLAB: end
-    # MATLAB: t = cat(2, [x, y, z]', t);
-    # MATLAB: end
-    # MATLAB: if size(t, 2) ~= nPt
-    # MATLAB: error('The output traj has wrong size. ');
-    # MATLAB: return;
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    t = None
+    """
+    Generate a random 3-D trajectory that avoids the k-space origin.
+
+    This function is a direct port of the MATLAB routine
+    ``bmTraj_random3_non_k0``. It creates ``nPt`` random points within a
+    rectangular volume defined by the sampling grid sizes ``N_u`` and the
+    sampling spacings ``dK_u``. Points that fall within a small sphere arou
+around
+    the origin (radius ``eps``) are discarded and regenerated until the
+    desired number of valid points is obtained.
+
+    Parameters
+    ----------
+    nPt : int
+        Number of trajectory points to generate.
+    N_u : array_like, shape (3,)
+        Grid dimensions (number of samples) in the three spatial
+        directions.
+    dK_u : array_like, shape (3,)
+        Sampling spacings in the three spatial directions.
+
+    Returns
+    -------
+    t : ndarray, shape (nPt, 3)
+        Random trajectory points.
+
+    Notes
+    -----
+    The MATLAB implementation uses a while loop that repeatedly generates
+    random points and removes those too close to the origin. The same
+    logic is preserved here, with a small epsilon ``eps`` defined as
+    ``100 * eps`` (machine precision). The algorithm may produce more
+    points than requested if many points are discarded; in that case the
+    result is truncated to ``nPt`` entries.
+
+    """
+    # Ensure input arrays are 1-D with length 3
+    N_u = np.asarray(N_u, dtype=np.float64).reshape(3)
+    dK_u = np.asarray(dK_u, dtype=np.float64).reshape(3)
+
+    # Half-volume extents
+    lx = (N_u[0] - 1) * dK_u[0]
+    ly = (N_u[1] - 1) * dK_u[1]
+    lz = (N_u[2] - 1) * dK_u[2]
+
+    sx = N_u[0] / 2.0 * dK_u[0]
+    sy = N_u[1] / 2.0 * dK_u[1]
+    sz = N_u[2] / 2.0 * dK_u[2]
+
+    eps = 100 * np.finfo(float).eps
+
+    # Accumulate valid points
+    t = np.empty((0, 3), dtype=np.float64)
+    while t.shape[0] < nPt:
+        m = nPt - t.shape[0]
+        x = np.random.rand(m) * lx - sx
+        y = np.random.rand(m) * ly - sy
+        z = np.random.rand(m) * lz - sz
+        pts = np.column_stack((x, y, z))
+        # Keep points that are farther than eps from the origin
+        valid = np.linalg.norm(pts, axis=1) > eps
+        t = np.vstack((t, pts[valid]))
+
+    # In rare cases we may overshoot; truncate to the requested size
+    if t.shape[0] > nPt:
+        t = t[:nPt]
+
+    if t.shape[0] != nPt:
+        raise ValueError("The output trajectory has incorrect size.")
+
     return t

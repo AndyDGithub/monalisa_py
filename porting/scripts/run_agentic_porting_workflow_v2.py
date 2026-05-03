@@ -22,7 +22,7 @@ def _bootstrap_python_path() -> None:
 def main() -> int:
     _bootstrap_python_path()
     for module_name in (
-        "agentic.cli.run_agentic_porting_workflow_v2",
+        "porting.agentic.cli.run_agentic_porting_workflow_v2",
         "monalisa_py.agentic.cli.run_agentic_porting_workflow_v2",
     ):
         try:
@@ -32,7 +32,7 @@ def main() -> int:
             continue
     raise ModuleNotFoundError(
         "Cannot import LangGraph v2 CLI module. Expected one of: "
-        "agentic.cli.run_agentic_porting_workflow_v2 or "
+        "porting.agentic.cli.run_agentic_porting_workflow_v2 or "
         "monalisa_py.agentic.cli.run_agentic_porting_workflow_v2"
     )
 

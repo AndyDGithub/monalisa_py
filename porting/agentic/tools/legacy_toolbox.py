@@ -48,7 +48,7 @@ class LegacyToolbox:
         self.log_root = (self.repo_root / "porting" / "logs").resolve()
         self._target_test_index: dict[str, list[str]] | None = None
 
-    LOGGER = logging.getLogger("agentic.legacy_toolbox")
+    LOGGER = logging.getLogger("porting.agentic.legacy_toolbox")
     _LEGACY_REPAIR_VALUE_KEYS = {
         "repo_root",
         "src_root",
@@ -78,6 +78,10 @@ class LegacyToolbox:
         "sync_env_timeout_seconds",
         "quality_blockers",
         "retry_feedback",
+        "ollama_host",
+        "ollama_num_parallel",
+        "ollama_max_loaded_models",
+        "ollama_max_queue",
     }
     _LEGACY_REPAIR_BOOL_POSITIVE_KEYS = {
         "repair_all_candidates",
@@ -95,6 +99,7 @@ class LegacyToolbox:
         "enable_matlab_help",
         "sync_env",
         "force_quality_cleanup",
+        "disable_llm_timeout",
     }
     _LEGACY_REPAIR_BOOL_NEGATED_KEYS = {
         "auto_pull_model": "no-auto-pull-model",
@@ -144,7 +149,8 @@ class LegacyToolbox:
             reader.start()
 
             reader_done = False
-            timeout_s = max(1, int(timeout_seconds))
+            timeout_s = int(timeout_seconds)
+            timeout_enabled = timeout_s > 0
             heartbeat_s = 20
             last_heartbeat = time.perf_counter()
             started_perf = last_heartbeat
@@ -170,10 +176,10 @@ class LegacyToolbox:
                 now = time.perf_counter()
                 elapsed = now - started_perf
                 if now - last_heartbeat >= heartbeat_s:
-                    self.LOGGER.info("[%s] ... still running (%.1fs)", script_name, elapsed)
+                    # self.LOGGER.info("[%s] ... still running (%.1fs)", script_name, elapsed)
                     last_heartbeat = now
 
-                if elapsed >= timeout_s:
+                if timeout_enabled and elapsed >= timeout_s:
                     proc.kill()
                     returncode = proc.wait()
                     stderr_text = f"hard_timeout_exceeded:{timeout_s}s"
@@ -192,6 +198,7 @@ class LegacyToolbox:
             if stdout_text:
                 stdout_text += "\n"
         else:
+            timeout_arg = None if int(timeout_seconds) <= 0 else int(timeout_seconds)
             proc = subprocess.run(
                 argv,
                 cwd=str(self.repo_root),
@@ -199,7 +206,7 @@ class LegacyToolbox:
                 text=True,
                 encoding="utf-8",
                 errors="replace",
-                timeout=timeout_seconds,
+                timeout=timeout_arg,
                 check=False,
             )
             returncode = proc.returncode
@@ -334,7 +341,15 @@ class LegacyToolbox:
         *,
         target_file: str | None = None,
     ) -> ScriptResult:
-        subprocess_timeout_seconds = max(120, int(repair_args.get("repair_subprocess_timeout_seconds", 1800) or 1800))
+        disable_llm_timeout = bool(repair_args.get("disable_llm_timeout", False))
+        raw_subprocess_timeout = int(repair_args.get("repair_subprocess_timeout_seconds", 1800) or 0)
+        if disable_llm_timeout:
+            # Keep wrapper timeout aligned with no-timeout LLM mode.
+            subprocess_timeout_seconds = 0
+        elif raw_subprocess_timeout <= 0:
+            subprocess_timeout_seconds = 0
+        else:
+            subprocess_timeout_seconds = max(120, raw_subprocess_timeout)
         output_override = repair_args.get("output")
         if target_file and not output_override:
             stamp = datetime.now(tz=timezone.utc).strftime("%Y%m%dT%H%M%S%f")
@@ -347,7 +362,7 @@ class LegacyToolbox:
                 "--roots",
                 ",".join(roots),
                 "--model",
-                str(repair_args.get("model", "gpt-oss:20b")),
+                str(repair_args.get("model", "qwen2.5-coder:7b")),
                 "--fallback-model",
                 str(repair_args.get("fallback_model", "gpt-oss:20b")),
                 "--max-iterations",

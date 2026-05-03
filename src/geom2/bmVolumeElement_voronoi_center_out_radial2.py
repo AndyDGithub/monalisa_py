@@ -1,4 +1,10 @@
 from src.traj123.bmTraj_norm import bmTraj_norm
+
+from src.geom123.bmVoronoi import bmVoronoi
+from src.traj123.bmTraj_lineDirection import bmTraj_lineDirection
+
+from src.traj123.bmTraj_formatTraj import bmTraj_formatTraj
+from src.traj123.bmTraj_lineReshape import bmTraj_lineReshape
 def bmVolumeElement_voronoi_center_out_radial2(t):
     # format trajectory
     t, _, formatedIndex, formatedWeight = bmTraj_formatTraj(t)

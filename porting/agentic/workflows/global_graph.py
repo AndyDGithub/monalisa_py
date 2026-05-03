@@ -9,13 +9,13 @@ from uuid import uuid4
 
 from langgraph.graph import END, StateGraph
 
-from agentic.agents import CoordinatorAgent, DocumentorAgent
-from agentic.config import WorkflowConfig
-from agentic.state import PortingGraphState
-from agentic.tools import LegacyToolbox
-from agentic.workflows.repair_graph import build_repair_cycle_workflow
+from porting.agentic.agents import CoordinatorAgent, DocumentorAgent
+from porting.agentic.config import WorkflowConfig
+from porting.agentic.state import PortingGraphState
+from porting.agentic.tools import LegacyToolbox
+from porting.agentic.workflows.repair_graph import build_repair_cycle_workflow
 
-LOGGER = logging.getLogger("agentic.global_graph")
+LOGGER = logging.getLogger("porting.agentic.global_graph")
 
 
 def _flatten_porting_order(payload: Any) -> list[str]:
@@ -58,6 +58,23 @@ def _dedupe_preserve(items: list[str]) -> list[str]:
             seen.add(item)
             out.append(item)
     return out
+
+
+def _collect_python_todo_files(repo_root: Path, roots: list[str]) -> list[str]:
+    """Return Python files that still contain TODO(matlab-*) markers."""
+    todo_files: list[str] = []
+    for root in roots:
+        root_path = (repo_root / root).resolve()
+        if not root_path.exists() or not root_path.is_dir():
+            continue
+        for py_path in root_path.rglob("*.py"):
+            try:
+                text = py_path.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            if "TODO(matlab" in text:
+                todo_files.append(str(py_path.resolve()))
+    return _dedupe_preserve(todo_files)
 
 
 def _is_under_roots(path: Path, repo_root: Path, roots: list[str]) -> bool:
@@ -320,9 +337,17 @@ def build_global_porting_workflow(config: WorkflowConfig):
         else:
             for index, py_target in enumerate(order):
                 file_layer_map.setdefault(py_target, int(file_layer_map.get(py_target, index)))
+
+        todo_py_files = _collect_python_todo_files(config.repo_root, roots)
+        if todo_py_files:
+            # Prioritize explicit TODO-cleanup work ahead of regular queue.
+            order = _dedupe_preserve(todo_py_files + order)
+            for py_target in todo_py_files:
+                file_layer_map.setdefault(py_target, 0)
         LOGGER.info(
-            "global.build_shared_state pending_files=%s source=%s",
+            "global.build_shared_state pending_files=%s todo_candidates=%s source=%s",
             len(order),
+            len(todo_py_files),
             source,
         )
 

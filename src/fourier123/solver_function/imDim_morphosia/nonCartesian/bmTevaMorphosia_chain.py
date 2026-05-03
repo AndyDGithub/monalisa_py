@@ -1,226 +1,64 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
+"""
+bmTevaMorphosia_chain — multi-frame iterative reconstruction with motion (Teva Morphosia).
 
-from src.arrayUtility.bmBlockReshape import bmBlockReshape
-from src.arrayUtility.bmColReshape import bmColReshape
-from src.arrayUtility.bmSingle import bmSingle
-from src.arrayUtility.bmZero import bmZero
-from src.fourier123.map_function.nonCartesian.bmShanna import bmShanna
-from src.fourier123.prep_function.bmKF import bmKF
-from src.fourier123.prep_function.bmKF_conj import bmKF_conj
-from src.image123.bmImDeform import bmImDeform
-from src.image123.bmImDeformT import bmImDeformT
-from src.linSpace.bmProx_oneNorm import bmProx_oneNorm
-from src.linSpace.bmY_ve_reshape import bmY_ve_reshape
-from src.mathOp.bmAxpy import bmAxpy
-from src.mathOp.bmMinus import bmMinus
-from src.mathOp.bmMult import bmMult
-from src.mathOp.bmPlus import bmPlus
-from src.mathOp.bmSquaredNorm import bmSquaredNorm
-from third_part.matlab_compat.matlab_native import disp, double, single
-
-from src.sparseMat.m.bmSparseMat_vec import imag, int32, real
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
-
+Port status: structure ported; numerical implementation pending (requires MEX).
+"""
+from __future__ import annotations
 import numpy as np
 
-def unknown_function():
-    z, u,
-    y, ve, C,
-    Gu, Gut, frSize,
-    Tu, Tut,
-    delta, rho, regul_mode,
-    nCGD, ve_max,
-    # TODO(matlab-line): nIter, witnessInfo  )
-    # initial -----------------------------------------------------------------
-    # function_label
-    function_label = "tevaMorphosia"
-    disp([function_label, " initial"])
-    # magic_numbers
-    myEps                   = 10*eps("single");  # -------------------------------- magic number
-    # input data and output image are single.
-    x                       = bmSingle(bmColReshape(x, frSize))
-    y                       = bmSingle(y)
-    # every size is double (because indices must be double in Matlab)
-    nCh                     = double(np.shape(y[1], 2))
-    nFr                     = double(np.shape(y.ravel(), 1))
-    N_u                     = double(int32(Gu[1].N_u.ravel().T))
-    frSize                     = double(int32(frSize.ravel().T))
-    nPt_u                   = double(prod(frSize.ravel()))
-    # every phsysical quantity is single
-    dK_u                    = single(   Gu[1].d_u.ravel().T   )
-    # TODO(matlab-line): dX_u                    = single(  (1./single(dK_u))./single(N_u)  );
-    HX                      = single(  prod(dX_u.ravel())  )
-    HZ                      = single(HX)
-    HY                      = private_ve_to_HY(ve, ve_max, y)
-    # algorithm parameters are single
-    delta_list              = single(private_init_regul_param(delta,   nIter))
-    rho_list                = single(private_init_regul_param(rho,     nIter))
-    # coil_sense and deapodization kernels are single
-    C                       = single(bmBlockReshape(C, frSize))
-    KFC                     = single(bmKF(          C,  N_u, frSize, dK_u, nCh, Gu[1].kernel_type, Gu[1].nWin, Gu[1].kernelParam))
-    KFC_conj                = single(bmKF_conj(conj(C), N_u, frSize, dK_u, nCh, Gu[1].kernel_type, Gu[1].nWin, Gu[1].kernelParam))
-    # initialize Tu's and Tut's
-    # TODO(matlab-control): if isempty(Tu)
-    Tu = cell(nFr, 1)
-    # TODO(matlab-control): if isempty(Tut)
-    Tut = cell(nFr, 1)
-    # debluring kernel for deformations (we leave it empty ,so no effect).
-    K_bump          = [];  # bmK_bump(N_u).^(0.5);
-    # initialize z's
-    # TODO(matlab-control): if isempty(z)
-    z   = private_F(x, Tu, frSize, nFr, K_bump)
-    # initialize u's
-    # TODO(matlab-control): if isempty(u)
-    u   = bmZero([nPt_u, 1], "complex_single", [nFr, 1])
-    # TODO(matlab-line): bmInitialWitnessInfo(   witnessInfo, ...
-    function_label,
-    N_u, frSize, dK_u, ve_max,
-    nIter,
-    nCGD,
-    delta_list, rho_list,
-    # TODO(matlab-line): regul_mode);
-    [dafi, regul] = private_dafi_regul(x, y, Gu, Tu, HY, HZ, frSize, nFr, KFC, K_bump)
-    disp(" initial done. ")
-    # END_initial -------------------------------------------------------------
-    # ADMM loop ---------------------------------------------------------------
-    disp([function_label, " is running "])
-    # TODO(matlab-control): for c = 1:nIter
-    # seting_regul_weight -------------------------------------------------
-    # TODO(matlab-control): if strcmp(regul_mode, 'normal')
-    delta           = delta_list(1, c)
-    rho             = rho_list(1, c)
-    # TODO(matlab-control): elseif strcmp(regul_mode, 'adapt')
-    [delta, rho]    = private_adapt_delta_rho(dafi, regul, delta_list(1, c), rho_list(1, c))
-    # END_seting_regul_weight ---------------------------------------------
-    # CGD -----------------------------------------------------------------
-    # L_Aube
-    res_y_next              = bmMinus(                y,  private_M(x, Gu, frSize, nFr, KFC   )      )
-    res_z_next              = bmMinus(  bmMinus(z, u),  private_F(x, Tu, frSize, nFr, K_bump)      )
-    dagM_res_y_next         = private_dagM(res_y_next, Gut, HX, HY, frSize, nFr, KFC_conj)
-    dagF_res_z_next         = bmMult(rho, private_dagF(res_z_next, Tut, HX, HZ, frSize, nFr, K_bump))
-    dagA_res_next           = bmPlus(dagM_res_y_next, dagF_res_z_next)
-    p_next                  = dagA_res_next
-    sqn_dagA_res_next       = bmSquaredNorm(  dagA_res_next, HX  )
-    # TODO(matlab-control): for j = 1:nCGD
-    # Le_Matin
-    res_y_curr          = res_y_next
-    res_z_curr          = res_z_next
-    sqn_dagA_res_curr   = sqn_dagA_res_next
-    p_curr              = p_next
-    # TODO(matlab-control): if(sqn_dagA_res_curr < myEps)
-    # TODO(matlab-line): break;
-    # Le_Midi
-    Mp_curr             = private_M(p_curr, Gu, frSize, nFr, KFC)
-    Fp_curr             = private_F(p_curr, Tu, frSize, nFr, K_bump)
-    sqn_Mp_curr         = bmSquaredNorm(Mp_curr, HY)
-    sqn_Fp_curr         = bmSquaredNorm(Fp_curr, rho*HZ)
-    sqn_Ap_curr         = sqn_Mp_curr + sqn_Fp_curr
-    # Le_Soir
-    a                   = sqn_dagA_res_curr/sqn_Ap_curr
-    x                   = bmAxpy(a, p_curr, x)
-    # TODO(matlab-control): if j == nCGD
-    # TODO(matlab-line): break;
-    # La_Nouvelle_Aube
-    res_y_next          = bmAxpy(-a, Mp_curr, res_y_curr)
-    res_z_next          = bmAxpy(-a, Fp_curr, res_z_curr)
-    dagM_res_y_next     =             private_dagM(res_y_next, Gut, HX, HY, frSize, nFr, KFC_conj)
-    dagF_res_z_next     = bmMult(rho, private_dagF(res_z_next, Tut, HX, HZ, frSize, nFr, K_bump))
-    dagA_res_next       = bmPlus(dagM_res_y_next, dagF_res_z_next)
-    sqn_dagA_res_next   = bmSquaredNorm(dagA_res_next, HX)
-    b                   = sqn_dagA_res_next/sqn_dagA_res_curr
-    p_next              = bmAxpy(b, p_curr, dagA_res_next)
-    # END_CGD -------------------------------------------------------------
-    # updating_z_and_u ----------------------------------------------------
-    Fx_plus_u               = bmPlus(u, private_F(x, Tu, frSize, nFr, K_bump))
-    z                       = bmProx_oneNorm(Fx_plus_u, delta/rho)
-    u                       = bmMinus(Fx_plus_u, z)
-    # END_updating_z_and_u ------------------------------------------------
-    # monitoring ----------------------------------------------------------
-    [dafi, regul]                   = private_dafi_regul(x, y, Gu, Tu, HY, HZ, frSize, nFr, KFC, K_bump)
-    objective                       = 0.5*dafi + 0.5*delta*regul
-    # TODO(matlab-line): witnessInfo.param{11}(1, c)     = objective;
-    # TODO(matlab-line): witnessInfo.param{12}(1, c)     = dafi;
-    # TODO(matlab-line): witnessInfo.param{13}(1, c)     = regul;
-    witnessInfo.watch(c, x, frSize, "loop")
-    # END_monitoring ------------------------------------------------------
-    disp([" ", function_label, " completed. "])
-    # END_ADMM loop -----------------------------------------------------------
-    # final -------------------------------------------------------------------
-    witnessInfo.watch(c, x, frSize, "final")
-    x = bmBlockReshape(x, frSize)
-    # END_final ---------------------------------------------------------------
-    # HELP_FUNCIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-def private_ve_to_HY(ve, ve_max, y):
-    nFr = np.shape(y.ravel(), 1)
-    HY  = cell(nFr, 1)
-    # TODO(matlab-control): for i = 1:nFr
-    ve[i]               = single(bmY_ve_reshape(ve[i],  np.shape(y[i])  ))
-    HY[i]               = min(ve[i], single(ve_max));  # Important, we limit the value of ve.
+def bmTevaMorphosia_chain(x, z, u,
+                          y, ve, C,
+                          Gu, Gut, frSize,
+                          Tu, Tut,
+                          delta, rho, regul_mode,
+                          nCGD, ve_max,
+                          nIter, witnessInfo):
+    """
+    Multi-frame iterative SENSE + motion reconstruction via ADMM.
+
+    Parameters
+    ----------
+    x          : list of frame image estimates, col format
+    z, u       : ADMM auxiliary variables (None to initialize)
+    y          : list of k-space data per frame
+    ve         : list of volume elements per frame
+    C          : coil sensitivity maps, block format
+    Gu         : list of forward gridding sparse matrices per frame
+    Gut        : list of backward gridding sparse matrices per frame
+    frSize     : frame (reconstruction) size
+    Tu, Tut    : lists of deformation fields and their transposes
+    delta      : regularization weight
+    rho        : ADMM penalty parameter
+    regul_mode : 'normal' or 'adapt'
+    nCGD       : conjugate gradient iterations per ADMM step
+    ve_max     : maximum volume element clipping value
+    nIter      : ADMM iterations
+    witnessInfo: monitoring object
+
+    Returns
+    -------
+    x : list of reconstructed frames, block format
+    """
+    raise NotImplementedError(
+        "bmTevaMorphosia_chain is not yet implemented. "
+        "Requires MEX-based NUFFT and motion deformation operators."
+    )
+
+
+def _private_ve_to_HY(ve, ve_max, y):
+    nFr = len(y) if isinstance(y, (list, tuple)) else 1
+    HY  = [None] * nFr
+    for i in range(nFr):
+        ve_i = np.asarray(ve[i] if isinstance(ve, (list, tuple)) else ve, dtype=np.float32)
+        HY[i] = np.minimum(ve_i, np.float32(ve_max))
     return HY
 
-def private_dafi_regul(x, y, Gu, Tu, HY, HZ, frSize, nFr, KFC, K_bump):
-    dafi   = 0
-    regul  = 0
-    # TODO(matlab-control): for i = 1:nFr
-    temp_res    = y[i] - bmShanna(x[i], Gu[i], KFC, frSize, "MATLAB");  # residu
-    dafi        = dafi + bmSquaredNorm(temp_res, HY[i])
-    i_minus_1   = mod( (i-1) - 1, nFr) + 1
-    temp_res    = x[i_minus_1] - bmImDeform(Tu[i], x[i], frSize, K_bump)
-    regul       = regul + HZ*np.sum(np.abs(  real(temp_res.ravel())  )) + HZ*np.sum(np.abs(  imag(temp_res.ravel())  ))
-    return (dafi, regul)
 
-def private_init_regul_param(in_param, nIter):
-    out_param       = single(  np.abs(in_param.ravel())  )
-    # TODO(matlab-control): if size(out_param, 1) == 1
-    out_param   = linspace(out_param, out_param, nIter)
-    # TODO(matlab-control): elseif size(out_param, 1) == 2
-    out_param   = linspace(out_param(1, 1), out_param(2, 1), nIter)
-    out_param = out_param.ravel().T
-    out_param = single(out_param)
-    return out_param
-
-def private_adapt_delta_rho(dafi, regul, delta_factor, rho_factor):
-    # delta   = delta_factor*R/TV;
-    delta   = delta_factor*regul/dafi
-    rho     = rho_factor*delta
-    # END_HELP_FUNCIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # MODEL_AND_SPARSIFIER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    # forward_model
-    return (delta, rho)
-
-def private_M(x, Gu, frSize, nFr, KFC):
-    M_x = cell(nFr, 1)
-    # TODO(matlab-control): for i = 1:nFr
-    M_x[i]     = bmShanna(x[i], Gu[i], KFC, frSize, "MATLAB")
-    # forward_sparsifier
-    return M_x
-
-def private_F(x, Tu, frSize, nFr, K_bump):
-    F_x = cell(nFr, 1)
-    # TODO(matlab-control): for i = 1:nFr
-    i_minus_1   = mod( (i-1) - 1, nFr) + 1
-    F_x[i]     = bmImDeform(Tu[i], x[i], frSize, K_bump) - x[i_minus_1]
-    # adjoint_model
-    return F_x
-
-def private_dagM(y, Gut, HX, HY, frSize, nFr, KFC_conj):
-    dagM_y = cell(nFr, 1)
-    # TODO(matlab-control): for i = 1:nFr
-    # TODO(matlab-line): dagM_y{i} = (1/HX)*bmNakatsha(HY{i}.*y{i}, Gut{i}, KFC_conj, true, frSize, 'MATLAB'); % negative_gradient
-    # adjoint_sparsifier
-    return dagM_y
-
-def private_dagF(z, Tut, HX, HZ, frSize, nFr, K_bump):
-    dagF_z = cell(nFr, 1)
-    # TODO(matlab-control): for i = 1:nFr
-    i_plus_1   = mod( (i+1) - 1, nFr) + 1
-    dagF_z[i] = (1/HX)*(   bmImDeformT(Tut[i], HZ*z[i], frSize, K_bump) - HZ*z[i_plus_1]  );  # negative_gradient
-    # END_MODEL_AND_SPARSIFIER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    return dagF_z
-
-def bmTevaMorphosia_chain():
-    return unknown_function()
+def _private_init_regul_param(in_param, nIter):
+    p = np.abs(np.asarray(in_param, dtype=np.float32).ravel())
+    if p.size == 1:
+        return np.full(nIter, float(p[0]), dtype=np.float32)
+    elif p.size == 2:
+        return np.linspace(float(p[0]), float(p[1]), nIter, dtype=np.float32)
+    return p

@@ -1,5 +1,8 @@
 from __future__ import annotations
+
 from third_part.matlab_compat.matlab_native import isempty
+
+import numpy as np
 
 
 def bmVarargin_RMS_flag(myRMS_flag):
@@ -9,13 +12,7 @@ def bmVarargin_RMS_flag(myRMS_flag):
     # CHUV and UNIL
     # Lausanne - Switzerland
     # May 2023
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: if isempty(myRMS_flag)
-    # MATLAB: out = true;
-    # MATLAB: else
-    # MATLAB: out = myRMS_flag;
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    out = None
-    return out
+    if isempty(myRMS_flag):
+        return True
+    else:
+        return myRMS_flag

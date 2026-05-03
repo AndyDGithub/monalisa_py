@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from agentic.state import CoordinatorDecision, PortingGraphState
+from porting.agentic.state import CoordinatorDecision, PortingGraphState
 
 
 @dataclass(slots=True)
@@ -64,6 +64,7 @@ class CoordinatorAgent:
             "llm_disabled",
             "no_llm_runtime_available",
             "no_candidate_targets",
+            "no_patch_applied",
         }
         if verdict != "approved" and repair_finished_reason in hard_block_reasons:
             info["status"] = "blocked"

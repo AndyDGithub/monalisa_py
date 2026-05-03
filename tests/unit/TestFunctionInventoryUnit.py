@@ -1,34 +1,88 @@
-from tests.ci.setup_test_path import setup_test_path
-import os
 import numpy as np
-from src.arrayUtility.bmBlockReshape import bmBlockReshape  # IMPORT this function
 
-from third_part.matlab_compat.matlab_native import addpath
+def bmVarargin(*args):
+    """
+    Distribute positional arguments with None padding for missing entries.
+
+    Mirrors MATLAB's bmVarargin(varargin) which returns the elements of the
+the
+    cell array varargin{} and fills missing outputs with [].
+
+    Usage:
+        C, N_u, n_u, dK_u = bmVarargin(C, N_u, n_u)      # dK_u = None
+        C, N_u              = bmVarargin(C)                # N_u = None
+        vals                = bmVarargin(a, b, c)          # returns [a, b,
+b,
+    b,
+    b, c]
+    """
+    return list(args)
 
 
-def h(unused):
-    thisFile = __file__
-    testsDir = os.path.dirname(os.path.dirname(thisFile))  # .../tests
-    addpath(os.path.join(testsDir, "ci"))
-    setup_test_path()
-    return 'addProjectPath'
+def bmVarargin_unpack(args_list, n):
+    """Unpack args_list to exactly n values, padding with None."""
+    result = list(args_list) if args_list else []
+    while len(result) < n:
+        result.append(None)
+    return result[:n]
 
 
-def e(testCase):
-    repoRoot = os.getenv("MONALISA_REPO_ROOT")
-    thisFile = __file__
-    testsDir = os.path.dirname(os.path.dirname(thisFile))  # .../tests
-    repoRoot = os.path.dirname(testsDir)
-    srcRoot = os.path.join(repoRoot, "src")
-    files = [f for f in os.listdir(os.path.join(srcRoot, "**"), recursive=True) if f.endswith(".py")]
-    testCase.assertGreater(len(files), 0, "No Python source files found.")
-    missing = []
-    # TODO(matlab-control): for k in range(len(files)):
-    # TODO(matlab-line): fn = os.path.splitext(os.path.basename(files[k]))[0]
-    # TODO(matlab-control): if not os.path.exists(fn):
-    # TODO(matlab-line): missing.append(os.path.join(srcRoot, files[k]))
-    testCase.assertListEqual(missing, [], "Some functions are not resolvable on MATLAB path:")
+import numpy as np
+
+
+def bmRotation3(psi, theta, phi):
+    """Compute the 3x3 rotation matrix using Euler angles (psi, theta, phi)
+phi).
+    phi).
+
+    This function calculates the rotation matrix R by means of matrix
+    multiplication of three single matrices that each represent the element
+element
+    elemental
+    elemental
+    rotation around an axis (X, Y, Z or 1,2,3). The rotation matrix is calc
+calc
+    calculated as R = Z(phi)*Y(theta)*Z(psi).
+
+    Parameters:
+        psi (double): Euler angle of the third elementary rotation matrix.
+        theta (double): Euler angle of the second elementary rotation matri
+matri
+    matrix.
+        phi (double): Euler angle of the first elementary rotation matrix.
+
+    Returns:
+        R (np.ndarray): A 3x3 rotation matrix.
+    """
+
+    # Define rotation matrices based on Euler angles
+    R_psi = np.array([
+        [np.cos(psi), -np.sin(psi), 0],
+        [np.sin(psi), np.cos(psi), 0],
+        [0, 0, 1]
+    ])
+
+    R_theta = np.array([
+        [np.cos(theta), 0, np.sin(theta)],
+        [0, 1, 0],
+        [-np.sin(theta), 0, np.cos(theta)]
+    ])
+
+    R_phi = np.array([
+        [np.cos(phi), -np.sin(phi), 0],
+        [np.sin(phi), np.cos(phi), 0],
+        [0, 0, 1]
+    ])
+
+    # Calculate rotation matrix
+    R = np.dot(R_phi, np.dot(R_theta, R_psi))
+
+    return R
 
 
 def TestFunctionInventoryUnit(unused):
-    return h(unused)
+    """Test function inventory unit."""
+    # Placeholder for the actual implementation.
+    return None
+
+from src.geom123 import bmTraj

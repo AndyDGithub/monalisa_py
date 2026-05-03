@@ -35,7 +35,7 @@ def bmMitosius_create(mitosius_dir, *args):
         t_cell  = args[1]
         ve_cell = args[2]
 
-        # Use len() for lists/sequences — np.shape on a list-of-arrays returns
+        # Use len() for lists/sequences - np.shape on a list-of-arrays returns
         # the full array shape, not the cell shape.
         n = len(y_cell)
         mitosius_size   = np.array([n], dtype=np.float64)

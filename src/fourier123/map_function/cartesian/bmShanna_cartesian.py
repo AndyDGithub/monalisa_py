@@ -1,52 +1,58 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
 from src.arrayUtility.bmColReshape import bmColReshape
-from src.varargin.bmVarargin import bmVarargin
-from third_part.matlab_compat.matlab_native import double, single
+def bmShanna_cartesian(x: np.ndarray, N_u, dK_u, *varargin) -> np.ndarray:
+    """
+    Cartesian Fourier transform with optional coil decomposition.
 
-from src.sparseMat.m.bmSparseMat_vec import error
-# Bastien Milani
-# CHUV and UNIL
-# Lausanne - Switzerland
-# May 2023
+    Parameters
+    ----------
+    x : np.ndarray
+        Input data array.
+    N_u : array-like
+        Array of dimensions for reshaping.
+    dK_u : array-like
+        Array used for scaling factor.
+    *varargin : list
+        Optional arguments for coil decomposition.
 
-import numpy as np
+    Returns
+    -------
+    np.ndarray
+        Processed data array.
+    """
+    # Ensure x is float32 as MATLAB expects single precision
+    x = x.astype(np.float32, copy=False)
 
-def bmShanna_cartesian(x, N_u, dK_u, varargin):
-    # argin_initial -----------------------------------------------------------
-    x       = bmColReshape(x, N_u)
-    N_u     = double(N_u.ravel().T)
-    imDim   = np.shape(N_u.ravel(), 1)
-    nCh     = np.shape(x, 2)
-    F       = single(1/prod(  single(N_u.ravel())  )/prod(  single(dK_u.ravel())  ))
-    C = bmVarargin(varargin)
-    C_flag = False
-    # TODO(matlab-control): if not(isempty(C))
-    C_flag = True
-    nCh = np.shape(C, 2)
-    C = single(C)
-    private_check(x, N_u)
-    # END_argin_initial -------------------------------------------------------
-    # coil decombine
-    # TODO(matlab-control): if C_flag
-    # TODO(matlab-line): x = C.*repmat(x, [1, nCh]);
-    # fft
-    y = np.reshape(x, [N_u, nCh])
-    # TODO(matlab-control): for n = 1:3
-    # TODO(matlab-control): if imDim > (n-1)
-    y = fftshift(np.fft.fft(ifftshift(y, n), [], n), n)
-    y = np.reshape(y, [prod(N_u.ravel()), nCh])
-    y = y*F
-    return y
+    # Reshape input
+    x = bmColReshape(x, N_u)
 
-def k(x, N_u):
-    # TODO(matlab-control): if not(strcmp(class(x), 'single'))
-    error("The data""x"" must be of class single")
-    # TODO(matlab-line): return;
-    # TODO(matlab-control): if size(x, 2) > size(x, 1)
-    error("The data matrix ""x"" is probably not in the correct size")
-    # TODO(matlab-line): return;
-    # TODO(matlab-control): if sum(mod(N_u(:), 2)) > 0
-    error("N_u must have all components even for the Fourier transform. ")
-    # TODO(matlab-line): return;
-    return private_chec
+    # Convert N_u and dK_u to numpy arrays
+    N_u_arr = np.asarray(N_u, dtype=np.float32).flatten()
+    dK_u_arr = np.asarray(dK_u, dtype=np.float32).flatten()
+    im_dim = N_u_arr.size
+    n_ch = x.shape[1]
+
+    # Scaling factor
+    F = 1.0 / (np.prod(N_u_arr) * np.prod(dK_u_arr))
+    F = np.float32(F)
+
+    # Optional coil decomposition
+    C = bmVarargin(*varargin)
+    C_flag = bool(C)
+    if C_flag:
+        C_arr = np.asarray(C, dtype=np.float32)
+        # Broadcast multiplication
+        x = x * C_arr
+
+    # Validation
+    private_check(x, N_u_arr)
+
+    # FFT processing
+    y = x.reshape((*N_u_arr.astype(int), n_ch))
+    for n in range(3):
+        if im_dim > n:
+            y = np.fft.ifftshift(y, axes=(n,))
+            y = np.fft.fft(y, axis=n)
+            y = np.fft.fftshift(y, axes=(n,))
+    y = y.reshape((int(np.prod(N_u_arr)), n_ch))
+
+    return (y.astype(np.float32) * F).copy()

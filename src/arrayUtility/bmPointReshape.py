@@ -1,31 +1,25 @@
+from __future__ import annotations
 import numpy as np
+from third_part.matlab_compat.matlab_native import isempty, size
+from porting.lib.utils import ndims
 from src.varargin.bmVarargin import bmVarargin
 
-
-def bmPointReshape(t, *varargin):
-    argSize = bmVarargin(varargin)
+def bmPointReshape(t, varargin):
+    """Strict deterministic baseline port from MATLAB."""
+    argSize = bmVarargin(*varargs)
 
     if isinstance(t, list):
-        return [bmPointReshape(item, *([argSize] if argSize else [])) for item in t]
-    if isinstance(t, np.ndarray) and t.dtype == object:
-        out = np.empty_like(t)
-        for i, item in enumerate(t.ravel()):
-            out.ravel()[i] = bmPointReshape(item, *([argSize] if argSize else []))
+        out = [bmPointReshape(item, argSize) for item in t]
         return out
 
-    t = np.asarray(t)
+    if ndims(t) == 2:
+        if (t.shape[0] == 1) or (t.shape[1] == 1):
+            return t.flatten()
 
-    # 1D vectors (row or column) -> return as 1D row
-    if t.ndim <= 2 and (t.ndim == 1 or t.shape[0] == 1 or t.shape[1] == 1):
-        return t.ravel()
+    argSize = bmVarargin(*varargs)
+    argSize = np.array(argSize).reshape(-1)
 
-    if argSize is None or (isinstance(argSize, (list, np.ndarray)) and len(np.asarray(argSize).ravel()) == 0):
-        nCh = t.shape[0]
-    else:
-        nCh = int(np.asarray(argSize).ravel()[0])
+    nCh = size(t, 0) if isempty(argSize) else int(argSize[0])
+    nPt = size(t, 0) // nCh
 
-    nPt = t.size // nCh
-    # Use Fortran (column-major) order to match MATLAB reshape behaviour.
-    # For 2D inputs this has no effect; for 3D+ it groups consecutive points
-    # from the same spoke/line together (innermost dimension first).
-    return t.reshape(nCh, nPt, order='F')
+    return t.reshape(nCh, nPt)

@@ -1,42 +1,71 @@
-from third_part.matlab_compat.matlab_native import permute
+from __future__ import annotations
+
 import numpy as np
-from src.arrayUtility.bmBlockReshape import bmBlockReshape  # Importing missing function
+from third_part.matlab_compat.matlab_native import permute
+from src.arrayUtility.bmBlockReshape import bmBlockReshape
+
 
 def bmFourierDoor(argK, argEdge, varargin):
-    a = 0
-    if len(argEdge) == 1:
-        a = argEdge[0]
+    """
+    Compute the Fourier door function.
+
+    Parameters
+    ----------
+    argK : np.ndarray
+        Input array.
+    argEdge : list or float
+        Edge parameter.
+    varargin : list, optional
+        Additional arguments.
+
+    Returns
+    -------
+    np.ndarray
+        Output array.
+    """
+    # a = 0;  (MATLAB default)
+    # Parse edge argument
+    if isinstance(argEdge, (list, tuple)):
+        if len(argEdge) == 1:
+            a = argEdge[0]
+        else:
+            raise ValueError("Wrong list of arguments.")
     else:
-        raise ValueError("Wrong list of arguments. ")
-
+        a = argEdge
+    # a <= 0 check
     if a <= 0:
-        raise ValueError("Wrong list of arguments. ")
+        raise ValueError("Wrong list of arguments.")
 
-    if len(argK.shape) != 1 and argK.shape[1] != 1:
+    # Size check for argK: must be 1D or 2D with one row/column
+    if argK.ndim > 1 and argK.shape[0] != 1 and argK.shape[1] != 1:
         raise ValueError("Wrong list of arguments")
 
+    # myCenter from varargin
     myCenter = varargin[0] if varargin else 0
-    myMachineEpsilon = 2 * np.finfo(float).eps  # Magic number
 
-    k = argK if len(argK.shape) == 1 else permute(argK, (1, 0))
+    # Machine epsilon
+    myMachineEpsilon = 2 * np.finfo(float).eps
+
+    # Permute if necessary to ensure a 1-D row vector
+    if argK.ndim == 1 or argK.shape[0] == 1:
+        k = argK if argK.ndim == 1 else argK[0]
+    else:
+        # swap first two dimensions
+        k = permute(argK, (1, 0))
     k_size = np.shape(k)
+    # Reshape to 1 x N
     k0 = bmBlockReshape(k, [1, -1])
 
+    # Compute the sinc term
     myX = np.sin(np.pi * k0[0, :] * a) / (np.pi * k0[0, :])
+    # Handle near-zero division
     myX[np.abs(k0[0, :]) < myMachineEpsilon] = a
 
+    # Phase shift if myCenter is non-zero
     if not np.isclose(myCenter, 0):
-        myI = complex(0, 1)
-        myX *= np.exp(myI * 2 * np.pi * myCenter * k0[0, :])
+        myX *= np.exp(1j * 2 * np.pi * myCenter * k0[0, :])
 
-    out = myX
-    if len(argK.shape) == 2 and argK.shape[0] == 1:
-        out = out.reshape([1, -1])
-    elif len(argK.shape) == 2 and argK.shape[1] == 1:
-        out = out.reshape([-1, 1])
-    elif len(argK.shape) > 2 and argK.shape[0] == 1:
-        out = out.reshape([1, -1] + list(k_size[2:]))
-    else:
-        out = out.reshape([k_size[1], 1] + list(k_size[2:]))
+    # Reshape to original shape
+    out = myX.reshape(argK.shape)
 
     return out

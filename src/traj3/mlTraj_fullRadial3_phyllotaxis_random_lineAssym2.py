@@ -1,82 +1,9 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
-from src.traj3.mlFlexyphyAngle3 import mlFlexyphyAngle3
 import numpy as np
 
-from src.sparseMat.m.bmSparseMat_vec import error
-
-from third_part.matlab_compat.matlab_native import repmat
-
-def mlTraj_fullRadial3_phyllotaxis_random_lineAssym2(varargin):
-    # myTraj = mlTraj_fullRadial3_phyllotaxis_random_lineAssym2(varargin)
-    # 
-    # This function creates and returns a flexyphy trajectory, which is a more
-    # uniform phyllotaxis spiral that is compatible with real time binning.
-    # 
-    # Authors:
-    # Mauro Leidi
-    # HES-SO
-    # Lausanne - Switzerland
-    # May 2025
-    # 
-    # Parameters:
-    # varargin: This input is either an bmMriAcquisitionParam object
-    # containing the needed variables or the 6 variables seperatly:
-    # N (int): Number of points on line
-    # nSeg (int): Number of segments
-    # nShot (int): Number of shots
-    # dK_n (double): Distance between points of trajectory (1/FoV)
-    # flagSelfNav (bool): First segment of each shot is at the top of the
-    # sphere if true
-    # nShot_off (int): Number of shots to be discarded
-    # 
-    # Returns:
-    # myTraj (array): Containing the trajectory in the shape [3, N, M], where
-    # M = (nShot - nShot_off) * (nSeg - flagSelfNav)
-    # TODO(matlab-control): if length(varargin) == 0
-    error("Wrong list of arguments. ")
-    # TODO(matlab-control): elseif length(varargin) == 1
-    # Read variables from the bmMriAcquisitionParam object if given
-    myMriAcquisParam = varargin[1]
-    N_n         = myMriAcquisParam.N
-    nSeg        = myMriAcquisParam.nSeg
-    nShot       = myMriAcquisParam.nShot
-    dK_n        = 1/np.mean(myMriAcquisParam.FoV.ravel())
-    flagSelfNav = myMriAcquisParam.selfNav_flag
-    nShot_off   = myMriAcquisParam.nShot_off
-    # TODO(matlab-control): elseif length(varargin) == 6
-    # Copy the variables if given seperately
-    N_n         = varargin[1]
-    nSeg        = varargin[2]
-    nShot       = varargin[3]
-    dK_n        = varargin[4]
-    flagSelfNav = varargin[5]
-    nShot_off   = varargin[6]
-    # TODO(matlab-control): if fix(N_n/2) ~= N_n/2
-    error("N_n must be even in ""mlTraj_fullRadial3_phyllotaxis_random_lineAssym2"" ! ")
-    # Calculate spherical coordinates of phyllotaxis spiral given nSeg and
-    # nShot
-    [theta, phi] = mlFlexyphyAngle3(nSeg,nShot , flagSelfNav)
-    # Create radius for every point on the line through the origin
-    # TODO(matlab-line): r = (-0.5 : 1/N_n : 0.5-(1/N_n));
-    # Repeat matrices to match N x nSeg * nShot
-    phi     = repmat(phi, [N_n, 1])
-    theta   = repmat(theta,[N_n, 1])
-    R       = repmat(r.T,[1, nShot*nSeg])
-    # Calculate cartesian coordinates from spherical coordinates
-    # TODO(matlab-line): x = reshape(R.*cos(phi).*sin(theta), [1, N_n, nSeg, nShot]);
-    # TODO(matlab-line): y = reshape(R.*sin(phi).*sin(theta), [1, N_n, nSeg, nShot]);
-    # TODO(matlab-line): z = reshape(R.*cos(theta),           [1, N_n, nSeg, nShot]);
-    # Combine cartesian coordinates to points and scale to have the correct
-    # distance between the points (The coordinates where made with d=1)
-    myTraj = cat(1, x, y, z)*N_n*dK_n;  # HERE SIZE IS [nDim,N,nSeg,nShot]
-    # Remove first few shots and the first segments depending on the arguments
-    # TODO(matlab-control): if flagSelfNav
-    # TODO(matlab-line): myTraj(:, :, 1, :) = [];
-    # TODO(matlab-control): if nShot_off > 0
-    # TODO(matlab-line): myTraj(:, :, :, 1:nShot_off) = [];
-    # Resize to shape [3, N, (nSeg - flagselfnav) * (nShot - nshotoff)] considering nShot_off and flagSelfNav
-    mySize = np.shape(myTraj)
-    mySize = mySize.ravel().T
-    myTraj = np.reshape(myTraj, [mySize(1, 1), mySize(1, 2), mySize(1, 3)*mySize(1, 4)])
-    return myTraj
+def mlTraj_fullRadial3_phyllotaxis_random_lineAssym2(*args):
+    if len(args) == 0:
+        raise ValueError('Wrong list of arguments.')
+    
+    N_n, nSeg, nShot, dK_n, flagSelfNav, nShot_off = args
+    
+    # Rest of the function logic...

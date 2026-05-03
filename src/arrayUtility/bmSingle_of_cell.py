@@ -2,9 +2,20 @@ import numpy as np
 
 
 def bmSingle_of_cell(arg_cell):
-    if isinstance(arg_cell, list):
-        arg_cell = np.array(arg_cell, dtype=object)
-    out = np.empty(arg_cell.shape, dtype=object)
-    for i in range(arg_cell.size):
-        out.ravel()[i] = np.asarray(arg_cell.ravel()[i]).astype("float32")
+    """Convert a cell-like container to an array of single-precision floats
+floats.
+    MATLAB reference: bmSingle_of_cell.m
+    """
+    # out = cell(size(arg_cell));
+    arg_arr = np.asarray(arg_cell)
+    out = np.empty_like(arg_arr, dtype=np.float32)
+
+    # for i = 1:length(arg_cell(:))
+    for idx, val in np.ndenumerate(arg_arr):
+        #     out{i} = single(arg_cell{i});
+        out[idx] = np.float32(val)
+
+    # end
     return out
+
+# End of file

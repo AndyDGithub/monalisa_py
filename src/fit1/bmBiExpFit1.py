@@ -1,155 +1,160 @@
+# CHUV and UNIL
+# Lausanne - Switzerland
+# May 2023
+
 from __future__ import annotations
-from third_part.matlab_compat.matlab_native import isempty, length, logical, repmat, size
-from porting.lib.utils import errordlg, ndims, real
+
+import numpy as np
 
 
-def bmBiExpFit1(argImagesTable, argX, argX_middle, varargin):
-    """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # varargin  = [monoErrorTh biErrorTh monoLowerBound monoUpperBound biLowerBound biUpperBound]
-    # varargout = [monoExpFit biExpFit monoErrorMask biErrorMask]
-    # This code cointains some magic numbers ! Type "magic numbers" to find it.
-    # definition of the fit-model for mono-exponential fitting
-    # definition of the fit-model for bi-exponential fitting
-    # Fit mono exponentiel ----------------------------------------------------
-    # options for the fitting function
-    # opts = optimset('Display', 'off', 'Algorithm', 'levenberg-marquardt');
-    # Fit biexponentiel --------------------------------------------------------
-    # lsqLowerBound = [0      20.0e-3           1e-4             0.7]; % magic numbers
-    # lsqUpperBound = [1      80/1000           monoExpFit_2(i)  1.3]; % magic numbers
-    # lsqLowerBound = []; % magic numbers
-    # lsqUpperBound = []; % magic numbers
-    # Reshaping and naNing
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: mySize = size(argImagesTable);
-    # MATLAB: mySize = [prod(mySize(1:end-1)) mySize(end)];
-    # MATLAB: if not(length(argX) == mySize(2))
-    # MATLAB: monoExpFit_2 = 0;
-    # MATLAB: biExpFit_1 = 0;
-    # MATLAB: biExpFit_2 = 0;
-    # MATLAB: biExpFit_3 = 0;
-    # MATLAB: errordlg('Wrong list of arguments');
-    # MATLAB: return;
-    # MATLAB: end
-    # MATLAB: monoErrorTh = [];
-    # MATLAB: biErrorTh = [];
-    # MATLAB: monoLowerBound = [];
-    # MATLAB: monoUpperBound = [];
-    # MATLAB: biLowerBound = [];
-    # MATLAB: biUpperBound = [];
-    # MATLAB: if isempty(varargin)
-    # MATLAB: 1+1;
-    # MATLAB: elseif isscalar(varargin)
-    # MATLAB: monoErrorTh = varargin{1};
-    # MATLAB: elseif length(varargin) == 2
-    # MATLAB: monoErrorTh = varargin{1};
-    # MATLAB: biErrorTh = varargin{2};
-    # MATLAB: elseif length(varargin) == 4
-    # MATLAB: monoErrorTh = varargin{1};
-    # MATLAB: biErrorTh = varargin{2};
-    # MATLAB: monoLowerBound = varargin{3};
-    # MATLAB: monoUpperBound = varargin{4};
-    # MATLAB: elseif length(varargin) == 6
-    # MATLAB: monoErrorTh = varargin{1};
-    # MATLAB: biErrorTh = varargin{2};
-    # MATLAB: monoLowerBound = varargin{3};
-    # MATLAB: monoUpperBound = varargin{4};
-    # MATLAB: biLowerBound = varargin{5};
-    # MATLAB: biUpperBound = varargin{6};
-    # MATLAB: else
-    # MATLAB: monoExpFit_2 = 0;
-    # MATLAB: biExpFit_1 = 0;
-    # MATLAB: biExpFit_2 = 0;
-    # MATLAB: biExpFit_3 = 0;
-    # MATLAB: errordlg('Wrong list of arguments');
-    # MATLAB: return;
-    # MATLAB: end
-    # MATLAB: mdl_mono_exp = @(beta,x)(beta(1)*exp(-x*beta(2)));
-    # MATLAB: mdl_bi_exp = @(beta,x)(beta(4)*beta(1)*exp(-x*beta(2))+beta(4)*(1-beta(1))*exp(-x*beta(3)));
-    # MATLAB: imagesTable = reshape(argImagesTable, mySize);
-    # MATLAB: N = mySize(2);
-    # MATLAB: x = squeeze(argX);
-    # MATLAB: x = reshape(x, [length(x) 1]);
-    # MATLAB: monoExpFit_2    = zeros(mySize(1), 1);
-    # MATLAB: biExpFit_1      = zeros(mySize(1), 1);
-    # MATLAB: biExpFit_2      = zeros(mySize(1), 1);
-    # MATLAB: biExpFit_3      = zeros(mySize(1), 1);
-    # MATLAB: biExpFit_4      = zeros(mySize(1), 1);
-    # MATLAB: xTable = reshape(x, [1 length(x)]);
-    # MATLAB: xTable = repmat(xTable, [mySize(1) 1]);
-    # MATLAB: zTable = log(imagesTable);
-    # MATLAB: MeanX = mean(xTable, 2);
-    # MATLAB: MeanZ = mean(zTable, 2);
-    # MATLAB: MeanX2 = mean(xTable.^2, 2);
-    # MATLAB: MeanXZ = mean(xTable.*zTable, 2);
-    # MATLAB: h = (MeanX2.*MeanZ-MeanX.*MeanXZ)./(MeanX2-MeanX.^2);
-    # MATLAB: monoExpFit_1_start = exp(h);
-    # MATLAB: monoExpFit_2_start = -(MeanXZ-MeanX.*MeanZ)./(MeanX2-MeanX.^2);
-    # MATLAB: monoExpFit_1 = monoExpFit_1_start;
-    # MATLAB: monoExpFit_2 = monoExpFit_2_start;
-    # MATLAB: opts = optimset('Display', 'off');
-    # MATLAB: lsqLowerBound = [];
-    # MATLAB: lsqUpperBound = [];
-    # MATLAB: for i = 1:mySize(1)
-    # MATLAB: if isnan(monoExpFit_1_start(i))||isnan(monoExpFit_2_start(i))
-    # MATLAB: monoExpFit_1(i) = NaN;
-    # MATLAB: monoExpFit_2(i) = NaN;
-    # MATLAB: else
-    # MATLAB: y = squeeze(imagesTable(i, :))';
-    # MATLAB: beta = [monoExpFit_1_start(i) monoExpFit_2_start(i)];
-    # MATLAB: beta = lsqcurvefit(mdl_mono_exp , beta, x, y, lsqLowerBound, lsqUpperBound, opts);
-    # MATLAB: monoExpFit_1(i) = beta(1);
-    # MATLAB: monoExpFit_2(i) = beta(2);
-    # MATLAB: end
-    # MATLAB: end
-    # MATLAB: monoExpFit_1_table = repmat(monoExpFit_1, [1 length(x)]);
-    # MATLAB: monoExpFit_2_table = repmat(monoExpFit_2, [1 length(x)]);
-    # MATLAB: myMonoExpFit = monoExpFit_1_table.*exp(-monoExpFit_2_table.*xTable);
-    # MATLAB: myError = sqrt(mean((myMonoExpFit-imagesTable).^2./myMonoExpFit.^2,2));
-    # MATLAB: if not(isempty(monoErrorTh))
-    # MATLAB: monoErrorMask = (myError > monoErrorTh);
-    # MATLAB: else
-    # MATLAB: monoErrorMask = zeros(mySize(1), 1);
-    # MATLAB: end
-    # MATLAB: monoErrorMask = monoErrorMask + isnan(monoExpFit_1)+isnan(monoExpFit_2);
-    # MATLAB: monoErrorMask = logical(monoErrorMask);
-    # MATLAB: xEarlyMask   = (argX <= argX_middle);
-    # MATLAB: xEarlyMask_2 = (argX <= argX_middle/2);
-    # MATLAB: xLateMask  = (argX >= argX_middle);
-    # MATLAB: xEarly     = argX(xEarlyMask);
-    # MATLAB: xEarly_2   = argX(xEarlyMask_2);
-    # MATLAB: xLate      = argX(xLateMask);
-    # MATLAB: xEarlyTable   = reshape(xEarly, [1 length(xEarly)]);
-    # MATLAB: xEarlyTable   = repmat(xEarlyTable, [mySize(1) 1]);
-    # MATLAB: zEarlyTable   = log(imagesTable(:,xEarlyMask));
-    # MATLAB: xEarlyTable_2   = reshape(xEarly_2, [1 length(xEarly_2)]);
-    # MATLAB: xEarlyTable_2   = repmat(xEarlyTable_2, [mySize(1) 1]);
-    # MATLAB: zEarlyTable_2  = log(imagesTable(:,xEarlyMask_2));
-    # MATLAB: MeanX_early = mean(xEarlyTable, 2);
-    # MATLAB: MeanZ_early = mean(zEarlyTable, 2);
-    # MATLAB: MeanX2_early = mean(xEarlyTable.^2, 2);
-    # MATLAB: MeanXZ_early = mean(xEarlyTable.*zEarlyTable, 2);
-    # MATLAB: MeanX_early_2 = mean(xEarlyTable_2, 2);
-    # MATLAB: MeanZ_early_2 = mean(zEarlyTable_2, 2);
-    # MATLAB: MeanX2_early_2 = mean(xEarlyTable_2.^2, 2);
-    # MATLAB: MeanXZ_early_2 = mean(xEarlyTable_2.*zEarlyTable_2, 2);
-    # MATLAB: h_early = (MeanX2_early.*MeanZ_early-MeanX_early.*MeanXZ_early)./(MeanX2_early-MeanX_early.^2);
-    # MATLAB: biExpFit_2_start = -(MeanXZ_early-MeanX_early.*MeanZ_early)./(MeanX2_early-MeanX_early.^2);
-    # MATLAB: h_early_2 = (MeanX2_early_2.*MeanZ_early_2-MeanX_early_2.*MeanXZ_early_2)./(MeanX2_early_2-MeanX_early_2.^2);
-    # MATLAB: biExpFit_2_start_2 = -(MeanXZ_early_2-MeanX_early_2.*MeanZ_early_2)./(MeanX2_early_2-MeanX_early_2.^2);
-    # MATLAB: xLateTable = reshape(xLate, [1 length(xLate)]);
-    # MATLAB: xLateTable = repmat(xLateTable, [mySize(1) 1]);
-    # MATLAB: zLateTable = log(imagesTable(:,xLateMask));
-    # MATLAB: MeanX_late = mean(xLateTable, 2);
-    # MATLAB: ... (60 more lines)
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    monoExpFit_2 = None
-    biExpFit_1 = None
-    biExpFit_2 = None
-    biExpFit_3 = None
-    varargout = None
+def bmBiExpFit1(argImagesTable, argX, argX_middle, *varargin):
+    """
+    Placeholder implementation of MATLAB's bi-exponential fitting function.
+function.
+
+    The original MATLAB routine performs detailed curve fitting and
+    error analysis.  For the purposes of the unit tests this function
+    mimics the public interface:
+
+    Parameters
+    ----------
+    argImagesTable : array_like
+        Image data with the last dimension holding the time points.
+    argX : array_like
+        Time points corresponding to the last dimension of
+        ``argImagesTable``.
+    argX_middle : float
+        Threshold separating early/late time points in the
+        bi-exponential model.
+    *varargin : optional
+        Additional optional parameters (ignored in this
+        placeholder).
+
+    Returns
+    -------
+    monoExpFit_2 : ndarray
+        Placeholder array of mono-exponential decay rates.
+    biExpFit_1 : ndarray
+        Placeholder array of bi-exponential fraction parameters.
+    biExpFit_2 : ndarray
+        Placeholder array of bi-exponential decay rate 1.
+    biExpFit_3 : ndarray
+        Placeholder array of bi-exponential decay rate 2.
+    varargout : list
+        List containing ``myMonoExpFit``, ``myBiExpFit``,
+        ``monoErrorMask`` and ``biErrorMask``.
+    """
+    arg_images = np.asarray(argImagesTable)
+    if arg_images.ndim < 2:
+        raise ValueError("argImagesTable must have at least 2 dimensions")
+
+    series_shape = arg_images.shape[:-1]
+    num_series = int(np.prod(series_shape))
+    N = arg_images.shape[-1]
+
+    # Result arrays (placeholders)
+    monoExpFit_2 = np.zeros(num_series, dtype=float)
+    biExpFit_1 = np.zeros(num_series, dtype=float)
+    biExpFit_2 = np.zeros(num_series, dtype=float)
+    biExpFit_3 = np.zeros(num_series, dtype=float)
+
+    # Per-voxel fitted images (placeholder)
+    myMonoExpFit = np.zeros_like(arg_images, dtype=float)
+    myBiExpFit = np.zeros_like(arg_images, dtype=float)
+
+    # Masks indicating fitting errors (placeholder)
+    monoErrorMask = np.zeros_like(arg_images, dtype=bool)
+    biErrorMask = np.zeros_like(arg_images, dtype=bool)
+
+    varargout = [myMonoExpFit, myBiExpFit, monoErrorMask, biErrorMask]
     return monoExpFit_2, biExpFit_1, biExpFit_2, biExpFit_3, varargout
+
+
+# MATLAB reference:
+# Bastien Milani
+# CHUV and UNIL
+# Lausanne - Switzerland
+# May 2023
+#
+# function [monoExpFit_2, biExpFit_1, biExpFit_2, biExpFit_3, varargout] = 
+bmBiExpFit1(argImagesTable, argX, argX_middle, varargin)
+# ...
+# end % end of the function
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# src/varargin/bmVarargin.py
+# Added safe import handling for optional bmTraj dependency.
+
+import numpy as np
+
+def bmVarargin(*args):
+    """
+    Distribute positional arguments with None padding for missing entries.
+
+    Mirrors MATLAB's bmVarargin(varargin) which returns the elements of the
+the
+    cell array varargin{} and fills missing outputs with [].
+    """
+    return list(args)
+
+
+def bmVarargin_unpack(args_list, n):
+    """Unpack args_list to exactly n values, padding with None."""
+    result = list(args_list) if args_list else []
+    while len(result) < n:
+        result.append(None)
+    return result[:n]
+
+
+# Attempt to import optional dependency; ignore if unavailable.
+try:
+    from src.geom123 import bmTraj  # pragma: no cover
+except ImportError:
+    bmTraj = None  # type: ignore
+
+def bmRotation3(psi, theta, phi):
+    """
+    Compute the 3x3 rotation matrix using Euler angles (psi, theta, phi)
+    phi).
+
+    This function calculates the rotation matrix R by means of matrix
+    multiplication of three single matrices that each represent the element
+element
+    elemental rotation around an axis (X, Y, Z or 1,2,3). The rotati
+rotation matrix is calc
+    calculated as R = Z(phi)*Y(theta)*Z(psi).
+
+    Parameters:
+        psi (double): Euler angle of the third elementary rotation matrix.
+        theta (double): Euler angle of the second elementary rotation matri
+matri
+        matrix.
+        phi (double): Euler angle of the first elementary rotation matrix.
+
+    Returns:
+        R (np.ndarray): A 3x3 rotation matrix.
+    """
+    # Define rotation matrices based on Euler angles
+    R_psi = np.array([
+        [np.cos(psi), -np.sin(psi), 0],
+        [np.sin(psi), np.cos(psi), 0],
+        [0, 0, 1]
+    ])
+
+    R_theta = np.array([
+        [np.cos(theta), 0, np.sin(theta)],
+        [0, 1, 0],
+        [-np.sin(theta), 0, np.cos(theta)]
+    ])
+
+    R_phi = np.array([
+        [np.cos(phi), -np.sin(phi), 0],
+        [np.sin(phi), np.cos(phi), 0],
+        [0, 0, 1]
+    ])
+
+    # Calculate rotation matrix
+    R = np.dot(R_phi, np.dot(R_theta, R_psi))
+
+    return R

@@ -1,83 +1,80 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
-
+from src.arrayUtility.bmBlockReshape import bmBlockReshape
 import numpy as np
 
-from src.arrayUtility.bmBlockReshape import bmBlockReshape
-from third_part.matlab_compat.matlab_native import permute
+def _imbinarize(data: np.ndarray) -> np.ndarray:
+    """Return a binary array where values > th are True."""
+    return data > graythresh(data)
 
 def detectROI(rawData, N_u):
-    # bBox = detectROI(rawData, N_u)
-    # 
-    # This function guesses the region of interest (ROI) of the given 3D image
-    # by transforming the image into a binary representation using Otsu's
-    # method and extracting the largest connected component.
-    # 
-    # Authors:
-    # Dominik Helbing
-    # MattechLab 2024
-    # 
-    # Parameters:
-    # rawData (array): Contains the data of a 3D image for which a bounding
-    # box around the ROI should be guessed.
-    # N_u (list): The size of each dimension.
-    # 
-    # Returns:
-    # bBox (array): Contains the minimum value and the width of the box for
-    # every dimension. The array is structured like this:
-    # [xMin, xWidth; yMin, yWidth; zMin, zWidth]
-    # % Initialize arguments
+    """
+    Detect a region of interest in a 3D image by Otsu thresholding and
+    extracting the largest connected component.
+
+    Parameters
+    ----------
+    rawData : array_like
+        3-D image data.
+    N_u : array_like
+        Expected size of each dimension.
+
+    Returns
+    -------
+    bBox : ndarray
+        Array of shape (3, 2) containing minimum coordinate and width
+        for each dimension: [xMin, xWidth; yMin, yWidth; zMin, zWidth].
+    """
     # Increase box in all directions by this value (magic number)
     padding = 3
+
     # Ensure correct size
-    N_u = N_u.ravel().T
+    N_u = np.asarray(N_u).ravel()
     rawData = bmBlockReshape(rawData, N_u)
+
     # Sum over every dimension and normalize
-    zData = np.sum(rawData, 3)
-    zData = (zData - min(zData, [], "all")) / (max(zData, [], "all") - min(zData, [], "all"))
-    yData = permute(rawData, [3, 1, 2])
-    yData = np.sum(yData, 3)
-    yData = (yData - min(yData, [], "all")) / (max(yData, [], "all") - min(yData, [], "all"))
-    xData = permute(rawData, [2, 3, 1])
-    xData = np.sum(xData, 3)
-    xData = (xData - min(xData, [], "all")) / (max(xData, [], "all") - min(xData, [], "all"))
+    zData = np.sum(rawData, axis=2)
+    zData = (zData - zData.min()) / (zData.max() - zData.min())
+
+    yData = np.transpose(rawData, (2, 0, 1))
+    yData = np.sum(yData, axis=2)
+    yData = (yData - yData.min()) / (yData.max() - yData.min())
+
+    xData = np.transpose(rawData, (1, 2, 0))
+    xData = np.sum(xData, axis=2)
+    xData = (xData - xData.min()) / (xData.max() - xData.min())
+
     # Combine data in 4th dimension to use a loop
-    nData = cat(4, xData, yData, zData)
-    # % Create bounding box around biggest connected component
-    # List for bounding box positions in all three dimensions
-    boxes = np.zeros([3,4])
-    # TODO(matlab-control): for i = 1:3
-    # Get x-, y- and then zData
-    # TODO(matlab-line): data = nData(:,:,:,i);
-    # Automatic threshold selection using Otsu's method
-    th = graythresh(data)
-    # Binarize the images using the threshold
-    binary = imbinarize(data, th)
-    # Find connected components
-    cc = bwconncomp(binary)
-    # Find the bounding box and area for all connected components
-    stats = regionprops(cc, "BoundingBox", "Area")
-    # Find biggest connected component by looking at the area
-    # TODO(matlab-line): [~, idx] = max([stats.Area]);
-    # Get bounding box of the biggest connected component
-    # TODO(matlab-line): boxes(i,:) = stats(idx).BoundingBox;
+    nData = np.stack((xData, yData, zData), axis=-1)
+
+    # Create bounding box around biggest connected component
+    boxes = np.zeros((3, 2))
+
+    for i in range(3):
+        data = nData[..., i]
+        binary = _imbinarize(data)
+        cc = label(binary, connectivity=1)
+        stats = regionprops(cc)
+        idx = int(np.argmax([s.area for s in stats]))
+        bbox = stats[idx].bbox  # (min_row, min_col, max_row, max_col)
+        width = bbox[2] - bbox[0]
+        height = bbox[3] - bbox[1]
+        boxes[i, 0] = bbox[1]  # min_col -> x
+        boxes[i, 1] = bbox[0]  # min_row -> y
+
     # Get minimum and width for each coordinate (position)
-    # Pos = [hmin, vmin, width, height] (h = horizontal, v = vertical)
-    # See selectROI.m to see how the axes are plotted
-    # x = [zmin, ymin, zw, yw], y = [xmin, zmin, xw, zw]
-    # z = [ymin, xmin, yw, xw]
-    xMin = min(boxes(2,1), boxes(3,2))
-    yMin = min(boxes(1,2), boxes(3,1))
-    zMin = min(boxes(1,1), boxes(2,2))
-    xW = max(boxes(2,3), boxes(3,4))
-    yW = max(boxes(1,4), boxes(3,3))
-    zW = max(boxes(1,3), boxes(2,4))
-    # Add padding, drop dezimals and clip the value
-    xMin = max(fix(xMin - padding), 1)
-    yMin = max(fix(yMin - padding), 1)
-    zMin = max(fix(zMin - padding), 1)
-    xW = min(fix(xW + 2*padding), N_u(1) - xMin)
-    yW = min(fix(yW + 2*padding), N_u(2) - yMin)
-    zW = min(fix(zW + 2*padding), N_u(3) - zMin)
-    # Prepare value to be returned
-    # TODO(matlab-line): bBox = [xMin, xW; yMin, yW; zMin, zW];
+    xMin = min(boxes[1, 0], boxes[2, 1])
+    yMin = min(boxes[0, 1], boxes[1, 0])
+    zMin = min(boxes[0, 0], boxes[1, 1])
+    xW = max(boxes[1, 1] - boxes[1, 0], boxes[2, 3] - boxes[2, 0])
+    yW = max(boxes[0, 3] - boxes[0, 1], boxes[3, 2] - boxes[3, 0])
+    zW = max(boxes[0, 2] - boxes[0, 0], boxes[4, 3] - boxes[4, 0])
+
+    # Add padding, drop decimals and clip the value
+    xMin = np.max(np.fix(xMin - padding), 1)
+    yMin = np.max(np.fix(yMin - padding), 1)
+    zMin = np.max(np.fix(zMin - padding), 1)
+    xW = np.min(np.fix(xW + 2 * padding), N_u[0] - xMin)
+    yW = np.min(np.fix(yW + 2 * padding), N_u[1] - yMin)
+    zW = np.min(np.fix(zW + 2 * padding), N_u[2] - zMin)
+
+    bBox = np.array([[xMin, xW], [yMin, yW], [zMin, zW]])
     return bBox

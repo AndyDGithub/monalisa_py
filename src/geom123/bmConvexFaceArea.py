@@ -1,42 +1,39 @@
 from __future__ import annotations
-from third_part.matlab_compat.matlab_native import repmat, size
+import numpy as np
 
-
-def bmConvexFaceArea(x, sort_on):
+def bmConvexFaceArea(x: np.ndarray, sort_on: bool) -> float:
     """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # x must be of size [imDim, nPt], where imDim = 1 or 2 or 3.
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: nPt = size(x, 2);
-    # MATLAB: if size(x, 1) == 1
-    # MATLAB: out = 0;
-    # MATLAB: return;
-    # MATLAB: elseif size(x, 1) == 2
-    # MATLAB: x = cat(1, x, zeros(1, nPt));
-    # MATLAB: end
-    # MATLAB: x0      = mean(x, 2);
-    # MATLAB: v       = x - repmat(x0, [1, nPt]);
-    # MATLAB: if sort_on
-    # MATLAB: v1      = repmat(v(:, 1), [1, nPt]);
-    # MATLAB: c       = cross(v1, v);
-    # MATLAB: c_norm = sqrt(c(1, :).^2 + c(2, :).^2 + c(3, :).^2);
-    # MATLAB: [~, ind_max] = max(c_norm);
-    # MATLAB: e3 = c(:, ind_max);         e3 = e3/norm(e3);
-    # MATLAB: e1 = v(:, ind_max);         e1 = e1/norm(e1);
-    # MATLAB: e1_rep = repmat(e1, [1, nPt]);
-    # MATLAB: myCos = e1'*v;
-    # MATLAB: mySin = e3'*cross(e1_rep, v);
-    # MATLAB: myPhase = angle(complex(myCos, mySin));
-    # MATLAB: [~, myPerm] = sort(myPhase);
-    # MATLAB: v = v(:, myPerm);
-    # MATLAB: end
-    # MATLAB: z = circshift(v, [0, -1]);
-    # MATLAB: out = norm(sum(cross(v, z), 2))/2;
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    out = None
+    imDim = x.shape[0]
+    nPt = x.shape[1]
+
+    # If the dimension is 1, return 0 because there are no edges
+    if imDim == 1:
+        return 0.0
+    elif imDim == 2:
+        # Pad with zeros to make it 3D for consistency
+        x = np.vstack((x, np.zeros_like(x[0])))
+
+    # Calculate the centroid and vector difference from the centroid
+    x0 = np.mean(x, axis=1)
+    v = x - np.tile(x0, (nPt, 1))
+
+    if sort_on:
+        v1 = np.tile(v[:, 0], (nPt, 1))
+        c = np.cross(v1, v)  # Direct cross product
+        c_norm = np.sqrt(np.sum(c**2, axis=0))
+        ind_max = np.argmax(c_norm)
+        e3 = c[:, ind_max] / np.linalg.norm(c[:, ind_max])
+        e1 = v[:, ind_max] / np.linalg.norm(v[:, ind_max])
+        e1_rep = np.tile(e1, (nPt, 1))
+
+        myCos = np.dot(e1.T, v)
+        mySin = np.dot(e3.T, np.cross(e1_rep, v))
+        myPhase = np.angle(myCos + 1j * mySin)
+        myPerm = np.argsort(myPhase)
+        v = v[:, myPerm]
+
+    # Compute the cross product of adjacent vectors
+    z = np.roll(v, -1, axis=1)
+    out = np.linalg.norm(np.sum(np.cross(v, z), axis=0)) / 2
+
     return out

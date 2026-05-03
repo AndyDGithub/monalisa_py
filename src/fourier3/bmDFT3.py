@@ -1,36 +1,51 @@
 import numpy as np
-from src.arrayUtility.bmBlockReshape import bmBlockReshape
-
 
 def bmDFT3(x, N_u, dK_u):
     """
     3-D discrete Fourier transform (centered).
 
-    Port of MATLAB bmDFT3.m.  Zero-frequency component is assumed to be
-    at the centre of x; it is returned to the centre after the FFT.
-
     Parameters
     ----------
-    x    : ndarray, shape (..., Nx, Ny, Nz, nCh) or similar block layout
-    N_u  : array-like, [Nx, Ny, Nz]
-    dK_u : array-like, [dKx, dKy, dKz]
+    x : ndarray
+        Input array.  It may contain multiple blocks; the function reshapes
+reshapes it
+        into blocks of size ``N_u`` before performing the transform.
+    N_u : array-like
+        List or array of dimensions ``[Nx, Ny, Nz]`` of each block.
+    dK_u : array-like
+        Spacing between grid points in each dimension ``[dKx, dKy, dKz]``.
 
     Returns
     -------
-    Fx   : ndarray, same shape as input
+    Fx : ndarray
+        Fourier-transformed array with the same shape as the input ``x``.
     """
-    N_u  = np.array(N_u).ravel().astype(int)
-    dK_u = np.array(dK_u).ravel().astype(np.float64)
+    N_u = np.asarray(N_u, dtype=int).ravel()
+    dK_u = np.asarray(dK_u, dtype=float).ravel()
 
+    # Preserve original shape for reshaping back later
     argSize = x.shape
-    x = bmBlockReshape(x, N_u)   # → (Nx, Ny, Nz, nCh)
 
+    # Reshape x into blocks of size N_u (if necessary)
+    if x.size == np.prod(N_u):
+        x = x.reshape(N_u)
+    elif x.size % np.prod(N_u) == 0:
+        # Assume trailing dimensions are channel dimension
+        block_shape = tuple(N_u) + x.shape[len(N_u):]
+        x = x.reshape(block_shape)
+
+    # Apply centered FFT along each of the first three axes
     for ax in range(3):
         x = np.fft.fftshift(
-                np.fft.fft(np.fft.ifftshift(x, axes=ax), axis=ax),
-                axes=ax)
+            np.fft.fft(np.fft.ifftshift(x, axes=ax), axis=ax),
+            axes=ax
+        )
 
+    # Normalisation factor (product of block size and grid spacings)
     F = np.prod(N_u) * np.prod(dK_u)
+
+    # Scale the result
     x = x / F
 
+    # Reshape back to the original input shape
     return x.reshape(argSize)

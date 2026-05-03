@@ -10,13 +10,17 @@ def bmTwix_getCenterOfLine(argFile):
 
     y_raw = myTwix.image.unsorted()
     y_raw = permute(y_raw, [2, 1, 3])
+    
     nShot          = myTwix.image.NSeg
     nLine          = myTwix.image.NLin
     nSeg           = nLine / nShot
+    
     mySize = np.shape(y_raw)
     mySize = mySize[::-1]
     y_raw  = np.reshape(y_raw, [mySize[0], mySize[1], nSeg, nShot])
+    
     N = np.shape(y_raw, 2)
-    # TODO(matlab-line): myCenter = y_raw[:, N//2+1, :, :];
-    myCenter = np.reshape(y_raw[:, N // 2 + 1, :, :], [mySize[0], nLine])
+    myCenter = y_raw[:, N // 2 + 1, :, :]
+    myCenter = np.reshape(myCenter, [mySize[0], nLine])
+    
     return myCenter

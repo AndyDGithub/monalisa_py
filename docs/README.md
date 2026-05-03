@@ -8,7 +8,7 @@ git clone https://github.com/MattechLab/monalisa.git
 cd monalisa
 
 # Create and activate the virtual environment
-conda create --name monalisadoc python=3.8
+conda create --name monalisadoc python=3.11
 conda activate monalisadoc
 
 # Install dependencies

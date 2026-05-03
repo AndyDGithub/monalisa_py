@@ -3,6 +3,8 @@ import numpy as np
 def bmCell2TextFile(arg_cell, arg_file):
     """
     Write a list of string items to a text file, each on its own line, unti
+until 
+until 
 until a sentinel value is encountered.
 
     Parameters
@@ -15,12 +17,12 @@ until a sentinel value is encountered.
     Notes
     -----
     The MATLAB version writes each string to the file and stops when the ne
-next element in the
-    cell array is equal to ``-1``.  This Python implementation follows the 
-same logic,
-    writing each string on a separate line except for the final entry befor
-before the sentinel,
-    which is written without a trailing newline.
+next element in the 
+cell array is equal to -1.  This Python implementation follows the same log
+logic, writing each 
+string on a separate line except for the final entry before the sentinel, w
+which is written 
+without a trailing newline.
     """
     with open(arg_file, 'w') as fid:
         for idx, item in enumerate(arg_cell):

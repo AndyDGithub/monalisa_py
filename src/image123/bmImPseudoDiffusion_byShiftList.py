@@ -1,46 +1,47 @@
 from __future__ import annotations
-from third_part.matlab_compat.matlab_native import isempty, single, size
+import numpy as np
 
+from src.image123.bmImConv_inMask_byShiftList import isempty, single
 
 def bmImPseudoDiffusion_byShiftList(argIm, argShiftList, varargin):
     """Strict deterministic baseline port from MATLAB."""
-    # MATLAB comments
-    # Bastien Milani
-    # CHUV and UNIL
-    # Lausanne - Switzerland
-    # May 2023
-    # initial
-    # convolution
-    # MATLAB body snapshot (untranslated, kept for parity context)
-    # MATLAB: nIter = [];
-    # MATLAB: if ~isempty(varargin)
-    # MATLAB: nIter = varargin{1};
-    # MATLAB: end
-    # MATLAB: if isempty(nIter)
-    # MATLAB: nIter = 1;
-    # MATLAB: end
-    # MATLAB: argIm = single(squeeze(argIm));
-    # MATLAB: myDim = bmNdim(argIm);
-    # MATLAB: if myDim == 1
-    # MATLAB: argIm   = argIm(:);
-    # MATLAB: end
-    # MATLAB: argSize = size(argIm); argSize = argSize(:)';
-    # MATLAB: out_1 = argIm;
-    # MATLAB: nShift = size(argShiftList, 1);
-    # MATLAB: for i = 1:nIter
-    # MATLAB: myZeroMask = (out_1 == 0);
-    # MATLAB: myZeroMask = reshape(myZeroMask, argSize);
-    # MATLAB: myNonZeroMask = not(myZeroMask);
-    # MATLAB: out_2 = zeros(argSize, 'single');
-    # MATLAB: myNumOfNonZero = zeros(argSize, 'single');
-    # MATLAB: for j = 1:nShift
-    # MATLAB: out_2 = out_2 + circshift(out_1, argShiftList(j, :));
-    # MATLAB: myNumOfNonZero = myNumOfNonZero + single(circshift(myNonZeroMask, argShiftList(j, :)));
-    # MATLAB: end
-    # MATLAB: myNumOfNonZero(myNumOfNonZero == 0) = 1;
-    # MATLAB: out_1 = out_2./myNumOfNonZero;
-    # MATLAB: end
-    # MATLAB: end
-    # TODO(matlab-logic): translate MATLAB logic faithfully.
-    out_1 = None
+    # Convert input to float and squeeze it
+    argIm = np.squeeze(single(argIm))
+    
+    # Handle optional nIter argument
+    if not isempty(varargin) and len(varargin) > 0:
+        nIter = int(varargin[0])
+    else:
+        nIter = 1
+    
+    # Initialize output as a copy of input image
+    out_1 = argIm.copy()
+    myDim = out_1.ndim
+    
+    # If the image is 1D, reshape it to be 2D for processing
+    if myDim == 1:
+        out_1 = out_1[:, np.newaxis]
+    
+    # Get the size of the image and prepare masks and variables
+    argSize = out_1.shape
+    nShift = len(argShiftList)
+    
+    # Perform the convolution operation over specified iterations
+    for i in range(nIter):
+        myZeroMask = (out_1 == 0)
+        myZeroMask = myZeroMask.reshape(argSize)
+        myNonZeroMask = np.logical_not(myZeroMask)
+        
+        out_2 = np.zeros_like(out_1, dtype=np.float32)
+        myNumOfNonZero = np.zeros_like(out_1, dtype=np.float32)
+        
+        for j in range(nShift):
+            out_2 += np.roll(out_1, argShiftList[j], axis=(0, 1))
+            myNumOfNonZero += np.where(myNonZeroMask, 1.0, 0.0)
+        
+        # Handle division by zero
+        myNumOfNonZero[myNumOfNonZero == 0] = 1.0
+        
+        out_1 = out_2 / myNumOfNonZero
+    
     return out_1

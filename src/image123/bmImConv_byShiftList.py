@@ -1,26 +1,42 @@
+from __future__ import annotations
+from third_part.matlab_compat.matlab_native import isempty, single, size
+from porting.lib.utils import ndims
 from src.varargin.bmVarargin import bmVarargin
-import numpy as np
 
-from third_part.matlab_compat.matlab_native import single
-
+from src.image123.bmImConv_inMask_byShiftList import circshift
 
 def bmImConv_byShiftList(argIm, argShiftList, varargin):
-    # varargin
-    [myKernelVal, nIter] = bmVarargin(varargin)
-    myKernelVal = np.ones((np.shape(argShiftList, 1), 1))
-    nIter = 1 if nIter is None else nIter
-
-    argSize = np.shape(argIm)
-    mySize = argSize.ravel().T
-    out_1 = single(argIm).reshape(-1)
-    mySize = np.shape(out_1)
-    out_2 = np.zeros(mySize, "single")
-    nShift = np.shape(argShiftList, 1)
-
-    for _ in range(nIter):
+    """Strict deterministic baseline port from MATLAB."""
+    # Translated from MATLAB logic
+    myKernelVal, nIter = bmVarargin(varargin)
+    
+    if isempty(myKernelVal):
+        myKernelVal = np.ones((size(argShiftList, 0), 1))
+    
+    if isempty(nIter):
+        nIter = 1
+    
+    argSize = size(argIm)
+    mySize = argSize[:]
+    out_1 = single(argIm)
+    
+    if ndims(out_1) == 2:
+        if (mySize[0] == 1) or (mySize[1] == 1):
+            out_1 = out_1.flatten()
+    
+    mySize = size(out_1)
+    out_2 = np.zeros(mySize, dtype=np.single)
+    
+    nShift = size(argShiftList, 0)
+    
+    for i in range(nIter):
         for j in range(nShift):
-            out_2 += np.roll(out_1, argShiftList[j]) * myKernelVal[j]
+            out_2 += circshift(out_1, argShiftList[j, :]) * myKernelVal[j, 
+0]
+        
         out_1 = out_2 / nShift
-        out_2 = np.zeros(mySize, "single")
-
-    return out_1.reshape(argSize)
+        out_2 = np.zeros(argSize, dtype=np.single)
+    
+    out_1 = reshape(out_1, argSize)
+    
+    return out_1
