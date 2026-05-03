@@ -124,6 +124,10 @@ def run_pipeline(
     compare_parity_snapshots: bool,
     parity_reference_root: Path | None,
     parity_candidate_root: Path | None,
+    auto_fix_imports: bool,
+    compile_mex: bool,
+    mex_dry_run: bool,
+    mex_fail_on_error: bool,
     verbose: bool,
 ) -> dict[str, Any]:
     reports_dir.mkdir(parents=True, exist_ok=True)
@@ -259,6 +263,43 @@ def run_pipeline(
 
     steps: dict[str, Any] = {"roots": roots_report}
 
+    # Compile native MEX backends (best effort by default).
+    mex_compile_report = {"status": "skipped"}
+    if compile_mex:
+        mex_script_path = repo_root / "src" / "mex" / "m" / "compile_mex_for_monalisa.py"
+        if mex_script_path.exists():
+            mex_report_output = reports_dir / "mex_compile_report.json"
+            mex_args = ["--output", str(mex_report_output), "--summary-only"]
+            if mex_dry_run:
+                mex_args.append("--dry-run")
+            if mex_fail_on_error:
+                mex_args.append("--fail-on-error")
+            mex_compile_report = _run_script(mex_script_path, mex_args)
+        else:
+            mex_compile_report = {
+                "status": "skipped_missing_script",
+                "script": str(mex_script_path),
+            }
+    steps["compile_mex"] = mex_compile_report
+
+    # Auto-fix imports after generation/updates so workflow is self-contained.
+    import_autofix_report = {"status": "skipped"}
+    if auto_fix_imports:
+        import_fix_script = script_dir / "auto_fix_missing_imports.py"
+        roots_arg = ",".join(str(root) for root in roots)
+        import_fix_args = [
+            "--roots",
+            roots_arg,
+            "--repo-root",
+            str(repo_root),
+            "--apply",
+            "--summary-only",
+            "--output",
+            str(reports_dir / "import_autofix_report.json"),
+        ]
+        import_autofix_report = _run_script(import_fix_script, import_fix_args)
+    steps["auto_fix_missing_imports"] = import_autofix_report
+
     if run_parity:
         if parity_cases and parity_cases.exists():
             parity_res = _run_script(
@@ -336,6 +377,26 @@ def main() -> int:
     )
     parser.add_argument("--output", default="../reports/pipeline_run_report.json", help="Pipeline summary JSON output.")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging.")
+    parser.add_argument(
+        "--skip-auto-fix-imports",
+        action="store_true",
+        help="Skip auto_fix_missing_imports.py step.",
+    )
+    parser.add_argument(
+        "--skip-mex-compile",
+        action="store_true",
+        help="Skip compile_mex_for_monalisa.py step.",
+    )
+    parser.add_argument(
+        "--mex-dry-run",
+        action="store_true",
+        help="Discover MEX commands without executing them.",
+    )
+    parser.add_argument(
+        "--mex-fail-on-error",
+        action="store_true",
+        help="Fail pipeline when at least one MEX command fails.",
+    )
     args = parser.parse_args()
 
     base = Path(__file__).resolve().parent
@@ -374,6 +435,10 @@ def main() -> int:
         compare_parity_snapshots=args.compare_parity_snapshots,
         parity_reference_root=parity_reference_root,
         parity_candidate_root=parity_candidate_root,
+        auto_fix_imports=not args.skip_auto_fix_imports,
+        compile_mex=not args.skip_mex_compile,
+        mex_dry_run=args.mex_dry_run,
+        mex_fail_on_error=args.mex_fail_on_error,
         verbose=args.verbose
     )
 

@@ -49,15 +49,16 @@ spiral.
     # Calculate spiral
     for i in range(1, nseg + 1):
         for j in range(1, nshot + 1):
-            myIndex = (i - 1) * nshot + (j - 1)
+            # MATLAB: myIndex = i + (j-1) * nseg (1-based).
+            myIndex = (i - 1) + (j - 1) * nseg
             # Set angles to 0 if flagSelfNav = true (top of sphere)
             if flagSelfNav and (i == 1):
-                phi[myIndex] = 0
-                theta[myIndex] = 0
+                phi[0, myIndex] = 0.0
+                theta[0, myIndex] = 0.0
             else:
                 # Calculate angle for each segment
-                phi[myIndex] = np.mod(myCounter * goldAngle, (2 * np.pi))
-                theta[myIndex] = q * np.sqrt(myCounter)
+                phi[0, myIndex] = np.mod(myCounter * goldAngle, (2 * np.pi))
+                theta[0, myIndex] = q * np.sqrt(myCounter)
                 myCounter += 1
 
     return theta, phi

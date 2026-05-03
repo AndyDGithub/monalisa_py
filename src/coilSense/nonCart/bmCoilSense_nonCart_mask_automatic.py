@@ -4,7 +4,7 @@ from src.arrayUtility.bmBlockReshape import bmBlockReshape
 from src.fourier123.map_function.nonCartesian.bmNasha import bmNasha
 
 
-def bmCoilSense_nonCart_mask_automatic(y, Gn, autoFlag, varargin):
+def bmCoilSense_nonCart_mask_automatic(y, Gn, autoFlag, varargin=None):
     """Create a mask automatically for regridded non-Cartesian data.
 
     Creates a mask for the regridded data calculated with Gn*y. If

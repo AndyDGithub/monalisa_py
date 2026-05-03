@@ -2,6 +2,19 @@ from third_part.matlab_compat.matlab_native import single
 import numpy as np
 from src.image123.bmImReshape import bmImReshape
 
+try:
+    from src.image2.mex.bmImCrossMean2_omp.bmImCrossMean2_omp_mex import bmImCrossMean2_omp_mex
+except Exception:
+    def bmImCrossMean2_omp_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImCrossMean2_omp_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+try:
+    from src.image3.mex.bmImCrossMean3_omp.bmImCrossMean3_omp_mex import bmImCrossMean3_omp_mex
+except Exception:
+    def bmImCrossMean3_omp_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImCrossMean3_omp_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+
 from src.sparseMat.m.bmSparseMat_vec import int32
 
 def bmImCrossMean_omp(argIm):

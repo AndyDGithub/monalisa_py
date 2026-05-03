@@ -21,8 +21,8 @@ satisfies a
     Returns
     -------
     int
-        The 1-based index of the first matching element.  If no element
-        matches the comparison, returns ``len(argVec) + 1``.
+        The 0-based index of the first matching element. If no element
+        matches, returns ``len(argVec)``.
     """
     argVec = np.asarray(argVec).ravel()
 
@@ -41,8 +41,8 @@ satisfies a
 
     indices = np.where(mask)[0]
     if indices.size == 0:
-        return len(argVec) + 1
-    return int(indices[0]) + 1
+        return len(argVec)
+    return int(indices[0])
 
 # ------------------------------------------------------------------
 # MATLAB reference implementation (for reference)

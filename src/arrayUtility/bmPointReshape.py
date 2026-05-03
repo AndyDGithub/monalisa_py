@@ -1,25 +1,37 @@
 from __future__ import annotations
+
 import numpy as np
-from third_part.matlab_compat.matlab_native import isempty, size
-from porting.lib.utils import ndims
-from src.varargin.bmVarargin import bmVarargin
 
-def bmPointReshape(t, varargin):
-    """Strict deterministic baseline port from MATLAB."""
-    argSize = bmVarargin(*varargs)
 
+def bmPointReshape(t, *varargin):
+    """
+    Reshape input to `(nCh_or_dim, nPt)` point format.
+
+    Notes
+    -----
+    - If input is a row/column vector, it is flattened to 1-D (legacy behavior).
+    - If `varargin` is provided, the first value is interpreted as `nCh`.
+    """
     if isinstance(t, list):
-        out = [bmPointReshape(item, argSize) for item in t]
-        return out
+        return [bmPointReshape(item, *varargin) for item in t]
 
-    if ndims(t) == 2:
-        if (t.shape[0] == 1) or (t.shape[1] == 1):
-            return t.flatten()
+    arr = np.asarray(t)
+    if arr.size == 0:
+        return np.array([])
 
-    argSize = bmVarargin(*varargs)
-    argSize = np.array(argSize).reshape(-1)
+    # Keep historical behavior for vectors: collapse to 1D.
+    if arr.ndim == 2 and (arr.shape[0] == 1 or arr.shape[1] == 1):
+        return arr.reshape(-1)
+    if arr.ndim == 1:
+        return arr.reshape(-1)
 
-    nCh = size(t, 0) if isempty(argSize) else int(argSize[0])
-    nPt = size(t, 0) // nCh
+    if varargin:
+        nCh = int(np.asarray(varargin[0]).ravel()[0])
+    else:
+        nCh = int(arr.shape[0])
 
-    return t.reshape(nCh, nPt)
+    if nCh <= 0 or arr.size % nCh != 0:
+        raise ValueError("Input size is not compatible with requested channel/dimension count.")
+
+    nPt = arr.size // nCh
+    return arr.reshape(nCh, nPt, order="F")

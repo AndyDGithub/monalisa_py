@@ -1,226 +1,169 @@
-# Porting Framework — MATLAB → Python (monalisa)
+# Porting Framework: MATLAB to Python (monalisa_py)
 
-Deterministic-first, agent-assisted migration system for `monalisa_py`.
+This folder contains the deterministic-first + agent-assisted porting workflow for `monalisa_py`.
 
----
+## Current status (important)
 
-## Objective
+As of May 3, 2026, the repository is **not yet at full green on `python -m pytest tests/`** by setup alone.
+Some failures are still real porting bugs (API mismatch, translation issues), not environment issues.
 
-- Port the MATLAB `monalisa` library to Python reproducibly.
-- Keep LLM usage bounded and cheap.
-- Validate with structural contract tests and numerical parity checks.
+This README gives:
+1. exact setup steps,
+2. exact compile/build steps (including MEX),
+3. exact commands to validate what is working today,
+4. a quick map from common failures to likely root cause.
 
-## Core philosophy
+## 1) Environment setup (Windows PowerShell)
 
-1. **Deterministic scripts** do discovery, ordering, transpilation, and reporting.
-2. **Agentic repair** runs only when deterministic output still has blockers.
-3. **Reports and compact context** drive decisions — never full-repo prompts.
+Run from repo root (`monalisa_py`):
 
----
-
-## Directory layout
-
-```
-porting/
-├── config/                         Configuration (mapping files, parity config)
-│   └── native_function_map.json    ← Curated MATLAB→Python symbol map (edit me)
-├── lib/                            Shared Python utilities (importable)
-│   └── utils.py                    logging, subprocess runner, JSON I/O
-├── scripts/                        CLI entry points (each runnable standalone)
-├── prompts/                        LLM system prompts
-│   ├── system_ide_agent.md         ← Load this if you are an IDE agent
-│   └── system_agentic_orchestrator_compact.md
-├── docs/                           Operator guides
-│   ├── IDE_AGENT_GUIDE.md          ← Full step-by-step for IDE agents
-│   └── AGENT_TOOLING_MAP.md        Script-to-purpose reference
-├── reports/                        Generated analysis outputs
-├── state/                          Persistent hashes and compact context
-├── tests/                          Generated and contract tests
-└── tasks/                          YAML task definitions
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip install mat73 h5py
 ```
 
----
+Notes:
+- `mat73`/`h5py` are needed by parity loaders.
+- If PowerShell blocks venv activation, run:
+  `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-## Quick-start commands
+## 2) Build native MEX backends (required for gridder/image native paths)
 
-### One-command workflow (recommended)
+The Python wrappers call compiled `*_mex` backends for several hot paths.
 
-In your IDE agent (Claude code, Codex, Cursor, etc):
-1. Prompt to tha agent : 
-```
-"Load porting/prompts/system_ide_agent.md as your system prompt, then run:
-python porting/scripts/build_agent_context.py"
-```
+First check discovery only:
 
-### If you do not have an IDE agent
-From the **repository root**:
-
-```bash
-python porting/scripts/run_agentic_porting_workflow.py \
-    --roots src,demo,tests,third_part \
-    --force --overwrite-manual \
-    --model granite3.2:8b \
-    --fallback-model gpt-oss:20b \
-    --auto-pull-model \
-    --max-iterations 3 \
-    --max-files-per-iteration 20 \
-    --stream-repair-logs \
-    --llm-timeout-seconds 180 \
-    --dynamic-llm-timeout \
-    --dynamic-timeout-base-seconds 45 \
-    --dynamic-timeout-per-line-seconds 3 \
-    --dynamic-timeout-min-seconds 60 \
-    --dynamic-timeout-max-seconds 900 \
-    --enable-matlab-help \
-    --matlab-help-max-functions 1 \
-    --matlab-help-timeout-seconds 20
-```
-or
-```bash
-python porting/scripts/run_agentic_porting_workflow.py \
-      --roots src,demo,tests,third_part \
-      --disable-llm --skip-tests
-```
-then 
-```bash
-python porting/scripts/run_agentic_porting_workflow.py \
-      --roots src,demo,tests,third_part \
-      --force \
-      --overwrite-manual \
-      --parallel-files-per-cycle 8 \
-      --enable-parallel-repair \
-      --parallel-repair-max-workers 8 \
-      --skip-pipeline \
-      --dynamic-llm-timeout \
-      --dynamic-timeout-base-seconds 45 \
-      --dynamic-timeout-per-line-seconds 3 \
-      --dynamic-timeout-min-seconds 60 \
-      --dynamic-timeout-max-seconds 600 \
-      --enable-matlab-help \
-      --matlab-help-max-functions 1 \
-      --matlab-help-timeout-seconds 20
+```powershell
+python src\mex\m\compile_mex_for_monalisa.py --dry-run --summary-only
 ```
 
-### Deterministic-only (no LLM, fast, safe to repeat)
+Then compile:
 
-```bash
-python porting/scripts/run_agentic_porting_workflow.py \
-    --roots src,demo,tests,third_part \
-    --disable-llm --skip-tests
+```powershell
+python src\mex\m\compile_mex_for_monalisa.py --summary-only
 ```
 
-### Deterministic pipeline only
+If you want the pipeline to fail when any MEX command fails:
 
-```bash
-python porting/scripts/run_porting_pipeline.py \
-    --roots src,demo,tests,third_part \
-    --force --skip-tests \
-    --generate-contract-tests \
-    --compare-parity-snapshots
+```powershell
+python src\mex\m\compile_mex_for_monalisa.py --fail-on-error --summary-only
 ```
 
-### What to port next (dependency order)
+## 3) Run deterministic stabilization pipeline
 
-```bash
-python porting/scripts/select_next_functions.py \
-    --roots src,demo,tests,third_part -n 20
+This now includes:
+- deterministic transpilation/update pipeline,
+- MEX compile step,
+- import auto-fix step (including `_mex` imports).
+
+```powershell
+python porting\scripts\run_porting_pipeline.py `
+  --roots src,demo,tests,third_part `
+  --skip-tests `
+  --generate-contract-tests `
+  --compare-parity-snapshots
 ```
 
-### Build agent context and prompt
+Useful flags:
+- `--mex-dry-run` (do not execute MEX commands)
+- `--mex-fail-on-error`
+- `--skip-mex-compile`
+- `--skip-auto-fix-imports`
 
-```bash
-python porting/scripts/build_agent_context.py
-python porting/scripts/get_prompt_for_porting.py --mode full
-# → porting/state/porting_agent_prompt.txt
+## 4) Validation ladder (recommended order)
+
+### A. Fast smoke tests that should be stable
+
+```powershell
+python -m pytest `
+  tests\unit\test_fourier.py `
+  tests\unit\test_imresize.py `
+  tests\unit\test_mitosis.py `
+  tests\unit\test_mitosius.py `
+  tests\unit\test_varargin.py `
+  -v --tb=short
 ```
 
-### Fix missing imports
+### B. Full test suite (expected to still have known failures today)
 
-```bash
-python porting/scripts/auto_fix_missing_imports.py \
-    --roots ../../src,../../demo,../../tests,../../third_part \
-    --apply --summary-only
+```powershell
+python -m pytest tests\ -v --tb=short
 ```
 
-### Cleanup artifacts
+## 5) Parity data prerequisites
 
-```bash
-# Dry-run first:
-python porting/scripts/cleanup_pipeline_artifacts.py \
-    --clean-cache --prune-stale-tests --remove-empty-dirs
+Several parity tests expect raw data at:
 
-# Apply:
-python porting/scripts/cleanup_pipeline_artifacts.py \
-    --clean-cache --prune-stale-tests --remove-empty-dirs --apply
+`../monalisa/demo/data_demo/data_8_tutorial_1/brainScan.dat`
+
+If missing, parity tests are skipped.
+If present, parity execution tests run and may expose real implementation gaps.
+
+Slow parity checks are gated by:
+
+```powershell
+$env:MONALISA_SLOW_TESTS="1"
 ```
 
----
+## 6) Interpreting common failures
 
-## Health metrics
+### Setup/build related
 
-After every workflow run, check these files:
+- `NotImplementedError: bmGridder_n2u_leight requires compiled MEX C extensions...`
+  - Cause: native MEX backends not built or not loadable.
+  - Action: run MEX compile step above and re-run tests.
 
-| File | Key field | Target |
-|---|---|---|
-| `reports/generated_files_analysis.json` | `summary.matlab_todo_markers` | 0 |
-| `reports/generated_files_analysis.json` | `summary.compile_errors` | 0 |
-| `reports/agent_repair_cycle_report.json` | `final_status` | `"success"` |
-| `reports/parity_snapshot_comparison.json` | `summary.ok` | `true` |
+### Real porting/translation issues (not fixed by setup)
 
----
+- `TypeError: bmPointReshape() missing 1 required positional argument: 'varargin'`
+  - Signature mismatch in translated API.
 
-## For IDE agents (Claude Code, Cursor, Codex, …)
+- `IndexError ... bmPhyllotaxisAngle3.py`
+  - trajectory translation logic/indexing bug.
 
-**Start here:**
+- `TypeError: bmVolumeElement() got an unexpected keyword argument 'data_dir'`
+  - caller/callee API mismatch in parity path.
 
-1. Load `porting/prompts/system_ide_agent.md` as your system prompt.
-2. Read `porting/docs/IDE_AGENT_GUIDE.md` for the full operating procedure.
-3. Begin every session with:
-   ```bash
-   python porting/scripts/build_agent_context.py
-   cat porting/state/agent_context_compact.json
-   ```
+- `ImportError: cannot import name 'checkMetadataInterac' ...`
+  - wrong import symbol/name mismatch.
 
-**What you should ask (or tell) the IDE agent:**
+- `test_bmFirstIndex_*`, `bmPermuteToCol_*`, `bmBlockReshape_nCh1` failures
+  - behavioral mismatch vs MATLAB contract in array utility translations.
 
-- "Port the next 10 MATLAB files in dependency order" → runs `select_next_functions.py` + workflow
-- "How many TODO markers remain?" → reads `generated_files_analysis.json`
-- "Fix the import errors in the generated files" → runs `auto_fix_missing_imports.py`
-- "Run the full porting pipeline with LLM repair" → runs `run_agentic_porting_workflow.py`
-- "What is blocking progress?" → reads `agent_context_compact.json` top_blockers
-- "Clean up stale test artifacts" → runs `cleanup_pipeline_artifacts.py`
-- "Translate the TODO on line N of file X" → reads `TODO_TRANSLATION_EXAMPLES.md`, edits file
+These need code fixes in `src/`, not environment changes.
 
----
+## 7) Porting workflow entrypoints
 
-## Documentation index
+Run full workflow (v2 default):
 
-| Document | Purpose |
-|---|---|
-| `docs/IDE_AGENT_GUIDE.md` | Step-by-step operating procedure for IDE agents |
-| `prompts/system_ide_agent.md` | System prompt to load into an IDE agent |
-| `prompts/system_agentic_orchestrator_compact.md` | Compact orchestrator prompt |
-| `prompts/system_agentic_orchestrator_full.md` | Full orchestrator prompt |
-| `docs/AGENT_TOOLING_MAP.md` | Every script, its purpose, and its key arguments |
-| `docs/TODO_TRANSLATION_EXAMPLES.md` | How to translate specific MATLAB TODO markers |
-| `docs/EXAMPLE_ORIGINAL_TO_PORTED.md` | Full MATLAB→Python file example |
-| `lib/utils.py` | Shared utilities for scripts (importable) |
-
-## LangGraph v2 Entry Points (Default)
-
-The canonical entrypoints now route to LangGraph v2 by default:
-
-```bash
-python porting/scripts/run_agentic_porting_workflow.py --roots src,demo,tests,third_part
-python porting/scripts/run_agentic_repair_cycle.py --current-file src/fourier3/bcaNeith3.py
+```powershell
+python porting\scripts\run_agentic_porting_workflow.py --roots src,demo,tests,third_part
 ```
 
-To run the previous procedural engine explicitly:
+Legacy engine:
 
-```bash
-python porting/scripts/run_agentic_porting_workflow.py --engine legacy --roots src,demo,tests,third_part
-python porting/scripts/run_agentic_repair_cycle.py --engine legacy --target-file src/fourier3/bcaNeith3.py
+```powershell
+python porting\scripts\run_agentic_porting_workflow.py --engine legacy --roots src,demo,tests,third_part
 ```
 
-Architecture and migration details:
-`porting/docs/LANGGRAPH_V2_ARCHITECTURE.md`
+## 8) Reports to inspect after each run
+
+- `porting/reports/pipeline_run_report.json`
+- `porting/reports/mex_compile_report.json`
+- `porting/reports/import_autofix_report.json`
+- `porting/reports/generated_files_analysis.json`
+- `porting/reports/agent_repair_cycle_report.json` (if repair cycle was run)
+
+## 9) Practical definition of "fully functional" right now
+
+Today, "fully functional" means:
+1. environment created,
+2. dependencies installed,
+3. MEX commands compile successfully on your machine,
+4. deterministic pipeline runs cleanly,
+5. smoke/unit subset passes.
+
+`tests/` full green is still a porting milestone in progress, not just a setup step.

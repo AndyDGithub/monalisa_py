@@ -39,8 +39,23 @@ def _iter_py_files(src_roots: list[Path]) -> list[Path]:
     return sorted(dedup.values(), key=lambda p: str(p))
 
 
+def _iter_mex_cpp_files(src_roots: list[Path]) -> list[Path]:
+    files: list[Path] = []
+    for root in src_roots:
+        if root.exists():
+            files.extend([p for p in root.rglob("*_mex.cpp") if p.is_file()])
+    dedup = {p.resolve(): p for p in files}
+    return sorted(dedup.values(), key=lambda p: str(p))
+
+
 def _module_path_from_file(repo_root: Path, py_file: Path) -> str:
     rel = py_file.resolve().relative_to(repo_root.resolve())
+    parts = list(rel.with_suffix("").parts)
+    return ".".join(parts)
+
+
+def _module_path_from_cpp(repo_root: Path, cpp_file: Path) -> str:
+    rel = cpp_file.resolve().relative_to(repo_root.resolve())
     parts = list(rel.with_suffix("").parts)
     return ".".join(parts)
 
@@ -417,14 +432,102 @@ def _plan_imports_for_file(
     return out
 
 
+def _build_mex_symbol_index(repo_root: Path, src_roots: list[Path]) -> dict[str, str]:
+    index: dict[str, list[str]] = defaultdict(list)
+    for cpp_file in _iter_mex_cpp_files(src_roots):
+        symbol = cpp_file.stem
+        module = _module_path_from_cpp(repo_root, cpp_file)
+        index[symbol].append(module)
+    out: dict[str, str] = {}
+    for symbol, modules in index.items():
+        uniq = sorted(set(modules))
+        if len(uniq) == 1:
+            out[symbol] = uniq[0]
+    return out
+
+
+def _plan_optional_mex_imports_for_file(
+    *,
+    py_file: Path,
+    mex_symbol_index: dict[str, str],
+) -> dict[str, list[str]]:
+    tree = _parse_tree(py_file)
+    if tree is None:
+        return {}
+
+    imported = _imported_names(tree)
+    defined = _defined_names(tree)
+    called = _called_names(tree)
+    builtins_set = set(dir(builtins))
+    by_module: dict[str, list[str]] = defaultdict(list)
+
+    for name in sorted(called):
+        if not name.endswith("_mex"):
+            continue
+        if name in imported or name in defined or name in builtins_set:
+            continue
+        module = mex_symbol_index.get(name)
+        if not module:
+            continue
+        by_module[module].append(name)
+
+    out: dict[str, list[str]] = {}
+    for module, names in by_module.items():
+        out[module] = sorted(set(names))
+    return out
+
+
+def _apply_optional_mex_imports(text: str, mex_plan: dict[str, list[str]]) -> tuple[str, int]:
+    if not mex_plan:
+        return text, 0
+
+    lines = text.splitlines(keepends=True)
+    idx = _find_insertion_index(text)
+    insertion: list[str] = []
+    changed = 0
+
+    for module, names in sorted(mex_plan.items()):
+        for name in names:
+            direct_import_line = f"from {module} import {name}"
+            if direct_import_line in text:
+                continue
+            if f"def {name}(" in text:
+                continue
+
+            insertion.extend(
+                [
+                    "try:\n",
+                    f"    from {module} import {name}\n",
+                    "except Exception:\n",
+                    f"    def {name}(*_args, **_kwargs):\n",
+                    "        raise NotImplementedError("
+                    f"\"Native backend '{name}' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.\""
+                    ")\n",
+                    "\n",
+                ]
+            )
+            changed += 1
+
+    if changed == 0:
+        return text, 0
+
+    if idx > 0 and lines[idx - 1].strip():
+        insertion.insert(0, "\n")
+    rewritten = "".join(lines[:idx] + insertion + lines[idx:])
+    return rewritten, changed
+
+
 def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool) -> dict:
     py_files = _iter_py_files(src_roots)
+    mex_symbol_index = _build_mex_symbol_index(repo_root, src_roots)
     keyword_rewrite_candidates: list[str] = []
     keyword_rewrite_changed: list[str] = []
     bare_import_rewrite_candidates: list[str] = []
     bare_import_rewrite_changed: list[str] = []
     relative_import_rewrite_candidates: list[str] = []
     relative_import_rewrite_changed: list[str] = []
+    optional_mex_import_candidates: list[str] = []
+    optional_mex_import_changed: list[str] = []
 
     symbol_index: dict[str, list[Path]] = defaultdict(list)
     for py_file in py_files:
@@ -472,6 +575,7 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
 
     changed_files: list[str] = []
     plans: dict[str, dict[str, list[str]]] = {}
+    mex_plans: dict[str, dict[str, list[str]]] = {}
 
     for py_file in py_files:
         plan = _plan_imports_for_file(
@@ -482,7 +586,12 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
             stem_index=stem_index,
             external_symbol_maps=external_symbol_maps,
         )
-        if not plan:
+        mex_plan = _plan_optional_mex_imports_for_file(
+            py_file=py_file,
+            mex_symbol_index=mex_symbol_index,
+        )
+
+        if not plan and not mex_plan:
             continue
 
         text = py_file.read_text(encoding="utf-8", errors="ignore")
@@ -493,28 +602,40 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
                 continue
             insertion_lines.append(import_line + "\n")
 
-        if not insertion_lines:
+        if not insertion_lines and not mex_plan:
             continue
 
         rel = str(py_file.relative_to(repo_root)).replace("\\", "/")
-        plans[rel] = plan
+        if plan:
+            plans[rel] = plan
+        if mex_plan:
+            mex_plans[rel] = mex_plan
+            optional_mex_import_candidates.append(rel)
 
         if apply:
+            working_text = text
             idx = _find_insertion_index(text)
-            lines = text.splitlines(keepends=True)
-            if idx > 0 and lines[idx - 1].strip():
+            lines = working_text.splitlines(keepends=True)
+            if insertion_lines and idx > 0 and lines[idx - 1].strip():
                 insertion_lines.insert(0, "\n")
-            new_lines = lines[:idx] + insertion_lines + lines[idx:]
-            py_file.write_text("".join(new_lines), encoding="utf-8")
-            changed_files.append(rel)
+            if insertion_lines:
+                working_text = "".join(lines[:idx] + insertion_lines + lines[idx:])
+            working_text, mex_changes = _apply_optional_mex_imports(working_text, mex_plan)
+            if working_text != text:
+                py_file.write_text(working_text, encoding="utf-8")
+                changed_files.append(rel)
+            if mex_changes > 0:
+                optional_mex_import_changed.append(rel)
 
     return {
         "src_roots": [str(p) for p in src_roots],
         "python_files_scanned": len(py_files),
         "files_with_import_plan": len(plans),
+        "files_with_mex_import_plan": len(mex_plans),
         "files_changed": len(changed_files),
         "changed_files": changed_files,
         "plans": plans,
+        "mex_plans": mex_plans,
         "keyword_import_rewrite_candidates": len(keyword_rewrite_candidates),
         "keyword_import_rewrite_changed": len(keyword_rewrite_changed),
         "keyword_import_rewrite_files": keyword_rewrite_changed,
@@ -524,6 +645,10 @@ def auto_fix_missing_imports(src_roots: list[Path], repo_root: Path, apply: bool
         "bare_import_rewrite_candidates": len(bare_import_rewrite_candidates),
         "bare_import_rewrite_changed": len(bare_import_rewrite_changed),
         "bare_import_rewrite_files": bare_import_rewrite_changed,
+        "optional_mex_import_candidates": len(optional_mex_import_candidates),
+        "optional_mex_import_changed": len(optional_mex_import_changed),
+        "optional_mex_import_files": optional_mex_import_changed,
+        "mex_symbol_index_size": len(mex_symbol_index),
     }
 
 
@@ -554,10 +679,12 @@ def main() -> int:
             "mode": "apply" if args.apply else "dry-run",
             "python_files_scanned": report["python_files_scanned"],
             "files_with_import_plan": report["files_with_import_plan"],
+            "files_with_mex_import_plan": report.get("files_with_mex_import_plan", 0),
             "files_changed": report["files_changed"],
             "keyword_import_rewrite_changed": report.get("keyword_import_rewrite_changed", 0),
             "relative_import_rewrite_changed": report.get("relative_import_rewrite_changed", 0),
             "bare_import_rewrite_changed": report.get("bare_import_rewrite_changed", 0),
+            "optional_mex_import_changed": report.get("optional_mex_import_changed", 0),
         }
         print(json.dumps(compact, indent=2))
     else:

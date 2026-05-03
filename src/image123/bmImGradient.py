@@ -1,6 +1,19 @@
 import numpy as np
 from src.image123.bmImReshape import bmImReshape
 
+try:
+    from src.image2.mex.bmImGradient2.bmImGradient2_mex import bmImGradient2_mex
+except Exception:
+    def bmImGradient2_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImGradient2_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+try:
+    from src.image3.mex.bmImGradient3.bmImGradient3_mex import bmImGradient3_mex
+except Exception:
+    def bmImGradient3_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImGradient3_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+
 from src.sparseMat.m.bmSparseMat_vec import int32
 
 # bmImGradient2_mex is cpp file in this directory : src\image2\mex\bmImGradient2\bmImGradient2_mex.cpp

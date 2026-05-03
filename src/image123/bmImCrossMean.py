@@ -1,5 +1,18 @@
 import numpy as np
 
+try:
+    from src.image2.mex.bmImCrossMean2.bmImCrossMean2_mex import bmImCrossMean2_mex
+except Exception:
+    def bmImCrossMean2_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImCrossMean2_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+try:
+    from src.image3.mex.bmImCrossMean3.bmImCrossMean3_mex import bmImCrossMean3_mex
+except Exception:
+    def bmImCrossMean3_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImCrossMean3_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+
 def bmImCrossMean(argIm):
     """
     Compute cross-sectional mean of an image

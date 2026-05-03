@@ -1,7 +1,6 @@
 import importlib.util
 import os
 import numpy as np
-import twixtools
 
 # 'class' is a Python reserved keyword so we cannot use a normal dotted import.
 # Use importlib to load the module directly from its file path.
@@ -17,6 +16,13 @@ bmMriAcquisitionParam = _mod.bmMriAcquisitionParam
 
 def dhSiemensReadMetaData(argFile, autoFlag=True):
     """Read Siemens .dat metadata using twixtools. Returns bmMriAcquisitionParam."""
+    try:
+        import twixtools
+    except ModuleNotFoundError as exc:
+        raise ModuleNotFoundError(
+            "twixtools is required to read Siemens .dat files. "
+            "Install it with: python -m pip install twixtools"
+        ) from exc
 
     # Read twix file (loads MDB metadata, NOT actual k-space data yet)
     twix_list = twixtools.read_twix(argFile)

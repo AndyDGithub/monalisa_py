@@ -97,7 +97,6 @@ python porting/scripts/select_next_functions.py --roots src,demo,tests,third_par
 # 3. Full workflow (recommended)
 python porting/scripts/run_agentic_porting_workflow.py \
     --roots src,demo,tests,third_part \
-    --force --overwrite-manual \
     --model granite3.2:8b --fallback-model gpt-oss:20b \
     --max-iterations 3 --max-files-per-iteration 20 \
     --stream-repair-logs --enable-matlab-help \
@@ -124,6 +123,9 @@ python porting/scripts/auto_fix_missing_imports.py \
 # 5. Re-analyse
 python porting/scripts/analyze_generated_files.py \
     --roots ../../src,../../demo,../../tests,../../third_part
+
+# 6. Launch the tests
+python -m pytest tests\ -v --tb=short
 ```
 
 ## What success looks like

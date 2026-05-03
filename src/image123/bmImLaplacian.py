@@ -3,6 +3,25 @@ import numpy as np
 from third_part.matlab_compat.matlab_native import single
 from src.arrayUtility.bmBlockReshape import bmBlockReshape  # Import bmBlockReshape from the given path
 
+try:
+    from src.image1.mex.bmImLaplacian1.bmImLaplacian1_mex import bmImLaplacian1_mex
+except Exception:
+    def bmImLaplacian1_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImLaplacian1_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+try:
+    from src.image2.mex.bmImLaplacian2.bmImLaplacian2_mex import bmImLaplacian2_mex
+except Exception:
+    def bmImLaplacian2_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImLaplacian2_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+try:
+    from src.image3.mex.bmImLaplacian3.bmImLaplacian3_mex import bmImLaplacian3_mex
+except Exception:
+    def bmImLaplacian3_mex(*_args, **_kwargs):
+        raise NotImplementedError("Native backend 'bmImLaplacian3_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+
+
 from src.sparseMat.m.bmSparseMat_vec import int32
 
 def bmImLaplacian(argIm):
