@@ -58,14 +58,14 @@ def bmCoilSense_nonCart_mask_automatic(y, Gn, autoFlag, varargin=None):
 
     # Compute RMS across channels
     try:
-        from src.image123.bmRMS import bmRMS
+        from src.imageN.bmRMS import bmRMS
         myRMS = bmRMS(x_im, N_u_int)
     except Exception:
         myRMS = np.sqrt(np.mean(np.abs(x_im) ** 2, axis=-1))
 
     # Compute MIP across channels
     try:
-        from src.image123.bmMIP import bmMIP
+        from src.imageN.bmMIP import bmMIP
         myMIP = bmMIP(x_im, N_u_int)
     except Exception:
         myMIP = np.max(np.abs(x_im), axis=-1)

@@ -1,5 +1,5 @@
 """
-bmTevaMorphosia_partialCartesian — multi-frame iterative partial-Cartesian reconstruction.
+bmTevaMorphosia_partialCartesian - multi-frame iterative partial-Cartesian reconstruction.
 
 Port status: structure ported; numerical implementation pending.
 """

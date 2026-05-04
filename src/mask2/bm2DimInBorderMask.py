@@ -1,16 +1,21 @@
-"""Auto-generated from MATLAB source. Review manually before production use."""
+import numpy as np
 
 # Bastien Milani
 # CHUV and UNIL
 # Lausanne - Switzerland
 # May 2023
-# This function returns the inner mask for a matrix.
-
-
-import numpy as np
-
 
 def bm2DimInBorderMask(M):
+    """
+    This function returns the inner mask for a matrix.
+    
+    Parameters:
+    M (ndarray): The input matrix
+    
+    Returns:
+    G (ndarray): The border mask
+    """
+    
     G = np.ones_like(M, dtype=bool)
     G[1:-1, 1:-1] = False
 

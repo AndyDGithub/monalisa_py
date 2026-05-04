@@ -1,17 +1,34 @@
 import numpy as np
+from importlib import import_module
+from typing import Callable, Any
 from src.image123.bmImReshape import bmImReshape
 
-try:
-    from src.image2.mex.bmImGradient2.bmImGradient2_mex import bmImGradient2_mex
-except Exception:
-    def bmImGradient2_mex(*_args, **_kwargs):
-        raise NotImplementedError("Native backend 'bmImGradient2_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
 
-try:
-    from src.image3.mex.bmImGradient3.bmImGradient3_mex import bmImGradient3_mex
-except Exception:
-    def bmImGradient3_mex(*_args, **_kwargs):
-        raise NotImplementedError("Native backend 'bmImGradient3_mex' is unavailable. Run compile_mex_for_monalisa() to build MEX binaries first.")
+def _missing_backend(name: str) -> Callable[..., Any]:
+    def _raise(*_args, **_kwargs):
+        raise NotImplementedError(
+            f"Native backend '{name}' is unavailable. "
+            "Run compile_mex_for_monalisa() to build MEX binaries first."
+        )
+    return _raise
+
+
+def _load_backend(module_path: str, symbol: str) -> Callable[..., Any]:
+    try:
+        module = import_module(module_path)
+        return getattr(module, symbol)
+    except Exception:
+        return _missing_backend(symbol)
+
+
+bmImGradient2_mex = _load_backend(
+    "src.image2.mex.bmImGradient2.bmImGradient2_mex",
+    "bmImGradient2_mex",
+)
+bmImGradient3_mex = _load_backend(
+    "src.image3.mex.bmImGradient3.bmImGradient3_mex",
+    "bmImGradient3_mex",
+)
 
 
 from src.sparseMat.m.bmSparseMat_vec import int32
@@ -39,8 +56,8 @@ def bmImGradient(argIm):
         else:
             [out_x_real, out_y_real] = bmImGradient2_mex(sx, sy, np.real(argIm))
             [out_x_imag, out_y_imag] = bmImGradient2_mex(sx, sy, np.imag(argIm))
-            out_x = complex(out_x_real, out_x_imag)
-            out_y = complex(out_y_real, out_y_imag)
+            out_x = out_x_real + 1j * out_x_imag
+            out_y = out_y_real + 1j * out_y_imag
 
     elif imDim == 3:
         if real_flag:
@@ -48,9 +65,9 @@ def bmImGradient(argIm):
         else:
             [out_x_real, out_y_real, out_z_real] = bmImGradient3_mex(sx, sy, sz, np.real(argIm))
             [out_x_imag, out_y_imag, out_z_imag] = bmImGradient3_mex(sx, sy, sz, np.imag(argIm))
-            out_x = complex(out_x_real, out_x_imag)
-            out_y = complex(out_y_real, out_y_imag)
-            out_z = complex(out_z_real, out_z_imag)
+            out_x = out_x_real + 1j * out_x_imag
+            out_y = out_y_real + 1j * out_y_imag
+            out_z = out_z_real + 1j * out_z_imag
 
     if imDim == 2:
         imGradient = np.concatenate((out_x, out_y), axis=0)

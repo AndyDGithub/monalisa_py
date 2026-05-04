@@ -1,5 +1,5 @@
 """
-bmSteva — iterative SENSE reconstruction with TV regularization (ADMM).
+bmSteva - iterative SENSE reconstruction with TV regularization (ADMM).
 
 Port status: function signature and structure ported; numerical implementation
 pending because it depends on bmNakatsha (adjoint NUFFT) which requires MEX.

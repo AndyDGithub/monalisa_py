@@ -1,5 +1,5 @@
 """
-bmImReg_leastSquare_solidTransform_registration — multi-resolution rigid registration.
+bmImReg_leastSquare_solidTransform_registration - multi-resolution rigid registration.
 
 Port status: structure ported; full numerical port requires testing.
 """
@@ -40,5 +40,5 @@ def bmImReg_leastSquare_solidTransform_registration(x_ref_0, x_0,
     """
     raise NotImplementedError(
         "bmImReg_leastSquare_solidTransform_registration: "
-        "full port pending — complex multi-resolution gradient optimizer."
+        "full port pending - complex multi-resolution gradient optimizer."
     )

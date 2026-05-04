@@ -1,5 +1,5 @@
 """
-bmTevaMorphosia_chain — multi-frame iterative reconstruction with motion (Teva Morphosia).
+bmTevaMorphosia_chain - multi-frame iterative reconstruction with motion (Teva Morphosia).
 
 Port status: structure ported; numerical implementation pending (requires MEX).
 """

@@ -1,5 +1,5 @@
 """
-bmImDeformFieldChain_imRegDemons23 — image registration deformation field chain.
+bmImDeformFieldChain_imRegDemons23 - image registration deformation field chain.
 
 Port status: requires MATLAB's imregdemons (Demons algorithm).
 Use SimpleITK or dipy.align.imwarp as Python alternatives.

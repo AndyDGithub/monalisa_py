@@ -11,9 +11,9 @@ def bmVolumeElement_voronoi_full_radial2(t):
     Returns:
     v (array): Volume elements of length N_total, one per trajectory point.
     """
-    from src.geom2.bmTraj_lineReshape import bmTraj_lineReshape
-    from src.geom2.bmVolumeElement1 import bmVolumeElement1
-    from src.geom2.bmTraj_lineDirection import bmTraj_lineDirection
+    from src.traj123.bmTraj_lineReshape import bmTraj_lineReshape
+    from src.geom1.bmVolumeElement1 import bmVolumeElement1
+    from src.traj123.bmTraj_lineDirection import bmTraj_lineDirection
     from src.geom123.bmVoronoi import bmVoronoi
     from src.traj123.bmTraj_norm import bmTraj_norm
 
